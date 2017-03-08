@@ -91,7 +91,8 @@ pre dotyčný typ formuly.
 _Poznámka:_ V závislosti od detailov vašej implementácie je možné, že niektoré
 metódy by mali rovnakú implementáciu v takmer všetkých podtriedach. Vtedy je najlepšie
 implementovať ich raz v základnej triede (a v podtriedach ponechať iba implementácie
-špeciálnych prípadov). Zamyslite sa, ako vám pri tom pomôže metóda `subfs`.
+špeciálnych prípadov). Zamyslite sa, ako vám pri tom pomôže metóda `subfs`,
+ktorá vracia pole [priamych podformúl](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.2.15).
 
 Metóda `toString` vráti reťazcovú reprezentáciu formuly podľa nasledovných
 pravidiel:
@@ -149,7 +150,7 @@ Metóda `deg` vráti stupeň formuly podľa
 [def. 2.18](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.2.18).
 
 Metóda `atoms` vráti množinu všetkých atómov vyskytujúcich sa v tejto formule
-([def. 3.17](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.3.17)).
+([def. 3.39](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.3.39)).
 
 Metóda `constants` vráti množinu všetkých _mien_ konštánt (teda reťazcov,
 _nie_ objektov triedy `Constant`), ktoré sa vyskytujú vo formule. Podobne
@@ -162,7 +163,7 @@ mať typ `Object`.
 
 ## Štruktúra a ohodnotenie premenných
 
-Štruktúra je objekt s nasledovnými atribútmi:
+Štruktúra je objekt s nasledovnými atribútmi (porovnajte s [def. 2.20](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.2.20)):
 
 - `domain` – množina prvkov domény. Pre jednoduchosť sú prvkami domény
   reťazce. Použite vhodnú štruktúru jazyka, ktorý používate.
