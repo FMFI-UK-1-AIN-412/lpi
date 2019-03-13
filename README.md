@@ -5,6 +5,18 @@ Stránky predmetov:
 * [Logika pre informatikov (AIN)](https://dai.fmph.uniba.sk/w/Course:Logic_for_CS/sk)
 * [Úvod do matematickej logiky (INF)](http://www.dcs.fmph.uniba.sk/~mazak/vyucba/udml/)
 
+Priebežné hodnotenie
+--------------------
+
+Prehľad o vašom priebežnom bodovom hodnotení nájdete v súbore `report.md`
+vo vetve `report` vo vašich repozitároch. Priame URL je (nezabudnite
+nahradiť `‹LOGIN›` za svoje univerzitné prihlasovacie meno):
+
+    https://github.com/FMFI-UK-1-AIN-412/lpi25-‹LOGIN›/blob/report/report.md
+
+Ak si toto pozeráte vo svojom repozitári, funguje nasledujúci odkaz:
+[report.md](../../blob/report/report.md).
+
 Úlohy a prezentácie z prednášok
 -------------------------------
 
