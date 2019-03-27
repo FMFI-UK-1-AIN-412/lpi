@@ -1,0 +1,174 @@
+import java.util.List;
+import java.util.Set;
+
+class Constant {
+    String name;
+
+    public Constant(String name) {
+        this.name = name;
+    }
+
+    public String name() {
+        return this.name;
+    }
+
+    public String eval(Structure m) {
+        return m.iC(name());
+    }
+
+    @Override
+    public String toString() {
+        return name();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null) return false;
+        if (getClass() != other.getClass()) return false;
+        Constant otherC = (Constant) other;
+        return name().equals(otherC.name());
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+}
+
+
+class Formula {
+    public List<Formula> subfs() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    @Override
+    public String toString() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    public int deg() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Set<AtomicFormula> atoms() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Set<String> constants() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Set<String> predicates() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public boolean isTrue(Structure m) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    /**
+     * Return the type (of a signed formula),
+     * as if this was a signed formula signed with sign.
+     *
+     * @param sign the sign of the signed formula to be considered
+     * @return SignedFormula.Type.Alpha or SignedFormula.Type.Beta
+     */
+    public SignedFormula.Type signedType(boolean sign) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    /**
+     * Return a list of signed sub-formulas of this
+     * formula, if this formula was signed with sign
+     *
+     * @param sign the sign of the signed formula to be considered
+     * @return list of signed sub-formulas
+     */
+    public List<SignedFormula> signedSubfs(boolean sign) {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class AtomicFormula extends Formula {
+}
+
+
+class PredicateAtom extends AtomicFormula {
+    PredicateAtom(String name, List<Constant> args) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    String name() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    List<Constant> arguments() {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class Negation extends Formula {
+    Negation(Formula originalFormula) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Formula originalFormula() {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class Disjunction extends Formula {
+    Disjunction(List<Formula> disjuncts) {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class Conjunction extends Formula {
+    Conjunction(List<Formula> conjuncts) {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class BinaryFormula extends Formula {
+    BinaryFormula(Formula leftSide, Formula rightSide, String connective) {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Formula leftSide() {
+        throw new RuntimeException("Not implemented");
+    }
+
+    public Formula rightSide() {
+        throw new RuntimeException("Not implemented");
+    }
+}
+
+
+class Implication extends BinaryFormula {
+    Implication(Formula leftSide, Formula rightSide) {
+        super(leftSide, rightSide, "->");
+    }
+}
+
+
+class Equivalence extends BinaryFormula {
+    Equivalence(Formula leftSide, Formula rightSide) {
+        super(leftSide, rightSide, "<->");
+    }
+}
