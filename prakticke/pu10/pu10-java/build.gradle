@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceSets {
+    main.java.srcDirs = ['.']
+}
+
+// Solve problems illegal characters on Windows with cp1250 codepage
+compileJava.options.encoding = "UTF-8"
+
+mainClassName = 'FolFormulaTest'
