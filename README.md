@@ -10,6 +10,7 @@ Stránky predmetov:
 
 | Týždeň | Prezentácie z prednášok | Praktické úlohy |
 |-------:|-------------------------|-----------------|
+|  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | |
 
 Návody a dokumenty
 ------------------
