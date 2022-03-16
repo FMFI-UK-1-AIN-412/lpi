@@ -30,7 +30,7 @@ riešte vo svojom repozitári v aplikácii
 |  2 | [Výrokovologické spojky a ohodnotenia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr02.pdf) | [Sudoku](prakticke/pu02) |
 |  3 | [Výrokovologické vyplývanie, sémantické vlastnosti formúl a ekvivalencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr03.pdf) | [Formula](prakticke/pu03) |
 |  4 | [Dôkazy a výrokovologické tablá](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr04.pdf) | [NNF a CNF](prakticke/pu04) |
-|  5 | [Korektnosť a úplnosť výrokovologických tabiel](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr05.pdf) | |
+|  5 | [Korektnosť a úplnosť výrokovologických tabiel](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr05.pdf) | [Tableau](prakticke/pu05) |
 
 Návody a dokumenty
 ------------------
