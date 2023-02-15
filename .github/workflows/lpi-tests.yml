@@ -1,5 +1,9 @@
 name: Student tests
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - 'pu**'
+      - 'sat'
 jobs:
   Tests:
     runs-on: ubuntu-latest
