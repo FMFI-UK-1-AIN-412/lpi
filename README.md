@@ -14,7 +14,7 @@ riešte vo svojom repozitári v aplikácii
 
 | Týždeň | Prezentácie z prednášok | Praktické úlohy |
 |-------:|-------------------------|-----------------|
-|  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | |
+|  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | [SAT solver](prakticke/pu01) |
 
 Návody a dokumenty
 ------------------
