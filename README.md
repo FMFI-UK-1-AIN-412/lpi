@@ -43,7 +43,7 @@ riešte vo svojom repozitári v aplikácii
 |  9 | [Funkčné symboly. Tablá s rovnosťou](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr09.pdf) | [SAT solver](prakticke/pu09) |
 | 10 | | [FolFormula](prakticke/pu10) |
 | | | bonus: [Agatha](prakticke/bonus01) |
-| 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | |
+| 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | [Vlk, koza, kapusta](prakticke/pu11) |
 
 Návody a dokumenty
 ------------------
