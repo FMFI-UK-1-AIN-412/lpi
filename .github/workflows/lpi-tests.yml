@@ -3,6 +3,7 @@ on:
   pull_request:
     branches:
       - 'pu**'
+      - 'bonus**'
       - 'sat'
 jobs:
   Tests:
