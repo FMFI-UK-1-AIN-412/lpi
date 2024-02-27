@@ -1,0 +1,23 @@
+-R(S) -N(S)
+N(S) R(S)
+-R(M) -N(M)
+N(M) R(M)
+-R(E) -N(E)
+N(E) R(E)
+
+-R(S) N(E)
+-R(S) N(M)
+R(S) -N(E) -N(M)
+-R(E) N(S)
+-R(E) N(M)
+R(E) -N(S) -N(M)
+-R(M) N(S)
+-R(M) N(E)
+R(M) -N(S) -N(E)
+
+-R(S) S(S)
+-R(E) S(E)
+-R(M) S(M)
+
+-N(M) R(S)
+N(M) -R(S)
