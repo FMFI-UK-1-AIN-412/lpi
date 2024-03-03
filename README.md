@@ -16,6 +16,7 @@ riešte vo svojom repozitári v aplikácii
 |-------:|-------------------------|-----------------|-----------------|
 |  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | [qz00](https://moodle.uniba.sk/mod/quiz/view.php?id=181698) (bonus) | [SAT solver](prakticke/pu01) |
 |  2 | [Výrokovologické spojky a ohodnotenia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr02.pdf) | [qz01](https://moodle.uniba.sk/mod/quiz/view.php?id=182281) | [Sudoku](prakticke/pu02) |
+|  3 | [Sémantické vlastnosti formúl, výrokovologické vyplývanie, a ekvivalencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr03.pdf) | | |
 
 Návody a dokumenty
 ------------------
