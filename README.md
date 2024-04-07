@@ -31,7 +31,7 @@ riešte vo svojom repozitári v aplikácii
 |  3 | [Sémantické vlastnosti formúl, výrokovologické vyplývanie, a ekvivalencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr03.pdf) | [qz02](https://moodle.uniba.sk/mod/quiz/view.php?id=182791) | [Formula](prakticke/pu03) |
 |  4 | [Dôkazy a výrokovologické tablá](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr04.pdf) | [qz03](https://moodle.uniba.sk/mod/quiz/view.php?id=183867) | [NNF a CNF](prakticke/pu04) |
 |  5 | [Korektnosť a úplnosť výrokovologických tabiel](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr05.pdf) | [qz04](https://moodle.uniba.sk/mod/quiz/view.php?id=184345) | [Tableau](prakticke/pu05) |
-|  6 | | [qz05](https://moodle.uniba.sk/mod/quiz/view.php?id=185226) | [TableauBuilder](prakticke/pu06) |
+|  6 | [SAT solvery](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr06.pdf) | [qz05](https://moodle.uniba.sk/mod/quiz/view.php?id=185226) | [TableauBuilder](prakticke/pu06) |
 
 Návody a dokumenty
 ------------------
