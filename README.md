@@ -33,6 +33,7 @@ riešte vo svojom repozitári v aplikácii
 |  5 | [Korektnosť a úplnosť výrokovologických tabiel](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr05.pdf) | [Tableau](prakticke/pu05) |
 |  6 | [SAT solvery](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr06.pdf) | [TableauBuilder](prakticke/pu06) |
 |  7 | [Kvantifikátory](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr07.pdf) | [Hamiltonovská kružnica](prakticke/pu07) |
+|  8 | [Tablá pre kvantifikátory. Viackvantifikátorové tvrdenia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr08.pdf) | |
 
 Návody a dokumenty
 ------------------
