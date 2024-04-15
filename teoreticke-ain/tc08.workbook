@@ -1,0 +1,381 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 8. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc08`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc08/teoreticke-ain/tc08.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n| $\\sign T$, $\\sign F$ | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": ":::header\n## :icon[homework] Cvičenie 8.:cnt[a]\n::p[Prvorádové (ne)vyplývanie]{.h4}\n\n:small[:icon[source]\nZbierka: :xref[6.4.4]{.exbook label=\"úloha\"}, :xref[6.4.3]{.exbook label=\"príklad\"}.]\n:::\n\nMajme teóriu $T = \\{ A_1, \\ldots, A_4\\}$\nv jazyku $\\Lang$, kde\n$\\Consts = \\{\\sym{John}\\}$,\n$\\Preds = \\{\\sym{dog}^1$, $\\sym{cat}^1$, $\\sym{mouse}^1$, $\\sym{LS}^1$,\n  $\\sym{barks}^1$, $\\sym{has}^2\\}$,\npričom význam $\\sym{LS}(x)$ je _$x$ má ľahký spánok_.\n\nRozhodnite, či z teórie $T$, kde\n\n$A_1 = \\A{\\vx} (\\sym{dog}(\\vx) \\limpl \\sym{barks}(\\vx))$  \n$A_2 = \\A{\\vx}\\A{\\vy} ((\\sym{has}(\\vx,\\vy) \\land \\sym{cat}(\\vy)) \\limpl \\neg \\E{\\vz}(\\sym{has}(\\vx,\\vz) \\land \\sym{mouse}(\\vz)))$  \n$A_3 = \\A{\\vx}(\\sym{LS}(\\vx) \\limpl \\neg \\E{\\vy}(\\sym{has}(\\vx,\\vy) \\land \\sym{barks}(\\vy)))$  \n$A_4 = \\E{\\vx} (\\sym{has}(\\sym{John},\\vx) \\land (\\sym{cat}(\\vx) \\lor \\sym{dog}(\\vx)))$\n\nvyplývajú formuly:\n\n$X_1 = (\\E{\\vx}(\\sym{has}(\\sym{John}, \\vx) \\land \\neg \\sym{barks}(\\vx)) \\limpl \\sym{LS}(\\sym{John}))$  \n$X_2 = (\\sym{LS}(\\sym{John}) \\limpl \\A{\\vx}(\\sym{has}(\\sym{John}, \\vx) \\limpl \\neg\\sym{mouse}(\\vx)))$\n\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nTeóriu aj formuly $X_1$ a $X_2$ si najprv pozorne prečítajte, pochopte ich význam a intuitívne si premyslite, **prečo** $X_1$ resp. $X_2$ vyplýva alebo nevyplýva z teórie. Intuícia vás potom dovedie ku konštrukcii správneho tabla dokazujúceho alebo štruktúry vyvracajúcej vyplývanie.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 8.:cnt[a]\n::p[Formalizácia s viacerými kvantifikátormi]{.h4}\n\n:small[:icon[source] Zbierka: :xref[6.3.1]{.exbook label=\"úloha\"}.]\n:::\n\nSformalizujte nasledujúce tvrdenia ako ucelenú teóriu $T$\nv danom jazyku $\\Lang$ relačnej logiky prvého rádu,\ns nasledujúcim zamýšľaným významom symbolov:\n\n<!--\n1. Je aspoň jeden študent, ktorý je chlapec, a jedna študentka (ktorá je teda dievča), a sú spolužiaci.\n2. Učiteľ, ktorý je profesorom, musí byť školiteľom aspoň jedného študenta.\n3. Vzťah „byť spolužiakom“ je symetrický a tranzitívny.\n4. Študenti a školitelia sú disjunktní.\n5. Študent absolvuje predmet, iba ak ho má zapísaný.\n6. Študent, ktorý absolvoval predmet, je spokojný.\n7. Každý študent má medzi študentami aspoň dvoch kamarátov, pričom s jedným sa kamaráti viac než s tým druhým.\n8. Každý študent má najviac jedného školiteľa.\n9. Každá študentka má práve jednu spolužiačku, ktorá jej je najlepšia kamarátka.\n10. Nikto si nezapisuje výberové predmety.\n-->\n:::div{.table.table-intended-meaning.small}\n| Predikát | Zamýšľaný význam |\n|----------|------------------|\n| boy($x$) | $x$ je chlapec |\n| girl($x$) | $x$ je dievča |\n| optional($x$) | $x$ je voliteľný |\n| phd_student($x$) | $x$ je doktorand | \n| professor($x$) | $x$ je profesor\\*ka |\n| satisfied($x$) | $x$ je spokojný\\*á |\n| student($x$) | $x$ je študent\\*ka |\n| subject($x$) | $x$ je predmet |\n| teacher($x$) | $x$ je učiteľ\\*ka |\n| classmates($x$, $y$) | $x$ a $y$ sú spolužiaci\\*čky |\n| enrolled_in($x$, $y$) | $x$ je zapísaný\\*á na $y$ |\n| has_friend($x$, $y$) | $x$ má kamaráta\\*ku $y$ |\n| passes($x$, $y$) | (osoba) $x$ absolvuje (predmet) $y$ |\n| supervises($x$, $y$) | (osoba) $x$ je školiteľom (osoby) $y$ |\n| better_friend($x$, $y$, $z$) | $x$ sa kamaráti s $y$ viac než s $z$ |\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "6": {
+      "id": 6,
+      "type": "text",
+      "data": ":::header\n## :icon[homework] Odporúčané domáce cvičenie 8.:cnt[a]\n::p[Kvantifikátory a poradie argumentov]{.h4}\n\n:small[:icon[source] Zbierka: :xref[6.3.2]{.exbook label=\"úloha\"}.]\n:::\n\n**a)** :icon[write]\nAkým výrokom zodpovedajú nasledujúce formuly? Preložte každú do čo najprirodzenejšieho tvrdenia v slovenčine.\n\n$A_1 = \\A\\vx\\bigl(\\XC(\\vx) \\limpl \\E\\vy(\\XZ(\\vy)\\land \\XK(\\vx,\\vy))\\bigr)$  \n...\n\n$A_2 = \\A\\vy\\bigl(\\XZ(\\vy) \\limpl \\E\\vx(\\XC(\\vx)\\land \\XK(\\vx,\\vy))\\bigr)$  \n...\n \n$A_3 = \\E\\vx\\bigl(\\XC(\\vx) \\land  \\A\\vy(\\XZ(\\vy)\\limpl\\XK(\\vx,\\vy))\\bigr)$  \n...\n\n$A_4 = \\E\\vy\\bigl(\\XZ(\\vy) \\land  \\A\\vx(\\XC(\\vx)\\limpl\\XK(\\vx,\\vy))\\bigr)$  \n... \n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "7": {
+      "id": 7,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 8.:cnt[a]\n::p[Falošní priatelia II]{.h4}\n\n:small[:icon[source]\nZbierka: :xref[6.4.2]{.exbook label=\"úloha\"}, :xref[6.2.4]{.exbook label=\"príklad\"}, :xref[6.4.3]{.exbook label=\"príklad\"}.]\n:::\n\n:icon[tools]\nO každej z nasledujúcich dvojíc formúl dokážte,\nže $A_i$ a $B_i$ **nie sú** prvorádovo ekvivalentné ($A_i \\emphnEquiv B_i$), teda\nže z $A_i$ nevyplýva $B_i$ alebo naopak:\n\n:::enum{.i}\n1. Dokážte, že z $A_i$ nevyplýva $B_i$ ($\\{ A_i \\} \\emphnentails B_i$) zostrojením štruktúry,\n   v ktorej bude pravdivá $A_i$ a nepravdivá $B_i$.\n2. Premyslite si, či $\\{B_i\\} \\entails A_i$,\n   a buď to dokážte tablom\n   alebo vyvráťte štruktúrou.\n:::\n\nAk to formuly umožňujú, na dôkaz nevyplývania použite _netriviálnu_ štruktúru\ns aspoň 3-prvkovou doménou a neprázdnymi interpretáciami predikátov.\n\n:::aside{.note.bg-transparent.p-0}\n\n:icon[explanation]\nUvedomte si **rozdiely vo význame** formúl $A_i$ a $B_i$.\nTieto dvojice zachytávajú **časté chyby pri formalizácii s viacerými kvantifikátormi** (možno aj vašu alebo vaše).\nŠtudenti/-ky často zamieňajú $A_i$ a $B_i$ v domnení, že sú ekvivalentné.\nV tomto cvičení sa môžete presvedčiť, že nie sú.\n\n:icon[warning]\nNiektoré z týchto chýb vznikajú z **neodôvodnenej snahy** umiestniť **všetky kvantifikátory na začiatok formuly**.\n\n:icon[warning]\n**Ako dôkaz nevyplývania akceptujeme iba štruktúru.**\nPre prvorádové tablá sme zatiaľ nezadefinovali pojem úplnej vetvy.\nNie je taký jednoduchý, ako sa vám môže zdať – úplná vetva môže byť nekonečná.\nTablo vám však môže pomôcť zistiť, čo musí byť pravdivé alebo nepravdivé v hľadanej štruktúre.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "8": {
+      "id": 8,
+      "type": "text",
+      "data": "::h3[:icon[house-fill]{.text-primary} Odporúčaná domáca časť]{.h4}\n\nĎalej dokážte, že $\\{A_i\\} \\nentails B_i$, rozhodnite a dokážte, či $\\{B_i\\} \\entails A_i$,\na vyberte, ktorá formula zodpovedá výrokom\naj pre nasledujúce dvojice formúl.",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "11": {
+      "id": 11,
+      "type": "text",
+      "data": "$A_1 = \\lnot\\E{\\vx}\\lnot\\E{\\vy}(\\sym{student}(\\vx) \\land \\sym{supervisor}(\\vx,\\vy))$    \n$B_1 =\\lnot\\E{\\vx}\\E{\\vy}(\\sym{student}(\\vx) \\land \\sym{supervisor}(\\vx,\\vy))$\n\n:icon[write]\nDoplňte:\n\n$…_1$ formalizuje: „Žiadny/-a študent/-ka nie je nikoho školiteľom/-kou.“\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru dokazujúcu, že $\\{ A_1 \\} \\nentails B_1$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "12": {
+      "id": 12,
+      "type": "text",
+      "data": "$A_2 = \\A{\\vx}\\E{\\vy}(\\sym{loves}(\\vx,\\vy) \\limpl \\sym{in\\_love}(\\vx))$  \n$B_2 = \\A{\\vx}(\\E{\\vy}\\sym{loves}(\\vx,\\vy) \\limpl \\sym{in\\_love}(\\vx))$   \n\n:icon[write]\nDoplňte:\n\n$…_2$ formalizuje: „Každý/-á, kto niekoho ľúbi, je zaľúbený/-á.“\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru dokazujúcu, že $\\{ A_2 \\} \\nentails B_2$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "13": {
+      "id": 13,
+      "type": "text",
+      "data": "$A_3 = \\A{\\vx}\\E{\\vy}(\\sym{supervisor}(\\vx,\\vy) \\limpl \\sym{collaborates}(\\vx,\\vy))$    \n$B_3 = \\A{\\vx}\\A{\\vy}(\\sym{supervisor}(\\vx,\\vy) \\limpl \\sym{collaborates}(\\vx,\\vy))$\n\n:icon[write]\nDoplňte:\n\n$…_3$ formalizuje: „Kto má nejakú/-ého školiteľku/-a, ten s ňou/ním spolupracuje.“\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru dokazujúcu, že $\\{ A_3 \\} \\nentails B_3$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "text",
+      "data": "**b)** Formuly $A_1,\\dots,A_4$ možno vyabstrahovať do nasledovných\nštyroch všeobecných schém, kde $P$, $Q$ a $R$ označujú _formuly_ s voľnými premennými $x$ a $y$ (teda nie nutne iba jednoduché predikáty):\n\n$B_1 = \\A{x}\\bigl(P(x) \\limpl \\E{y}(Q(y)\\land R(x,y))\\bigr)$  \n$B_2 = \\A{x}\\bigl(P(x) \\limpl \\E{y}(Q(y)\\land R(y,x))\\bigr)$  \n$B_3 = \\E{x}\\bigl(P(x) \\land  \\A{y}(Q(y)\\limpl R(x,y))\\bigr)$  \n$B_4 = \\E{x}\\bigl(P(x) \\land  \\A{y}(Q(y)\\limpl R(y,x))\\bigr)$\n\n:icon[write]\nUrčte, ktorej schéme (alebo schémam) zodpovedá každý z nasledujúcich výrokov\n(v zátvorkách je odporúčaná formula $R$). Zaškrtnite _práve všetky_ správne možnosti.\nAk je možností viac, vysvetlite, kedy je vhodné použiť ktorú.\n\n1. V ZOO je zvieratko, ktoré chodia kŕmiť všetky deti.  \n   ($\\sym{feeds}(x,y)$ – $x$ chodí kŕmiť $y$)\n   * [ ] $B_1$\n   * [ ] $B_2$\n   * [ ] $B_3$\n   * [ ] $B_4$\n3. Každý týždeň na Obchodnej zbijú cudzinca.  \n   ($\\sym{gets\\_beaten}(x,t)$ — na Obchodnej zbijú $x$ v období $t$)\n   * [ ] $B_1$\n   * [ ] $B_2$\n   * [ ] $B_3$\n   * [ ] $B_4$\n5. Každú hodinu mi vyvoláva nejaký otravný predajca.  \n   ($\\sym{calls}(x,\\sym{ja},t)$ – telefonicky ma otravuje $x$ v čase $t$)\n   * [ ] $B_1$\n   * [ ] $B_2$\n   * [ ] $B_3$\n   * [ ] $B_4$\n7. Každý študent má kamaráta, ktorý je tiež študent.  \n   ($\\sym{friend}(x,y)$ – $x$ a $y$ sú kamaráti)\n   * [ ] $B_1$\n   * [ ] $B_2$\n   * [ ] $B_3$\n   * [ ] $B_4$\n9. Jeden študent sa kamaráti so všetkými študentmi.  \n   * [ ] $B_1$\n   * [ ] $B_2$\n   * [ ] $B_3$\n   * [ ] $B_4$\n\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": "::h3[:icon[write] Záver pre $X_2$]{.h4}\n\n:small[**Vyslovte jasný záver** o (ne)vyplývaní $X_2$ z teórie $T$.\nVysvetlite, prečo vaše tablo dokazuje vyplývanie resp. ako pravdivosť formúl a teórie vo vašej štruktúre dokazuje nevyplývanie.]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "text",
+      "data": "::h3[:icon[write] Záver pre $X_1$]{.h4}\n:small[**Vyslovte jasný záver** o (ne)vyplývaní $X_1$ z teórie $T$.\nVysvetlite, prečo vaše tablo dokazuje vyplývanie resp. ako pravdivosť formúl a teórie vo vašej štruktúre dokazuje nevyplývanie.]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "23": {
+      "id": 23,
+      "type": "text",
+      "data": ":icon[tools]\nPod túto bunku vložte aplikáciu Tableau editor s tablom dokazujúcim, že $\\{B_1\\} \\entails A_1$,\nalebo aplikáciu Structure explorer, ktorá toto vyplývanie vyvracia.\n\n:icon[write]\nJe pravda, že $\\{B_1\\} \\entails A_1$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "24": {
+      "id": 24,
+      "type": "text",
+      "data": ":icon[tools]\nPod túto bunku vložte aplikáciu Tableau editor s tablom dokazujúcim, že $\\{B_2\\} \\entails A_2$,\nalebo aplikáciu Structure explorer, ktorá toto vyplývanie vyvracia.\n\n:icon[write]\nJe pravda, že $\\{B_2\\} \\entails A_2$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "25": {
+      "id": 25,
+      "type": "text",
+      "data": ":icon[tools]\nPod túto bunku vložte aplikáciu Tableau editor s tablom dokazujúcim, že $\\{B_3\\} \\entails A_3$,\nalebo aplikáciu Structure explorer, ktorá toto vyplývanie vyvracia.\n\n:icon[write]\nJe pravda, že $\\{B_3\\} \\entails A_3$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "27": {
+      "id": 27,
+      "type": "text",
+      "data": "## :icon[bonus] 2. domáca úloha\n\nĎalšie skúsenosti a 4 body (+2 prémiové) môžete získať vyriešením 2. domácej úlohy.\n\n:::div{.dl-indented}\n:icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok domácej úlohy\n: [du02](../../du02/teoreticke-ain/du02.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n:icon[deadline] Termín odovzdania\n: nedeľa 21. 4. 2024 o 23:59:59",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "30": {
+      "id": 30,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 39,
+          "title": "2024 – Cvičenie 8.3",
+          "description": "Sformalizujte nasledujúce tvrdenia ako ucelenú teóriu v uvedenom jazyku relačnej logiky prvého rádu.",
+          "constants": "",
+          "predicates": "student/1, boy/1, girl/1, classmates/2, teacher/1, professor/1, supervises/2, subject/1, passes/2, enrolled_in/2,  satisfied/1, has_friend/2, better_friend/3, phd_student/1, optional/1",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1409,
+              "proposition": "1. Je aspoň jeden študent, ktorý je chlapec, a jedna študentka (ktorá je teda dievča) a sú spolužiaci.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1410,
+              "proposition": "2. Učiteľ, ktorý je profesorom, musí byť školiteľom aspoň jedného študenta.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1411,
+              "proposition": "3. Vzťah „byť spolužiakom“ je symetrický a tranzitívny.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1412,
+              "proposition": "4. Študenti a školitelia sú disjunktní.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1413,
+              "proposition": "5. Študent, ktorý absolvoval nejaký predmet, je spokojný.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1414,
+              "proposition": "6. Študent absolvuje nejaký predmet, iba ak ho má zapísaný.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1415,
+              "proposition": "7. Každý študent má najviac jedného školiteľa.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1416,
+              "proposition": "8. Každý doktorand má práve jedného školiteľa.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1417,
+              "proposition": "9. Nikto si nezapisuje výberové predmety.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1418,
+              "proposition": "10. Každý študent má medzi študentmi aspoň dvoch kamarátov, pričom s jedným sa kamaráti viac než s tým druhým.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 39
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "31": {
+      "id": 31,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 8.:cnt[a]\n::p[Vlastnosti kvantifikátorov]{.h4}\n\n:small[:icon[source]\nZbierka: :xref[6.4.1]{.exbook label=\"úloha\"}, :xref[6.4.3]{.exbook label=\"príklad\"}.\nPrednášky: :xref[8.16]{.exbook label=\"def.\"}.]\n:::\n\nDokážte v tablovom kalkule,\nže nasledujúce formuly sú **platné**\npre všetky formuly $A$ a $B$ s voľnou premennou $x$,\nvšetky formuly $C$, kde $x$ nie je voľná,\na všetky formuly $R$ s voľnými premennými $x$ a $y$.\n\nFormuly vyjadrujú vybrané základné vlastnosti kvantifikátorov\na zároveň si na nich precvičíte použitie všetkých tablových pravidiel pre kvantifikátory.\n\n**Čítajte tablo ako slovný (neformálny) dôkaz**, uvedomujte si význam jednotlivých krokov.\nUkáže vám to, ako správne uvažovať o kvantifikátoroch pri slovných dôkazoch.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\n\n:icon[info]\nOdseky a formuly označené :icon[homework] si na hodine cvičení **prečítajte**, ale pokračujte ďalej bez dokazovania.\n**Vráťte sa k nim**,\nkeď na problém s nimi narazíte pri riešení formalizačného cvičenia,\nak vám ostane čas na konci cvičenia,\nalebo **doma**.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "33": {
+      "id": 33,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) De Morganovské zákony pre kvantifikátory]{.h4}\nPre negovanie kvantifikátorov platia nasledujúce pravidlá:\n:::enum{.i}\n1. $\\entails \\bigl(\\lnot\\E x A(x) \\lequiv \\A x \\lnot A(x)\\bigr)$\n2. $\\entails \\bigl(\\lnot\\A x A(x) \\lequiv \\E x \\lnot A(x)\\bigr)$\n:::\n",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "34": {
+      "id": 34,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) :icon[homework] Distributívnosť kvantifikátorov cez logické spojky]{.h4}\n\nVšeobecný kvantifikátor distribuuje cez konjunkciu\na existenčný kvantifikátor cez disjunkciu:\n:::enum{.i}\n1. $\\entails \\bigl(\\A x(A(x) \\land B(x)) \\lequiv (\\A x A(x) \\land \\A x B(x))\\bigr)$\n2. $\\entails \\bigl(\\E x(A(x) \\lor B(x)) \\lequiv (\\E x A(x) \\lor \\E x B(x))\\bigr)$\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[info]\nO tom, že všeobecný kvantifikátor **ne**distribuuje cez disjunkciu,\nteda $\\A x(A(x) \\lor B(x)) \\emphnEquiv (\\A x A(x) \\lor \\A x B(x))$\na existenčný kvantifikátor **ne**distribuuje cez konjunkciu\n$\\E x(A(x) \\land B(x)) \\emphnEquiv (\\E x A(x) \\land \\E x B(x))$\nste sa mohli presvedčiť v cvičení 7.2 (dvojice $A_6$, $B_6$ a $A_7$, $B_7$; viď [tc07](../../tc07/teoreticke-ain/tc07.workbook)).\n:::\n\nV **špeciálnom prípade**, keď sa v jednom z konjunktov/disjunktov premenná viazaná kvantifikátorom\n**nevyskytuje voľná** (ako vo formule $C$),\nje všeobecný kvantifikátor možné distribuovať do/vyňať aj z disjunkcie\na existenčný do/z konjunkcie:\n:::enum{.i}\n3. $\\entails \\bigl(\\A x(A(x) \\lor C) \\lequiv (\\A x A(x) \\lor C)\\bigr)$\n4. $\\entails \\bigl(\\E x(A(x) \\land C) \\lequiv (\\E x A(x) \\land C)\\bigr)$\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "36": {
+      "id": 36,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Dôsledky pre implikáciu]{.h4}\n\nKeď si uvedomíme, že implikácia $(X \\limpl Y)$ je ekvivalentná s disjunkciou $(\\lnot X \\lor Y)$,\no nasledujúcich pravidlách pre distribuovanie kvantifikátorov do resp. vynímanie kvantifikátorov z implikácie\nsa ľahko presvedčíme aj ekvivalentnými úpravami pomocou de Morganovských a distributívnych zákonov.\nPrinajmenšom prvý však dokážte tablom na cvičeniach:\n:::enum{.i}\n1. $\\entails \\bigl((\\E x A(x) \\limpl C) \\lequiv \\A x(A(x) \\limpl C)\\bigr)$\n2. :icon[homework] $\\entails \\bigl((\\A x A(x) \\limpl C) \\lequiv \\E x(A(x) \\limpl C)\\bigr)$\n3. :icon[homework] $\\entails \\bigl((C \\limpl \\A x A(x)) \\lequiv \\A x(C \\limpl A(x))\\bigr)$\n4. :icon[homework] $\\entails \\bigl((C \\limpl \\E x A(x)) \\lequiv \\E x(C \\limpl A(x))\\bigr)$\n5. :icon[homework] $\\entails \\bigl(\\E x(A(x) \\limpl B(x)) \\lequiv (\\A x A(x) \\limpl \\E x B(x))\\bigr)$\n:::",
+      "idCounter": 3,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "37": {
+      "id": 37,
+      "type": "text",
+      "data": "::h3[:icon[tools] Formálne riešenie pre $X_1$]{.h4}\n\n:::aside{.note.bg-transparent.p-0}\nVyplývanie $T \\entails X_1$ dokážte tablom pomocou aplikácie Tableau editor.\nNevyplývanie $T \\nentails X_1$ dokážte nájdením vhodnej štruktúry pomocou aplikácie Structure explorer.\n\n:icon[warning]\n**Ako dôkaz nevyplývania akceptujeme iba štruktúru.**\nPre prvorádové tablá sme zatiaľ nezadefinovali pojem úplnej vetvy.\nNie je taký jednoduchý, ako sa vám môže zdať – úplná vetva môže byť nekonečná.\nTablo vám však môže pomôcť zistiť, čo musí byť pravdivé alebo nepravdivé v hľadanej štruktúre.\n\n:icon[technical]\nPotrebnú aplikáciu vložte ako nasledujúcu bunku.\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "38": {
+      "id": 38,
+      "type": "text",
+      "data": "::h3[:icon[tools] Formálne riešenie pre $X_2$]{.h4}\n\n:::aside{.note.bg-transparent.p-0}\nVyplývanie $T \\entails X_2$ dokážte tablom pomocou aplikácie Tableau editor.\nNevyplývanie $T \\nentails X_2$ dokážte nájdením vhodnej štruktúry pomocou aplikácie Structure explorer.\n\n:icon[warning]\n**Ako dôkaz nevyplývania akceptujeme iba štruktúru.**\nPre prvorádové tablá sme zatiaľ nezadefinovali pojem úplnej vetvy.\nNie je taký jednoduchý, ako sa vám môže zdať – úplná vetva môže byť nekonečná.\nTablo vám však môže pomôcť zistiť, čo musí byť pravdivé alebo nepravdivé v hľadanej štruktúre.\n\n:icon[technical]\nPotrebnú aplikáciu vložte ako nasledujúcu bunku.\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "39": {
+      "id": 39,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) :icon[homework] Dôsledky pre neexistenciu]{.h4}\n\n:small[:icon[source] Prednášky: [sekcia 7.5](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=subsection.7.5).]\n\nDôsledkom de Morganovských zákonov pre kvantifikátory je aj to,\nže musíme byť **opatrní/-é** pri formalizácii tvrdení, kde sa vyskytuje **neexistencia** objektu vo vzťahu s inými objektmi\n(napr. „Žiadna lastovička nehniezdi na (žiadnom) strome“),\nktorá sa v slovanských jazykoch vyjadruje **dvojitým záporom** (žiadna/-y + <i>ne</i>hniezdi).\n\nNasledujúca formula ukazuje, že dve správne formalizácie takejto neexistencie, sú skutočne ekvivalentné:\n:::enum{.i}\n1. $\\entails \\bigl(\\lnot\\E x \\E y R(x,y) \\lequiv \\A x\\A y \\lnot R(x,y)\\bigr)\n  $\n:::\n\nNasledujúca formula ukazuje, aký je skutočný význam\nčastej nesprávnej formalizácie takéhoto výroku pomocou\ndvoch vnorených kombinácií negácie a existenčného kvantifikátora:\n:::enum{.i}\n2. $\\entails \\bigl(\\lnot\\E x\\lnot\\E y R(x,y) \\lequiv \\A x \\E y R(x,y)\\bigr)$\n:::\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nTeda ak $R(x,y)$ znamená „lastovička $x$ hniezdi na strome $y$,“\nformula $\\lnot\\E x\\lnot\\E y R(x,y)$ vyjadruje (približne) výrok „Každá lastovička hniezdi na nejakom strome“\n(na presné vyjadrenie by sme museli zaviesť predikáty\npre lastovičky a stromy a použiť spojky, čo by zahmlilo pointu).\n\nS touto nesprávnou formalizáciou pracujeme aj v nasledujúcom cvičení.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "40": {
+      "id": 40,
+      "type": "text",
+      "data": "$A_4 = \\A{\\vx}(\\A{\\vy}\\sym{likes}(\\vx,\\vy) \\limpl \\sym{filantrop}(\\vx))$   \n$B_4 = \\A{\\vx}\\A{\\vy}(\\sym{likes}(\\vx,\\vy) \\limpl \\sym{filantrop}(\\vx))$\n\n$…_4$ formalizuje: „Každý/-á, kto má rád všetkých, je filantrop/-ka.“\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "41": {
+      "id": 41,
+      "type": "text",
+      "data": "$A_5 = \\A{\\vx}\\E{\\vy}\\sym{likes}(\\vx,\\vy)$  \n$B_5 = \\E{\\vx}\\A{\\vy}\\sym{likes}(\\vx,\\vy)$\n\n$…_5$ formalizuje: „Každý/-á má niekoho rád/rada.“\n\n$…_5$ formalizuje: „Niekto má rád/-a všetkých.“\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "43": {
+      "id": 43,
+      "type": "text",
+      "data": "$A_6 = \\lnot\\E{\\vx}\\E{\\vy}(\\sym{student}(\\vx) \\land \\lnot\\sym{supervisor}(\\vx,\\vy))$    \n$B_6 =\\lnot\\E{\\vx}\\E{\\vy}(\\sym{student}(\\vx) \\land \\sym{supervisor}(\\vx,\\vy))$\n\n$…_6$ formalizuje: „Nikto, kto je študentom/-kou, nie je niekoho školiteľom/-kou.“\n\n:::aside{.note.bg-transparent.p-0}\n:icon[info] Všimnite si, že táto a nasledujúca dvojica sú iné ako $A_1$, $B_1$.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "44": {
+      "id": 44,
+      "type": "text",
+      "data": "$A_7 = \\lnot\\E{\\vx}\\lnot\\E{\\vy}(\\sym{student}(\\vx) \\land \\lnot\\sym{supervisor}(\\vx,\\vy))$    \n$B_7 =\\lnot\\E{\\vx}\\E{\\vy}(\\sym{student}(\\vx) \\land \\sym{supervisor}(\\vx,\\vy))$\n\n$…_7$ formalizuje: „Žiadny/-a študent/-ka nie je nikoho školiteľom/-kou.“\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    27,
+    31,
+    33,
+    34,
+    36,
+    39,
+    7,
+    11,
+    23,
+    12,
+    24,
+    13,
+    25,
+    8,
+    40,
+    41,
+    43,
+    44,
+    5,
+    30,
+    3,
+    37,
+    21,
+    38,
+    20,
+    6,
+    18
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2\\ \\mkern-4.5mu}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n\\newcommand\\emphrel[1]{\\mathrel{\\color{crimson}\\boldsymbol#1}}\n\\newcommand\\emphnEquiv{\\emphrel{\\nEquiv}}\n\\newcommand\\emphnentails{\\emphrel{\\nentails}}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n\\newcommand{\\XZ}{\\sym{pet}}\n\\newcommand{\\XC}{\\sym{human}}\n\\newcommand{\\XK}{\\sym{feeds}}\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
