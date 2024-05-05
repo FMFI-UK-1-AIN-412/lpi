@@ -44,6 +44,7 @@ riešte vo svojom repozitári v aplikácii
 | 10 | | [FolFormula](prakticke/pu10) |
 | | | bonus: [Agatha](prakticke/bonus01) |
 | 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | [Vlk, koza, kapusta](prakticke/pu11) |
+| 12 | [Rezolvencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr11.pdf) | |
 
 Návody a dokumenty
 ------------------
