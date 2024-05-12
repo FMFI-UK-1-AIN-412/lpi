@@ -78,6 +78,8 @@ class Struct implements Structure {
 }
 public class FormulaTest {
 
+    static boolean extra = true;
+
     static Constant C(String c) { return new Constant(c); }
     static PredicateAtom PA(String p, Constant... ts) { return new PredicateAtom(p, Arrays.asList(ts)); }
     static PredicateAtom PA(String p, String... ts) { return new PredicateAtom(p, Arrays.stream(ts).map(s -> C(s)).collect(Collectors.toList())); }
@@ -149,6 +151,7 @@ public class FormulaTest {
                 t.compare(pcd.equals(PA("Ppp", "ccc", "ddd")), true, "p.equals(Ppp(ccc,ddd))");
                 t.compare(pcd.equals(PA("Qqq", "ccc", "ddd")), false, "!p.equals(Qqq(ccc,ddd))");
                 t.compare(pcd.equals(PA("Ppp", "ddd", "ddd")), false, "!p.equals(Ppp(ddd,ddd))");
+                if (extra) t.compare(pcd.equals(PA("Ppp", "ddd", "ccc")), false, "!p.equals(Ppp(ddd,ccc))");
                 t.compare(pcd.equals(PA("Ppp", "ccc", "ccc")), false, "!p.equals(Ppp(ccc,ccc))");
                 t.compare(pcd.equals(PA("Ppp", "ccc")), false, "!p.equals(Ppp(ccc))");
                 t.compare(pcd.equals(PA("Ppp", "ddd")), false, "!p.equals(Ppp(ddd))");
@@ -188,6 +191,7 @@ public class FormulaTest {
                 t.compare(dis.equals(Or(pc, p(d))), true, "eq3");
                 t.compare(dis.equals(Or(p(c), p(d))), true, "eq4");
                 t.compare(dis.equals(Or(pc, p(c))), false, "dis.equals(or(pc, pc))");
+                if (extra) t.compare(dis.equals(Or(pd, pc)), false, "dis.equals(or(pd, pc))");
                 t.compare(dis.equals(Or()), false, "dis.equals(or())");
                 t.compare(dis.equals(Or(pc, pd, pc)), false, "dis.equals(or(pc, pd, pc))");
 
@@ -207,6 +211,7 @@ public class FormulaTest {
                 t.compare(dis.equals(Or(p(c))), true, "eq2");
                 t.compare(dis.equals(Or(pc, p(d))), false, "eq3");
                 t.compare(dis.equals(Or(p(c), p(d))), false, "eq4");
+                if (extra) t.compare(dis.equals(Or(p(c), p(c))), false, "or(pc).equals(or(pc,pc))");
 
                 t.compare(dis.subfs(), L(pc), "subfs");
                 t.compare(dis.atoms(), S(pc), "atoms");
@@ -241,6 +246,7 @@ public class FormulaTest {
                 t.compare(con.equals(And(pc, p(d))), true, "eq3");
                 t.compare(con.equals(And(p(c), p(d))), true, "eq4");
                 t.compare(con.equals(And(pc, p(c))), false, "con.equals(and(pc, pc))");
+                if (extra) t.compare(con.equals(And(pd, pc)), false, "con.equals(and(pd, pc))");
                 t.compare(con.equals(And()), false, "con.equals(and())");
                 t.compare(con.equals(And(pc, pd, pc)), false, "con.equals(and(pc, pd, pc))");
 
@@ -259,6 +265,7 @@ public class FormulaTest {
                 t.compare(con.equals(And(p(c))), true, "eq2");
                 t.compare(con.equals(And(pc, p(d))), false, "eq3");
                 t.compare(con.equals(And(p(c), p(d))), false, "eq4");
+                if (extra) t.compare(con.equals(And(p(c), p(c))), false, "and(pc).equals(and(pc,pc))");
 
                 t.compare(con.subfs(), L(pc), "subfs");
                 t.compare(con.atoms(), S(pc), "atoms");
@@ -292,7 +299,8 @@ public class FormulaTest {
                 t.compare(impl.equals(Impl(p(c), pd)), true, "eq2");
                 t.compare(impl.equals(Impl(pc, p(d))), true, "eq3");
                 t.compare(impl.equals(Impl(p(c), p(d))), true, "eq4");
-                t.compare(impl.equals(Impl(pc, p(c))), false, "impl.equals(and(pc, pc))");
+                t.compare(impl.equals(Impl(pc, p(c))), false, "impl.equals(impl(pc, pc))");
+                if (extra) t.compare(impl.equals(Impl(pd, pc)), false, "impl.equals(impl(pd, pc))");
 
                 t.compare(impl.subfs(), L(pc, pd), "subfs");
                 t.compare(impl.atoms(), S(pc, pd), "atoms");
@@ -314,6 +322,7 @@ public class FormulaTest {
                 t.compare(eq.equals(Eq(pc, p(d))), true, "eq3");
                 t.compare(eq.equals(Eq(p(c), p(d))), true, "eq4");
                 t.compare(eq.equals(Eq(pc, p(c))), false, "eq.equals(eq(pc, pc))");
+                if (extra) t.compare(eq.equals(Eq(pd, pc)), false, "eq.equals(eq(pd, pc))");
 
                 t.compare(eq.subfs(), L(pc, pd), "subfs");
                 t.compare(eq.atoms(), S(pc, pd), "atoms");
