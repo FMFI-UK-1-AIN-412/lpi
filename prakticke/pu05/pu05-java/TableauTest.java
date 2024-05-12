@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
 
 public class TableauTest {
+
     Tester t = new Tester();
     private SignedFormula.Type cType(SignedFormula.Type t) {
         return t == SignedFormula.Type.Alpha
@@ -137,6 +138,7 @@ public class TableauTest {
             PredicateAtom a = p("a");
             PredicateAtom b = p("b");
             PredicateAtom c = p("c");
+            PredicateAtom d = p("d");
 
 /*
             Node na = new Node(F(a), null);
@@ -154,10 +156,10 @@ public class TableauTest {
 
             t.testCase("addInitial", s -> {
                 Tableau T = new Tableau();
-                List<Node> added = T.addInitial(SFS( F(Impl(a,b)), T(Impl(a,c))));
+                List<Node> added = T.addInitial(SFS( F(Impl(a,b)), T(Impl(a,c)), T(a) ));
                 t.compare(
                     added.stream().map(n -> n.sf()).collect(toList()),
-                    LSF( F(Impl(a,b)), T(Impl(a,c)) ),
+                    LSF( F(Impl(a,b)), T(Impl(a,c)), T(a) ),
                     "addInitial return"
                 );
                 t.compareRef(
@@ -165,19 +167,45 @@ public class TableauTest {
                     added.get(0),
                     "addInitial root node"
                 );
+                t.compare(
+                    T.root().sf(), F(Impl(a,b)), "addInitial root formula"
+                );
+                t.compare(
+                    T.root().children().size(),
+                    1,
+                    "addInitial number of root's children"
+                );
                 t.compareRef(
                     T.root().children().get(0),
                     added.get(1),
-                    "addInitial child"
-                );
-                t.compare(
-                    T.root().sf(), F(Impl(a,b)), "addInitial root node"
+                    "addInitial second is root's child"
                 );
                 t.compare(
                     T.root().children().stream()
                         .map(n -> n.sf()).collect(toList()),
                     LSF( T(Impl(a, c)) ),
-                    "addInitial child(ren) of root node"
+                    "addInitial formula(s) of root's child(ren)"
+                );
+                t.compare(
+                    T.root().children().get(0).children().size(),
+                    1,
+                    "addInitial number of children of root's child"
+                );
+                t.compareRef(
+                    T.root().children().get(0).children().get(0),
+                    added.get(2),
+                    "addInitial third is root's grandchild"
+                );
+                t.compare(
+                    T.root().children().get(0).children().stream()
+                        .map(n -> n.sf()).collect(toList()),
+                    LSF( T(a) ),
+                    "addInitial formula(s) of child(ren) of root node's child"
+                );
+                t.compare(
+                    T.root().children().get(0).children().get(0).children().size(),
+                    0,
+                    "addInitial root's grandchild has no children"
                 );
                 t.compare(
                     T.root().number(),
@@ -186,6 +214,10 @@ public class TableauTest {
                 t.compare(
                     T.root().children().get(0).number(),
                     2, "addInitial child number"
+                );
+                t.compare(
+                    T.root().children().get(0).children().get(0).number(),
+                    3, "addInitial child of child number"
                 );
                 t.compareRef(
                     T.root().source(),
@@ -196,12 +228,20 @@ public class TableauTest {
                     null, "addInitial second source"
                 );
                 t.compareRef(
+                    T.root().children().get(0).children().get(0).source(),
+                    null, "addInitial third source"
+                );
+                t.compareRef(
                     T.root().tableau(),
                     T, "addInitial added root to tableau"
                 );
                 t.compareRef(
                     T.root().children().get(0).tableau(),
                     T, "addInitial added second to tableau"
+                );
+                t.compareRef(
+                    T.root().children().get(0).children().get(0).tableau(),
+                    T, "addInitial added third to tableau"
                 );
             });
 
@@ -229,6 +269,22 @@ public class TableauTest {
                     added2,
                     "extendAlpha returns added node");
                 t.compare(
+                    T.root().children().get(0).children().size(),
+                    1, "extendAlpha first is the only child"
+                );
+                t.compare(
+                    T.root().children().get(0).children().get(0).children().size(),
+                    1, "extendAlpha second is the only child"
+                );
+                t.compare(
+                    T.root().children().get(0).children().size(),
+                    1, "extendAlpha first is the only child"
+                );
+                t.compare(
+                    T.root().children().get(0).children().get(0).children().size(),
+                    1, "extendAlpha second is the only child"
+                );
+                t.compare(
                     T.root().children().get(0).children().get(0).number(),
                     3, "extendAlpha first number"
                 );
@@ -236,19 +292,19 @@ public class TableauTest {
                     T.root().children().get(0).children().get(0).children().get(0).number(),
                     4, "extendAlpha second number"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).source(),
                     T.root(), "extendAlpha first source"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).children().get(0).source(),
                     T.root(), "extendAlpha second source"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).tableau(),
                     T, "extendAlpha first added to tableau"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).children().get(0).tableau(),
                     T, "extendAlpha second added to tableau"
                 );
@@ -281,7 +337,7 @@ public class TableauTest {
                     T.root()
                         .children().get(0)
                         .children().get(1),
-                    added.get(1), "extendBeta returns added first child"
+                    added.get(1), "extendBeta returns added second child"
                 );
                 t.compare(
                     T.root().children().get(0).children().get(0).number(),
@@ -291,22 +347,61 @@ public class TableauTest {
                     T.root().children().get(0).children().get(1).number(),
                     4, "extendBeta second number"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).source(),
                     T.root().children().get(0), "extendBeta first source"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(1).source(),
                     T.root().children().get(0), "extendBeta second source"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(0).tableau(),
                     T, "extendBeta first added to tableau"
                 );
-                t.compare(
+                t.compareRef(
                     T.root().children().get(0).children().get(1).tableau(),
                     T, "extendBeta second added to tableau"
                 );
+            });
+
+            t.testCase("extendBeta quaternary", s -> {
+                Tableau T = new Tableau();
+                List<Node> addedI = T.addInitial(SFS( F(Impl(a,b)), T(Or(a,b,c,d))));
+
+                List<Node> added = T.extendBeta(
+                    addedI.get(1),
+                    addedI.get(1)
+                );
+
+                t.compare(
+                    added.stream().map(n->n.sf()).collect(toList()),
+                    LSF( T(a), T(b), T(c), T(d) ),
+                    "extendBeta children");
+                t.compare(
+                    T.root().children().get(0).children().size(),
+                    4, "number of added children"
+                );
+                for (int i = 0; i < T.root().children().get(0).children().size(); i++) {
+                    t.compareRef(
+                        T.root()
+                            .children().get(0)
+                            .children().get(i),
+                        added.get(i), "extendBeta returns added first child " + i
+                    );
+                    t.compare(
+                        T.root().children().get(0).children().get(i).number(),
+                        3 + i, "extendBeta number of child " + i
+                    );
+                    t.compareRef(
+                        T.root().children().get(0).children().get(i).source(),
+                        T.root().children().get(0), "extendBeta source of child " + i
+                    );
+                    t.compareRef(
+                        T.root().children().get(0).children().get(i).tableau(),
+                        T, "extendBeta child " + i + " added to tableau"
+                    );
+                }
             });
         });
 
