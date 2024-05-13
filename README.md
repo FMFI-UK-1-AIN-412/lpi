@@ -45,6 +45,7 @@ riešte vo svojom repozitári v aplikácii
 | | | bonus: [Agatha](prakticke/bonus01) |
 | 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | [Vlk, koza, kapusta](prakticke/pu11) |
 | 12 | [Rezolvencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr11.pdf) | [Rezolver](prakticke/pu12) |
+| 13 | [Nerozhodnuteľnosť, neúplnosť a logika 2. rádu](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr12.pdf) | | |
 
 Návody a dokumenty
 ------------------
