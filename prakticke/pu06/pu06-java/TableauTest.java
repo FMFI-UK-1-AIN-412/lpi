@@ -507,6 +507,10 @@ public class TableauTest {
                                       Impl( Impl(a, b), Impl(a, c) ) );
             testTableau(true, SFS( F(impl_impl_distrib) ));
 
+            Formula and_elim = Eq( Impl(a, Impl(b, c)),
+                                   Impl( And(a, b), c) );
+            testTableau(true, SFS( F(and_elim) ));
+
             Formula impl_or = Eq( Impl(a, b), Or( Not(a), b ) );
             testTableau(true, SFS( F(impl_or) ));
 
@@ -516,6 +520,10 @@ public class TableauTest {
             Formula or_and_distrib = Eq( Or( a, And( b, c ) ),
                                           And( Or( a, b ), Or( a, c ) ) );
             testTableau(true, SFS( F(or_and_distrib) ));
+
+            Formula and_or_distrib = Eq( And( a, Or( b, c ) ),
+                                          Or( And( a, b ), And( a, c ) ) );
+            testTableau(true, SFS( F(and_or_distrib) ));
 
             Formula bad_demorgan1 = Eq( Not( And( a, b ) ), Or( a, b ) );
             testTableau(false, SFS( F(bad_demorgan1) ));
@@ -593,6 +601,17 @@ public class TableauTest {
                 testTableau(true, SFS( T(ax1), T(ax2), T(ax3), F(conclusion) ));
                 testTableau(false, SFS( T(cax1) ));
                 testTableau(false, SFS( F(conclusion) ));
+            }
+
+            {
+                Formula ax1 = Impl(Or(p("sandwiches"), p("cake")), Not(p("fruit")));
+                Formula ax2 = Or(p("nuts"), p("cheese"), p("cake"), p("fruits"));
+                Formula ax3 = Impl(Not(p("sandwiches")), p("cake"));
+                Formula ax4 = Not(p("cake"));
+
+                Formula cax1 = And( ax1, ax2, ax3, ax4 );
+                testTableau(false, SFS( T(cax1) ));
+                testTableau(false, SFS( T(ax1), T(ax2), T(ax3), T(ax4) ));
             }
         });
         return t.status();
