@@ -164,6 +164,16 @@ def randomBadInput(size):
 #    print(repr(m))
     return m
 
+def randomDisjointCycles(size):
+    edges = []
+    seq = [ i for i in range(size) ]
+    random.shuffle(seq)
+    while len(seq) > 0:
+        count = random.randrange(1, max(2, len(seq) - 1))
+        edges += [ (seq[i], seq[(i+1) % count]) for i in range(count) ]
+        del seq[0:count]
+    return edgesToIncidenceMatrix(edges)
+
 random.seed(47)
 
 t = Tester()
@@ -239,6 +249,14 @@ try:
     t.test("random bad 5.4", randomBadInput(5), False)
 
     t.test("random bad 10", randomBadInput(10), False)
+
+    random.seed('extra testy pu07 2024')
+
+    t.test("random good 53", randomGoodInput(53), True)
+    t.test("random bad 7", randomBadInput(7), False)
+    t.test("random bad 9", randomBadInput(9), False)
+
+    t.test("random disjoint cycles 15", randomDisjointCycles(15), False)
 
     m = [
         [True, True, True, True, True, False, False, True, True, True, True, False, True, False, False],
