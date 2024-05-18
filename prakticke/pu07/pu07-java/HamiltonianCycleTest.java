@@ -241,6 +241,23 @@ public class HamiltonianCycleTest {
         return m;
     }
 
+    public static boolean[][] randomDisjointCycles(Random rng, int size) {
+        boolean[][] m = new boolean[size][size];
+        List<Integer> vertices = IntStream.range(0, size).boxed().collect(Collectors.toList());
+        Collections.shuffle(vertices, rng);
+
+        int first = 0;
+        while (first < size) {
+            int cycleLength = 1 + rng.nextInt(Math.max(1,size - first - 1));
+            for (int i = first; i < first + cycleLength - 1; i++) {
+                m[vertices.get(i)][vertices.get(i+1)] = true;
+            }
+            m[vertices.get(first + cycleLength - 1)][vertices.get(first)] = true;
+            first += cycleLength;
+        }
+        return m;
+    }
+
     public static void main(String[] args) {
         Tester t = new Tester();
         Random rng = new Random(47);
@@ -301,6 +318,14 @@ public class HamiltonianCycleTest {
         t.test("random good 10.2", randomGoodInput(rng, 10), true);
         t.test("random good 10.3", randomGoodInput(rng, 10), true);
         t.test("random good 10.4", randomGoodInput(rng, 10), true);
+
+        t.test("random disjoint cycles 10.1", randomDisjointCycles(rng, 10), false);
+        t.test("random disjoint cycles 10.2", randomDisjointCycles(rng, 10), false);
+        t.test("random disjoint cycles 10.3", randomDisjointCycles(rng, 10), false);
+        t.test("random disjoint cycles 10.4", randomDisjointCycles(rng, 10), false);
+
+        t.test("random disjoint cycles 15.1", randomDisjointCycles(rng, 15), false);
+        t.test("random disjoint cycles 15.2", randomDisjointCycles(rng, 15), false);
 
         t.test("random good 20", randomGoodInput(rng, 20), true);
 
