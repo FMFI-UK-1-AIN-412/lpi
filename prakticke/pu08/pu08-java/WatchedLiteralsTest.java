@@ -149,7 +149,7 @@ public class WatchedLiteralsTest {
             checkWatches(T, "watchedIn after watch 0 changed from a to b");
         });
 
-        tt.testCase("fndNewWatch", s -> {
+        tt.testCase("findNewWatch", s -> {
             Theory T = T("a b c -e -f -g");
             Clause C = T.cnf().iterator().next();
             Literal a = T.vars().get("a").lit(true);
@@ -224,8 +224,48 @@ public class WatchedLiteralsTest {
             T("a b c", "-b")
         );
 
-        testSetLiteral(true, "-a", "setLiteral creates unit",
+        testSetLiteral(true, "-a", "setLiteral creates a unit",
             T("a b")
+        );
+
+        testSetLiteral(true, "-a", "setLiteral creates one unit 2",
+            T("-a b", "a c", "b c")
+        );
+
+        testSetLiteral(true, "-a", "setLiteral creates two units",
+            T("a b", "a c")
+        );
+
+        testSetLiteral(true, "a b", "setLiteral called twice creates one unit each time",
+            T("a -b", "-a b")
+        );
+
+        testSetLiteral(true, "a -b", "setLiteral does not create a unit 1",
+            T("a b")
+        );
+
+        testSetLiteral(true, "-a -b c -d -e", "setLiteral does not create a unit 2",
+            T("a b c d e")
+        );
+
+        testSetLiteral(true, "-a -b c -d -e", "setLiteral does not create a unit 3",
+            T("a b c d e", "-a b c d e")
+        );
+
+        testSetLiteral(false, "a", "setLiteral units unsat",
+            T("a", "b", "-a")
+        );
+
+        testSetLiteral(false, "-a b", "setLiteral simple unsat 1",
+            T("a -b")
+        );
+
+        testSetLiteral(false, "-a b", "setLiteral simple unsat 2",
+            T("a b", "-b")
+        );
+
+        testSetLiteral(false, "-b -a", "setLiteral simple unsat 3",
+            T("a b", "-b")
         );
 
         testSetLiteral(false, "-a -b -c -d -e", "setLiteral unsat",
