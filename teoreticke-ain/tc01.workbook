@@ -1,0 +1,337 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "11": {
+      "id": 11,
+      "type": "text",
+      "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.1]{.exbook label=\"príklad\"},\n:xref[1.1.5]{.exbook label=\"úloha\"}.]\n\nUvažujme jazyk $\\Lang$ logiky prvého rádu s množinami symbolov\n\n$\\Consts = \\{\\sym{Alex}, \\sym{Betty}, \\sym{Charles}, \\sym{Dana}, \\sym{Ed}, \\sym{Gina}, \\sym{dad}\\}$,  \n$\\Preds = \\{\\asym{1}{woman}, \\asym{2}{parent}, \\asym{3}{child}, \\asym{2}{older}\\}$,\n\npričom zamýšľanou doménou tohto jazyka sú ľudia\na zamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning}\n| Predikát | Význam |\n|----------|--------|\n| $\\sym{woman}(x)$ | $x$ je žena |\n| $\\sym{parent}(x,y)$ | $x$ je rodičom $y$ |\n| $\\sym{child}(u,x,y)$ | $u$ je dieťaťom matky $x$ a otca $y$ |\n| $\\sym{older}(x,y)$ | $x$ je starší ako $y$ |\n:::",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      },
+      "isEdited": false
+    },
+    "12": {
+      "id": 12,
+      "type": "text",
+      "data": "::h3[:icon[write] **a)**]{.float-start.h6.lh-base.my-0.me-2}\nPreložte nasledujúce atomické formuly\ndo čo najprirodzenejších výrokov v slovenčine.\nVýroky napíšte priamo do tejto textovej bunky namiesto „…“.\n\n$A_1 = \\sym{woman}(\\sym{Betty})$:\n…\n\n$A_2 = \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$:\n…\n\n$B_1 = \\sym{older}(\\sym{Betty},\\sym{Charles})$:\n…\n\n$B_2 = \\sym{parent}(\\sym{Ed},\\sym{Ed})$:\n…\n\n$B_3 = \\sym{Charles} \\doteq \\sym{dad}$:\n…",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      },
+      "isEdited": false
+    },
+    "17": {
+      "id": 17,
+      "type": "text",
+      "data": "::h3[:icon[fast-forward-fill]{.text-primary} **b)**]{.float-start.h6.lh-base.my-0.me-2}\nPremyslite si, aké výroky v prirodzenom jazyku\nzodpovedajú atomickým formulám:\n\n$$\n\\begin{align*}\nA_3 &= \\sym{older}(\\sym{Dana},\\sym{Charles})\n&\nB_4 &= \\sym{woman}(\\sym{Alex})\n\\\\\nA_4 &= \\sym{woman}(\\sym{Dana})\n&\nB_5 &= \\sym{child}(\\sym{Betty},\\sym{Gina},\\sym{dad})\n\\\\\nA_5 &= \\sym{parent}(\\sym{Dana},\\sym{Alex})\n&\nB_6 &= \\sym{older}(\\sym{Gina},\\sym{Charles})\n\\\\\nA_6 &= \\sym{parent}(\\sym{Dana},\\sym{Betty})\n\\\\\nA_7 &= \\sym{child}(\\sym{Alex},\\sym{Dana},\\sym{Charles})\n\\end{align*}\n$$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "text",
+      "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.3]{.exbook label=\"príklad\"},\n:xref[1.1.7]{.exbook label=\"úloha\"}.]\n\nUvažujme jazyk $\\Lang$\na atomické formuly $A_1$, …, $A_7$, $B_1$, …, $B_6$ z cvičenia 1.1.\nNech $\\Struct = (D,i)$ je prvorádová štruktúra pre $\\Lang$, kde\n\n$$\n\\begin{align*}\n    D &= \\{ 1,2,3,4,5,6,7,8,9 \\},\n    \\\\\n    i(\\sym{Alex}) &= 1, \\quad\n    i(\\sym{Betty}) = 2, \\quad\n    i(\\sym{Charles}) = 3, \\quad\n    i(\\sym{Dana}) = 4, \\quad\\\\\n    i(\\sym{Ed}) &= 9, \\quad\n    i(\\sym{Gina}) = 7, \\quad\n    i(\\sym{dad}) = 3, \\quad\n    \\\\\n    i(\\sym{woman}) &= \\{ 1, 2, 3, 8 \\},\n    \\\\\n    i(\\sym{parent}) &= \\{ (4,1), (9,9), (2,3), (3,4), (8,7) \\},\n    \\\\\n    i(\\sym{child}) &= \\{ (3,7,9), (2,7,3), (8,9,1) \\},\n    \\\\\n    i(\\sym{older}) &= \\{ (2,1), (2,2), (2,3), (2,7), (3,4), (7,3), (8,7) \\}\n    .\n\\end{align*}\n$$\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[explanation] **Všimnite si**, že hoci každá indivíduová konštanta musí byť interpretovaná\nako niektorý objekt domény (teda pomenúvať ho),\nnie všetky objekty musia byť pomenované\na viacero indivíduových konštánt môže pomenúvať ten istý objekt.\n:::::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": "::h3[:icon[tools] **d)**]{.float-start.h6.lh-base.my-0.me-2}\n\nV nasledujúcej bunke sme pripravili nástroj **Prieskumník štruktúr (Structure explorer)**\nso štruktúrou $\\Struct$ a formulami $A_1$, …, $A_7$ (označenými $\\varphi_1$, …, $\\varphi_{7}$)\na $B_1$, …, $B_6$ (označenými $\\varphi_8$, …, $\\varphi_{13}$).\nV prieskumníku si môžete overiť, či ste správne určili pravdivosť formúl.\n\n:::enum{.i}\n1. **Vyberte** správne možnosti pre všetky formuly.\n\n2. **Zahrajte** si **Henkinovu-Hintikkovu hru**,\n  ktorá vám vysvetlí, **prečo** ste neurčili pravdivosť formuly správne.\n  Vyskúšajte si ju so správnym aj nesprávnym tipom pre aspoň jednu formulu.\n  Hra bude zaujímavejšia, keď do jazyka pribudnú logické spojky a neskôr kvantifikátory.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nZamýšľaná pravdivosť formuly sa vyberá z menu :span[⊨/⊭?]{.p-1.border.rounded}.\nPrieskumník overí, či ste vybrali správnu možnosť a zobrazí verdikt:\n<b class=\"text-success\">:icon[check] Correct</b> alebo\n<b class=\"text-danger\">:icon[x] Incorrect</b>.\n\n:icon[technical]\nHenkinova-Hintikkova hra sa spúšťa tlačidlom s herným ovládačom :icon[controller]{.p-1.border.border-secondary.rounded}.\n:::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "structureExplorer",
+      "data": "{\"common\":{\"teacherMode\":false},\"language\":{\"constants\":{\"value\":\"Alex, Betty, Charles, Dana, Ed, Gina, dad\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[\"Alex\",\"Betty\",\"Charles\",\"Dana\",\"Ed\",\"Gina\",\"dad\"]},\"predicates\":{\"value\":\"woman/1, parent/2, child/3, older/2\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[{\"name\":\"woman\",\"arity\":1},{\"name\":\"parent\",\"arity\":2},{\"name\":\"child\",\"arity\":3},{\"name\":\"older\",\"arity\":2}]},\"functions\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[]},\"lockedComponent\":true},\"structure\":{\"constants\":{\"Alex\":{\"value\":\"1\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Betty\":{\"value\":\"2\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Charles\":{\"value\":\"3\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Dana\":{\"value\":\"4\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Ed\":{\"value\":\"9\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Gina\":{\"value\":\"7\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"dad\":{\"value\":\"3\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]}},\"predicates\":{\"woman/1\":{\"value\":\"1, 2, 3, 8\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"1\"],[\"2\"],[\"3\"],[\"8\"]],\"tableEnabled\":false},\"parent/2\":{\"value\":\"(4,1), (9,9), (2,3), (3,4), (8,7)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"4\",\"1\"],[\"9\",\"9\"],[\"2\",\"3\"],[\"3\",\"4\"],[\"8\",\"7\"]],\"tableEnabled\":false},\"older/2\":{\"value\":\"(2,1), (2,2), (2,3), (2,7), (3,4), (7,3), (8,7)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"2\",\"1\"],[\"2\",\"2\"],[\"2\",\"3\"],[\"2\",\"7\"],[\"3\",\"4\"],[\"7\",\"3\"],[\"8\",\"7\"]],\"tableEnabled\":false},\"child/3\":{\"value\":\"(3,7,9), (2,7,3), (8,9,1)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"3\",\"7\",\"9\"],[\"2\",\"7\",\"3\"],[\"8\",\"9\",\"1\"]],\"tableEnabled\":false}},\"functions\":{},\"variables\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"domain\":{\"value\":\"1, 2, 3, 4, 5, 6, 7, 8, 9\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"]}},\"expressions\":{\"formulas\":[{\"value\":\"woman(Betty)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Betty\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Charles,Gina,Ed)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Charles\"},{\"name\":\"Gina\"},{\"name\":\"Ed\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Dana,Charles)\",\"expressionValue\":false,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"woman(Dana)\",\"expressionValue\":false,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Dana\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Dana,Alex)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Alex\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Dana,Betty)\",\"expressionValue\":false,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Betty\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Alex,Dana,Charles)\",\"expressionValue\":false,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Alex\"},{\"name\":\"Dana\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Ed,Ed)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Ed\"},{\"name\":\"Ed\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Betty,Charles)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Betty\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"Charles ≐ dad\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"subLeft\":{\"name\":\"Charles\"},\"subRight\":{\"name\":\"dad\"}},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"woman(Alex)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Alex\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Betty,Gina,dad)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Betty\"},{\"name\":\"Gina\"},{\"name\":\"dad\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Gina,Charles)\",\"expressionValue\":true,\"answerValue\":\"\",\"errorMessage\":\"\",\"inputLocked\":true,\"answerLocked\":false,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Gina\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true}],\"terms\":[]},\"diagramCordState\":{}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "23": {
+      "id": 23,
+      "type": "text",
+      "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.4]{.exbook label=\"príklad\"},\n:xref[1.1.8]{.exbook label=\"úloha\"}.]\n\nUvažujme opäť jazyk $\\Lang$\na atomické formuly z cvičenia 1.1.\nZostrojte štruktúry $\\Struct_1$, $\\Struct_2$ a $\\Struct_3$\npre jazyk $\\Lang$ tak,\naby každá z nich:\n* bola modelom všetkých formúl $A_1$, …, $A_7$, ale _súčasne_\n* nebola modelom žiadnej z formúl $B_1$, …, $B_6$.\n\na aby _zároveň_:\n:::enum{.a}\n1. doména štruktúry $\\Struct_1$ mala aspoň 9 prvkov;\n2. doména štruktúry $\\Struct_2$ mala najviac 2 prvky;\n3. doména štruktúry $\\Struct_3$ mala najviac 5 prvkov.\n:::\n\nAk doména s požadovanou kardinalitou neexistuje,\ndetailne zdôvodnite, prečo to tak je,\nna základe definície štruktúry a pravdivosti atómov v nej.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "24": {
+      "id": 24,
+      "type": "text",
+      "data": "::h3[a) Štruktúra $\\Struct_1$]{.h5}\n\n:icon[tools]\nŠtruktúru s aspoň 9 prvkami vytvorte v pripravenom prieskumníku.\nPodobne ako vyššie sú v ňom $A_1$, …, $A_7$ označené $\\varphi_1$, …, $\\varphi_{7}$\na $B_1$, …, $B_6$ sú označené $\\varphi_8$, …, $\\varphi_{13}$.\nPožadovanú pravdivosť a nepravdivosť sme prednastavili.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nPravdivosť formúl je teraz zamknutá,\nale môžete meniť doménu a interpretačnú funkciu štruktúry $\\Struct$.\nPrieskumník priebežne automaticky vyhodnocuje všetky formuly\na zobrazí pri nich <b class=\"text-success\">:icon[check]{.me-1}Correct</b>,\nak je ich pravdivosť v štruktúre rovnaká ako sme nastavili.\n\n:icon[bug-fill]{.text-secondary} Prieskumník žiaľ neumožňuje pomenovať štruktúru inak ako $\\Struct$.\n:::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "25": {
+      "id": 25,
+      "type": "text",
+      "data": "::h3[:icon[homework] c) Štruktúra $\\Struct_3$]{.h5}\n\n:icon[tools]\nAk štruktúra $\\Struct_3$ s najviac 5 prvkami **existuje**,\nvložte za túto bunku **nový prieskumník** a zostrojte ju v ňom.\n\n:icon[write]\nAk taká štruktúra **neexistuje**,\nvložte za túto bunku **novú textovú bunku**\na napíšte do nej **dôkaz neexistencie**.\n\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV prvom prípade môžete nový prieskumník vytvoriť **zduplikovaním**\na presunutím prieskumníka pre $\\Struct_1$ (tlačidlá :icon[plus-square]{.p-1.text-secondary.border.border-secondary.rounded} a :icon[arrow-down]{.p-1.text-secondary.border.border-secondary.rounded}).\nUšetríte si tým prácne kopírovanie definície jazyka a jednotlivých formúl.\n\n::::details\n::summary[Zoznam formúl $A_1$, …, $A_7$ a $B_1$, …, $B_6$]\n:::div{.table.table-sm.overflow-auto}\n| Pravdivé | Nepravdivé |\n|:---------|:-----------|\n| $A_1 = \\sym{woman}(\\sym{Betty})$ | $B_1 = \\sym{older}(\\sym{Betty},\\sym{Charles})$ |\n| $A_2 = \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$ | $B_2 = \\sym{parent}(\\sym{Ed},\\sym{Ed})$ |\n| $A_3 = \\sym{older}(\\sym{Dana},\\sym{Charles})$ | $B_3 = \\sym{Charles} \\doteq \\sym{dad}$ |\n| $A_4 = \\sym{woman}(\\sym{Dana})$ | $B_4 = \\sym{woman}(\\sym{Alex})$ |\n| $A_5 = \\sym{parent}(\\sym{Dana},\\sym{Alex})$ | $B_5 = \\sym{child}(\\sym{Betty},\\sym{Gina},\\sym{dad})$ |\n| $A_6 = \\sym{parent}(\\sym{Dana},\\sym{Betty})$ | $B_6 = \\sym{older}(\\sym{Gina},\\sym{Charles})$ |\n| $A_7 = \\sym{child}(\\sym{Alex},\\sym{Dana},\\sym{Charles})$ | |\n:::\n::::\n:::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "26": {
+      "id": 26,
+      "type": "text",
+      "data": "::h3[b) Štruktúra $\\Struct_2$]{.h5}\n\n:icon[tools]\nAk štruktúra $\\Struct_2$ s najviac 2 prvkami **existuje**,\nvložte za túto bunku **nový prieskumník** a zostrojte ju v ňom.\n\n:icon[write]\nAk taká štruktúra **neexistuje**,\nvložte za túto bunku **novú textovú bunku**\na napíšte do nej **dôkaz neexistencie**.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[help]\n_Pomôcka._ Zamerajte sa na interpretáciu konštánt\n$\\sym{Alex}$, $\\sym{Betty}$ a $\\sym{Dana}$.\n\n::::details\n::summary[Zoznam formúl $A_1$, …, $A_7$ a $B_1$, …, $B_6$]\n:::div{.table.table-sm.overflow-auto}\n| Pravdivé | Nepravdivé |\n|:---------|:-----------|\n| $A_1 = \\sym{woman}(\\sym{Betty})$ | $B_1 = \\sym{older}(\\sym{Betty},\\sym{Charles})$ |\n| $A_2 = \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$ | $B_2 = \\sym{parent}(\\sym{Ed},\\sym{Ed})$ |\n| $A_3 = \\sym{older}(\\sym{Dana},\\sym{Charles})$ | $B_3 = \\sym{Charles} \\doteq \\sym{dad}$ |\n| $A_4 = \\sym{woman}(\\sym{Dana})$ | $B_4 = \\sym{woman}(\\sym{Alex})$ |\n| $A_5 = \\sym{parent}(\\sym{Dana},\\sym{Alex})$ | $B_5 = \\sym{child}(\\sym{Betty},\\sym{Gina},\\sym{dad})$ |\n| $A_6 = \\sym{parent}(\\sym{Dana},\\sym{Betty})$ | $B_6 = \\sym{older}(\\sym{Gina},\\sym{Charles})$ |\n| $A_7 = \\sym{child}(\\sym{Alex},\\sym{Dana},\\sym{Charles})$ | |\n:::\n::::\n:::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "27": {
+      "id": 27,
+      "type": "text",
+      "data": "## <span id=\"navod\">Použitie elektronického pracovného hárku</span>\n\n### Bunky\n\nElektronický pracovný hárok je rozdelený na **bunky** dvoch typov – textové a aplikačné.\n\n**Textové bunky** obsahujú formátovaný text v značkovacom jazyku\n[Markdown (v GitHubovej verzii)](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)\na matematické „vzorce“ v časti jazyka $\\LaTeX$ podporovanej zobrazovačom [$\\KaTeX$](https://katex.org/docs/supported.html).\n\n**Aplikačné bunky** obsahujú nástroje na riešenie logických úloh:\nStructure explorer (prieskumník prvorádových štruktúr),\nTableau editor (editor prvorádových tabiel),\nResolution editor (editor prvorádových rezolvenčných dôkazov)\na Formalization checker (kontrolór formalizácií),\ns ktorými sa postupne zoznámite.\n\nVšetky bunky môžete **upravovať** po dvojkliknutí\nalebo stlačení tlačidla :span[:icon[pencil-square]&nbsp;Edit]{.text-primary.border.border-primary.rounded.p-1.text-nowrap}\nna vyskakovacej lište v pravom hornom rohu bunky.\nUpravovací režim ukončíte stlačením :span[:icon[check]&nbsp;Done]{.text-primary.border.border-primary.rounded.p-1.text-nowrap}.\nV upravovacom režime môžete mať súčasne viac buniek.\n\nBunky môžete tiež presúvať, duplikovať, zmazať a komentovať.\n\nZmeny môžete vrátiť tlačidlom :span[:icon[arrow-counterclockwise]&nbsp;Undo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap}\nna hornej lište a znova vykonať stlačením :span[:icon[arrow-clockwise]&nbsp;Redo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap}.\nNiektoré aplikačné bunky majú aj vlastné Undo a Redo.\nV textovom editore na tento účel fungujú zvyčajné klávesové skratky.\n\n### Zadania\n\nTextové bunky slúžia hlavne ako zadania úloh. Zadania, pochopiteľne, neupravujte.\nAk ich náhodou zmeníte alebo zmažete, použite tlačidlo :span[:icon[arrow-counterclockwise]&nbsp;Undo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap} v hornej lište hárku.\n\nZadania spravidla obsahujú odkazy do našej\n[zbierky úloh](https://fmfi-uk-1-ain-412.github.io/lpi/teoreticke-ain/zbierka.pdf)\nna podobné riešené príklady a ďalšie úlohy na precvičovanie.\n\nÚlohy alebo ich časti označené :icon[homework] sú zamýšľané ako **domáca práca**.\nNa hodine cvičení ich najprv preskočte.\nVenujte sa im, ak vám ostane čas alebo doma.\n\n### Riešenia\n\nIba :icon[write]\n: Bunka je určená na to, aby ste **priamo do nej** doplnili svoje **slovné** riešenia a odpovede.\n\nIba :icon[ui-checks]{.text-primary}\n: Bunka je určená na to, aby ste **priamo v nej** vyznačili nahradením `[ ]` za `[x]` práve tie možnosti, ktoré sú pravdivé. Náš bakalarand pracuje na aplikácii na zjednodušenie práce s takýmito úlohami.\n\nIba :icon[tools]\n: Bunka popisuje, ako na vyriešenie úlohy použiť **niektorú z aplikácií**.\nAplikáciu sme buď vložili ako nasledujúcu bunku alebo si ju máte vložiť sami.\n\n:icon[write] aj :icon[tools]\n: Bunka vysvetľuje, kedy očakávame slovnú odpoveď a kedy riešenie pomocou aplikácie.\nRozhodnutie o správnom spôsobe riešenia musíte urobiť sami a následne si na riešenie vložiť vhodný typ bunky.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "28": {
+      "id": 28,
+      "type": "structureExplorer",
+      "data": "{\"common\":{\"teacherMode\":false},\"language\":{\"constants\":{\"value\":\"Alex, Betty, Charles, Dana, Ed, Gina, dad\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[\"Alex\",\"Betty\",\"Charles\",\"Dana\",\"Ed\",\"Gina\",\"dad\"]},\"predicates\":{\"value\":\"woman/1, parent/2, child/3, older/2\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[{\"name\":\"woman\",\"arity\":1},{\"name\":\"parent\",\"arity\":2},{\"name\":\"child\",\"arity\":3},{\"name\":\"older\",\"arity\":2}]},\"functions\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[]},\"lockedComponent\":true},\"structure\":{\"constants\":{\"Alex\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Betty\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Charles\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Dana\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Ed\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Gina\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"dad\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]}},\"predicates\":{\"woman/1\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"parent/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"older/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"child/3\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false}},\"functions\":{},\"variables\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"domain\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"Domain cannot be empty\",\"parsed\":[]}},\"expressions\":{\"formulas\":[{\"value\":\"woman(Betty)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Betty is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Betty\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Charles,Gina,Ed)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Charles is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Charles\"},{\"name\":\"Gina\"},{\"name\":\"Ed\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Dana,Charles)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Dana is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"woman(Dana)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Dana is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Dana\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Dana,Alex)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Dana is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Alex\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Dana,Betty)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Dana is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Betty\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Alex,Dana,Charles)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Alex is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Alex\"},{\"name\":\"Dana\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"parent(Ed,Ed)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Ed is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"parent\",\"terms\":[{\"name\":\"Ed\"},{\"name\":\"Ed\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Betty,Charles)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Betty is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Betty\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"Charles ≐ dad\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Charles is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"subLeft\":{\"name\":\"Charles\"},\"subRight\":{\"name\":\"dad\"}},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"woman(Alex)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Alex is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"woman\",\"terms\":[{\"name\":\"Alex\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"child(Betty,Gina,dad)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Betty is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"child\",\"terms\":[{\"name\":\"Betty\"},{\"name\":\"Gina\"},{\"name\":\"dad\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"older(Gina,Charles)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Gina is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"older\",\"terms\":[{\"name\":\"Gina\"},{\"name\":\"Charles\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true}],\"terms\":[]},\"diagramCordState\":{}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "29": {
+      "id": 29,
+      "type": "text",
+      "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.2.1]{.exbook label=\"príklad\"},\n:xref[1.2.2]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou nižšie vloženej aplikácie **Kontrolór formalizácie** (**Formalization checker**) sformalizujte v nej uvedené výroky ako atomické formuly v jazyku logiky prvého rádu.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol       | Zamýšľaný význam                     |\n|--------------------------|--------------------------------------|\n| man($x$)                 | $x$ je muž                           |\n| woman($x$)               | $x$ je žena                          |\n| course($x$)             | $x$ je predmet                       |\n| compulsory($x$)          | $x$ je povinný\\*á                    |\n| elective($x$)            | $x$ je voliteľný\\*á                  |\n| student($x$)             | $x$ je študent\\*ka                   |\n| teaches($x$, $y$)        | (učiteľ\\*ka) $x$ učí (predmet) $y$ |\n| older($x$, $y$)          | $x$ je starší\\*ia ako $y$          |\n| likes($x$, $y$)          | $x$ má rád/rada $y$                  |\n| got_grade($x$, $y$, $p$, $u$) | (študent\\*ka) $x$ dostal\\*a (známku) $y$ z (predmetu) $p$ od (učiteľa\\*ky) $u$ |\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help] Na vyjadrenie niektorých výrokov je potrebných viac atomických formúl.\nV aplikácii Formalization Checker ich **spájajte znakom `&`** (ampersand).\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "37": {
+      "id": 37,
+      "type": "text",
+      "data": ":icon[write]\n**Riešenie:**\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "39": {
+      "id": 39,
+      "type": "text",
+      "data": "::h3[:icon[write] **a)**]{.float-start.h6.lh-base.my-0.me-2}\nNahraďte „…“ svojou odpoveďou:\n\n<i>Ktoré objekty domény sú pomenované viac ako jednou konštantou?</i>\n\n…\n\n<i>Ktoré objekty domény nie sú pomenované žiadnou konštantou?</i>\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "40": {
+      "id": 40,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 29,
+          "title": "2024 – Cvičenie 1.4",
+          "description": "Sformalizujte nasledujúce výroky ako atomické formuly vo vyššie opísanom jazyku logiky prvého rádu. Ak je na vyjadrenie výroku potrebných viacero atomických formúl, spojte ich znakom &. ",
+          "constants": "A, excellent, E, sufficient, Eugen, Lucia, Math, Peter, PhysEd",
+          "predicates": "got_grade/4, likes/2, man/1, compulsory/1, course/1, older/2, student/1, teaches/2, elective/1, woman/1",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1197,
+              "proposition": "1. Peter je muž.",
+              "solution": ""
+            },
+            {
+              "proposition_id": 1198,
+              "proposition": "2. Peter je študent.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1199,
+              "proposition": "3. Lucia je žena a študentka.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1200,
+              "proposition": "4. Lucia je staršia ako Peter.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1201,
+              "proposition": "5. Matematiku učí Eugen.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1202,
+              "proposition": "6. Peter a Lucia sú od neho mladší.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1203,
+              "proposition": "7. Peter dostal z Matematiky od Eugena známku E.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1204,
+              "proposition": "8. Lucia má rada Petra.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1205,
+              "proposition": "9. Aj keď má (ona) z Matematiky od Eugena známku výborný.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1206,
+              "proposition": "10. Známka výborný  je len iný názov pre A-čko, a podobne dostatočný značí to isté ako E-čko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1207,
+              "proposition": "11. Eugen sa má rád.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1208,
+              "proposition": "12. Matematika je povinný predmet.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1209,
+              "proposition": "13. Všetci vyššie menovaní študenti majú radi Telocvik.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1210,
+              "proposition": "14. Telocvik je voliteľný predmet.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 29
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "44": {
+      "id": 44,
+      "type": "text",
+      "data": "::h3[:icon[write] **c)**]{.float-start.h6.lh-base.my-0.me-2}\nNahraďte „…“ správnym prívlastkom:\n\n:small[:icon[source]\nPrednášky:\n:xref[1.12]{.lec label=\"definícia\"}.]\n\n* Formula $B_3$ je _..._ atómom jazyka $\\Lang$.\n* Formula $A_5$ je _..._ atómom jazyka $\\Lang$.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "48": {
+      "id": 48,
+      "type": "text",
+      "data": "## :icon[bonus] Domáca úloha\n\nĎalšie skúsenosti a body môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n1. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du01](../../du01/teoreticke-ain/du01.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 2. 3. 2025 o 23:59:59\n     :::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "49": {
+      "id": 49,
+      "type": "text",
+      "data": "::h3[:icon[ui-checks]{.text-primary} **b)**]{.float-start.h6.lh-base.my-0.me-2}\nOznačte `[x]` všetky pravdivé výroky a žiadny nepravdivý:\n\n:small[:icon[source]\nPrednáška:\n:xref[1.14]{.lec label=\"definícia\"}.]\n\n:::enum{.i}\n1. Interpretácia predikátového symbolu $\\sym{older}$ je:\n    * [ ] binárnou reláciou na množine $D$.\n    * [ ] prvkom $D^2$.\n2. Aký je vzťah medzi interpretáciou predikátového symbolu\n   $\\sym{woman}$ a doménou $D$ štruktúry $\\Struct$?\n    * [ ] Je prvkom, teda $i(\\sym{woman}) \\in D$.\n    * [ ] Je podmnožinou, teda $i(\\sym{woman}) \\subseteq D$.\n4. Medzi indivíduovou konštantou $\\sym{Ed}$\n   a doménou $D$ štruktúry $\\Struct$ je vzťah:\n    * [ ] $\\sym{Ed} \\subseteq D$.\n    * [ ] $i(\\sym{Ed}) \\subseteq D$.\n    * [ ] $i(\\sym{Ed}) \\in D$.\n    * [ ] $\\sym{Ed} \\in D$.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "50": {
+      "id": 50,
+      "type": "text",
+      "data": "## :icon[homework] Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.2]{.exbook label=\"príklad\"},\n:xref[1.1.6]{.exbook label=\"úloha\"}.]\n\nKoľko atomických formúl môžeme zostrojiť v jazyku $\\Lang$\nz cvičenia 1.1?\nVysvetlite, ako ste výsledok odvodili.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[warning]\nDobre sa zamyslite, či ste započítali **všetky druhy** formúl.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "51": {
+      "id": 51,
+      "type": "text",
+      "data": "::h3[:icon[ui-checks]{.text-primary} **c)**]{.float-start.h6.lh-base.my-0.me-2}\nOznačte `[x]` všetky pravdivé výroky a žiadny nepravdivý:\n\n:small[:icon[source]\nPrednáška: definície :xref[1.14]{.lec} a :xref[1.18]{.lec}.]\n\n:::enum{.i}\n1. Aký je vzťah medzi konštantami $\\sym{dad}$ a $\\sym{Charles}$?\n    * [ ] $i(\\sym{Charles}) = i(\\sym{dad})$\n    * [ ] $\\sym{dad} = \\sym{Charles}$\n2. Aký je vzťah medzi konštantou $\\sym{Alex}$ a predikátovým symbolom $\\sym{woman}$?\n    * [ ] $\\sym{Alex} \\in \\sym{woman}$\n    * [ ] $i(\\sym{Alex}) \\in i(\\sym{woman})$\n2. Aký je vzťah medzi konštantami $\\sym{Alex}$, $\\sym{Betty}$ a predikátovým symbolom $\\sym{older}$?\n    * [ ] $(i(\\sym{Betty}),i(\\sym{Alex})) \\in i(\\sym{older})$\n    * [ ] $(\\sym{Betty},\\sym{Alex}) \\in i(\\sym{older})$\n    * [ ] $(i(\\sym{Alex}),i(\\sym{Betty})) \\in i(\\sym{older})$\n3. Ako pomenúvame vzťah medzi štruktúrou $\\Struct$ a formulou $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$?\n    * [ ] Štruktúra $\\Struct$ je modelom formuly $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$.\n    * [ ] Štruktúra $\\Struct$ je pravdivá pre formulu $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$.\n    * [ ] Formula $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$ je pravdivá v štruktúre $\\Struct$.\n4. Ako zapisujeme vzťah medzi štruktúrou $\\Struct$ a formulou $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$?\n    * [ ] $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed}) \\models \\Struct$\n    * [ ] $\\Struct \\models \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$\n    * [ ] $\\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed}) \\in \\Struct$\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "52": {
+      "id": 52,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 1. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc01`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc01/teoreticke-ain/tc01.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Krátky návod na použitie aplikácie Logic Workbook nájdete na konci tohto hárku.\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23\n: Štvrtok o 9:00–9:45 v I-23\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    52,
+    48,
+    11,
+    12,
+    17,
+    44,
+    18,
+    39,
+    49,
+    51,
+    20,
+    21,
+    23,
+    24,
+    28,
+    26,
+    25,
+    29,
+    40,
+    50,
+    37,
+    27
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n"
+  }
+}
