@@ -1053,7 +1053,7 @@ def parseClauses(ss : Iterable[str]) -> Theory:
 
 def parseTheory(s: str) -> Theory:
     theory = []
-    for l in s.upper().replace('¬', ' -').replace('∨', ' ').split('\n'):
+    for l in s.upper().replace('¬', ' -').replace('-', ' -').replace('∨', ' ').replace(' v ', ' ').replace(' V ', ' ').replace('||', ' ').split('\n'):
         pC = parseClause(l)
         if (not re.match(r'^\s*$',l) and not re.match(r'^\s*c',l)) and pC:
             theory.append(pC)
