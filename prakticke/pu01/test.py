@@ -1041,14 +1041,25 @@ Interpretation = FrozenSet[str]
 Theory = Iterable[FrozenSet[str]]
 
 
-def parseClause(s : str) -> Clause: return frozenset(s.split())
-def parseClauses(ss : Iterable[str]) -> Theory: return (parseClause(s) for s in ss)
+def parseClause(s : str) -> Clause | None: return frozenset(s.split()) if len(s) > 0 and s[0:2].lower() != 'c ' else None
+def parseClauses(ss : Iterable[str]) -> Theory:
+    theory = []
+    for s in ss:
+        pC = parseClause(s)
+        if pC:
+            theory.append(pC)
+
+    return theory
+
 def parseTheory(s: str) -> Theory:
-  return [
-    parseClause(l)
-      for l in s.upper().replace('¬', ' -').replace('∨', ' ').split('\n')
-        if (not re.match(r'^\s*$',l) and not re.match(r'^\s*c',l))
-  ]
+    theory = []
+    for l in s.upper().replace('¬', ' -').replace('-', ' -').replace('∨', ' ').replace(' v ', ' ').replace(' V ', ' ').replace('||', ' ').split('\n'):
+        pC = parseClause(l)
+        if (not re.match(r'^\s*$',l) and not re.match(r'^\s*c',l)) and pC:
+            theory.append(pC)
+
+    return theory
+
 def theoryLiterals(cls : Theory) -> FrozenSet[str]: return frozenset().union(*cls)
 def unknownLiterals(c : Clause, problem) -> List[str]:
   knownLiterals = frozenset(problem['ls'])
