@@ -1,0 +1,293 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "## Cvičenie 2.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[2.1.1]{.exbook label=príklad},\n:xref[2.1.2]{.exbook label=úloha}.\nPrednášky: :xref[2.6]{.lec label=def.}.]\n\nRozhodnite, či nasledujúce postupnosti symbolov sú formulami nad nejakou \nmnožinou konštánt $\\Consts$ a predikátových symbolov $\\Preds$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help] **Pomôcka.**\nAkceptoval by tieto postupnosti symbolov program (syntaktický analyzátor)\npracujúci _striktne_ podľa :xref[2.6]{.lec label=definície}?\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "2": {
+      "id": 2,
+      "type": "text",
+      "data": "## Cvičenie 2.:cnt[a]\n:small[:icon[source]\nZbierka:\n:xref[2.2.3]{.exbook label=\"príklad\"},\n:xref[2.2.4]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou prieskumníka štruktúr vytvorte štruktúru, ktorá je modelom teórie $T=\\{A_1,\\dots,A_6\\}$, kde\n\n$A_1 = \\sym{title}(\\sym{Sophie's\\_Choice}) % je ok mat apostrof v nazve konstanty?$\n\n$A_2 = \\sym{book}(\\sym{k325})$\n\n$A_3 = \\sym{has\\_author}(\\sym{Sophie's\\_Choice,Styron})$\n\n$A_4 = (\\sym{title}(\\sym{The\\_Catcher\\_in\\_the\\_Rye})\\land\\sym{has\\_author}(\\sym{The\\_Catcher\\_in\\_the\\_Rye},\\sym{Salinger}))% preco je tam automaticky line break??$\n\n$\\begin{aligned}\n      A_5 = \\bigl(\n        \\lnot&\\bigl(\\sym{reads}(\\sym{Adam}, \\sym{k325}) \\land\n                  \\sym{admires}(\\sym{Dana}, \\sym{Adam})\\bigr)\n        \\limpl \\\\\n        &\\lnot\\bigl(\\sym{has\\_title}(\\sym{k325}, \\sym{Sophie's\\_Choice}) \\lor\n                  \\sym{has\\_title}(\\sym{k325}, \\sym{The\\_Catcher\\_in\\_the\\_Rye})\\bigr)\n      \\bigr)\n    \\end{aligned}$\n\n$A_6 = (\\sym{has\\_title}(\\sym{k325}, \\sym{The\\_Catcher\\_in\\_the\\_Rye}) \\lequiv \\neg\\sym{has\\_title}(\\sym{k325},\\sym{Sophie's\\_Choice}))$ \n\n:::aside{.note.bg-transparent.p-0}\n:icon[help]\nAby ste zistili, ako majú byť v štruktúre interpretované predikáty,\nanalyzujte význam formúl podľa :xref[2.21]{.lec label=\"definície pravdivosti\"}\npostupom zhora nadol (:xref[2.24]{.lec label=\"príklad\"} z prednášky).\nPomôže vám v tom Henkinova-Hintikkova hra :span[:icon[controller]]{.p-1.border.border-secondary.rounded}.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "structureExplorer",
+      "data": "{\"common\":{\"teacherMode\":false},\"language\":{\"constants\":{\"value\":\"Sophies_Choice, k325, Styron, The_Catcher_in_the_Rye, Salinger, Adam, Dana\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[\"Sophies_Choice\",\"k325\",\"Styron\",\"The_Catcher_in_the_Rye\",\"Salinger\",\"Adam\",\"Dana\"]},\"predicates\":{\"value\":\"title/1, book/1, has_author/2, reads/2, admires/2, has_title/2\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[{\"name\":\"title\",\"arity\":1},{\"name\":\"book\",\"arity\":1},{\"name\":\"has_author\",\"arity\":2},{\"name\":\"reads\",\"arity\":2},{\"name\":\"admires\",\"arity\":2},{\"name\":\"has_title\",\"arity\":2}]},\"functions\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"lockedComponent\":true},\"structure\":{\"constants\":{\"Sophies_Choice\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"k325\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Styron\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"The_Catcher_in_the_Rye\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Dana\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Salinger\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Adam\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]}},\"predicates\":{\"title/1\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"book/1\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"has_author/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"reads/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"admires/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"has_title/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false}},\"functions\":{},\"variables\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"domain\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"Doména nesmie byť prázdna\",\"parsed\":[]}},\"expressions\":{\"formulas\":[{\"value\":\"title(Sophies_Choice)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Sophies_Choice is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"title\",\"terms\":[{\"name\":\"Sophies_Choice\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"book(k325)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant k325 is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"book\",\"terms\":[{\"name\":\"k325\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"has_author(Sophies_Choice,Styron)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Sophies_Choice is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"has_author\",\"terms\":[{\"name\":\"Sophies_Choice\"},{\"name\":\"Styron\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"(title(The_Catcher_in_the_Rye)∧has_author(The_Catcher_in_the_Rye,Salinger))\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant The_Catcher_in_the_Rye is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"subLeft\":{\"name\":\"title\",\"terms\":[{\"name\":\"The_Catcher_in_the_Rye\"}]},\"subRight\":{\"name\":\"has_author\",\"terms\":[{\"name\":\"The_Catcher_in_the_Rye\"},{\"name\":\"Salinger\"}]}},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"(¬(reads(Adam,k325)∧admires(Dana,Adam))→¬(has_title(k325,Sophies_Choice)∨has_title(k325,The_Catcher_in_the_Rye)))\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Adam is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"subLeft\":{\"subFormula\":{\"subLeft\":{\"name\":\"reads\",\"terms\":[{\"name\":\"Adam\"},{\"name\":\"k325\"}]},\"subRight\":{\"name\":\"admires\",\"terms\":[{\"name\":\"Dana\"},{\"name\":\"Adam\"}]}}},\"subRight\":{\"subFormula\":{\"subLeft\":{\"name\":\"has_title\",\"terms\":[{\"name\":\"k325\"},{\"name\":\"Sophies_Choice\"}]},\"subRight\":{\"name\":\"has_title\",\"terms\":[{\"name\":\"k325\"},{\"name\":\"The_Catcher_in_the_Rye\"}]}}}},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"(has_title(k325,The_Catcher_in_the_Rye)<->¬has_title(k325,Sophies_Choice))\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant k325 is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"subLeft\":{\"name\":\"has_title\",\"terms\":[{\"name\":\"k325\"},{\"name\":\"The_Catcher_in_the_Rye\"}]},\"subRight\":{\"subFormula\":{\"name\":\"has_title\",\"terms\":[{\"name\":\"k325\"},{\"name\":\"Sophies_Choice\"}]}}},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true}],\"terms\":[]},\"diagramCordState\":{}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "4": {
+      "id": 4,
+      "type": "text",
+      "data": "## Cvičenie 2.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[2.3.1]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou aplikácie Formalization Checker sformalizujte nižšie uvedené tvrdenia v uvedenom jazyku výrokovologickej časti logiky prvého rádu $\\Lang$.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol       | Zamýšľaný význam                            |\n|--------------------------|---------------------------------------------|\n| works($x$)               | $x$ pracuje                                 |\n| student($x$)             | $x$ je študent\\*ka                          |\n| professor($x$)           | $x$ je profesor\\*ka                         |\n| has_classmate($x$, $y$)  | $x$ má spolužiaka\\*čku $y$                 |\n| comes_from($x$, $y$)     | $x$ pochádza z $y$                          |\n| supervises($x$, $y$)     | $x$ je školiteľom\\*kou $y$                 |\n| passed($x$, $y$)         | $x$ absolvoval\\*a $y$                       |\n| grad_exam($x$, $y$, $z$) | $x$ dostal\\*a na maturite z (predmetu) $y$ hodnotenie $z$ |\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[warning]\n**Dôsledne zátvorkujte všetky formuly podľa :xref[2.6]{.lec label=definície}!**\nKontrolór formalizácií si síce chýbajúce zátvorky doplní,\nale nemusí to robiť tak, ako si predstavujete.\n\n:icon[help]\nRody spomínaných osôb nie sú pre formalizáciu podstatné.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "text",
+      "data": "## :icon[homework] Cvičenie 2.:cnt[a]\n:small[:icon[source]\nZbierka:\n:xref[2.1.3]{.exbook label=\"príklad\"},\n:xref[2.1.4]{.exbook label=\"úloha\"}.\nPrednáška:\ndefinície :xref[2.14]{.lec}, :xref[2.18]{.lec}.]\n\nUvažujme formulu:\n\n$$\n\\begin{aligned}\nX = \\bigl(&\n    (\\sym{parent}(\\sym{Bruno},\\sym{Hugo}) \\land\n     \\sym{parent}(\\sym{Bruno},\\sym{Tina}))\\\\\n    &\\limpl\\bigl(\n      (\\neg \\sym{woman}(\\sym{Hugo}) \\land \\sym{man}(\\sym{Hugo})) \\limpl\n      \\sym{brother}(\\sym{Hugo},\\sym{Tina})\n    \\bigr)\n  \\bigr)\n\\end{aligned}\n$$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "6": {
+      "id": 6,
+      "type": "text",
+      "data": ":icon[write] **Riešenie:**\n\n$A_1:$\n:::div{.table.table-truth}\n|  | older(Bruno,Alex) | older(Alex,Bruno) | ¬older(Alex,Bruno)) | (older(Bruno,Alex)→¬older(Alex,Bruno)) |\n|:-:|:-:|:-:|:-:|:-:|\n| $\\Struct$ | $\\models/\\nmodels$ | $\\models/\\nmodels$ | $\\models/\\nmodels$ | $\\models/\\nmodels$ | $\\models/\\nmodels$ |\n:::\n\n$A_2:$\n:::div{.table.table-truth}\n|  | likes(Alex,Bruno) | … | … | … | … | … | (¬likes(Alex,Bruno)↔¬likes(Bruno,Alex)) |\n|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|\n| $\\Struct$ | $\\models/\\nmodels$ | … | … | … | … | … | $\\models/\\nmodels$ |\n:::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "8": {
+      "id": 8,
+      "type": "structureExplorer",
+      "data": "{\"common\":{\"teacherMode\":false},\"language\":{\"constants\":{\"value\":\"Alex, Bruno, Hugo, Tina\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[\"Alex\",\"Bruno\",\"Hugo\",\"Tina\"]},\"predicates\":{\"value\":\"woman/1, man/1, likes/2, brother/2, parent/2, older/2\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[{\"name\":\"woman\",\"arity\":1},{\"name\":\"man\",\"arity\":1},{\"name\":\"likes\",\"arity\":2},{\"name\":\"brother\",\"arity\":2},{\"name\":\"parent\",\"arity\":2},{\"name\":\"older\",\"arity\":2}]},\"functions\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"lockedComponent\":true},\"structure\":{\"constants\":{\"Alex\":{\"value\":\"1\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Bruno\":{\"value\":\"2\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Hugo\":{\"value\":\"5\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"Tina\":{\"value\":\"6\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]}},\"predicates\":{\"woman/1\":{\"value\":\"1, 3, 4, 6\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"1\"],[\"3\"],[\"4\"],[\"6\"]],\"tableEnabled\":false},\"man/1\":{\"value\":\"2, 4\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"2\"],[\"4\"]],\"tableEnabled\":false},\"likes/2\":{\"value\":\"(1, 1), (1, 2), (1, 5), (1, 6), (2, 2), (3, 3), (3, 4), (4, 4), (5, 5), (5, 6)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"1\",\"1\"],[\"1\",\"2\"],[\"1\",\"5\"],[\"1\",\"6\"],[\"2\",\"2\"],[\"3\",\"3\"],[\"3\",\"4\"],[\"4\",\"4\"],[\"5\",\"5\"],[\"5\",\"6\"]],\"tableEnabled\":false},\"brother/2\":{\"value\":\"(1, 2), (2, 1), (3, 1), (4, 4), (5, 6), (6, 1), (6, 2), (6, 6)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"1\",\"2\"],[\"2\",\"1\"],[\"3\",\"1\"],[\"4\",\"4\"],[\"5\",\"6\"],[\"6\",\"1\"],[\"6\",\"2\"],[\"6\",\"6\"]],\"tableEnabled\":false},\"parent/2\":{\"value\":\"(1, 1), (2, 5), (2, 6), (1, 5), (3, 4), (4, 2), (1, 6), (5, 6), (6, 5)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"1\",\"1\"],[\"2\",\"5\"],[\"2\",\"6\"],[\"1\",\"5\"],[\"3\",\"4\"],[\"4\",\"2\"],[\"1\",\"6\"],[\"5\",\"6\"],[\"6\",\"5\"]],\"tableEnabled\":false,\"databaseEnabled\":false},\"older/2\":{\"value\":\"(2, 1), (5, 6), (6, 5)\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[[\"2\",\"1\"],[\"5\",\"6\"],[\"6\",\"5\"]],\"tableEnabled\":false}},\"functions\":{},\"variables\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"domain\":{\"value\":\"1, 2, 3, 4, 5, 6\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]}},\"expressions\":{\"formulas\":[],\"terms\":[]},\"diagramCordState\":{}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "9": {
+      "id": 9,
+      "type": "text",
+      "data": ":icon[ui-checks]{.text-primary}\nOznačte `[x]` všetky možnosti, ktoré sú formulami nad nejakou množinou konštánt $\\Consts$ a predikátových symbolov $\\Preds$.:\n\n* [ ] $(\\sym{woman}(\\sym{Alex})\\land\\sym{man}(\\sym{Alex}))$\n* [ ] $\\lnot(\\sym{likes}(\\sym{Alex},\\sym{Alex}))$\n* [ ] $(\\lnot(\\sym{man}(\\sym{Alex})\\land\\sym{woman}(\\sym{Alex}))\\limpl(\\lnot\\sym{man}(\\sym{Alex})\\lor\\lnot\\sym{woman}(\\sym{Alex})))$\n* [ ] $(\\lnot\\lnot\\sym{older}(\\sym{Alex},\\sym{Ed})\\lequiv(\\sym{older}(\\sym{Alex},\\sym{Ed})\\lnot\\land\\sym{man}(\\sym{Ed})))$\n* [ ] $\\bigl(\\sym{older}(\\sym{Ed}, \\sym{Alex})\\limpl(\\lnot\\sym{older}(\\sym{Alex},\\sym{Ed}))\\bigr)$\n* [ ] $(\\sym{Alex}\\lor\\lnot\\sym{dad})$\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "11": {
+      "id": 11,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 2. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc02`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc02/teoreticke-ain/tc02.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Krátky návod na použitie aplikácie Logic Workbook nájdete na konci hárku pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23\n: Štvrtok o 9:00–9:45 v I-23\n:::\n::::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | | | |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | | | |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "12": {
+      "id": 12,
+      "type": "text",
+      "data": "## Cvičenie 2.:cnt[a]\n:small[:icon[source]\nZbierka:\n:xref[2.2.1]{.exbook label=\"príklad\"},\n:xref[2.2.2]{.exbook label=\"úloha\"}.\nPrednáška:\n:xref[2.21]{.lec label=\"def.\"},\npríklady :xref[2.22]{.lec},\n:xref[2.23]{.lec}.]\n\nMajme zadanú štruktúru $\\Struct=(D, i)$, kde\n\n$\\begin{aligned}\n    D &= \\{ 1,2,3,4,5,6 \\},\n    \\\\\n    i(\\sym{Alex}) &= 1, \\quad\n    i(\\sym{Bruno}) = 2, \\quad\n    i(\\sym{Hugo}) = 5, \\quad\n    i(\\sym{Tina}) = 6, \\quad\n    \\\\\n    i(\\sym{woman}) &= \\{ 1, 3, 4, 6 \\},\n    \\\\\n    i(\\sym{man}) &= \\{ 2, 4 \\},\n    \\\\\n    i(\\sym{likes}) &= \\{ (1,1), (1,2), (1,5), (1,6), (2,2), (3,3), (3,4), (4,4), (5,5), (5,6)\\},\n    \\\\\n    i(\\sym{brother}) &= \\{ (1,2), (2,1), (3,1), (4,4), (5,6),(6,1), (6,2), (6,6) \\},\n    \\\\\n    i(\\sym{parent}) &= \\{ (1,1), (2,5), (2,6), (1,5), (3,4), (4,2), (1,6), (5,6), (6,5) \\},\n    \\\\\n    i(\\sym{older}) &= \\{ (2,1), (5,6), (6,5) \\}.\n\\end{aligned}$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "13": {
+      "id": 13,
+      "type": "text",
+      "data": "::h3[:icon[tools] **b)**]{.float-start.h6.lh-base.my-0.me-2}\nTipnite si, či je formula formula $A_3$ pravdivá v štruktúre $\\Struct$:\n\n$A_3 = \\bigl(\n    (\\sym{parent}(\\sym{Bruno},\\sym{Hugo}) \\land\n     \\sym{parent}(\\sym{Bruno},\\sym{Tina})) \\limpl\\\\\\qquad\\quad\n    \\bigl(\n      (\\neg \\sym{woman}(\\sym{Hugo}) \\land \\sym{man}(\\sym{Hugo})) \\limpl\n      \\sym{brother}(\\sym{Hugo},\\sym{Tina})\n    \\bigr)\n  \\bigr)$\n\n**Overte** svoj tip pomocou **Henkinovej-Hintikkovej hry**\nv prieskumníku štruktúr.\nAk ste si tipli správne,\nzahrajte si hru druhýkrát s nesprávnym tipom.\n\n:icon[homework]\nSkontrolujte pomocou Henkinovej-Hintikkovej hry,\nči ste správne určili pravdivosť formúl $A_1$ a $A_2$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation] **Vysvetlenie.**\nHenkinova-Hintikkova hra vás vedie vyhodnotením formuly\npostupom _zhora nadol_\n(:xref[2.24]{.lec label=\"príklad\"} z prednášky).\n**Čítajte** jednotlivé kroky a **uvedomujte si**,\nako postup súvisí s :xref[2.21]{.lec label=\"definíciou\"}.\n\n* **Vyhráte**, ak si na začiatku tipnete správne\n  a správne odpoviete aj na _všetky_ otázky o pravdivosti podformúl,\n  ktoré vám protihráč položí.\n* **Prehráte**, ak je váš úvodný tip nesprávny alebo si počas hry vyberiete\n  _čo i len jednu_ nesprávnu možnosť.\n  Protihráč vtedy nájde cestu vytvárajúcim stromom formuly,\n  ktorou vás dovedie k atómu,\n  ktorý by podľa vašich odpovedí bol v štruktúre $\\Struct$\n  opačne pravdivý ako v skutočnosti.\n\n:icon[technical] **Návod.**\nFormulu pridáte do časti _Truth of formulas in 𝓜_ v prieskumníku príslušným tlačidlom :span[:icon[plus-lg] Add]{.p-1.rounded.border.border-success.text-success.text-nowrap}.\nHenkinovu-Hintikkovu hru následne spustíte tlačidlom\n:span[:icon[controller]]{.p-1.rounded.border.text-secondary.border-secondary}.\nSvoju odpoveď v hre môžete zmeniť kliknutím na odkaz :b[Change]. Objaví vedľa bubliny s odpoveďou, keď na ňu ukážete myšou.\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": "## :icon[homework] Domáce úlohy\n\n:icon[bonus] Ďalšie skúsenosti a body môžete získať vyriešením domácich úloh:\n\n::::div{.dl-indented}\n1. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du01](../../du01/teoreticke-ain/du01.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 2. 3. 2025 o 23:59:59\n     :::\n2. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du02](../../du02/teoreticke-ain/du02.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 9. 3. 2025 o 23:59:59\n     :::\n::::",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "23": {
+      "id": 23,
+      "type": "text",
+      "data": "::h3[:icon[write] **a)**]{.float-start.h6.lh-base.my-0.me-2}\nZapíšte vytvárajúci strom pre formulu $X$.\n\n_Riešenie:_\n\n* $X$\n     * …\n     * …\n\n:::aside{.note.bg-transparent.p-0.pt-3.border-top}\n:icon[explanation] Vytvárajúci strom môžete zapísať napríklad pomocou viacúrovňového \nzoznamu nasledovne:\n\n* toto je koreň stromu\n    * odsadením vytvárame deti\n        * viacnásobným odsadením vytvárame deti detí\n            * atď.\n    * toto je druhé dieťa koreňa\n\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "24": {
+      "id": 24,
+      "type": "text",
+      "data": "## Cvičenie 2.:cnt[a]\n\n:small[:icon[source]\nZbierka:\npríklady :xref[2.4.1]{.exbook},\n:xref[2.4.2]{.exbook},\n:xref[2.4.3]{.exbook label=\"úloha\"}.\nPrednášky: \n:xref[2.34]{.lec label=\"def.\"}, \ntvrdenia \n:xref[2.35]{.lec}, :xref[2.37]{.lec},\n:xref[2.36]{.lec label=príklad}.]\n\n::h3[**a)**]{.float-start.h6.lh-base.my-0.me-2}\nNech $\\Lang$ je jazyk výrokovologickej časti logiky prvého rádu, kde \n\n$\\Consts = \\{\\sym{Jack}$, $\\sym{Corona}\\}$,\\\n$\\Preds = \\{\\asym{1}{beer}$, $\\asym{2}{drink}\\}$.\n    \nNech $\\Struct = (D,i)$ je štruktúra pre jazyk $\\Lang$, kde:\n\n$$\n\\begin{align*}   \nD &= \\{ s1, s2, s3, p1, p2 \\}\n\\\\\ni(\\sym{Jack}) &= s3,\n    \\\\\n    i(\\sym{Corona}) &= p1,\n    \\\\\n    i(\\sym{beer}) &= \\{ p1, p2 \\},\n    \\\\\n    i(\\sym{drink}) &= \\{ (s1,p1), (s2,p1), (s2,p2) \\}\n\\end{align*}\n$$\n\nZostrojte výrokovologické ohodnotenie $v$ pre $\\Lang$ zhodné so štruktúrou $\\Struct$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "25": {
+      "id": 25,
+      "type": "text",
+      "data": "::h3[**b)**]{.float-start.h6.lh-base.my-0.me-2}\nNech $\\Lang$ je jazyk výrokovologickej časti logiky prvého rádu, kde:\n  > $\\Consts = \\{\\sym{Andy}$, $\\sym{Woody}\\}$,\\\n  > $\\Preds = \\{\\asym{1}{toy}$, $\\asym{1}{boy}$, $\\asym{2}{plays\\_with}\\}$.\n\n  Nech\n$$\n\\begin{align*} \n    v = \\{ &\\sym{toy}(\\sym{Woody}) \\mapsto t,&\n    &\\sym{toy}(\\sym{Andy}) \\mapsto f,\\\\\n    &\\sym{boy}(\\sym{Andy}) \\mapsto t,&\n    &\\sym{boy}(\\sym{Woody}) \\mapsto f,\\\\\n    &\\sym{plays\\_with}(\\sym{Andy},\\sym{Woody}) \\mapsto t,&\n    &\\sym{plays\\_with}(\\sym{Woody},\\sym{Andy}) \\mapsto f\\}\n\\end{align*}\n$$\nje čiastočné ohodnotenie predikátových atómov jazyka $\\Lang$.\n  \nZostrojte štruktúru $\\Struct$ zhodnú s $v$ na $\\dom v$\n(t.j., definičnom obore ohodnotenia $v$).\n**Použite** postup z prednášky (:xref[2.37]{.lec label=tvrdenie},\n:xref[2.36]{.lec label=príklad}).\n\n:icon[tools]\nSvoje riešenie overte pomocou aplikácie Structure explorer.\nJe nastavená tak, aby skontrolovala zhodu štruktúry s ohodnotením na $\\dom v$.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "26": {
+      "id": 26,
+      "type": "structureExplorer",
+      "data": "{\"common\":{\"teacherMode\":false},\"language\":{\"constants\":{\"value\":\"Andy, Woody\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[\"Andy\",\"Woody\"]},\"predicates\":{\"value\":\"toy/1, boy/1, plays_with/2  \",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[{\"name\":\"toy\",\"arity\":1},{\"name\":\"boy\",\"arity\":1},{\"name\":\"plays_with\",\"arity\":2}]},\"functions\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"lockedComponent\":true},\"structure\":{\"constants\":{\"Andy\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]},\"Woody\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"An interpretation of this constant must be defined\",\"parsed\":[]}},\"predicates\":{\"toy/1\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"boy/1\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false},\"plays_with/2\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"\",\"parsed\":[],\"tableEnabled\":false}},\"functions\":{},\"variables\":{\"value\":\"\",\"locked\":true,\"errorMessage\":\"\",\"parsed\":[]},\"domain\":{\"value\":\"\",\"locked\":false,\"errorMessage\":\"Domain cannot be empty\",\"parsed\":[]}},\"expressions\":{\"formulas\":[{\"value\":\"toy(Woody)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Woody is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"toy\",\"terms\":[{\"name\":\"Woody\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"boy(Andy)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Andy is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"boy\",\"terms\":[{\"name\":\"Andy\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"plays_with(Andy,Woody)\",\"expressionValue\":null,\"answerValue\":true,\"errorMessage\":\"The interpretation of the constant Andy is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"plays_with\",\"terms\":[{\"name\":\"Andy\"},{\"name\":\"Woody\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"toy(Andy)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Andy is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"toy\",\"terms\":[{\"name\":\"Andy\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"boy(Woody)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Woody is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"boy\",\"terms\":[{\"name\":\"Woody\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true},{\"value\":\"plays_with(Woody,Andy)\",\"expressionValue\":null,\"answerValue\":false,\"errorMessage\":\"The interpretation of the constant Woody is not defined\",\"inputLocked\":true,\"answerLocked\":true,\"parsed\":{\"name\":\"plays_with\",\"terms\":[{\"name\":\"Woody\"},{\"name\":\"Andy\"}]},\"gameHistory\":[],\"showVariables\":false,\"gameEnabled\":false,\"variableIndex\":1,\"validSyntax\":true}],\"terms\":[]},\"diagramCordState\":{}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "27": {
+      "id": 27,
+      "type": "text",
+      "data": ":icon[write]\n**Riešenie:**\n\n$$v = \\{ ... \\mapsto ..., ... \\} $$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "36": {
+      "id": 36,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 34,
+          "title": "2024 – Cvičenie 2.5",
+          "description": "Sformalizujte nasledujúce výroky ako formuly v nižšie opísanom jazyku výrokovologickej časti logiky prvého rádu. ",
+          "constants": "Dominika, Fernando, Elena, Fero, Gabika, Spain, Slovakia, Databases, Programming, Logics, Informatics, Combinatorics, Slovak_l, Czech_l , 1",
+          "predicates": "works/1 ,student/1, professor/1, has_classmate/2, comes_from/2, supervises/2, passed/2, grad_exam/3",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1173,
+              "proposition": "1. Študentka Dominika má spolužiaka Fernanda, ktorý je zo Španielska.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1174,
+              "proposition": "2. Fernando je, samozrejme, tiež študent, napriek tomu, že popri štúdiu aj pracuje.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1175,
+              "proposition": "3. Elena je profesorka a školí Dominiku alebo Fernanda.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1176,
+              "proposition": "4. Fernanda tiež volajú Fero.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1177,
+              "proposition": "5. Ak Dominika absolvovala aj databázy alebo programovanie, aj logiku, tak je Elena jej školiteľkou.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1178,
+              "proposition": "6. Pretože „byť spolužiakom*čkou“ je symetrický vzťah, je Gabika Fernandovou spolužiačkou rovnako, ako je on jej spolužiakom.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1179,
+              "proposition": "7. Fero absolvoval programovanie iba za predpokladu, že nedostal na maturite z informatiky jednotku.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1180,
+              "proposition": "8. Ak ju nedostal, potom musel absolvovať aj kombinatoriku.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1181,
+              "proposition": "9. Dominika určite neabsolvovala ani kurz slovenčiny, ani češtiny, pokiaľ nie je zo zahraničia.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1182,
+              "proposition": "10. Buď Dominika alebo Gabika je zo Slovenska (no nie obe).",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 34
+      },
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "37": {
+      "id": 37,
+      "type": "text",
+      "data": "::h3[:icon[write] **b)**]{.float-start.h6.lh-base.my-0.me-2}\nVypočítajte stupeň formuly $X$.\nKaždému uzlu vo vytvárajúcom strome z časti a) pridajte do hranatých zátvoriek\nstupeň formuly, ktorá sa v ňom nachádza.\nVýslednú hodnotu stupňa formuly $X$ zapíšte nižšie.\n\n_Riešenie:_\n$$\n\\deg(X) = …\n$$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "38": {
+      "id": 38,
+      "type": "text",
+      "data": "::h3[**a)**]{.float-start.h6.lh-base.my-0.me-2}\nZistite postupom _zdola nahor_, \nči sú formuly $A_1$ a $A_2$ pravdivé:\n\n$A_1 = (\\sym{older}(\\sym{Bruno},\\sym{Alex}) \\limpl \\neg \\sym{older}(\\sym{Alex},\\sym{Bruno}))$\n\n$A_2 = (\\neg \\sym{likes}(\\sym{Alex},\\sym{Bruno}) \\lequiv \\neg \\sym{likes}(\\sym{Bruno},\\sym{Alex}))$\n\n::::aside{.note.bg-transparent.p-0}  \n:icon[explanation] Svoj postup zdola nahor môžete reprezentovať tabuľkou\n\n:::div{.table.table-truth}\n|           | $A_{i,1}$ | $A_{i,2}$  | ... | $A_i$ |\n|:---------:|:---------:|:----------:|:---:|:-----:|\n| $\\Struct$ | $\\models$ | $\\nmodels$ | ... | ...   |\n:::\n\nv ktorej záhlaví je vytvárajúca postupnosť $A_{i,1}\\,$, $A_{i,2}\\,$, … formuly $A_i$.\n\n:icon[help]\nPre formulu $A_1$ sme tabuľku pripravili.\n\n:icon[warning]\nPre formulu $A_2$ potrebujete tabuľku s **8 stĺpcami**,\npretože $(A \\lequiv B)$ nie je spojka,\nale **skratka** za $((A \\limpl B) \\land (B \\limpl A))$.\n\n\n:icon[technical]\nSo zápisom tabuľky v Markdowne vám pomôže napríklad\n[Markdown Table Editor and Generator](https://tableconvert.com/markdown-generator).\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    11,
+    20,
+    1,
+    9,
+    12,
+    38,
+    6,
+    13,
+    8,
+    2,
+    3,
+    24,
+    27,
+    25,
+    26,
+    4,
+    36,
+    5,
+    23,
+    37
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n"
+  }
+}
