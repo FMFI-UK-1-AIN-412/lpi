@@ -1,0 +1,211 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 3. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 16. 3. 2025 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: 3 body\n: Pri každej úlohe uvádzame jej percentuálny podiel na celkovom bodovom hodnotení.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du03`\n: :strong[[:icon[arrow-clockwise] Otvoriť túto úlohu v správnej vetve](../../du03/teoreticke-ain/du03.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Určite uložte posledné zmeny pred odovzdaním!**\n\n:icon[submission] Odovzdanie\n: Vytvorte pull request (PR)\n    - z vetvy `du03` v repozitári `‹váš_github_login›/lpi25-‹váš_uniba_login›`\n    - do vetvy `du03` v repozitári `FMFI-UK-1-AIN-412/lpi25-‹váš_uniba_login›`.\n    \n    Správne vytvorený PR nájdete v [zozname PR pre du03](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu03).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| <b>T</b>, <b>F</b> | `\\sign{T}`, `\\sign{F}` |  znamienko označenej formuly | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo  | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "2": {
+      "id": 2,
+      "type": "text",
+      "data": "## Úloha 3.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **70 %** · :icon[source] Zbierka:\n:xref[4.1.1]{.exbook label=\"príklad\"}, :xref[4.1.6]{.exbook label=\"úloha\"}.]\n\nPetra rada pletie. Nedávno dostala novú priadzu a chystá sa z nej niečo upliesť. O priadzi a pletení všeobecne máme tieto informácie:\n\n1) Petra si upletie sveter, čiapku, ponožky alebo šál.\n2) Priadza je buď hrubá alebo tenká.\n3) Priadza je bavlnená, vlnená alebo akrylová, pričom prípustné sú aj zmesi týchto materiálov.\n4) Na sveter je potrebná hrubá priadza bez obsahu bavlny (inak by nebol dosť teplý).\n5) Vlna „hryzie“. Takže ak priadza obsahuje vlnu, nehodí sa na šál ani ponožky.\n6) Ponožky sa dajú upliesť iba z tenkej priadze.\n7) Petra sa oblieka štýlovo a chce, aby jej kúsky navzájom ladili. Preto čiapku si upletie jedine, ak si k nej upletie aj šál. Rovnako šál by si neuplietla bez čiapky.\n\nZistite, či na základe uvedených skutočností môžeme _s istotou_ tvrdiť, že:\n\n:::enum{.a}\n1. Ak je priadza tenká, tak nie je vlnená.\n2. Ak si Petra upletie sveter, nemôže si už upliesť čiapku.\n:::\n",
+      "idCounter": 3,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "6": {
+      "id": 6,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne problémy]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **10 %**]\n\n:::aside{.small}\nAké formálne logické problémy musíme vyriešiť, aby sme zodpovedali neformálne otázky zo zadania? Napr. splniteľnosť ktorej formuly/teórie, tautologickosť ktorej formuly, ekvivalencia ktorých formúl, vyplývanie/nezávislosť ktorej formuly z/od ktorej teórie, atď.\n\n:icon[help] **Pomôcka.** Musíme vyriešiť 3 formálne problémy.\n:::\n\n1. …\n2. …\n3. …\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "10": {
+      "id": 10,
+      "type": "text",
+      "data": "::h3[:icon[tools] :cnt[b]{.i}. Formalizácia]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **15 %**]\n\nVýroky 1.–7. a tvrdenia a. a b. sformalizujte v jazyku $\\Lang$ výrokovologickej časti logiky prvého rádu, kde $\\Consts=\\{\\sym{Y}\\}$ a $\\Preds=\\{\\sym{thick}^1$, $\\sym{thin}^1$, $\\sym{wool}^1$, $\\sym{cotton}^1$, $\\sym{acrylic}^1$, $\\sym{socks}^1$, $\\sym{jumper}^1$, $\\sym{scarf}^1$, $\\sym{hat}^1\\}$, pričom konštanta $\\sym{Y}$ označuje Petrinu novú priadzu (yarn) a význam predikátových symbolov je nasledovný:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol | Zamýšľaný význam                       |\n|--------------------|----------------------------------------|\n| thick($x$)         | $x$ je hrubé                           |\n| thin($x$)          | $x$ je tenké                           |\n| wool($x$)          | $x$ obsahuje vlnu                      |\n| cotton($x$)        | $x$ obsahuje bavlnu                    | \n| acrylic($x$)       | $x$ obsahuje akryl                     |\n| socks($x$)         | $x$ sa použije na upletenie ponožiek   |\n| jumper($x$)        | $x$ sa použije na upletenie svetra     |\n| scarf($x$)         | $x$ sa použije na upletenie šálu       |\n| hat($x$)           | $x$ sa použije na upletenie čiapky     |\n:::\n\nPre kontrolu správnosti vášho riešenia využite bunku s kontrolórom formalizácií vloženú nižšie.\n\n:::aside{.note.bg-transparent.p-1}\n:icon[warning]\n**Dôsledne zátvorkujte všetky formuly podľa :xref[2.6]{.lec label=definície}!**\nFormalization Checker si síce chýbajúce zátvorky doplní,\nale nemusí to robiť tak, ako si predstavujete.\n**Akceptujeme iba formuly, v ktorých je každá podformula vytvorená binárnou spojkou alebo skratkou $\\lequiv$ uzavretá do príslušného páru zátvoriek!**\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "15": {
+      "id": 15,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne riešenie]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **30 %**]\n\n:::aside{.small}\nAko vyriešime jednotlivé formálne problémy, ktoré ste určili v časti ii?\nPrípustné sú nasledovné spôsoby riešenia:\n* skonštruovanie uzavretého tabla pre vhodnú množinu označených formúl – uveďte akú;\n* nájdenie vhodnej štruktúry/ohodnotenia s požadovanými vlastnosťami – uveďte akými.\n:::\n\n1. …\n2. …\n3. …\n",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "16": {
+      "id": 16,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Interpretácia]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **5 %**]\n\n:small[Aké sú odpovede na dve neformálne otázky zo zadania slovnej úlohy? Ako súvisia s riešeniami formálnych problémov?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "22": {
+      "id": 22,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne výsledky]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **10 %**]\n\n:small[Aké sú výsledky riešenia formálnych logických problémov? Zdôvodnite ich, teda napr. vysvetlite, prečo vaše tablo/štruktúra/ohodnotenie ukazuje, že formula/teória je splniteľná.]\n\n1. …\n2. …\n3. …",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "27": {
+      "id": 27,
+      "type": "text",
+      "data": "## Úloha 3.:cnt[a]\n\n:small[\n:icon[star]{.text-primary} Hodnota: **30 %**\n]\n\nNech $\\Lang$ je ľubovoľný jazyk výrokovologickej časti logiky prvého rádu, kde $\\Preds\\neq\\emptyset$, $T$ je výrokovologická teória a $X$, $Y$ sú výrokovologické formuly v $\\Lang$.\n\n:icon[ui-checks]{.text-primary}\nV textových bunkách nižšie vyznačte `[x]` ku každému tvrdeniu, či je pravdivé alebo nie.\n\n:::aside{.note.p-0.bg-transparent}\n:icon[info] Časti a)–c) sú vzájomne nezávislé. Za každú časť získate:\n* 5 % z celkového hodnotenia tejto domácej úlohy (teda 0,15 boda), ak správne označíte pravdivosť a nepravdivosť _práve 3_ tvrdení v nej;\n* 10 % z celkového hodnotenia tejto domácej úlohy (teda 0,3 boda), ak správne označíte pravdivosť a nepravdivosť _všetkých_ tvrdení v nej.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "28": {
+      "id": 28,
+      "type": "text",
+      "data": "::h3[**:cnt[c]{.a})**]{.h6.float-start.my-0.me-2.lh-base}\n:small[:icon[source] Prednášky: :xref[2.20]{.lec label=\"def.\"}, :xref[2.21]{.lec label=\"def.\"}, :xref[2.26]{.lec label=\"def.\"}, :xref[2.28]{.lec label=\"def.\"}, [sekcia 2.8](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=subsection.2.8), :xref[3.4]{.lec label=\"def.\"}.]\n\nNech $\\Struct = (D,i)$ je ľubovoľná štruktúra pre $\\Lang$. Potom:\n\n:::enum{.i}\n1. Ak $\\Struct\\models X$, tak $X$ je pravdivá v každom výrokovologickom ohodnotení $v$.\n    * [ ] Pravda\n    * [ ] Nepravda\n2. Ak neexistuje výrokovologické ohodnotenie $v$ také, že $v\\pmodels Y$, tak $\\Struct\\nmodels(X\\land Y)$.\n    * [ ] Pravda\n    * [ ] Nepravda\n3. Nech existuje ohodnotenie $v$ také, že $v\\pmodels T$ a $v\\npmodels X$. Potom ak $\\Struct\\models T$, tak $\\Struct\\nmodels X$.\n    * [ ] Pravda\n    * [ ] Nepravda\n4. Ak $\\Struct\\nmodels X$, tak je možné skonštruovať výrokovologické ohodnotenie $v$, ktoré je modelom formuly $(X\\limpl Y)$.\n    * [ ] Pravda\n    * [ ] Nepravda\n:::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "29": {
+      "id": 29,
+      "type": "text",
+      "data": "::h3[**:cnt[c]{.a})**]{.h6.float-start.my-0.me-2.lh-base}\n:small[:icon[source] Prednášky: [sekcia 3.2](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=subsection.3.2).]\n\n:::enum{.i}\n1. Ak existujú ohodnotenia $v_1$ a $v_2$, ktoré sú modelmi teórie $T$, také, že $v_1\\pmodels X$ a $v_2\\npmodels X$, tak $X$ je nezávislá od $T$.\n    * [ ] Pravda\n    * [ ] Nepravda\n2. Nech $T\\pentails X$, potom existuje ohodnotenie $v$ také, že $v\\pmodels X$.\n    * [ ] Pravda\n    * [ ] Nepravda\n3. Ohodnotenie $v$ také, že $v\\pmodels T$ a $v\\pmodels X$, existuje vtedy a len vtedy, keď $T\\pentails X$.\n    * [ ] Pravda\n    * [ ] Nepravda\n4. Ak existuje ohodnotenie $v$ také, že $v\\pmodels A$ pre každú formulu $A \\in T$, ale $v\\npmodels (X\\lor Y)$, tak $X$ nevyplýva z $T$.\n    * [ ] Pravda\n    * [ ] Nepravda\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "30": {
+      "id": 30,
+      "type": "text",
+      "data": "::h3[**:cnt[c]{.a})**]{.h6.float-start.my-0.me-2.lh-base}\n:small[:icon[source] Prednášky: [sekcia 5.2](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=subsection.5.2), :xref[3.7]{.lec label=\"def.\"}.]\n\n:::enum{.i}\n1. Ak neexistuje uzavreté tablo pre množinu označených formúl\n   $\\{\\sign F X\\}$, tak formula $X$ nie je dokázateľná\n   ($\\npproves X$).\n    * [ ] Pravda\n    * [ ] Nepravda\n2. Ak $\\pproves X$, tak každé tablo pre množinu označených formúl $\\{\\sign F X\\}$ je uzavreté.\n    * [ ] Pravda\n    * [ ] Nepravda\n3. Ak existuje uzavreté tablo pre množinu označených formúl\n   $\\{\\,\\sign T A \\mid A \\in T\\,\\} \\cup \\{\\sign F X\\}$,\n   tak $T \\pproves X$.\n    * [ ] Pravda\n    * [ ] Nepravda\n4. Ak existuje ohodnotenie $v$, ktoré je modelom $T$\n   a nie je modelom $X$,\n   tak neexistuje uzavreté tablo pre množinu označených formúl\n   $\\{\\,\\sign T A \\mid A \\in T\\,\\} \\cup \\{\\sign F X\\}$.\n    * [ ] Pravda\n    * [ ] Nepravda\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "38": {
+      "id": 38,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 50,
+          "title": "2025 – Domáca úloha 3.1",
+          "description": "Sformalizujte nasledujúce výroky ako formuly vo vyššie opísanom jazyku výrokovologickej časti logiky prvého rádu.",
+          "constants": "Y",
+          "predicates": "thick/1, thin/1, wool/1, cotton/1, acrylic/1, socks/1, jumper/1, scarf/1, hat/1",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1848,
+              "proposition": "1. Petra si upletie sveter, čiapku, ponožky alebo šál.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1849,
+              "proposition": "2. Priadza je buď hrubá alebo tenká.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1850,
+              "proposition": "3. Priadza je bavlnená, vlnená alebo akrylová, pričom prípustné sú aj zmesi týchto materiálov.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1851,
+              "proposition": "4. Na sveter je potrebná hrubá priadza bez obsahu bavlny (inak by nebol dosť teplý).",
+              "solution": null
+            },
+            {
+              "proposition_id": 1852,
+              "proposition": "5. Vlna \"hryzie\". Takže ak priadza obsahuje vlnu, nehodí sa na šál ani ponožky.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1853,
+              "proposition": "6. Ponožky sa dajú upliesť iba z tenkej priadze.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1854,
+              "proposition": "7. Petra sa oblieka štýlovo a chce, aby jej kúsky navzájom ladili. Preto čiapku si upletie jedine, ak si k nej upletie aj šál. Rovnako šál by si neuplietla bez čiapky.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1855,
+              "proposition": "a. Ak je priadza tenká, tak nie je vlnená.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1856,
+              "proposition": "b. Ak si Petra upletie sveter, nemôže si už upliesť čiapku.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 50
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "39": {
+      "id": 39,
+      "type": "text",
+      "data": ":::aside{.small}\n:icon[tools]\nZa túto bunku vložte vhodné nástroje alebo textové bunky,\nv ktorých vytvoríte formálne riešenia.\n\n:icon[technical]\nAk použijete aplikáciu editor tabiel, ponechajte v ňom predvolené nastavenie sady pravidiel _Basic propositional_.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    2,
+    10,
+    38,
+    6,
+    15,
+    39,
+    22,
+    16,
+    27,
+    28,
+    29,
+    30
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n% Tableaux\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}\n\\newcommand\\Tabl{\\mathcal{T}}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\mathrel{\\NModels_{\\mathrm{p}}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n% Provability %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\proves}{\\vdash}\n\\providecommand{\\nproves}{\\nvdash}\n\n% Propositional\n\\newcommand{\\pproves}{\\proves_{\\mathrm{p}}}\n\\newcommand{\\npproves}{\\nproves_{\\mathrm{p}}}\n"
+  }
+}
