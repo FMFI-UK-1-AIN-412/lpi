@@ -1,0 +1,142 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "2": {
+      "id": 2,
+      "type": "text",
+      "data": "## Cvičenie 6.:cnt[a]\n:small[:icon[source] Zbierka: :xref[4.4.1]{.exbook label=\"úloha\"}.\nPrednášky: :xref[5.33]{.lec label=\"tvrdenie\"} (korektnosť pravidla MP).]\n\nDokážte, že nasledujúce tablové pravidlo je korektné:\n\n$$\n\\begin{array}{c}\n  \\sign T (X \\limpl Y)\\quad\\sign F Y \\\\\n  \\hline\n  \\sign F X\n\\end{array}\n\\tag{MT}\n$$\n\n::h3[:icon[write] Riešenie]{.h6}\n\n::h3[Tvrdenie (Korektnosť pravidla MT).]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\n…\n\n_Dôkaz._\n…\n",
+      "idCounter": 3,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 6. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc06`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc06/teoreticke-ain/tc06.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23\n: Štvrtok o 9:00–9:45 v I-23\n:::\n::::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| <b>T</b>, <b>F</b> | `\\sign{T}`, `\\sign{F}` |  znamienko označenej formuly | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo  | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "4": {
+      "id": 4,
+      "type": "text",
+      "data": "## Cvičenie 6.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.5.1]{.exbook label=\"príklad\"}.]\n\nDokážte alebo vyvráťte nasledujúce tvrdenia:",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "text",
+      "data": "::h3[**c)**]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\nExistujú označené formuly $A^+$ typu $\\alpha$ a $B^+$ typu $\\beta$ také, že $\\alpha_2$ pre $A^+$ je rovnaká ako $\\beta_1$ pre $B^+$.\n\n:small[:icon[source]\nPrednášky: definície :xref[5.7]{.lec label=\"formúl typu α\"} a :xref[5.10]{.lec label=\"formúl typu β\"}.]\n\n::h4[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "6": {
+      "id": 6,
+      "type": "text",
+      "data": "::h3[**d)**]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\nNech $\\pi$ je _uzavretá_ vetva v ľubovoľnom table. Nech $\\beta$, $\\beta_1$, $\\beta_2$ sú označené formuly podľa niektorého $\\beta$ pravidla. Ak sa $\\beta$ nachádza na $\\pi$, tak aj $\\beta_1$ a $\\beta_2$ sa nachádzajú na $\\pi$.\n\n:small[:icon[source]\nPrednášky: definície :xref[5.7]{.lec label=\"formúl typu α\"}, :xref[5.10]{.lec label=\"formúl typu β\"} a :xref[5.15]{.lec label=\"uzavretej vetvy\"}.]\n\n::h4[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "7": {
+      "id": 7,
+      "type": "text",
+      "data": "::h3[**g)**]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\nNech $\\pi$ je _úplná_ a _uzavretá_ vetva v ľubovoľnom table. Nech $\\alpha$, $\\alpha_1$, $\\alpha_2$ sú označené formuly podľa niektorej dvojice $\\alpha$ pravidiel. Nech $\\beta$, $\\beta_1$, $\\beta_2$ sú označené formuly podľa niektorého $\\beta$ pravidla. Ak sa $\\alpha$ a $\\beta$ nachádzajú na $\\pi$, tak aspoň jedna z $\\alpha_1$, $\\beta_1$ sa tiež nachádza na $\\pi$.\n\n:small[:icon[source]\nPrednášky: definície :xref[5.7]{.lec label=\"formúl typu α\"}, :xref[5.10]{.lec label=\"formúl typu β\"}, :xref[5.15]{.lec label=\"uzavretej vetvy\"} a :xref[5.24]{.lec label=\"úplnej vetvy\"}.]\n\n::h4[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "8": {
+      "id": 8,
+      "type": "text",
+      "data": "## Cvičenie 6.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.5.2]{.exbook label=\"príklad\"}.\nPrednášky: definície :xref[3.10]{.lec label=\"nezávislosti\"}, :xref[5.5]{.lec label=\"pravdivosti označenej formuly v ohodnotení\"}, :xref[5.15]{.lec label=\"uzavretej a otvorenej vetvy\"} a :xref[5.24]{.lec label=\"úplnej vetvy\"}.]\n\nDokážte alebo vyvráťte nasledujúce tvrdenie:\n\nNech $S$ je výrokovologická teória a $X$ je výrokovologická formula. Nech $\\Tabl$ je ľubovoľné tablo pre množinu označených formúl $\\setc{\\sign{T} A \\mid A \\in S} \\cup \\sete{ \\sign{F} X }$. Ak je v $\\Tabl$ niektorá vetva úplná otvorená a iná uzavretá,\ntak $X$ je nezávislá od $S$.\n\n::h3[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "text",
+      "data": "## Cvičenie 6.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.4.1]{.exbook label=\"úloha\"}.\nPrednášky: :xref[5.37]{.lec label=\"tvrdenie\"} (korektnosť pravidla rezu).]\n\nDokážte, že nasledujúce tablové pravidlo je korektné:\n\n$$\n\\begin{array}{c}\n  \\sign T (X \\lequiv Y) \\\\\n  \\hline\n  \\sign T (X \\land Y)\\quad|\\quad\\sign F(X \\lor Y)\n\\end{array}\n\\tag{ECDT}\n$$\n\n::h3[:icon[write] Riešenie]{.h6}\n\n::h3[Tvrdenie (Korektnosť pravidla ECDT).]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\n…\n\n_Dôkaz._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "19": {
+      "id": 19,
+      "type": "text",
+      "data": "## Cvičenie 6.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[3.4.5]{.exbook label=\"príklad\"}.]\n\nNech $X$ a $Y$ sú ľubovoľné formuly, nech $T$ je ľubovoľná teória.\nDokážte alebo vyvráťte nasledujúce tvrdenia a) a b).\n\n:::div{.note.bg-transparent.p-0}\n:icon[explanation]\nAk je tvrdenie **pravdivé**, napíšte rigorózny **dôkaz**, aký ste videli na prednáške.\nAk je tvrdenie **nepravdivé**, uveďte **konkrétny protipríklad**\n(zvoľte konkrétny vhodný jazyk, vhodné formuly $X$ a $Y$ aj teóriu $T$).\nNezabudnite, že súčasťou protipríkladu je aj **zdôvodnenie**,\nprečo popiera pôvodné tvrdenie.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": "::h3[**a)**]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\n\nAk $T \\pentails (X \\limpl Y)$,\ntak $T \\npentails X$ alebo $T \\pentails Y$.\n\n::h4[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "text",
+      "data": "::h3[**b)**]{.h6.mt-0.me-2.mb-0.float-start.lh-base}\n\nAk $T \\pentails (X \\limpl Y)$,\ntak $T \\pentails \\neg X$ alebo $T \\pentails Y$.\n\n::h4[:icon[write] Riešenie]{.h6}\n:::aside{.note.bg-transparent.p-0}\n\\* Nehodiace sa zmažte.\n:::\n\nTvrdenie :mark[je/nie je]\\* pravdivé.\n\n_:mark[Dôkaz/Kontrapríklad]\\*._\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "22": {
+      "id": 22,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a body môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n\n4. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du04](../../du04/teoreticke-ain/du04.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 6. 4. 2025 o 23:59:59\n     :::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    3,
+    22,
+    2,
+    18,
+    19,
+    20,
+    21,
+    8,
+    4,
+    5,
+    6,
+    7
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n% Sets\n\\newcommand{\\sete}[1]{\\{#1\\}} % enumerated\n\\newcommand{\\setc}[1]{\\{\\,#1\\,\\}} % comprehended\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n% Tableaux\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
