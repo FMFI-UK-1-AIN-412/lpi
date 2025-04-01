@@ -1,0 +1,249 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 5. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 13. 4. 2025 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: 3 body\n: Pri každej úlohe uvádzame jej percentuálny podiel na základnom bodovom hodnotení.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du05`\n: :strong[[:icon[arrow-clockwise] Otvoriť túto úlohu v správnej vetve](../../du05/teoreticke-ain/du05.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Určite uložte posledné zmeny pred odovzdaním!**\n\n:icon[submission] Odovzdanie\n: Vytvorte pull request (PR)\n    - z vetvy `du05` v repozitári `‹váš_github_login›/lpi25-‹váš_uniba_login›`\n    - do vetvy `du05` v repozitári `FMFI-UK-1-AIN-412/lpi25-‹váš_uniba_login›`.\n    \n    Správne vytvorený PR nájdete v [zozname PR pre du05](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu05).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **30 %** · :icon[source] Zbierka: :xref[5.3.13]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte nižšie uvedené výroky ako ucelenú teóriu $T = \\{A_1, \\ldots, A_{10}\\}$\nv danom jazyku $\\Lang$.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol            | Zamýšľaný význam |\n|-------------------------------|------------------|\n| department($x$)             | $x$ je katedra  |\n| faculty($x$)                | $x$ je fakulta  |\n| university($x$)             | $x$ je univerzita  |\n| date($x$)                   | $x$ je dátum  |\n| office($x$)                 | $x$ je kancelária  |\n| classroom($x$)              | $x$ je učebňa  |\n| part_of($x$,$y$)            | $x$ je súčasťou $y$ |\n| located_in($x$,$y$)         | $x$ má sídlo/nachádza sa v (mieste) $y$ |\n| dean_of($x$,$y$)            | $x$ je dekanom $y$ |\n| employee($x$,$y$)           | $x$ je zamestnancom $y$ |\n| occupies($x$,$y$)           | $x$ sedí v (miestnosti) $y$ |\n| fun_period($x$,$y$,$z$,$w$) | $x$ je dekanom $y$ vo funkčnom období od $z$ do $w$|\n\n\n\n:::",
+      "idCounter": 5,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "28": {
+      "id": 28,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n:small[\n:icon[star]{.text-primary} Hodnota: **30 %** ·\n:icon[source] Zdroj:\n[7. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.7).\n]",
+      "idCounter": 5,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "29": {
+      "id": 29,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **10 %** \n]\n\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu,\nkde $\\Consts = \\{\\sym{one}\\}$, $\\Preds = \\{\\asym{1}{P},\\asym{1}{Q},\\asym{2}{R}\\}$\na $\\Vars = \\{\\vx, \\vy, \\vz, \\ldots\\}$.\n\nNech $\\Struct = (D,i)$ je štruktúra pre $\\Lang$, kde\n\n$\\quad\\begin{aligned}\nD &= \\setc{ n \\in \\N \\mid n < 24 },\\\\\ni(\\sym{one}) &= 1,\\\\\ni(\\sym{P}) &= \\setc{ 2n \\in D \\mid n \\in D },\\\\\ni(\\sym{Q}) &= \\setc{ 3n+4 \\in D \\mid n \\in D },\\\\\ni(\\sym{R}) &= \\setc{ (k,n) \\in D^2 \\mid k \\text{ delí } n }.\n\\end{aligned}$\n\nNech $e$ je ľubovoľné ohodnotenie indivíduových premenných jazyka $\\Lang$.\n\nV nasledujúcej bunke:\n* Vymenujte všetky prvky množiny\n  $X_1 = \\setc{ n \\in D \\mid \\Struct \\models A_1[e(\\vx/n)] }$,    \n  kde $A_1 = \\bigl(\\sQ(\\vx) \\land \\A{\\vy}\\bigl(\\sym{R}(\\vy,\\vx) \\limpl (\\vy \\doteq \\sym{one} \\lor \\sP(\\vy))\\bigr)\\bigr)$.\n\n* Zapíšte pomocou splnenia vhodnej formuly pri ohodnotení množinu    \n  $X_2 = \\sete{ 4, 10, 16, 22 }$.\n\n* Vymenujte všetky prvky množiny   \n  $X_3 = \\setc{ (m,n) \\in D^2 \\mid \\Struct \\models A_3 [e(\\vx/m)(\\vy/n)] }$,     \n  kde $A_3 = \\bigl( \\sR(\\vx,\\vy) \\land \\sQ(\\vy) \\land \\lnot\\sP(\\vy)\\bigr)$.\n\n* Zapíšte pomocou splnenia vhodnej formuly pri ohodnotení množinu    \n  $X_4 = \\sete{ (4,0),(4,8),(4,12),(4,20),(10,0),(10,20),(16,0),(22,0) }$.\n\n:::aside{.note.p-0.bg-transparent}\n:icon[help]\nVymenujte si prvky $i(\\sQ)$.\n\n:icon[warning]\nPrvky domény ani aritmetické operácie **nie sú súčasťou jazyka**, preto nemôžu byť priamo súčasťou formúl. Jazyk nerozširujte.\n\n:icon[warning]\n**Nepoužite** iné premenné ako $\\vx$, $\\vy$, $\\vz$.\n\n:icon[warning]\nPočet čiarok v pripravených vymenovaniach množín $X_1$ a $X_3$ **ne**naznačuje počet prvkov.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "30": {
+      "id": 30,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **10 %**\n]\n\nSprávne doplňte definície na miestach vyznačených „:mark[…]“ resp. „:mark[$…$]“.\nNie vždy postačuje jedno slovo alebo symbol.\n\n:::aside{.note.p-0.bg-transparent}\n:icon[technical] Zachovajte značky `:mark[]`.\n:::\n\n::h4[Definícia 1.]{.h6.float-start.my-0.me-2.lh-base}\n_Symbolmi jazyka $\\Lang$ relačnej logiky prvého rádu_ sú:\n* _indivíduové premenné_ z nejakej :mark[…] množiny $\\Vars$;\n* _:mark[…] symboly_, ktorými sú:\n    * _indivíduové konštanty_\n      z nejakej:mark[…] množiny\n      :mark[$\\mathcal{…}_\\Lang$],\n    * _:mark[…] symboly_\n      z nejakej :mark[…] množiny\n      :mark[$\\mathcal{…}_\\Lang$];\n* _:mark[…] symboly_, ktorými sú:\n    * :mark[…] $\\lnot$ (unárna), $\\land$, $\\lor$, $\\limpl$ (binárne),\n    * :mark[…] $\\doteq$,\n    * :mark[…] $\\forall$ a $\\exists$;\n* _:mark[…] symboly_, ktorými sú $($, $)$, a $,$ (ľavá a pravá zátvorka a čiarka).\n\nMnožiny $\\Vars$, $\\Consts$ a $\\Preds$ sú :mark[…].\n:mark[…] symboly sa nevyskytujú v symboloch z $\\Vars$, $\\Consts$ a $\\Preds$.\n\nKaždému symbolu :mark[$… \\in \\mathcal{…}_\\Lang$]\nje priradená _:mark[…]_\n:mark[$\\mathrm{…}_\\Lang(…) \\in …$].\n\n\n::h4[Definícia 2.]{.h6.float-start.my-0.me-2.lh-base}\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu.\n\n* _:mark[…]_ jazyka $\\Lang$\n  je každá postupnosť symbolov $t_1 \\doteq t_2$,\n  kde $t_1$ a $t_2$ sú termy jazyka $\\Lang$.\n* _Predikátový atóm_ jazyka $\\Lang$\n  je každá postupnosť symbolov :mark[…].\n\n_:mark[…]_\n(skrátene _:mark[…]_) jazyka $\\Lang$\nsúhrnne nazývame všetky :mark[…]\njazyka $\\Lang$.\n\nMnožinu :mark[…]\njazyka $\\Lang$ označujeme :mark[$\\mathcal{…}_\\Lang$].\n\n\n::h4[Definícia 3.]{.h6.float-start.my-0.me-2.lh-base}\nMnožina $\\Forms$ všetkých :mark[…]\njazyka relačnej logiky prvého rádu $\\Lang$\nje :mark[…] jazyka $\\Lang$,\nktorá spĺňa všetky nasledujúce podmienky:\n* :mark[$\\Atoms … \\Forms$].\n* Ak $A \\in \\Forms$,\n  tak :mark[…].\n* Ak $A, B \\in \\Forms$,\n  tak :mark[…].\n* Ak :mark[…]\n  a $A \\in \\Forms$,\n  tak :mark[…].\n\nKaždý prvok $A \\in \\Forms$ nazývame\n_:mark[…]_ jazyka $\\Lang$.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "32": {
+      "id": 32,
+      "type": "text",
+      "data": "::h3[:icon[ui-checks]{.text-primary} :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **5 %** \n]\n\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu,\nkde $\\Preds = \\{\\asym{1}{P},\\asym{1}{Q},\\asym{2}{R}\\}$.\n\nNech $\\Struct = (\\N,i)$ je štruktúra pre $\\Lang$, kde\n\n$\\quad\\begin{aligned}\ni(\\sym{P}) &= \\setc{ 2n \\mid n \\in \\N },\\\\\ni(\\sym{Q}) &= \\setc{ 3n+4 \\mid n \\in \\N },\\\\\ni(\\sym{R}) &= \\setc{ (k,n) \\in \\N^2 \\mid k \\text{ delí } n }\n\\end{aligned}$\n\n(teda $i(\\sym{P}) = \\sete{0, 2, 4, \\ldots}$,\n$i(\\sym{Q}) = \\sete{4, 7, 10, \\ldots}$)\na napr. $(3,6) \\in i(\\sym{R})$, $(4,7) \\notin i(\\sym{R})$).\n\nNech $e$ je ľubovoľné ohodnotenie indivíduových premenných jazyka $\\Lang$ a $x$, $y$ sú dve rôzne indivíduové premenné tohto jazyka.\n\nZ nasledujúcich prípadov označte `[x]` práve tie, ktoré sú pravdivé:\n:::enum{.i}\n* [ ]  $\\Struct \\models (\\sym{P}(\\vx)\\limpl\\sym{Q}(\\vx))\\,[e(\\vx/10)(\\vy/9)]$\n* [ ]  $\\Struct \\models \\bigl(\\sym{P}(\\vx)\\limpl(\\sym{Q}(\\vy) \\land \\sym{R}(\\vx,\\vy))\\bigr)\\,[e(\\vx/5)(\\vy/13)]$\n* [ ]  $\\Struct \\models \\A{\\vx}(\\sym{P}(\\vx)\\limpl\\sym{R}(\\vx,\\vy))\\,[e(\\vx/4)(\\vy/16)]$\n* [ ]  $\\Struct \\models \\bigl(\\sym{P}(\\vx) \\limpl \\E{\\vy}(\\sym{Q}(\\vy) \\land \\sym{R}(\\vx,\\vy))\\bigr)\\,[e(\\vx/2)(\\vy/23)]$\n* [ ]  Žiadna z uvedených formúl nie je splnená v $\\Struct$ pri príslušnom ohodnotení.\n:::\n\n:::aside{.note.p-0.bg-transparent}\n:icon[explanation]\nInterpretácie predikátov sme zadefinovali pomocou\nštandardných aritmetických operácií na prirodzených číslach $\\N$ (vrátane $0$).\nPre $k$, $n \\in \\N$ je vzťah <dfn>$k$ delí $n$</dfn>\ntiež definovaný štandardne:\nexistuje $q \\in \\N$ také, že $k \\TIMES q = n$.\n\n:icon[warning]\nUvedomte si, že:\n* $k$ delí $0$ pre každé $k\\in\\N$ (lebo $k\\TIMES 0 = 0$),\n* $0$ delí $n$ iba pre $n=0$ (lebo $0\\TIMES q = 0$),\n* $k$ delí $1$ iba pre $k=1$ (lebo $k\\TIMES q = 1$ iba pre $k = q = 1$),\n* $1$ delí $n$ pre každé $n\\in\\N$ (lebo $1 \\TIMES n = n$).\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "33": {
+      "id": 33,
+      "type": "text",
+      "data": "::h3[:icon[ui-checks]{.text-primary} :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **5 %**\n]\n\nZ nasledujúcich prípadov označte `[x]` práve tie, ktoré sú pravdivé:\n\n:::enum{.i}\n* [ ] Premenná $\\vx$ má vo formule $\\A{\\vy}(\\E{\\vx}\\sR(\\vx,\\vy) \\limpl (\\sR(\\vy,\\vx) \\land \\sP(\\vy)))$ voľný výskyt.\n* [ ] Premenná $\\vy$ nemá vo formule $(\\sP(\\vy) \\lor \\E{\\vx}(\\lnot\\A{\\vy}\\sR(\\vx,\\vy) \\land \\sR(\\vy,\\vx)))$ viazaný výskyt.\n* [ ] Premenná $\\vy$ je vo formule $(\\sP(\\vy) \\lor \\E{\\vx}(\\lnot\\A{\\vy}\\sR(\\vx,\\vy) \\land \\sR(\\vy,\\vx)))$ voľná.\n* [ ] Premenná $\\vy$ je vo formule $(\\sP(\\vy) \\lor \\E{\\vx}(\\lnot\\A{\\vy}\\sR(\\vx,\\vy) \\land \\sR(\\vy,\\vx)))$ viazaná.\n* [ ] Ani jedna z vyššie uvedených možností nie je pravdivá.\n:::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "35": {
+      "id": 35,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **40 %** · :icon[source] Zbierka: :xref[5.4.12]{.exbook label=\"úloha\"}.]\n\nErvín sa v časopise Quark dočítal, že:\n\n1. Iba Schrödingerova mačka môže byť živá a mŕtva zároveň.  \n2. Každá Schrödingerova mačka je v nejakej škatuli.\n3. Každá mačka pradie a nič iné nepradie.\n\nUsúdil, že potom musí byť pravda:\n\n:::enum{.a}\n24. Ak neexistuje žiadna škatuľa, tak nič Schrödingerovo nepradie.  \n25. Ak je nejaká mačka živá a nejaká mŕtva, tak niečo Schrödingerovo pradie.  \n:::\n\nSú jednotlivé Ervínove závery správne?",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "39": {
+      "id": 39,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne problémy]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **6 %**]\n\n:::aside{.small}\nAké formálne logické problémy musíme vyriešiť, aby sme overili správnosť záverov x) a y)?\nNapr. splniteľnosť ktorej konkrétnej formuly/teórie, tautologickosť ktorej konkrétnej formuly, ekvivalencia ktorých konkrétnych formúl, vyplývanie/nezávislosť ktorej konkrétnej formuly z/od ktorej konkrétnej teórie, atď.\n\n:icon[help] Závery sú 2 a každému zodpovedá jeden logický problém.\n**Navyše** všetky závery ovplyvňuje **ďalší** dôležitý logický problém,\nktorý musíme vyriešiť ako prvý. Nižšie ho označujeme w).\n\n:icon[warning] Nerozširujte jazyk $\\Lang$.\nFormálne logické problémy sa dajú sformulovať na účely tejto úlohy\ndostatočne presne využitím iba existujúcich predikátov a konštanty.\n:::\n\nw) …\n\nx) …\n\ny) …\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "40": {
+      "id": 40,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.i}. Formalizácia]{.h5}\n\nVýroky sformalizujeme ako teóriu $T = \\{A_1, A_2, A_3\\}$\na závery ako formuly $X$ a $Y$\nv jazyku $\\Lang$ relačnej logiky prvého rádu,\nkde $\\Preds=\\{\\sym{cat}^1$, $\\sym{dead}^1$, $\\sym{alive}^1$, $\\sym{schroedinger}^1$, $\\sym{box}^1$, $\\sym{in}^2$, $\\sym{purrs}^1\\}$ a $\\Consts=\\emptyset$, pričom:\n\n$A_1 = \\A{\\vx}\\bigl(\\sym{cat}(\\vx)\\limpl((\\sym{dead}(\\vx)\\land\\sym{alive}(\\vx))\\limpl \\sym{schroedinger}(\\vx))\\bigr)$  \n$A_2 = \\A{\\vx}\\bigl((\\sym{cat}(\\vx)\\land\\sym{schroedinger}(\\vx))\\limpl\\E{\\vy}(\\sym{box}(\\vy)\\land\\sym{in}(\\vx,\\vy))\\bigr)$  \n$A_3 = \\A{\\vx}(\\sym{cat}(\\vx)\\lequiv\\sym{purrs}(\\vx))$\n\n\n$X = \\bigl(\\lnot\\E{\\vx}\\sym{box}(\\vx)\\limpl\\A{\\vx}(\\sym{schroedinger}(\\vx)\\limpl\\lnot\\sym{purrs}(\\vx))\\bigr)$  \n$Y = \\bigl((\\E{\\vx}(\\sym{cat}(\\vx)\\land\\sym{alive}(\\vx))\\land\\E{\\vx}(\\sym{cat}(\\vx)\\land\\sym{dead}(\\vx)))\\limpl\\E{\\vx}(\\sym{schroedinger}(\\vx)\\land\\sym{purrs}(\\vx))\\bigr)$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "41": {
+      "id": 41,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne riešenie]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **24 %**]\n\n:::aside{.small}\nAko vyriešime jednotlivé formálne problémy, ktoré ste určili v časti ii?\nPrípustné sú nasledovné spôsoby riešenia:\n* skonštruovanie uzavretého tabla pre vhodnú množinu označených formúl – uveďte akú;\n* nájdenie vhodnej štruktúry s požadovanými vlastnosťami – uveďte akými.\n:::\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "42": {
+      "id": 42,
+      "type": "text",
+      "data": ":::aside{.small}\n:icon[tools]\nZa túto bunku vložte vhodné nástroje alebo textové bunky,\nv ktorých vytvoríte formálne riešenia.\n\n:icon[technical]\nAk použijete aplikáciu editor tabiel, zvoľte sadu pravidiel _Basic FOL_ a \nčo najviac využite korektné výrokovologické pravidlá (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n\n:icon[help]\nV prípade dokazovania vyplývania si najprv premyslite,\nprečo formula vyplýva, a následne tablom sledujte svoju úvahu.\nPravidlá pre kvantifikátory používajte, iba keď sú naozaj potrebné.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "43": {
+      "id": 43,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne výsledky]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **6 %**]\n\n:small[Aké sú výsledky riešenia formálnych logických problémov? Zdôvodnite ich, teda vysvetlite, prečo vaše tablo/štruktúra/ohodnotenie ukazuje, že formula/teória je (ne)splniteľná/(ne)vyplýva z teórie a pod.]\n\nw) …\n\nx) …\n\ny) …\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "44": {
+      "id": 44,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Interpretácia]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **4 %**]\n\n:small[Aké sú odpovede na dve neformálne otázky zo zadania slovnej úlohy? Ako súvisia s riešeniami formálnych problémov?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "45": {
+      "id": 45,
+      "type": "text",
+      "data": "::h4[:icon[write] Riešenie.]{.h6}\n\n$X_1 = \\sete{…,…}$\n\n$X_2 = \\setc{ … \\in … \\mid \\Struct \\models A_2 […] }$,    \nkde $A_2 = …$.\n\n$X_3 = \\sete{…,…}$\n\n$X_4 = \\setc{ … \\in … \\mid \\Struct \\models A_4 […] }$,    \nkde $A_4 = …$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "51": {
+      "id": 51,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 52,
+          "title": "2025 – Domáca úloha 5.1",
+          "description": "Sformalizujte nasledujúce tvrdenia ako ucelenú teóriu v danom jazyku logiky prvého rádu.",
+          "constants": "FMFI, UK_BA, Bratislava",
+          "predicates": "department/1, faculty/1, university/1, date/1, office/1, classroom/1, part_of/2, located_in/2, dean_of/2, employee/2, occupies/2, fun_period/4",
+          "functions": "",
+          "constraints": "\\A x (\n  faculty(FMFI) & university(UK_BA) & \\E y located_in(y,Bratislava)\n& (department(x) → -faculty(x))\n& (department(x) ∨ faculty(x) → -university(x))\n& (department(x) ∨ faculty(x) ∨ university(x) → -classroom(x))\n& (department(x) ∨ faculty(x) ∨ university(x) ∨ classroom(x) → -office(x) )\n& (department(x) ∨ faculty(x) ∨ university(x) ∨ classroom(x) ∨ office(x) → -date(x) )\n& (department(x) ∨ faculty(x) ∨ university(x) ∨ classroom(x) ∨ office(x) ∨ date(x) → -\\E y located_in(y,x) )\n& (department(x) ∨ faculty(x) ∨ university(x) ∨ classroom(x) ∨ office(x) ∨ date(x) ∨ \\E y located_in(y,x) → -\\E y(employee(x,y) ∨ dean_of(x,y) ∨ occupies(x,y)))\n)",
+          "propositions": [
+            {
+              "proposition_id": 1938,
+              "proposition": "1. FMFI je fakulta, ktorá je súčasťou univerzity UK_BA a sídli v Bratislave.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1939,
+              "proposition": "2. Fakulty majú svoje sídlo.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1940,
+              "proposition": "3. Každá katedra je súčasťou nejakej fakulty a každá fakulta zas nejakej univerzity. ",
+              "solution": null
+            },
+            {
+              "proposition_id": 1941,
+              "proposition": "4. Dekanom fakulty je iba ten, kto má na príslušnej fakulte funkčné obdobie s nejakým začiatočným a koncovým dátumom.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1942,
+              "proposition": "5. Žiadna fakulta nemá viac ako jedného dekana.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1943,
+              "proposition": "6. Pre nejakú univerzitu platí, že všetky učebne a kancelárie, ktoré sú jej súčasťou, sa nachádzajú v Bratislave.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1944,
+              "proposition": "7. Niektorí zamestnanci jednej fakulty sú zamestnancami aj inej.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1945,
+              "proposition": "8. Zamestnanci fakulty sú zamestnancami práve tých univerzít, ktorých súčasťou je táto fakulta.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1946,
+              "proposition": "9. UK_BA má práve dve sídla.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1947,
+              "proposition": "10. Ak niekto sedí v aspoň dvoch kanceláriách, každá z nich je súčasťou inej fakulty.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 52
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    3,
+    51,
+    35,
+    40,
+    39,
+    41,
+    42,
+    43,
+    44,
+    28,
+    30,
+    33,
+    32,
+    29,
+    45
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n\\newcommand{\\alertcolor}{\\color{#dc3545}}\n\\newcommand{\\alertsymbol}[1]{{\\alertcolor\\boldsymbol{#1}}}\n\\newcommand{\\alertrel}[1]{\\mathrel{\\alertcolor\\boldsymbol{#1}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n% Sets\n\\newcommand{\\sete}[1]{\\{#1\\}} % enumerated\n\\newcommand{\\setc}[1]{\\{\\,#1\\,\\}} % comprehended\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\\newcommand\\sP{\\sym{P}}\n\\newcommand\\sQ{\\sym{Q}}\n\\newcommand\\sR{\\sym{R}}\n\\newcommand\\sS{\\sym{S}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\\providecommand{\\prop}{{\\mathrm{p}}}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\alertnEquiv}{\\alertrel{\\nEquiv}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\\newcommand{\\alertnentails}{\\alertrel{\\nentails}}\n\\newcommand{\\proves}{\\vdash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_\\prop}\n\\newcommand{\\npmodels}{\\NModels_\\prop}\n\\newcommand{\\pEquiv}{\\Equiv_\\prop}\n\\newcommand{\\npEquiv}{\\nEquiv_\\prop}\n\\newcommand{\\alertnpEquiv}{\\alertrel{\\npEquiv}}\n\\newcommand{\\pentails}{\\entails_\\prop}\n\\newcommand{\\npentails}{\\nentails_\\prop}\n\\newcommand{\\alertnpentails}{\\alertrel{\\npentails}}\n\\newcommand{\\pproves}{\\proves_\\prop}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n% Tableaux %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
