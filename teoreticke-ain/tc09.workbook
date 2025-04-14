@@ -1,0 +1,396 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 9. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc09`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc09/teoreticke-ain/tc09.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača, odchodom na inú stránku a odovzdaním!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23\n: Štvrtok o 9:00–9:45 v I-23\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": "## :icon[homework] Cvičenie 9.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.1.4]{.exbook label=\"úloha\"}.]\n\n::h3[:cnt[d]{.i}. Formalizácia]{.h5}\n\n:icon[tools] Pomocou aplikácie Formalization Checker sformalizujte nižšie uvedené tvrdenia v zadanom jazyku $\\Lang$ logiky prvého rádu \ns funkčnými symbolmi a s rovnosťou.\n\nZamýšľanou doménou sú prvky šachovnice, t.j. figúrky, políčka a ich riadkové a stĺpcové indexy.\nZamýšľaný význam predikátových a funkčných symbolov je:\n\n:::::div{.row}\n::::div{.col-md-7}\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol   | Zamýšľaný význam           |\n|----------------------|----------------------------|\n| piece($x$)           | $x$ je figúrka             |\n| square($x$)          | $x$ je políčko             |\n| rook($x$)            | $x$ je veža                |\n| king($x$)            | $x$ je kráľ                |\n| check($x$)           | $x$ je v šachu             |\n| number($x$)          | $x$ je číslo               |\n| letter($x$)          | $x$ je písmeno             |\n| may\\_take($x$, $y$)  | (figúrka) $x$ môže zobrať (figúrku) $y$   |\n| may\\_enter($x$, $y$) | $x$ sa môže posunúť na $y$ |\n| neighbour($x$, $y$)  | (objekt) $x$ je susedom (objektu) $y$   |\n:::\n::::\n::::div{.col-md-5}\n:::div{.table.table-intended-meaning.small}\n| Funkčný symbol | Zamýšľaný význam     |\n|----------------|----------------------|\n| on($x$)        | to, na čom $x$ stojí |\n| row($x$)       | riadok (políčka) $x$ |\n| col($x$)       | stĺpec (políčka) $x$ |\n| clr($x$)       | farba, ktorú má $x$  |\n:::\n::::\n:::::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "text",
+      "data": "::h3[:cnt[d]{.i}. Štruktúra]{.h5}\n\n:icon[tools] Pomocou aplikácie Structure explorer\nnájdite model sformalizovanej teórie,\nktorým dokážete, že táto teória je splniteľná.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help]\nNie je cieľom namodelovať skutočnú šachovnicu 8×8 so všetkými figúrkami.\n\nNa druhej strane, aby bol model prehľadný, vytvorte ho tak,\naby boli interpretácie predikátov $\\sym{piece}$, $\\sym{square}$, $\\sym{number}$, $\\sym{letter}$\na množina $\\{i(\\sym{white}), i(\\sym{black})\\}$\nvzájomne po dvojiciach disjunktné (hoci to formuly požadujú iba čiastočne).\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "7": {
+      "id": 7,
+      "type": "text",
+      "data": "## Cvičenie 9.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.4.1]{.exbook label=\"úloha\"}.]\n\nPomocou tabiel pre logiku prvého rádu dokážte:\n\n:::enum{.a}\n1. $\\{ \\vx \\doteq \\vy \\} \\entails \\vy \\doteq \\vx$\n2. $\n  \\{ \\vx \\doteq \\vy,\n    \\sym{parent}(\\sym{mother}(\\vv),\\vx),\n    \\lnot\\sym{parent}(\\sym{mother}(\\vw),\\vy) \\}\n    \\entails \\vw \\not\\doteq \\vv\n  $\n\n:::div{.note.bg-transparent.p-0}\n:icon[technical]\nV editore tabiel vyberte sadu pravidiel **Propositional with equality**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "9": {
+      "id": 9,
+      "type": "text",
+      "data": "## :icon[homework] Cvičenie 9.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.4.2]{.exbook label=\"úloha\"}.]\n\nNasledujúci úsudok môže pôsobiť prekvapujúco:\n\n:::blockquote{.ms-4.fst-italic}\nKaždý sa bojí Drakulu.    \nDrakula sa bojí iba mňa.\n\nTakže som Drakula.\n:::\n\nDokážte pomocou tabiel, že je správny.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "text",
+      "data": "## Cvičenie 9.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.4.5]{.exbook label=\"úloha\"}.]\n\nV logike prvého rádu sformalizujte:\n\n:::blockquote{.fst-italic.ms-4}\n::span[Tvrdenie 1.]{.h6.float-start.lh-base.my-0.me-2.fst-normal}\nNech $P$ je neprázdna množina. Nech $f \\colon P \\to Q$ a $g \\colon Q \\to R$ sú zobrazenia a nech ich zloženie $(f \\circ g)$ je surjektívne zobrazenie. Potom aj $f$ je surjektívne.\n:::\n\n:::blockquote{.fst-italic.ms-4}\n::span[Tvrdenie 2.]{.h6.float-start.lh-base.my-0.me-2.fst-normal}\nNech $P$ je neprázdna množina. Nech $f \\colon P \\to Q$ a $g \\colon Q \\to R$ sú zobrazenia a nech ich zloženie $(f \\circ g)$ je surjektívne zobrazenie. Potom aj $g$ je surjektívne.\n:::\n\nNásledne svoje formalizácie dokážte tablom alebo vyvráťte nájdením štruktúry, ktorá je kontrapríkladom.\n\n:::aside{.note.bg-white.p-0}\n:icon[help] Množiny $P$, $Q$, $R$ môžeme v logike prvého rádu\nsformalizovať unárnymi predikátmi $\\sym{P}$, $\\sym{Q}$, $\\sym{R}$.\nNamiesto $x \\in Y$ budeme písať $\\sym{Y}(x)$. \n\nZobrazenia môžeme sformalizovať funkčnými symbolmi\n$\\sym{f}$ a $\\sym{g}$.\n\nPri takejto formalizácii operáciu zloženia $\\circ$ v logike prvého rádu priamo sformalizovať nevieme.\nVlastnosti zloženia konkrétnych zobrazení však ľahko vyjadríme tak,\nže namiesto $(f \\circ g)(x)$ v nich budeme písať $\\sym{g}(\\sym{f}(x))$.\n:::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "22": {
+      "id": 22,
+      "type": "text",
+      "data": "::h4[:icon[write] 1.]{.h6.lh-base.float-start.my-0.me-2}\nVyplýva $\\mathrm{S}[f]$ z $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\}$? Prečo?\n\n:::aside{.note.p-0.bg-transparent}\nVysvetlite: Pre akú množinu označených formúl ste skonštruovali tablo a akú má tablo vlastnosť,\nresp. aký vzťah má štruktúra k teórii $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\}$ a k formule $\\mathrm{S}[f]$?\nAko to súvisí s vyplývaním?\n:::\n\n…\n\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "29": {
+      "id": 29,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formalizácia]{.h5}\n\n:icon[tools]\nV jazyku $\\Lang$ s $\\Consts = \\emptyset$,\n$\\Preds = \\{ \\asym{1}{P}, \\asym{1}{Q}, \\asym{1}{R} \\}$\na $\\Funcs = \\{ \\asym{1}{f}, \\asym{1}{g} \\}$\nsformalizujte pomocou aplikácie formalization checker nasledujúce výroky ako formuly $\\mathrm{Im}[f]$, $\\mathrm{Im}[g]$, $\\mathrm{S}[f]$, $\\mathrm{S}[g]$, $\\mathrm{S}[f \\circ g]$, $\\mathrm{NE}[P]$:\n\n:::div{.dl-indented.dl-inset}\n$\\mathrm{Im}[f]$:\n: Obraz množiny $P$ v zobrazení $f$ je podmnožinou $Q$    \n  (t.j.,\n  obraz každého prvku množiny $P$ v zobrazení $f$ je prvkom množiny $Q$).\n\n$\\mathrm{Im}[g]$:\n: Obraz množiny $Q$ v zobrazení $g$ je podmnožinou $R$    \n  (t.j.,\n  obraz každého prvku množiny $Q$ v zobrazení $g$ je prvkom množiny $R$).\n\n$\\mathrm{S}[f]$:\n: $f$ je surjektívne zobrazenie z $P$ na $Q$    \n  (t.j., pre každý prvok množiny $Q$ platí,\n  že $f$ naň zobrazí nejaký prvok množiny $P$).\n\n$\\mathrm{S}[g]$:\n: $g$ je surjektívne zobrazenie z $Q$ na $R$    \n  (t.j., pre každý prvok množiny $R$ platí, že $g$ naň zobrazí nejaký prvok množiny $Q$).\n\n$\\mathrm{S}[f \\circ g]$:\n: Zložené zobrazenie $f \\circ g$ je surjektívnym zobrazením z $P$ na $R$    \n  (t.j., pre každý prvok množiny $R$ platí, že $f \\circ g$ naň zobrazí nejaký prvok množiny $P$).\n\n$\\mathrm{NE}[P]$:\n: $P$ je neprázdna množina.\n:::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "30": {
+      "id": 30,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formálne riešenie]{.h5}\n\n:icon[tools]\nDokážte (v aplikácii Tableau editor)\nalebo vyvráťte (v aplikácii Structure explorer), že:\n\n1. $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\} \\entails \\mathrm{S}[f]$\n\n2. $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\} \\entails \\mathrm{S}[g]$\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\nPrácu s logickými spojkami si zjednodušte využitím korektných výrokovologických pravidiel (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "38": {
+      "id": 38,
+      "type": "text",
+      "data": "::h4[:icon[write] 2.]{.h6.lh-base.float-start.my-0.me-2}\nVyplýva $\\mathrm{S}[g]$ z $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\}$? Prečo?\n\n:::aside{.note.p-0.bg-transparent}\nVysvetlite: Pre akú množinu označených formúl ste skonštruovali tablo a akú má tablo vlastnosť,\nresp. aký vzťah má štruktúra k teórii $\\{\\mathrm{NE}[P], \\mathrm{Im}[f], \\mathrm{Im}[g], \\mathrm{S}[f\\circ g]\\}$ a k formule $\\mathrm{S}[g]$?\nAko to súvisí s vyplývaním?\n:::\n\n…\n\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "52": {
+      "id": 52,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formálne závery]{.h5}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "53": {
+      "id": 53,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Interpretácia]{.h5}\n\nPlatí Tvrdenie 1 zo zadania tohto cvičenia?\n\n…\n\nPlatí Tvrdenie 2 zo zadania tohto cvičenia?\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "54": {
+      "id": 54,
+      "type": "text",
+      "data": "## Cvičenie 9.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.3.1]{.exbook label=\"úloha\"}.]\n\nNasledujúce vyplývania, nevyplývania a platné ekvivalencie\nukazujú základné pozorovania o interakcii funkčných symbolov s kvantifikátormi.\n\nPreštudujte si ich na cvičeniach a dokážte doma.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "61": {
+      "id": 61,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 41,
+          "title": "2024 – 9 – Šach",
+          "description": "Sformalizujte nasledujúce tvrdenia o šachovnici v uvedenom jazyku logiky prvého rádu.",
+          "constants": "white, black",
+          "predicates": "piece/1, square/1, number/1, letter/1, may_take/2, neighbour/2, rook/1, may_enter/2, king/1, check/1",
+          "functions": "on/1, row/1, col/1, clr/1",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1697,
+              "proposition": "1. Figúrky stoja na políčkach. Králi a veže sú figúrky.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1698,
+              "proposition": "2. Riadok políčka je číslo a stĺpec políčka je písmeno.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1699,
+              "proposition": "3. Pre každú dvojicu čísla a písmena existuje políčko, ktorého riadok má toto číslo a stĺpec toto písmeno.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1700,
+              "proposition": "4. Figúrky a políčka majú bielu alebo čiernu farbu.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1701,
+              "proposition": "5. Na jednom políčku môže stáť najviac jedna figúrka.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1702,
+              "proposition": "6. Figúrka nemôže zobrať figúrku rovnakej farby.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1703,
+              "proposition": "7. Susedné políčka s rovnakým riadkom alebo stĺpcom majú rozdielnu farbu.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1704,
+              "proposition": "8. Veža sa môže posunúť iba na políčko, ktoré má rovnaký riadok alebo stĺpec ako jej políčko, no nie je to jej políčko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1705,
+              "proposition": "9. Kráľ je v šachu, ak sa nejaká figúrka inej farby môže presunúť na jeho políčko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1706,
+              "proposition": "10. Figúrka sa môže presunúť na políčko s inou figúrkou iba vtedy, keď ju môže zobrať.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1707,
+              "proposition": "11. Na nejakom políčku stojí nejaký kráľ a na toto políčko sa môže presunúť nejaká veža. Je aj také políčko, na ktorom nestojí žiadna figúrka.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1708,
+              "proposition": "12. Figúrky a políčka sú navzájom disjunktné.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 41
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "63": {
+      "id": 63,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 42,
+          "title": "2024 – 9 – Drakula",
+          "description": "Sformalizujte nasledujúce tvrdenia v uvedenom jazyku logiky prvého rádu.",
+          "constants": "Dracula, me",
+          "predicates": "fears/2",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1714,
+              "proposition": "1. Každý sa bojí Drakulu.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1715,
+              "proposition": "2. Drakula sa bojí iba mňa.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1716,
+              "proposition": "3. Takže som Drakula",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 42
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "64": {
+      "id": 64,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Vlastnosti oboru hodnôt funkcie]{.h5}\n\nAk majú všetky objekty vlastnosť $A$, potom ju má aj obraz každého objektu vo funkcii $f$:\n:::enum{.i}\n1. $\\{\\A x A(x)\\} \\entails \\A x A(f(x))$\n:::\nAk $f$ zobrazí nejaký objekt na objekt s vlastnosťou $A$, tak existuje objekt s touto vlastnosťou:\n:::enum{.i}\n2. $\\{\\E x A(f(x))\\} \\entails \\E x A(x)$\n:::\n\nSamozrejme, ani jedno z pozorovaní i, ii vo všeobecnosti neplatí naopak, lebo obor hodnôt funkcie môže byť vlastnou podmnožinou domény:\n:::enum{.i}\n3. $\\{\\A x A(f(x))\\} \\emphnentails \\A x A(x)$\n4. $\\{\\E x A(x)\\} \\emphnentails \\E x A(f(x))$\n:::\n\n:icon[homework]\n:icon[tools]\nDokážte vyplývania i a ii pomocou tabiel\na nevyplývania iii a iv nájdením príslušnej štruktúry.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "65": {
+      "id": 65,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Dôsledky existencie a jednoznačnosti]{.h5}\n\n_Hodnota funkcie vždy existuje a je jednoznačne určená._\nPreto ju môžeme v ľubovoľnej formule $A$ ekvivalentne použiť priamo,\nale aj prostredníctvom všeobecnej aj existenčnej kvantifikácie:\n:::enum{.i}\n1. $\\entails \\bigl(\\A y(f(x) \\doteq y \\limpl A(y)) \\lequiv A(f(x))\\bigr)$\n2. $\\entails \\bigl(\\E y(f(x) \\doteq y \\land A(y)) \\lequiv A(f(x))\\bigr)$\n:::\nTeda napríklad výrok „Niekoho matka je riaditeľka“ môžeme sformalizovať ktoroukoľvek z nasledujúcich formúl:\n\n:::div{.dl-indented}\n:icon[hand-thumbs-up-fill]{.text-success.mx-2}$\\E \\vx \\sym{director}(\\sym{mother}(\\vx))$\n: „Niekoho matka je riaditeľka.“ (Najjednoduchšia a najvernejšia formalizácia.)\n\n:icon[hand-thumbs-down-fill]{.text-warning.mx-2}$\\E\\vx\\A \\vy(\\sym{mother}(\\vx) \\doteq \\vy \\limpl \\sym{director}(\\vy))$\n: „Existuje niekto, koho _každá_ matka je riaditeľka.“\n\n:icon[hand-thumbs-down-fill]{.text-warning.mx-2}$\\E\\vx\\E \\vy(\\sym{mother}(\\vx) \\doteq \\vy \\land \\sym{director}(\\vy))$\n: „Existuje niekto, koho _niektorá_ matka je riaditeľka.“\n:::\nDruhá a tretia formalizácia sú zbytočne komplikované.\n\n:icon[homework]\n:icon[tools]\nDokážte platnosť ekvivalencií i a ii pomocou tabiel.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "66": {
+      "id": 66,
+      "type": "text",
+      "data": "::h3[:cnt[e]{.i}. Formalizácia]{.h5}\n\n:icon[tools]\nSformalizujte úsudok pomocou aplikácie Formalization checker.\n\nPoužite jazyk logiky prvého rádu $\\Lang$,\nkde $\\Consts = \\{ \\sym{Dracula}, \\sym{me} \\}$,\n$\\Funcs = \\emptyset$ a $\\Preds=\\{\\sym{fears}^2\\}$, pričom zamýšľaný význam predikátu $\\sym{fears}(x,y)$ je :i[$x$ sa bojí $y$-a].\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "67": {
+      "id": 67,
+      "type": "text",
+      "data": "::h3[:cnt[e]{.i}. Formálne riešenie]{.h5}\n\n:icon[tools]\nPomocou editora tabiel, ktorý vložite ako nasledujúcu bunku, dokážte,\nže z prvých dvoch formúl vyplýva tretia.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Basic FOL**.\nPrácu s logickými spojkami si zjednodušte využitím korektných výrokovologických pravidiel (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "68": {
+      "id": 68,
+      "type": "text",
+      "data": "::h3[:cnt[e]{.i}. Formálny záver a interpretácia]{.h5}\n\n:icon[write]\n:small[Vyplýva tretia formula z prvých dvoch?\nPrečo to dokazuje vaše tablo?\nJe neformálny úsudok zo zadania správny?]\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "69": {
+      "id": 69,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a body môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n\n6. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du06](../../du06/teoreticke-ain/du06.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 20. 4. 2025 o 23:59:59\n     :::\n::::\n\n## :icon[pencil-square]{.text-primary} 2. test\n\n::::div{.dl-indented}\n:icon[deadline] Termín\n: utorok **29. 4. 2025 od 18:10**\n: Príďte 5 minút vopred\n\n:icon[geo-alt-fill]{.text-primary} Miesto\n: Posluchárne A a B\n::::\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "70": {
+      "id": 70,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 56,
+          "title": "2025 – 9 – Surjektivita",
+          "description": "Sformalizujte nasledujúce výroky o zobrazeniach 𝑓 a 𝑔 a množinách 𝑃, 𝑄 a 𝑅 v uvedenom jazyku logiky prvého rádu.",
+          "constants": "",
+          "predicates": "P/1, Q/1, R/1",
+          "functions": "f/1, g/1",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 2068,
+              "proposition": "Im[𝑓]: Obraz množiny 𝑃 v zobrazení 𝑓 je podmnožinou 𝑄.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2069,
+              "proposition": "Im[𝑔]: Obraz množiny 𝑄 v zobrazení 𝑔 je podmnožinou 𝑅.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2070,
+              "proposition": "S[𝑓]: 𝑓 je surjektívne zobrazenie z 𝑃 na 𝑄.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2071,
+              "proposition": "S[𝑔]: 𝑔 je surjektívne zobrazenie z 𝑄 na 𝑅.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2072,
+              "proposition": "S[𝑓∘𝑔]: Zložené zobrazenie 𝑓∘𝑔 je surjektívne zobrazenie z 𝑃 na 𝑅.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2073,
+              "proposition": "NE[𝑃]: 𝑃 je neprázdna množina.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 56
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    69,
+    7,
+    54,
+    64,
+    65,
+    18,
+    29,
+    70,
+    30,
+    52,
+    22,
+    38,
+    53,
+    3,
+    61,
+    5,
+    9,
+    66,
+    63,
+    67,
+    68
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2\\ \\mkern-4.5mu}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\syma}[2]{\\text{\\textsf{#1}$^#2$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n\\newcommand\\emphrel[1]{\\mathrel{\\color{crimson}\\boldsymbol#1}}\n\\newcommand\\emphnEquiv{\\emphrel{\\nEquiv}}\n\\newcommand\\emphnentails{\\emphrel{\\nentails}}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n\\newcommand{\\XZ}{\\sym{pet}}\n\\newcommand{\\XC}{\\sym{human}}\n\\newcommand{\\XK}{\\sym{feeds}}\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
