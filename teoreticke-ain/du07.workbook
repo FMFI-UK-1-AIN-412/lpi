@@ -1,0 +1,279 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 7. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 18. 5. 2025 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: 3 body\n: Pri každej úlohe uvádzame jej percentuálny podiel na základnom bodovom hodnotení.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du07`\n: :strong[[:icon[arrow-clockwise] Otvoriť túto úlohu v správnej vetve](../../du07/teoreticke-ain/du07.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Určite uložte posledné zmeny pred odovzdaním!**\n\n:icon[submission] Odovzdanie\n: Vytvorte pull request (PR)\n    - z vetvy `du07` v repozitári `‹váš_github_login›/lpi25-‹váš_uniba_login›`\n    - do vetvy `du07` v repozitári `FMFI-UK-1-AIN-412/lpi25-‹váš_uniba_login›`.\n    \n    Správne vytvorený PR nájdete v [zozname PR pre du07](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu07).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "2": {
+      "id": 2,
+      "type": "text",
+      "data": "## Úloha 7.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **21 %** · :icon[source] Zbierka: :xref[6.5.4]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte nižšie uvedené výroky ako ucelenú teóriu $T = \\{A_1, \\ldots, A_{7}\\}$\nv danom jazyku $\\Lang$.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::::div{.row}\n::::div{.col-md-7}\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol            | Zamýšľaný význam |\n|-------------------------------|------------------|\n| airport($x$)              | $x$ je letisko  |\n| flight($x$,$y$,$z$)       | $x$ je let z miesta $y$ do miesta $z$  |\n| international_flight($x$) | $x$ je medzinárodný let  |\n| international_airport($x$)| $x$ je medzinárodné letisko  |\n| dir_connected($x$,$y$)    | $x$ a $y$ sú priamo prepojené |\n| island($x$)               | $x$ je ostrov/ostrovný  |\n| at($x$,$y$)               | $x$ sa nachádza na $y$ |\n:::\n::::\n::::div{.col-md-5}\n:::div{.table.table-intended-meaning.small}\n| Funkčný symbol | Zamýšľaný význam     |\n|----------------|----------------------|\n| state($x$)     | štát/krajina, v ktorej sa $x$ nachádza|\n| plane_type($x$)| typ lietadla, ktoré lieta letom $x$ |\n| location($x$)  | poloha $x$ |\n| dep_time($x$)  | odletový čas letu $x$  |\n:::\n::::\n:::::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": "## Úloha 7.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **25 %**]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "4": {
+      "id": 4,
+      "type": "text",
+      "data": "## Úloha 7.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **34 %** · :icon[source] Zbierka: :xref[7.3.3]{.exbook label=\"úloha\"}.]\n\nNech $\\Lang$ je jazyk logiky prvého rádu,\nkde $\\Consts = \\{\\sym{a}$, $\\sym{b}$, $\\sym{c}$, $\\sym{E7} \\}$,\n$\\Preds = \\{\n  \\sym{spoj}^3, \\sym{el}^2, \\sym{bus}^2\n\\}$,\n$\\Funcs = \\{\n  \\sym{B}^2, \\sym{prestup}^2\n\\}$\na ostatné použité symboly začínajúce malým písmenom sú indivíduové premenné.\n\nUvažujme klauzálnu teóriu\nv jazyku $\\Lang$:\n$$\n\\begin{align*}\n  T = \\bigl\\{\\,\n      & \\lnot\\sym{el}(\\vx,\\vy) \\lor \\sym{el}(\\vy,\\vx) \n      ,\\\\\n      & \\lnot\\sym{el}(\\vx,\\vy) \\lor \\sym{spoj}(\\vx,\\vy,\\sym{E7})\n      ,\\\\\n      & \\lnot\\sym{bus}(\\vx,\\vy) \\lor \\sym{spoj}(\\vx,\\vy,\\sym{B}(\\vx,\\vy))\n      ,\\\\\n      & \\lnot\\sym{spoj}(\\vx,\\vy, \\vs_1) \\lor \\lnot\\sym{spoj}(\\vy,\\vz, \\vs_2) \\lor \\sym{spoj}(\\vx,\\vz, \\sym{prestup}(\\vs_1,\\vs_2))\n    \\,\\bigr\\}\n  \\\\\n\\end{align*}\n$$\na formulu\n$$\n  X = \n    \\bigl(\\bigl(\\sym{bus}(\\sym{a},\\sym{b})\\land\\E{\\vx}(\\sym{el}(\\sym{b},\\vx)\\land\\sym{el}(\\sym{c},\\vx))\\bigr)\\limpl\\E{\\vx}\\sym{spoj}(\\sym{a},\\sym{c},\\vx)\\bigr)\n  \\,.\n$$\n\nDokážte pomocou rezolvencie, že $T\\entails X$.\n\n::::::aside{.note.p-0.bg-transparent}\n:icon[help]\n**Pomôcka.** Aby ste získali intuitívnejšiu predstavu o význame klauzúl z teórie $T$,\n  predstavte si ich ako implikácie a symboly interpretujte napr. takto:\n:::::div{.row}\n::::div{.col-md-6}\n:::div{.table.table-intended-meaning.small}\n| Predikát. sym.      | Zamýšľaný význam |\n|---------------------|------------------|\n| $\\sym{spoj}(x,y,s)$ | dá sa cestovať z $x$ do $y$ spojením $s$  |\n| $\\sym{el}(x,y)$     | dá sa cestovať električkou z $x$ do $y$ |\n| $\\sym{bus}(x,y)$    | dá sa cestovať autobusom z $x$ do $y$  |\n:::\n::::\n::::div{.col-md-6}\n:::div{.table.table-intended-meaning.small}\n| Indiv. konšt. / Funkčný sym. | Zamýšľaný význam     |\n|----------------------|----------------------|\n| $\\sym{E7}$           | električka číslo 7   |\n| $\\sym{a}$, $\\sym{b}$, $\\sym{c}$ | konkrétne zastávky |\n| $\\sym{B}(x,y)$       | autobus z $x$ do $y$ |\n| $\\sym{prestup}(x,y)$ | spojenie tvorené spojeniami $x$ a $y$ a prestupom medzi nimi |\n:::\n::::\n:::::\n::::::",
+      "idCounter": 4,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"a, b, c, E7 (pridajte prípadné skolemovské konštanty a zmažte túto zátvorku)\",\"object\":[\"a\",\"b\",\"c\",\"E7\",\"pridajte\"],\"error\":{\"message\":\"Expected \\\",\\\" or end of input but \\\"(\\\" found.\",\"expected\":[{\"type\":\"literal\",\"text\":\",\",\"ignoreCase\":false},{\"type\":\"end\"}],\"found\":\"(\",\"location\":{\"start\":{\"offset\":12,\"line\":1,\"column\":13},\"end\":{\"offset\":13,\"line\":1,\"column\":14}},\"name\":\"SyntaxError\"},\"symbols\":[\"a\",\"b\",\"c\",\"E7\",\"pridajte\"]},\"funs\":{\"input\":\"B/2, prestup/2 (pridajte prípadné skolemovské funkcie a zmažte túto zátvorku)\",\"object\":[[\"B\",2],[\"prestup\",2]],\"error\":{\"message\":\"Expected \\\",\\\" or end of input but \\\"(\\\" found.\",\"expected\":[{\"type\":\"literal\",\"text\":\",\",\"ignoreCase\":false},{\"type\":\"end\"}],\"found\":\"(\",\"location\":{\"start\":{\"offset\":15,\"line\":1,\"column\":16},\"end\":{\"offset\":16,\"line\":1,\"column\":17}},\"name\":\"SyntaxError\"},\"symbols\":[{\"name\":\"B\",\"arity\":2},{\"name\":\"prestup\",\"arity\":2}]},\"preds\":{\"input\":\"el/2, spoj/3, bus/2\",\"object\":[[\"el\",2],[\"spoj\",3],[\"bus\",2]],\"error\":\"\",\"symbols\":[{\"name\":\"el\",\"arity\":2},{\"name\":\"spoj\",\"arity\":3},{\"name\":\"bus\",\"arity\":2}]}},\"steps\":{\"order\":[7,0,1,2,5],\"allSteps\":[[0,{\"formula\":{\"input\":\"¬el(x, y) ∨ spoj(x, y, E7)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"el\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]},{\"neg\":false,\"name\":\"spoj\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"},{\"name\":\"E7\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[1,{\"formula\":{\"input\":\"¬bus(x, y) ∨ spoj(x, y, B(x, y))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"bus\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]},{\"neg\":false,\"name\":\"spoj\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"},{\"name\":\"B\",\"subts\":[{\"name\":\"x\"},{\"name\":\"y\"}]}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[2,{\"formula\":{\"input\":\"¬spoj(x, y, s1) ∨ ¬spoj(y, z, s2) ∨ spoj(x, z, prestup(s1, s2))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"spoj\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"},{\"name\":\"s1\"}]},{\"neg\":true,\"name\":\"spoj\",\"terms\":[{\"name\":\"y\"},{\"name\":\"z\"},{\"name\":\"s2\"}]},{\"neg\":false,\"name\":\"spoj\",\"terms\":[{\"name\":\"x\"},{\"name\":\"z\"},{\"name\":\"prestup\",\"subts\":[{\"name\":\"s1\"},{\"name\":\"s2\"}]}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[5,{\"formula\":{\"input\":\"Pridajte ďalšie klauzuly z T''\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"bus\",\"terms\":[{\"name\":\"a\"},{\"name\":\"b\"}]}],\"litsMultiset\":null},\"error\":{\"message\":\"Expected \\\"(\\\", empty clause symbol, negation symbol, or predicate symbol but \\\"P\\\" found.\",\"expected\":[{\"type\":\"other\",\"description\":\"empty clause symbol\"},{\"type\":\"other\",\"description\":\"negation symbol\"},{\"type\":\"other\",\"description\":\"predicate symbol\"},{\"type\":\"literal\",\"text\":\"(\",\"ignoreCase\":false}],\"found\":\"P\",\"location\":{\"start\":{\"offset\":0,\"line\":1,\"column\":1},\"end\":{\"offset\":1,\"line\":1,\"column\":2}},\"name\":\"SyntaxError\"}},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":false}],[7,{\"formula\":{\"input\":\"¬el(x, y) ∨ el(y, x)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"el\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]},{\"neg\":false,\"name\":\"el\",\"terms\":[{\"name\":\"y\"},{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}]],\"rank\":[[0,1],[1,2],[2,3],[5,4],[7,0]],\"id\":17,\"verdict\":false},\"inputChange\":{\"originValue\":\"¬spoj(x, y, s1) ∨ ¬spoj(y, z, s2) ∨ spoj(x, z, prestup(s1,s2))\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "8": {
+      "id": 8,
+      "type": "text",
+      "data": "::h3[:icon[write] i. Úprava na ekvisplniteľnú klauzálnu teóriu]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **5 %**]\n\nO akej teórii musíme zistiť, že je nesplniteľná,\naby sme vyriešili formálny problém, či $T \\entails X$?\n\n$T' = \\mark{…}$\n\nUpravte teóriu $T'$ potrebnú na vyriešenie formálneho problému\nna ekvisplniteľnú klauzálnu teóriu $T''$, aby ste problém mohli riešiť rezolvenciou.\n\n…\n\n:::aside{.note.p-0.bg-transparent}\n:icon[help] **Pomôcky.**\n* Teória $T'$ je vhodnou kombináciou teórie $T$ a formuly $X$.\n* Teória $T''$ je zjednotením teórie $T$ a množiny klauzúl,\n  ktoré vzniknú úpravou tej časti $T'$, ktorá je odvodená od formuly $X$.\n  Upravovať stačí túto druhú časť, pretože teória $T$ už je v klauzálnom tvare.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "9": {
+      "id": 9,
+      "type": "text",
+      "data": "::h3[:icon[write] iii. Záver]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **4 %**]\n\n:small[Vyslovte jasný záver o (ne)vyplývaní $X$ z teórie $T$.\nVysvetlite, ako ste k tomuto záveru dospeli pomocou rezolvencie:\nAkú význačnú vlastnosť má rezolvenčné odvodenie?\nAko súvisí klauzálna teória $T''$, pre ktorú ste odvodenie skonštruovali,\ns teóriou $T'$ a s problémom (ne)vyplývania $X$ z $T$?]\n\n...",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "11": {
+      "id": 11,
+      "type": "text",
+      "data": "::h3[:icon[tools] ii. Rezolvenčné zamietnutie]{.h5}\n:small[:icon[star]{.text-primary} Hodnota: **25 %**]\n\nNájdite rezolvenčné zamietnutie pre klauzálnu teóriu z predošlej časti pomocou aplikácie Resolution editor.\n\n:::aside{.note.p-0.bg-transparent}\n:icon[warning]\n**Upozornenie.**\n* Nezabudnite, že po vhodnej úprave formuly $X$ potrebujete **pridať novovzniknuté skolemovské konštanty a funkcie** do jazyka.\n* Aplikácia Resolution editor vás upozorní na chýbajúce funkcie, no chýbajúce konštanty interpretuje, akoby to boli premenné. **Pre konštanty však platia v unifikácii iné pravidlá, než pre premenné.** Nájdené zamietnutie potom nemusí byť správne.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "13": {
+      "id": 13,
+      "type": "text",
+      "data": "## Úloha 7.:cnt[a]\n\n:small[:icon[star]{.text-primary} Hodnota: **20 %** · :icon[source] Zbierka: :xref[7.2.2]{.exbook label=\"úloha\"}.]\n\nMajme teóriu $T=\\{A_1,\\dots,A_3\\}$ v jazyku $\\Lang$ logiky prvého rádu\ns $\\Consts = \\{\\sym{d}\\}$,\n$\\Funcs = \\emptyset$, \n$\\Preds=\\{\\sym{A}^2, \\sym{B}^1, \\sym{C}^2\\}$, kde:\n\n$$\n\\begin{align*}\n  A_1 &= \\A{\\vx}\\bigl(\\sym{B}(\\vx)\\limpl\\bigl(\\E{\\vy}\\sym{A}(\\vx,\\vy)\\lor\\E{\\vy}\\sym{C}(\\vy,\\vx)\\bigr)\\bigr),\n  \\\\\n  A_2 &= \\bigl(\\A{\\vx}\\bigl(\\sym{A}(\\sym{d},\\vx)\\limpl\\E{\\vy}\\sym{B}(\\vy)\\bigr)\\limpl\\sym{B}(\\sym{d})\\bigr),\n  \\\\\n  A_3 &= \\A{\\vx}\\bigl(\\sym{C}(\\vx,\\vx)\\limpl\\A{\\vy}\\bigl(\\sym{A}(\\vx,\\vy)\\limpl\\E{\\vz}\\sym{B}(\\vz)\\bigr)\\bigr)\n  \\,.\n\\end{align*}\n$$\n\nUpravte $T$ na ekvisplniteľnú klauzálnu teóriu $T' = \\bigcup_{i=1}^3 T'_i$\nvo vhodnom rozšírení $\\Lang'$ jazyka $\\Lang$ o skolemovské konštanty a funkcie.\n\n*  Explicitne zapíšte rozšírený jazyk $\\Lang'$.\n*  Pre každú formulu $A_i$, $i = 1$, ..., $3$,\n    zapíšte s ňou ekvisplniteľnú množinu klauzúl $T'_i$.\n* Zapíšte aj kľúčové medzivýsledky úprav\n    (NNF, premenovanie premenných, skolemizáciu, PNF).\n    Medzivýsledok nemusíte písať,\n    ak sa podstatne nelíši od pôvodnej formuly\n    alebo predchádzajúceho medzivýsledku.",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "15": {
+      "id": 15,
+      "type": "text",
+      "data": "::h3[:icon[write] Úprava $T$ do klauzálnej teórie]{.h5}\n\n:h5[$\\boldsymbol{A_1}$]{.h6}\n\nNNF:\n$…$\n\nPremenovanie premenných:\n$…$\n\n…\n\n$T'_1=...$\n\n:h5[$\\boldsymbol{A_2}$]{.h6}\n\n…\n\n$T'_2=...$\n\n:h5[$\\boldsymbol{A_3}$]{.h6}\n\n…\n\n$T'_3=...$\n\n$\\Lang'$:  \n$\\mathcal{C}_{\\Lang'}=...$,  \n$\\mathcal{F}_{\\Lang'}=...$,  \n$\\mathcal{P}_{\\Lang'}=...$\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "16": {
+      "id": 16,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **10 %** ·\n:icon[source] Zdroj:\n[7. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.7).\n]\n\nZadefinujte neštandardný **jazyk relačnej logiky prvého rádu so spojkou $\\lnor$ (NOR) a kvantifikátorom ${\\leq}1$ (najviac jeden)** _namiesto_ klasických spojok a kvantifikátorov.\n\nNapr. postupnosť symbolov\n${\\leq}1 x(P(x)\\lnor {\\leq}1 y((x \\doteq y \\lnor x \\doteq y) \\lnor R(x,y)))$\nby mala byť formulou v jazyku $\\Lang$, ktorý zadefinujete,\nak $\\Preds = \\{P,R\\}$, $\\arity_\\Lang(P) = 1$, $\\arity_\\Lang(R) = 2$.\n\nZamýšľaný význam neštandardných symbolov je:\n* Formula $(A \\lnor B)$ je splnená\n  vtt je splnená klasická formula $\\lnot(A \\lor B)$.\n* Formula ${\\leq}1 x\\,A$ je splnená\n  vtt $A$ je splnená pre najviac jeden prvok domény.\n\nSprávne doplňte definície na miestach vyznačených „:mark[…]“ resp. „$\\mark{…}$“.\n\n:::aside{.note.p-0.bg-transparent}\n:icon[explanation]\nVo vami zadefinovanom jazyku **nemajú byť** klasické spojky ani kvantifikátory.\n\n:icon[help] Vynechané časti doplňte **podobne**\nako v štandardných definíciách.\n**Nie vždy** postačuje jedno slovo alebo symbol.\n\n:icon[warning]\n**Zachovajte** značky `:mark[]` a `$\\mark{…}$`.\n\n:icon[technical]\nNeštandardnú spojku $\\lnor$ v $\\TeX$u zapisujeme `\\lnor`.\nNeštandardný kvantifikátor ${\\leq}1$ zapisujeme `{\\leq}1`.\n\n:icon[info] Ako táto úloha súvisí s doplňovacími úlohami z `du05` a `du06` a ako sa od nich líši?\n* V tejto úlohe sa zaoberáme **neštandardným** logickým jazykom,\n  ktorý sa ale veľmi podobá na štandardné jazyky logiky prvého rádu,\n  ktorými sme sa zaoberali na tomto predmete.\n* Pre zjednodušenie je tento jazyk **relačný**,\n  teda **neobsahuje funkčné symboly**.\n* Vyberáme definície **syntaxe**\n  (pravidiel konštrukcie termov a formúl ako v `du05`\n  a def. 1 v `du06`)\n  **aj sémantiky** (významu ako def. 2–5 v `du06`) tohto neštandardného jazyka.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "17": {
+      "id": 17,
+      "type": "text",
+      "data": "::h4[:icon[write] Definícia :cnt[d].]{.h6.float-start.my-0.me-2.lh-base}\n_Symbolmi jazyka $\\Lang$ relačnej logiky prvého rádu so spojkou $\\lnor$ a kvantifikátorom ${\\leq}1$_ sú:\n* _indivíduové premenné_ z nejakej :mark[…] množiny $\\Vars$;\n* _:mark[…] symboly_, ktorými sú:\n    * _indivíduové konštanty_\n      z nejakej:mark[…] množiny\n      :mark[$\\mathcal{…}_\\Lang$],\n    * _:mark[…] symboly_\n      z nejakej :mark[…] množiny\n      :mark[$\\mathcal{…}_\\Lang$];\n* _:mark[…] symboly_, ktorými sú:\n    * :mark[…] $\\lnor$ (binárna),\n    * :mark[…] $\\doteq$,\n    * :mark[…] ${\\leq}1$;\n* _:mark[…] symboly_, ktorými sú $($, $)$, a $,$ (ľavá a pravá zátvorka a čiarka).\n\nMnožiny $\\Vars$, $\\Consts$ a $\\Preds$ sú :mark[…].\n:mark[…] symboly sa nevyskytujú v symboloch z $\\Vars$, $\\Consts$ a $\\Preds$.\n\nKaždému symbolu :mark[$… \\in \\mathcal{…}_\\Lang$]\nje priradená _:mark[…]_\n:mark[$\\mathrm{…}_\\Lang(…) \\in …$].\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "text",
+      "data": ":icon[info]\nV ďalších definíciách predpokladajte,\nže sme na tomto mieste **štandardne zadefinovali**:\n* _termy_ jazyka $\\Lang$ a ich množinu $\\Terms$ (:xref[7.3]{.lec label=\"def.\"}),\n* _predikátové atómy_, _rovnostné atómy_ a _atómy_ jazyka $\\Lang$\n  a ich množinu $\\Atoms$ (:xref[7.4]{.lec label=\"def.\"}).",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "19": {
+      "id": 19,
+      "type": "text",
+      "data": "::h4[:icon[write] Definícia :cnt[d].]{.h6.float-start.my-0.me-2.lh-base}\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu\nso spojkou $\\lnor$ a kvantifikátorom ${\\leq}1$ $\\Lang$.\n\n_Množina $\\Forms$ všetkých formúl jazyka $\\Lang$_\nje :mark[…] jazyka $\\Lang$,\nktorá spĺňa všetky nasledujúce podmienky:\n* :mark[$\\Atoms … \\Forms$].\n* Ak $A, B \\in \\Forms$,\n  tak :mark[…].\n* Ak :mark[…]\n  a $A \\in \\Forms$,\n  tak :mark[…].\n\nKaždý prvok $A \\in \\Forms$ nazývame\n_:mark[…]_ jazyka $\\Lang$.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": ":icon[info]\nV nasledujúcej definícii predpokladajte,\nže sme na tomto mieste **štandardne zadefinovali** pojmy:\n* _štruktúra_ pre jazyk $\\Lang$ (:xref[7.19]{.lec label=\"def.\"}),\n* _ohodnotenie premenných_ pre jazyk $\\Lang$ a štruktúru $\\Struct$ (:xref[7.21]{.lec label=\"def.\"}),\n* _hodnota $t^\\Struct[e]$ termu_ $t$ jazyka $\\Lang$ v štruktúre $\\Struct$ pri ohodnotení $e$ (:xref[7.22]{.lec label=\"def.\"}).\n\n:::aside{.note.p-0.bg-transparent}\n:icon[help]\nVýznam spojky $\\lnor$ a kvantifikátora ${\\leq}1$ vyjadrite\npodobne ako v :xref[7.23]{.lec label=\"def.\"} pomocou:\n* **(ne)splnenia priamych podformúl** („$\\Struct \\models B […e…]$“, „$\\Struct \\nmodels A […e…]$“, …)\n* **štandardných spojok** v **prirodzenom** jazyku („a“, „alebo“),\n* **rovnosti** prvkov domény,\n* **existenčnej či všeobecnej kvantifikácie** cez prvky domény\n  v **prirodzenom** jazyku („pre nejaké $d_1, d_2 \\in D$“,\n  „pre všetky $d \\in D$“, a pod.).\n\n**Nepoužite symboly** $\\land$, $\\lor$, $\\lnot$, $\\forall$, $\\exists$.\n\n:icon[warning]\nNa rozdiel od klasických kvantifikátorov sa na (ne)splnenie\npriamej podformuly nestačí pýtať iba pre jedno modifikované ohodnotenie.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "text",
+      "data": "::h4[:icon[write] Definícia :cnt[d].]{.h6.float-start.my-0.me-2.lh-base}\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu\nso spojkou $\\lnor$ a kvantifikátorom ${\\leq}1$ $\\Lang$.\nNech $\\Struct = (D,i)$\nje štruktúra pre $\\Lang$, $e$ je ohodnotenie premenných.\n\nRelácia :dfn[štruktúra $\\Struct$ :mark[…] formulu $X$\npri ohodnotení $e$] (skrátene $\\Struct\\models X[e]$)\nmá nasledovnú induktívnu definíciu:\n* $\\Struct\\models t_1 \\doteq t_2[e]$ vtt\n  :mark[$…$],\n* $\\Struct\\models P(t_1,\\dots,t_n)[e]$ vtt\n  :mark[$…$],\n* $\\Struct\\models ( A \\lnor B )[e]$ vtt\n  :mark[$… A …$ … $… B …$],\n* $\\Struct\\models {\\leq}1x\\,A\\,[e]$\n  vtt :mark[… $… A …$ …].\n\npre všetky arity $n>0$,\nvšetky predikátové symboly $P$ s aritou $n$,\nvšetky :mark[…] $t_1$, $t_2$, …, $t_n$,\nvšetky premenné $x$\na všetky formuly $A$, $B$ jazyka $\\Lang$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "22": {
+      "id": 22,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **5 %** ·\n:icon[source] Zdroj:\n[10. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.10) – [kapitola 15](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=section.15).\n]\n\nNech $c$ a $d$ sú indivíduové konštanty, $P^2$ je predikátový symbol,\n$f^1$ a $g^2$ funkčné symboly\na nech $w$, $x$, $y$ a $z$ sú navzájom rôzne indivíduové premenné jazyka $\\Lang$.\n\nZ nasledujúcich prípadov označte `[x]` práve tie,\nv ktorých sú uvedené atómy unifikovateľné.\nAk sú atómy unifikovateľné,\ndoplňte ich najvšeobecnejší unifikátor.\n\n* [ ] Atómy $P(c,x)$ a $P(x,d)$ sú unifikovateľné.     \n    Ich najvšeobecnejším unifikátorom je substitúcia :mark[$\\{… \\mapsto …, …\\}$].\n* [ ] Atómy $P(c,x)$ a $P(x,y)$ sú unifikovateľné.     \n    Ich najvšeobecnejším unifikátorom je substitúcia :mark[$\\{… \\mapsto …, …\\}$].\n* [ ] Atómy $P(f(x),y)$ a $P(y,x)$ sú unifikovateľné.     \n    Ich najvšeobecnejším unifikátorom je substitúcia :mark[$\\{… \\mapsto …, …\\}$].\n* [ ] Atómy $P(x,g(z,x))$ a $P(f(c),g(w,f(y)))$ sú unifikovateľné.     \n    Ich najvšeobecnejším unifikátorom je substitúcia :mark[$\\{… \\mapsto …, …\\}$].\n* [ ] Žiadna z uvedených dvojíc atómov nie je unifikovateľná.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "23": {
+      "id": 23,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **5 %** ·\n:icon[source] Zdroj:\n[9. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.9) –\n:xref[10.9]{.lec label=\"dohoda\"},\n[kapitola 11](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=section.11).\n]\n\nUrčte, ktorého z typov $\\alpha$, $\\beta$, $\\gamma$, $\\delta$\nsú nasledujúce označené formuly.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical] Vnútri `:mark[$…$]` ponechajte iba správny typ, ostatné zmažte.\n\n:icon[explanation] Typ je _vždy_ určený jednoznačne (nie len v tejto úlohe).\n\n:icon[warning] Vo formulách sme vynechali zátvorky podľa :xref[10.9]{.lec label=\"dohody\"}.\n:::\n\n:::enum{.i}\n1. $\\sign F \\A{x} R(c,x) \\limpl \\E{y} R(y,c)$:\n   :mark[$\\alpha/\\beta/\\gamma/\\delta$]\n2. $\\sign T \\A{x}(R(c,x) \\limpl R(x,c))$:\n   :mark[$\\alpha/\\beta/\\gamma/\\delta$]\n3. $\\sign F \\E{x} P(x) \\land \\A{y}(P(y) \\limpl R(c,y))$:\n   :mark[$\\alpha/\\beta/\\gamma/\\delta$]\n4. $\\sign T \\E{x}(P(x) \\land \\A{y}(P(y) \\limpl R(y,x)))$:\n   :mark[$\\alpha/\\beta/\\gamma/\\delta$]\n5. $\\sign F \\lnot\\A{x}(\\E{y}(P(y) \\land \\lnot R(x,y)) \\lor \\lnot\\E{y}(\\lnot P(y) \\land R(x,y)))$:\n   :mark[$\\alpha/\\beta/\\gamma/\\delta$]\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "24": {
+      "id": 24,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base}\n:small[\n:icon[star]{.text-primary} Hodnota: **5 %** ·\n:icon[source] Prednášky: [podkapitola 8.1](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=subsection.8.1),\n:xref[13.4]{.lec label=\"tvrdenie\"}.\nZbierka: :xref[3.4.5]{.exbook label=\"príklad\"}.\n]\n\nZ nasledujúcich tvrdení označte `[x]` práve tie,\nktoré sú pravdivé.\n\n* [ ] :cnt[e]{.i}. Nech $T$ je teória v nejakom jazyku logiky prvého rádu\n  a nech $X$ je formula tohto jazyka.\n  Ak všetky formuly v $T$ sú platné a $T \\entails X$,\n  tak $X$ je platná.\n* [ ] :cnt[e]{.i}. Nech $S^+$ je ľubovoľná množina označených prvorádových formúl\n  (napríklad z vetvy tabla), $A$ je ľubovoľná formula\n  a $\\tau$ je ľubovoľný term substituovateľný za $x$ v $A$.\n  Nech $\\sign{T} \\A{x} A \\in S^+$.\n  Potom ak $S^+$ je splniteľná, tak\n  $S^+ \\cup \\{\\,\\sign{T}A\\{x \\mapsto \\tau\\}\\,\\}$ je splniteľná.\n* [ ] :cnt[e]{.i}. Nech $T$ je teória v nejakom jazyku logiky prvého rádu\n  a nech $X$ a $Y$ sú formuly tohto jazyka.\n  Ak $T \\cup \\{\\lnot(X \\lor Y)\\}$ je nesplniteľná,\n  tak $T \\entails X$ alebo $T \\entails Y$.\n* [ ] :cnt[e]{.i}. Nech $S^+$ je ľubovoľná množina označených prvorádových formúl\n  (napríklad z vetvy tabla), $A$ je ľubovoľná formula\n  a $\\tau$ je ľubovoľný term substituovateľný za $x$ v $A$.\n  Nech $\\sign{F} \\A{x} A \\in S^+$.\n  Potom ak $S^+$ je splniteľná, tak\n  $S^+ \\cup \\{\\,\\sign{F}A\\{x \\mapsto \\tau\\}\\,\\}$ je splniteľná.\n* [ ] :cnt[e]{.i}. Žiadne z vyššie uvedených tvrdení nie je pravdivé.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "25": {
+      "id": 25,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 57,
+          "title": "2025 – Domáca úloha 7.1",
+          "description": "",
+          "constants": "ZZZ, DNM",
+          "predicates": "airport/1, flight/3, international_flight/1, international_airport/1, dir_connected/2, island/1, at/2",
+          "functions": "state/1, plane_type/1, location/1, dep_time/1",
+          "constraints": "",
+          "parserType": "withPrecedence",
+          "propositions": [
+            {
+              "proposition_id": 2130,
+              "proposition": "1. Odletovým a príletovým miestom každého letu je letisko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2131,
+              "proposition": "2. Medzinárodný let je práve taký, ktorého odletové a príletové miesto sa nachádza v inej krajine.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2132,
+              "proposition": "3. Medzinárodné letisko je také a len také letisko, z ktorého odlieta aspoň jeden medzinárodný let.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2133,
+              "proposition": "4. Do a z letiska Snorestone International (ZZZ) lietajú len lietadlá typu Dreamliner NapMax (DNM).",
+              "solution": null
+            },
+            {
+              "proposition_id": 2134,
+              "proposition": "5. Časy odletov jednotlivých letov z jedného miesta sa musia líšiť.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2135,
+              "proposition": "6. Dve letiská sú priamo prepojené práve vtedy, ak medzi nimi existuje priamy let.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2136,
+              "proposition": "7. Letiská sú ostrovné práve vtedy, keď ich poloha je na ostrove.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 57
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    2,
+    25,
+    13,
+    15,
+    4,
+    8,
+    11,
+    5,
+    9,
+    3,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n\\newcommand{\\mcolorbox}[2]{\\colorbox{#1}{$\\mathopen{\\vphantom{Yy}}#2$}}\n\\newcommand{\\mark}{\\mcolorbox{#fcf8e3}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n% Sets\n\\newcommand{\\sete}[1]{\\{#1\\}} % enumerated\n\\newcommand{\\setc}[1]{\\{\\,#1\\,\\}} % comprehended\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\\newcommand\\sc{\\sym{c}}\n\\newcommand\\sd{\\sym{d}}\n\\newcommand\\sP{\\sym{P}}\n\\newcommand\\sQ{\\sym{Q}}\n\\newcommand\\sR{\\sym{R}}\n\\newcommand\\sS{\\sym{S}}\n\\newcommand\\sff{\\sym{f}}\n\\newcommand\\sfg{\\sym{g}}\n\\newcommand\\sfh{\\sym{h}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\mathrel{\\NModels_{\\mathrm{p}}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n% Tableaux %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
