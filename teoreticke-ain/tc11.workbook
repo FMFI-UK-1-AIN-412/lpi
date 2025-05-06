@@ -1,0 +1,230 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 11. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc11`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc11/teoreticke-ain/tc11.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23 (aj v skúškovom období, 4. 6. v I-8)\n: Štvrtok o 9:00–9:45 v I-23 (už iba 15. 5.)\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 11.:cnt[a]\n::p[Unifikácia]{.h4}\n\n:small[:icon[source] Prednášky: [10. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.10) – [kapitola 15](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=section.15). Zbierka: :xref[7.1.3]{.exbook label=\"úloha\"}.]\n:::\n\n:icon[tools] Uvažujme jazyk $\\Lang$ s $\\Consts = \\{\\sym{Arabela}, \\sym{Ingrid}, \\sym{Scooter6259, \\sym{35euro}}\\}$,\n$\\Preds = \\{ \\asym{1}{A}, \\asym{4}{sale} \\}$, $\\Funcs = \\{ \\asym{1}{price}, \\asym{1}{first\\_owner}, \\asym{2}{buyer}\\}$ a $\\Vars=\\{\\vp, \\vt, \\vu, \\vw, \\vx, \\vy, \\ldots \\}$. Zistite, či sú nasledujúce jednotkové klauzuly rezolvovateľné.\nUrčte potrebný unifikátor (snažte sa nájsť najvšeobecnejší)\na prípadné premenovanie premenných.\n\n:::div{.table}\n| | | |\n|-|-|-|\n|a)|$\\sym{A}(\\sym{Arabela})$|$\\lnot\\sym{A}(\\sym{first\\_owner}(\\vx))$|\n|b)|$\\sym{A}(\\sym{buyer}(\\sym{Scooter6259},\\vy))$|$\\lnot\\sym{A}(\\sym{buyer}(\\vt,\\sym{first\\_owner}(\\vt)))$|\n|c)|$\\sym{sale}(\\vx,\\sym{first\\_owner}(\\vt),\\vt,\\vp)$|$\\lnot\\sym{sale}(\\vx,\\vy,\\sym{Scooter6259},\\sym{35euro})$|\n|d)|$\\sym{sale}(\\vu,\\vu,\\vw,\\vr)$|$\\lnot\\sym{sale}(\\sym{buyer}(\\vy,\\vt),\\vy,\\vt,\\vp)$|\n|e)|$\\sym{sale}(\\vx,\\sym{Ingrid},\\vt,\\sym{price}(\\vt))$|$\\lnot\\sym{sale}(\\sym{buyer}(\\vx,\\vt),\\vx,\\vt,\\vp)$|\n:::",
+      "idCounter": 2,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "5": {
+      "id": 5,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 11.:cnt[a]\n::p[Základy rezolvencie]{.h4}\n\n:small[:icon[source] Zbierka: :xref[7.1.5]{.exbook label=\"úloha\"}, :xref[7.3.1]{.exbook label=\"príklad\"}.]\n:::\n\n:icon[tools] Zistite, ktoré z nasledujúcich množín klauzúl sú nesplniteľné. Nesplniteľnosť dokážte Rezolvenčným kalkulom, pomocou aplikácie resolution editor. Splniteľnosť dokážte nájdením vhodnej štruktúry.\n\n::h3[:cnt[b]{.a})]{.h6.float-start.my-0.me-2.fw-bold}\n\n$\\begin{aligned}\nT = \\{\n        &(\\sym{barks}(\\vx) \\lor \\neg \\sym{dog}(\\vx)),\\\\\n        &(\\neg \\sym{dog}(\\vx) \\lor \\sym{bites}(\\vx)),\\\\\n        &(\\neg \\sym{dog}(\\vx) \\lor \\neg \\sym{barks}(\\vx) \\lor\n          \\neg \\sym{bites}(\\vx)),\\\\\n        &\\sym{dog}(\\sym{Rex})\n\\}\n\\end{aligned}$",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "6": {
+      "id": 6,
+      "type": "text",
+      "data": ":::header\n## :icon[house-fill]{.text-primary} Cvičenie 11.:cnt[a]\n::p[Faktorizácia]{.h4}\n\n:small[:icon[source] Zbierka: :xref[7.1.4]{.exbook label=\"úloha\"}.]\n:::\n\n:icon[tools] Sfaktorizujte klauzuly (ak je to možné):\n\n:::enum{.a}\n1. $\\lnot \\sym{lady}(\\vx) \\lor \\sym{insulted}(\\vy,\\vx)  \\lor\n           \\lnot \\sym{lady}(\\sym{Milagros})$\n2. $\\lnot \\sym{protects}(\\sym{bodyguard\\_of}(\\vx),\\vx) \\lor\n           \\lnot \\sym{protects}(\\vx,\\vy)$\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "7": {
+      "id": 7,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 11.:cnt[a]\n\n:small[:icon[source]\nZbierka: :xref[7.3.2]{.exbook label=\"úloha\"}, :xref[7.3.1]{.exbook label=\"príklad\"}.]\n:::\n\nUvažujme nasledovné tvrdenia a ich formalizáciu\nv jazyku logiky prvého rádu _bez rovnosti_ $\\Lang$, kde\n$\\Consts = \\{\n\t\\sym{Hanka}\n\\}$,\n$\\Funcs = \\emptyset$\na $\\Preds = \\{\n\t\\sym{auticko}^1,$\n\t$\\sym{babika}^1,$\n\t$\\sym{cervene}^1,$\n\t$\\sym{dievcenske}^1,$\n\t$\\sym{hracka}^1,$\n\t$\\sym{hrackarstvo}^1,$\n\t$\\sym{chlapcenske}^1,$\n\t$\\sym{matfyzacka}^1,$\n\t$\\sym{P}^1,$\n\t$\\sym{saty}^1,$\n\t$\\sym{mama}^2,$\n\t$\\sym{ma}^2,$\n\t$\\sym{zakupene\\_v}^2,$\n\t$\\sym{kupi}^3\n\\}$:\n\n1. Autíčka sú chlapčenské hračky a bábiky sú dievčenské hračky.\n\n    $A_1=\\A{\\vx}(\\sym{auticko}(\\vx)\n    \\limpl (\\sym{chlapcenske}(\\vx) \\land \\sym{hracka}(\\vx))) \\land\n  \\A{\\vx}(\\sym{babika}(\\vx)\n    \\limpl (\\sym{dievcenske}(\\vx) \\land \\sym{hracka}(\\vx)))$\n\n2. Hanka je dievča, ktoré má dve autíčka.  \n\n   $A_2=(\\sym{dievca}(\\sym{Hanka}) \\land \\E{\\vx}\\E{\\vy}(\\sym{P}(\\vx) \\land \\lnot\\sym{P}(\\vy) \\land\n    \\sym{ma}(\\sym{Hanka},\\vx) \\land \\sym{auticko}(\\vx) \\land\n    \\sym{ma}(\\sym{Hanka},\\vy) \\land \\sym{auticko}(\\vy)))$\n\n3. Každá mama kúpi svojmu dieťaťu nejakú hračku.  \n\n   $A_3=\\A{\\vx}\\A{\\vy}(\\sym{mama}(\\vx,\\vy) \\limpl\n    \\E{\\vz}(\\sym{hracka}(\\vz) \\land \\sym{kupi}(\\vx,\\vy,\\vz)) )$\n\n5. Dievčatá, ktoré majú nejakú chlapčenskú hračku, sa stanú matfyzáčkami.  \n\n   $A_4= \\A{\\vx}(\\sym{dievca}(\\vx) \\limpl\n    (\\E{\\vy}(\\sym{ma}(\\vx,\\vy) \\land \\sym{hracka}(\\vy) \\land \\sym{chlapcenske}(\\vy)) \\limpl\n      \\sym{matfyzacka}(\\vx)))$\n\n::h3[:cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base.fw-bold}\nZistite pomocou rezolvencie, či v takomto prípade platí, že _ak každé dievča má aspoň jednu dievčenskú hračku, tak sa Hanka stane matfyzáčkou_. Teda, či z teórie $T=\\{A_1,\\dots,A_4\\}$ vyplýva formula:\n$$\n\\begin{aligned}\nX={}&\\A{\\vx}\\big(\\sym{dievca}(\\vx) \\limpl\n    \\E{\\vy}(\\sym{ma}(\\vx,\\vy) \\land \\sym{dievcenske}(\\vy) \\land \\sym{hracka}(\\vy)) \\big)\\limpl {}\\\\\n    &\\sym{matfyzacka}(\\sym{Hanka})\n\\end{aligned}\n$$",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "11": {
+      "id": 11,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"Arabela, Scooter6259, Ingrid, 35euro\",\"object\":[\"Arabela\",\"Scooter6259\",\"Ingrid\",\"35euro\"],\"error\":\"\",\"symbols\":[\"Arabela\",\"Scooter6259\",\"Ingrid\",\"35euro\"]},\"funs\":{\"input\":\"first_owner/1, buyer/2, price/1\",\"object\":[[\"first_owner\",1],[\"buyer\",2],[\"price\",1]],\"error\":\"\",\"symbols\":[{\"name\":\"first_owner\",\"arity\":1},{\"name\":\"buyer\",\"arity\":2},{\"name\":\"price\",\"arity\":1}]},\"preds\":{\"input\":\"A/1, sale/4\",\"object\":[[\"A\",1],[\"sale\",4]],\"error\":\"\",\"symbols\":[{\"name\":\"A\",\"arity\":1},{\"name\":\"sale\",\"arity\":4}]}},\"steps\":{\"order\":[2,1,0,3,4,5,6,7,8,9,10,11,12,13,14],\"allSteps\":[[0,{\"formula\":{\"input\":\"□\",\"error\":{\"name\":\"LogicError\",\"message\":\"This clause is not valid resolvent of clauses 1 and 2\"},\"object\":{\"lits\":[],\"litsMultiset\":null}},\"rule\":\"Resolution\",\"reference1\":{\"input\":\"1\",\"error\":\"\",\"object\":0},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"2\",\"error\":\"\",\"object\":1},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":true}],[1,{\"formula\":{\"input\":\"¬A(first_owner(x))\",\"error\":\"\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"A\",\"terms\":[{\"name\":\"first_owner\",\"subts\":[{\"name\":\"x\"}]}]}],\"litsMultiset\":null}},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[2,{\"formula\":{\"input\":\"A(Arabela)\",\"error\":\"\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"A\",\"terms\":[{\"name\":\"Arabela\"}]}],\"litsMultiset\":null}},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[3,{\"formula\":{\"input\":\"A(buyer(Scooter6259, y))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"A\",\"terms\":[{\"name\":\"buyer\",\"subts\":[{\"name\":\"Scooter6259\"},{\"name\":\"y\"}]}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[4,{\"formula\":{\"input\":\"¬A(buyer(t,first_owner(t)))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"A\",\"terms\":[{\"name\":\"buyer\",\"subts\":[{\"name\":\"t\"},{\"name\":\"first_owner\",\"subts\":[{\"name\":\"t\"}]}]}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[5,{\"formula\":{\"input\":\"□\",\"object\":{\"lits\":[],\"litsMultiset\":null},\"error\":{\"name\":\"LogicError\",\"message\":\"This clause is not valid resolvent of clauses 4 and 5\"}},\"rule\":\"Resolution\",\"reference1\":{\"input\":\"4\",\"object\":3,\"error\":\"\"},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"5\",\"object\":4,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":true}],[6,{\"formula\":{\"input\":\"sale(x,first_owner(t),t,p)\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"sale\",\"terms\":[{\"name\":\"x\"},{\"name\":\"first_owner\",\"subts\":[{\"name\":\"t\"}]},{\"name\":\"t\"},{\"name\":\"p\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[7,{\"formula\":{\"input\":\"¬sale(x,y,Scooter6259,35euro)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"sale\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"},{\"name\":\"Scooter6259\"},{\"name\":\"35euro\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[8,{\"formula\":{\"input\":\"□\",\"object\":{\"lits\":[],\"litsMultiset\":null},\"error\":{\"name\":\"LogicError\",\"message\":\"This clause is not valid resolvent of clauses 7 and 8\"}},\"rule\":\"Resolution\",\"reference1\":{\"input\":\"7\",\"object\":6,\"error\":\"\"},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"8\",\"object\":7,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":true}],[9,{\"formula\":{\"input\":\"sale(u,u,w,r)\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"sale\",\"terms\":[{\"name\":\"u\"},{\"name\":\"u\"},{\"name\":\"w\"},{\"name\":\"r\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[10,{\"formula\":{\"input\":\"¬sale(buyer(y,t),y,t,p)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"sale\",\"terms\":[{\"name\":\"buyer\",\"subts\":[{\"name\":\"y\"},{\"name\":\"t\"}]},{\"name\":\"y\"},{\"name\":\"t\"},{\"name\":\"p\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[11,{\"formula\":{\"input\":\"□\",\"object\":{\"lits\":[],\"litsMultiset\":null},\"error\":{\"name\":\"LogicError\",\"message\":\"This clause is not valid resolvent of clauses 10 and 11\"}},\"rule\":\"Resolution\",\"reference1\":{\"input\":\"10\",\"object\":9,\"error\":\"\"},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"11\",\"object\":10,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":true}],[12,{\"formula\":{\"input\":\"sale(x,Ingrid,t,price(t))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"sale\",\"terms\":[{\"name\":\"x\"},{\"name\":\"Ingrid\"},{\"name\":\"t\"},{\"name\":\"price\",\"subts\":[{\"name\":\"t\"}]}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[13,{\"formula\":{\"input\":\"¬sale(buyer(x,t),x,t,p)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"sale\",\"terms\":[{\"name\":\"buyer\",\"subts\":[{\"name\":\"x\"},{\"name\":\"t\"}]},{\"name\":\"x\"},{\"name\":\"t\"},{\"name\":\"p\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true,\"emptyClause\":false}],[14,{\"formula\":{\"input\":\"□\",\"object\":{\"lits\":[],\"litsMultiset\":null},\"error\":{\"name\":\"LogicError\",\"message\":\"This clause is not valid resolvent of clauses 13 and 14\"}},\"rule\":\"Resolution\",\"reference1\":{\"input\":\"13\",\"object\":12,\"error\":\"\"},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"14\",\"object\":13,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false,\"emptyClause\":true}]],\"rank\":[[0,2],[1,1],[2,0],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14]],\"id\":15,\"verdict\":false},\"inputChange\":{\"originValue\":\"¬seller(first_owner(x))\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "18": {
+      "id": 18,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"Hanka\",\"object\":[\"Hanka\"],\"error\":\"\",\"symbols\":[\"Hanka\"]},\"funs\":{\"input\":\"\",\"object\":[],\"error\":\"\",\"symbols\":[]},\"preds\":{\"input\":\"auticko /1, babika/1, cervene/1, dievcenske/1, hracka/1, chlapcenske/1, matfyzacka/1, P/1, saty/1, ma/2, dievca/1\",\"object\":[[\"auticko\",1],[\"babika\",1],[\"cervene\",1],[\"dievcenske\",1],[\"hracka\",1],[\"chlapcenske\",1],[\"matfyzacka\",1],[\"P\",1],[\"saty\",1],[\"ma\",2],[\"dievca\",1]],\"error\":\"\",\"symbols\":[{\"name\":\"auticko\",\"arity\":1},{\"name\":\"babika\",\"arity\":1},{\"name\":\"cervene\",\"arity\":1},{\"name\":\"dievcenske\",\"arity\":1},{\"name\":\"hracka\",\"arity\":1},{\"name\":\"chlapcenske\",\"arity\":1},{\"name\":\"matfyzacka\",\"arity\":1},{\"name\":\"P\",\"arity\":1},{\"name\":\"saty\",\"arity\":1},{\"name\":\"ma\",\"arity\":2},{\"name\":\"dievca\",\"arity\":1}]}},\"steps\":{\"order\":[],\"allSteps\":[],\"rank\":[],\"id\":8},\"inputChange\":{\"originValue\":\"auticko /1, babika/1, cervene/1, dievcenske/1, hracka/1, hrackarstvo/1, chlapcenske/1, matfyzacka/1, P/1, saty/1, mama/2, ma/2, zakupene_v/2, kupi/3\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "19": {
+      "id": 19,
+      "type": "text",
+      "data": "::h4[:icon[write] Záver]{.h5}\n\n:small[Našli ste zamietnutie $T''$? Akú vlastnosť má potom $T''$ a $T'$ a prečo?\nAký záver z toho vyvodzujete pre formálnu a neformálnu otázku zadanú v časti **a)**?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "20": {
+      "id": 20,
+      "type": "text",
+      "data": "::h3[:icon[homework] :icon[write] :cnt[c]{.a})]{.h6.float-start.my-0.me-2.lh-base.fw-bold}\nPreveďte nasledujúce formuly v jazyku $\\Lang$ do ekvisplniteľnej klauzálnej teórie\npodobne ako v ii. kroku časti a):\n\n5. Každá hračka bola zakúpená v hračkárstve.  \n\n   $A_5=\\A{\\vx}(\\sym{hracka}(\\vx) \\limpl\n    \\E{\\vy}\\,(\\sym{zakupene\\_v}(\\vx,\\vy) \\land \\sym{hrackarstvo}(\\vy)) )$  \n\n6. Hanka má bábiku, ktorá má červené šaty.  \n\n   $A_6=\n   \\E{\\vx}(\\sym{ma}(\\sym{Hanka},\\vx) \\land \\sym{babika}(\\vx) \\land\n    \\E{\\vy}(\\sym{ma}(\\vx,\\vy) \\land \\sym{cervene}(\\vy) \\land \\sym{saty}(\\vy)))$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"Rex\",\"object\":[\"Rex\"],\"error\":\"\",\"symbols\":[\"Rex\"]},\"funs\":{\"input\":\"\",\"object\":[],\"error\":\"\",\"symbols\":[]},\"preds\":{\"input\":\"barks/1, dog/1, bites/1\",\"object\":[[\"barks\",1],[\"dog\",1],[\"bites\",1]],\"error\":\"\",\"symbols\":[{\"name\":\"barks\",\"arity\":1},{\"name\":\"dog\",\"arity\":1},{\"name\":\"bites\",\"arity\":1}]}},\"steps\":{\"order\":[0,1,2,3],\"allSteps\":[[0,{\"formula\":{\"input\":\"(barks(x) ∨ ¬dog(x))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"barks\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"dog\",\"terms\":[{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[1,{\"formula\":{\"input\":\"(¬dog(x) ∨ bites(x))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"dog\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":false,\"name\":\"bites\",\"terms\":[{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[2,{\"formula\":{\"input\":\"(¬dog(x) ∨ ¬barks(x) ∨ ¬bites(x))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"dog\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"barks\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"bites\",\"terms\":[{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[3,{\"formula\":{\"input\":\"dog(Rex)\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"dog\",\"terms\":[{\"name\":\"Rex\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}]],\"rank\":[[0,0],[1,1],[2,2],[3,3]],\"id\":5},\"inputChange\":{\"originValue\":\"(¬dog(x)∨¬barks(x)∨¬bites(x))\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "22": {
+      "id": 22,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a})]{.h6.float-start.my-0.me-2.fw-bold}\n\n$\\begin{aligned}\nT = \\{\n        &(\\sym{house}(\\sym{\\vx}) \\lor \\sym{tree}(\\sym{\\vy})\n         \\lor \\sym{next\\_to}(\\sym{\\vx},\\sym{\\vy})),\\\\\n        &(\\sym{tree}(\\sym{\\vy}) \\lor \\neg \\sym{next\\_to}(\n          \\sym{\\vx},\\sym{\\vy})),\\\\\n        &(\\neg \\sym{house}(\\sym{\\vx}) \\lor \\neg \\sym{tree}(\\sym{\\vy}))\n        \\}\n\\end{aligned}$\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "23": {
+      "id": 23,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a})]{.h6.float-start.my-0.me-2.fw-bold}\n\n$\\begin{aligned}\nT = \\{\n        &(\\sym{c}(\\vx,\\vy) \\lor \\sym{b}(\\vx)),\\\\\n        &(\\lnot\\sym{c}(\\vx,\\sym{L}) \\lor \\sym{a}(\\sym{L})),\\\\\n        &(\\sym{c}(\\sym{P},\\vy) \\lor \\lnot \\sym{b}(\\sym{P})),\\\\\n        &(\\lnot \\sym{a}(\\vy) \\lor \\lnot\\sym{c}(\\vx,\\vy))\n      \\}\n\\end{aligned}$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "24": {
+      "id": 24,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"\",\"object\":[],\"error\":\"\",\"symbols\":[]},\"funs\":{\"input\":\"\",\"object\":[],\"error\":\"\",\"symbols\":[]},\"preds\":{\"input\":\"house/1, tree/1, next_to/2\",\"object\":[[\"house\",1],[\"tree\",1],[\"next_to\",2]],\"error\":\"\",\"symbols\":[{\"name\":\"house\",\"arity\":1},{\"name\":\"tree\",\"arity\":1},{\"name\":\"next_to\",\"arity\":2}]}},\"steps\":{\"order\":[0,1,2],\"allSteps\":[[0,{\"formula\":{\"input\":\"(house(x) ∨ tree(y) ∨ next_to(x,y))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"house\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":false,\"name\":\"tree\",\"terms\":[{\"name\":\"y\"}]},{\"neg\":false,\"name\":\"next_to\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[1,{\"formula\":{\"input\":\"(tree(y) ∨ ¬next_to(x,y))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"tree\",\"terms\":[{\"name\":\"y\"}]},{\"neg\":true,\"name\":\"next_to\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[2,{\"formula\":{\"input\":\"(¬house(x) ∨ ¬tree(y))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"house\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"tree\",\"terms\":[{\"name\":\"y\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}]],\"rank\":[[0,0],[1,1],[2,2]],\"id\":4},\"inputChange\":{\"originValue\":\"(house(x)∨tree(y)∨next_to(x,y))\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "25": {
+      "id": 25,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"L, P\",\"object\":[\"L\",\"P\"],\"error\":\"\",\"symbols\":[\"L\",\"P\"]},\"funs\":{\"input\":\"\",\"object\":[],\"error\":\"\",\"symbols\":[]},\"preds\":{\"input\":\"a/1, b/1, c/2\",\"object\":[[\"a\",1],[\"b\",1],[\"c\",2]],\"error\":\"\",\"symbols\":[{\"name\":\"a\",\"arity\":1},{\"name\":\"b\",\"arity\":1},{\"name\":\"c\",\"arity\":2}]}},\"steps\":{\"order\":[0,1,2,3],\"allSteps\":[[0,{\"formula\":{\"input\":\"(c(x,y) ∨ b(x))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"c\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]},{\"neg\":false,\"name\":\"b\",\"terms\":[{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[1,{\"formula\":{\"input\":\"(¬c(x,L) ∨ a(L))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"c\",\"terms\":[{\"name\":\"x\"},{\"name\":\"L\"}]},{\"neg\":false,\"name\":\"a\",\"terms\":[{\"name\":\"L\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[2,{\"formula\":{\"input\":\"(c(P,y) ∨ ¬b(P))\",\"object\":{\"lits\":[{\"neg\":false,\"name\":\"c\",\"terms\":[{\"name\":\"P\"},{\"name\":\"y\"}]},{\"neg\":true,\"name\":\"b\",\"terms\":[{\"name\":\"P\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[3,{\"formula\":{\"input\":\"(¬a(y) ∨ ¬c(x,y))\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"a\",\"terms\":[{\"name\":\"y\"}]},{\"neg\":true,\"name\":\"c\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}]],\"rank\":[[0,0],[1,1],[2,2],[3,3]],\"id\":4},\"inputChange\":{\"originValue\":\"\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "26": {
+      "id": 26,
+      "type": "resolutionEditor",
+      "data": "{\"language\":{\"consts\":{\"input\":\"Milagros\",\"object\":[\"Milagros\"],\"error\":\"\",\"symbols\":[\"Milagros\"]},\"funs\":{\"input\":\"bodyguard_of/1\",\"object\":[[\"bodyguard_of\",1]],\"error\":\"\",\"symbols\":[{\"name\":\"bodyguard_of\",\"arity\":1}]},\"preds\":{\"input\":\"lady/1, insulted/2, protects/2\",\"object\":[[\"lady\",1],[\"insulted\",2],[\"protects\",2]],\"error\":\"\",\"symbols\":[{\"name\":\"lady\",\"arity\":1},{\"name\":\"insulted\",\"arity\":2},{\"name\":\"protects\",\"arity\":2}]}},\"steps\":{\"order\":[0,1,2,3],\"allSteps\":[[0,{\"formula\":{\"input\":\"¬lady(x) ∨ insulted(y,x) ∨ ¬lady(Milagros)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"lady\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":false,\"name\":\"insulted\",\"terms\":[{\"name\":\"y\"},{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"lady\",\"terms\":[{\"name\":\"Milagros\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[1,{\"formula\":{\"input\":\"¬lady(…) ∨ insulted(…, …)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"lady\",\"terms\":[{\"name\":\"x\"}]},{\"neg\":false,\"name\":\"insulted\",\"terms\":[{\"name\":\"y\"},{\"name\":\"x\"}]}],\"litsMultiset\":null},\"error\":{\"message\":\"Expected term but \\\"…\\\" found.\",\"expected\":[{\"type\":\"other\",\"description\":\"term\"}],\"found\":\"…\",\"location\":{\"start\":{\"offset\":6,\"line\":1,\"column\":7},\"end\":{\"offset\":7,\"line\":1,\"column\":8}},\"name\":\"SyntaxError\"}},\"rule\":\"Factoring\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"1\",\"object\":0,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false}],[2,{\"formula\":{\"input\":\"¬protects(bodyguard_of(x),x) ∨ ¬protects(x,y)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"protects\",\"terms\":[{\"name\":\"bodyguard_of\",\"subts\":[{\"name\":\"x\"}]},{\"name\":\"x\"}]},{\"neg\":true,\"name\":\"protects\",\"terms\":[{\"name\":\"x\"},{\"name\":\"y\"}]}],\"litsMultiset\":null},\"error\":\"\"},\"rule\":\"Assumption\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":true}],[3,{\"formula\":{\"input\":\"¬protects(…, …)\",\"object\":{\"lits\":[{\"neg\":true,\"name\":\"protects\",\"terms\":[{\"name\":\"_\"},{\"name\":\"_\"}]}],\"litsMultiset\":null},\"error\":{\"message\":\"Expected term but \\\"…\\\" found.\",\"expected\":[{\"type\":\"other\",\"description\":\"term\"}],\"found\":\"…\",\"location\":{\"start\":{\"offset\":10,\"line\":1,\"column\":11},\"end\":{\"offset\":11,\"line\":1,\"column\":12}},\"name\":\"SyntaxError\"}},\"rule\":\"Factoring\",\"reference1\":{\"input\":\"\",\"error\":{\"name\":\"EmptyError\",\"message\":\"This field cannot be empty\"}},\"renaming\":{\"input\":\"\",\"error\":\"\"},\"reference2\":{\"input\":\"3\",\"object\":2,\"error\":\"\"},\"unifier\":{\"input\":\"\",\"error\":\"\"},\"valid\":false}]],\"rank\":[[0,0],[1,1],[2,2],[3,3]],\"id\":4},\"inputChange\":{\"originValue\":\"¬lady(…) ∨ insulted(…, …)\"}}",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "27": {
+      "id": 27,
+      "type": "text",
+      "data": "::h4[:icon[info] Vysvetlenie postupu]{.h5}\nZ $T$ vyplýva $X$ vtt $T' := T \\cup \\{\\lnot X\\}$ je nesplniteľná.\n\nAby sme nesplniteľnosť $T'$ dokázali rezolvenciou,\nmusíme k nej nájsť ekvisplniteľnú klauzálnu teóriu $T''$ (viď. dôkaz :xref[16.26]{.lec label=\"vety\"} v prednáške).\n\nPre každú formulu $T'$ zdokumentujte kľúčové\nmedzivýsledky jej úpravy na množinu klauzúl (NNF, premenovanie premenných, skolemizáciu, PNF, CNF).\n\nAk sa medzivýsledok nelíši od pôvodnej formuly alebo predchádzajúceho medzivýsledku, nemusíte ho písať.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "28": {
+      "id": 28,
+      "type": "text",
+      "data": "::h4[:icon[write] Úprava $T'$ do klauzálnej teórie]{.h5}\n\n::h5[$\\boldsymbol{A_1}$]{.h6}\n\nNNF:\n$…$\n\nPremenovanie premenných:\n$…$\n\n…\n\n::h5[$\\boldsymbol{A_2}$]{.h6}\n\n…\n\n::h5[$\\boldsymbol{A_3}$]{.h6}\n\n…\n\n::h5[$\\boldsymbol{A_4}$]{.h6}\n\n…\n\n::h5[$\\boldsymbol{\\lnot X}$]{.h6}\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "29": {
+      "id": 29,
+      "type": "text",
+      "data": "::h4[:icon[tools] Nájdenie zamietnutia]{.h5}\nPomocou rezolvenčného editora nájdeme zamietnutie klauzálnej teórie,\nktorú ste vytvorili v predchádzajúcom kroku.\nV editore uveďte celú výslednú klauzálnu teóriu $T''$.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "30": {
+      "id": 30,
+      "type": "text",
+      "data": ":icon[write] **Zaškrtnite**, ktoré z uvedených dvojích jednotkových klauzúl **nie sú** rezolvovateľné (t.j., **neexistuje** unifikátor a premenovanie):\n* [ ] Dvojica a) nie je rezolvovateľná.\n* [ ] Dvojica b) nie je rezolvovateľná.\n* [ ] Dvojica c) nie je rezolvovateľná.\n* [ ] Dvojica d) nie je rezolvovateľná.\n* [ ] Dvojica e) nie je rezolvovateľná.\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "31": {
+      "id": 31,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a body môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n\n7. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du07](../../du07/teoreticke-ain/du07.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 18. 5. 2025 o 23:59:59\n     :::\n\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    31,
+    3,
+    30,
+    11,
+    5,
+    21,
+    22,
+    24,
+    23,
+    25,
+    6,
+    26,
+    7,
+    27,
+    28,
+    29,
+    18,
+    19,
+    20
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
