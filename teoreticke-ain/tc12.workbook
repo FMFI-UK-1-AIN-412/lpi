@@ -1,0 +1,333 @@
+{
+  "versionNumber": 1,
+  "cells": {
+    "1": {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 12. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc12`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc12/teoreticke-ain/tc12.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 9:50–10:35 v I-23 (aj v skúškovom období, 4. 6. v I-8)\n: Štvrtok o 9:00–9:45 v I-23 (už iba 15. 5.)\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "2": {
+      "id": 2,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a body môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n\n7. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du07](../../du07/teoreticke-ain/du07.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 18. 5. 2025 o 23:59:59\n\n     :icon[source] Zbierka úloh\n     : K úlohe 7.2 pribudol riešený :xref[7.2.3]{.exbook label=\"príklad\"} v zbierke\n     :::\n\n::::\n\n## :icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n\n::::div{.dl-indented}\n:icon[deadline] Termín\n: stredy o 9:50–10:35\n\n:icon[geo-alt-fill]{.text-primary} Miesto\n: I-23 (dňa 4. 6. výnimočne I-8)\n::::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "3": {
+      "id": 3,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 12.:cnt[a]\n::p[Formalizácia výrokovej logiky]{.h4}\n:::\n\n:small[:icon[source] Zbierka: :xref[6.5.19]{.exbook label=\"úloha\"}, :xref[3.4.5]{.exbook label=\"príklad\"}.\nPracovné hárky:\n[cvičenie 6.3](../../tc06/teoreticke-ain/tc06.workbook),\n[domáca úloha 4.1](../../du04/teoreticke-ain/du04.workbook).]\n\nV logike prvého rádu môžeme sformalizovať (axiomatizovať)\naj niektoré logické pojmy a dokázať alebo vyvrátiť\nformalizácie tvrdení o vyplývaní a splniteľnosti,\nakými sme sa zaoberali v [cvičení 6.3](../../tc06/teoreticke-ain/tc06.workbook)\na [domácej úlohe 4.1](../../du04/teoreticke-ain/du04.workbook).\n\nV tomto cvičení si to vyskúšame na dvoch tvrdeniach.\nPoužijeme mierne odlišné formalizácie, aby sme si zjednodušili\ntablový dôkaz resp. konštrukciu štruktúry.\n\nPrvorádové jazyky, v ktorých sformalizujeme výrokovú logiku,\nbudú používať nasledujúce symboly:\n:::::div{.row.justify-content-around}\n:::div{.table.table-intended-meaning.small.col}\n| Predikátový symbol | Zamýšľaný význam |\n|--------|--------|\n|$\\sym{formula}(x)$ | $x$ je formula |\n|$\\sym{satisfiable}(x)$ | $x$ je splniteľná |\n|$\\sym{theory}(x)$ | $x$ je teória |\n|$\\sym{valuation}(x)$ | $x$ je ohodnotenie |\n|$\\sym{entails}(t,x)$ | z (teórie) $t$ vyplýva (formula) $x$ |\n|$\\sym{true}(v,z)$ | v (ohodnotení) $v$ je pravdivá $z$ |\n|$\\sym{in}(x,t)$ | $x$ je prvkom $t$ |\n:::\n:::div{.table.table-intended-meaning.small.col}\n| Funkčný symbol | Zamýšľaný význam |\n|--------|--------|\n|$\\sym{not}(x)$ | negácia (formuly) $x$ |\n|$\\sym{and}(x,y)$ | konjunkcia (formúl) $x$ a $y$ |\n|$\\sym{impl}(x,y)$ | implikácia s antecedentom $x$ a konzekventom $y$ |\n:::\n:::::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[tools]\nV každej časti **vyplývanie** dokážte **tablom** pre vhodnú množinu označených formúl,\n**nevyplývanie** nájdením vhodnej **štruktúry** pre príslušný jazyk $\\Lang_1$, …, $\\Lang_3$.\n\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Full FOL**.\nPrácu s logickými spojkami si zjednodušte využitím korektných výrokovologických pravidiel (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "9": {
+      "id": 9,
+      "type": "text",
+      "data": "## Cvičenie 12.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[7.3.6]{.exbook label=\"úloha\"}.]\n\nUvažujme nasledujúce výroky:\n\n1. Každý, kto jazdí na nejakom Harleyi, je drsniak.\n2. Všetci motorkári jazdia na niečom, čo je buď Harley alebo BMW.\n3. Každý, kto jazdí na nejakom BMW, je karierista.\n4. Každý karierista je právnik.\n5. Dobré dievčatá nerandia s drsniakmi.\n6. Mary je dobré dievča a John je motorkár.\n\nAk sú výroky 1–6 pravdivé, je pravda, že:\n:::enum{.a}\n24. Ak John nie je právnik, tak s ním Mary nerandí?\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "10": {
+      "id": 10,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formálny problém]{.h5}\n\n:icon[write]\nPre uvedenú otázku sformulujte príslušný logický problém\ntýkajúci sa teórie $T$ a formuly $X$.\n\n…\n\n:icon[write]\nAko tento problém vyriešite pomocou rezolvencie?\n\n…\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "12": {
+      "id": 12,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formálne riešenie]{.h5}\n\n::h4[Úprava na ekvisplniteľnú klauzálnu teóriu]{.h6}\n\n:icon[write]\nUpravte teóriu potrebnú na vyriešenie formálneho problému rezolvenciou\nna ekvisplniteľnú klauzálnu teóriu.\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "13": {
+      "id": 13,
+      "type": "text",
+      "data": "::h4[Rezolvenčné zamietnutie]{.h6}\n\n:icon[tools]\nVyriešte uvedený logický problém z predošlej časti pomocou prvorádovej\nrezolvencie v aplikácii Resolution editor.",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "14": {
+      "id": 14,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formálny záver a interpretácia]{.h5}\n\n:icon[write]\nK akému záveru ste dospeli rezolvenciou?\nAké je riešenie formálneho problému, ktorý ste si určili? \nAká je odpoveď na neformálnu otázku zo zadania?\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "15": {
+      "id": 15,
+      "type": "text",
+      "data": "::h3[:cnt[c]{.i}. Formalizácia]{.h5}\n\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte výroky 1–6 ako teóriu $T=\\{B_1,\\dots,B_6\\}$ v uvedenom jazyku logiky prvého rádu. Ďalej sformalizujte výrok x ako formulu $X$.\n\nZamýšľaný význam predikátových symbolov je:\n::::div{.row}\n:::div{.table.table-intended-meaning.small.col}\n| Predikát             | Význam              |\n|----------------------|---------------------|\n| Harley($x$)          | $x$ je Harley       |\n| rides($x$,$y$)       | $x$ jazdí na $y$    |\n| rough_character($x$) | $x$ je drsniak\\*čka |\n| biker($x$)           | $x$ je motorkár\\*ka |\n| BMW($x$)             | $x$ je BMW          |\n:::\n:::div{.table.table-intended-meaning.small.col}\n| Predikát       | Význam                |\n|----------------|-----------------------|\n| yuppie($x$)    | $x$ je karierista\\*ka |\n| lawyer($x$)    | $x$ je právnik\\*čka   |\n| girl($x$)      | $x$ je dievča         |\n| nice($x$)      | $x$ je dobrý\\*á\\*é    |\n| dates($x$,$y$) | $x$ randí s $y$       |\n:::\n::::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[emoji-wink-fill]{.text-info}\nNeberte stereotypnosť tvrdení v tejto úlohe príliš vážne.\n:::",
+      "idCounter": 1,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "21": {
+      "id": 21,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 12.:cnt[a]\n\n:small[\n:icon[source]\nZbierka: :xref[6.4.5]{.exbook label=\"úloha\"}.\nPracovné hárky: [cvičenie 9.3](../../tc09/teoreticke-ain/tc09.workbook).]\n:::\n\nUvažujme teóriu $T = \\{ A_1, \\ldots, A_4 \\}$ o vlastnostiach funkcií $f$ a $g$ v jazyku $\\Lang$ s $\\Consts = \\emptyset$, $\\Funcs = \\{ \\sym{f}^1, \\sym{g}^1 \\}$ a $\\Preds = \\{ \\sym{P}^1, \\sym{Q}^1 \\}$, kde:\n\n$\nA_1 = \\A{\\vy_1} \\A{\\vy_2} \\bigl(\\sym{g}(\\vy_1)\\doteq\\sym{g}(\\vy_2)\\limpl \\vy_1\\doteq \\vy_2\\bigr)\n,\\\\\nA_2 = \\A{\\vz} \\bigl(\\sym{Q}(\\vz)\\limpl \\E{\\vx} \\sym{g}(\\sym{f}(\\vx))\\doteq \\vz\\bigr)\n,\\\\\nA_3 = \\A{\\vy} \\bigl(\\sym{P}(\\vy) \\limpl \\sym{Q}(\\sym{g}(\\vy))\\bigr)\n,\\\\\nA_4 = \\bigl(\\E{\\vy} \\sym{P}(\\vy) \\land \\E{\\vz} \\sym{Q}(\\vz) \\bigr)\n$\n\na formuly\n\n$\nX_1 = \\A{\\vx_1} \\A{\\vx_2} \n    \\bigl(\\sym{f}(\\vx_1)\\doteq\\sym{f}(\\vx_2)\\limpl \\vx_1\\doteq \\vx_2\\bigr)\n,\\\\\nX_2 = \\A{\\vy} \\bigl(\\sym{P}(\\vy)\\limpl \\E{\\vx} \\sym{f}(\\vx)\\doteq \\vy\\bigr)\n.$\n\nO každej z formúl $X_1$, $X_2$ _jednotlivo_ rozhodnite,\nči vyplýva alebo nevyplýva z teórie $T$.\n\nVyplývanie dokážte tablom s najviac 20 uzlami a zdôvodnite,\nprečo ho vaše tablo dokazuje.\nNevyplývanie dokážte nájdením štruktúry, ktorá je kontrapríkladom,\na krátko vysvetlite, prečo ním je\n(ktoré formuly sú ne-/pravdivé).\n\n:::aside{.note.bg-transparent.p-0}\n:icon[tools]\nNa vytvorenie tabla a štruktúry použite aplikáciu Tableau editor resp. Structure explorer, ktoré si vložíte nižšie. Zdôvodnenia vpíšte do nových textových buniek.\n\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Full FOL**.\nPrácu s logickými spojkami si zjednodušte využitím korektných výrokovologických pravidiel (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "31": {
+      "id": 31,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) O splniteľnosti]{.h5}\n\nUvažujme najprv nasledujúcu teóriu $T_1$ o výrokovej logike,\nv ktorej sa zameriame na splniteľnosť.\nSformalizovaná je v jazyku $\\Lang_1$, kde\n${\\Consts}_1 = \\emptyset$, ${\\Funcs}_1 = \\emptyset$,\n${\\Preds}_1 = \\{\n    \\asym{1}{formula},\n    \\asym{1}{satisfiable},\n    \\asym{1}{theory},\n    \\asym{1}{valuation},\n    \\asym{2}{true},\n    \\asym{2}{in}\n\\}$.\n\n$T_1 = \\{\\,\n\\A{\\vT}\\bigl(\\sym{theory}(\\vT) \\limpl\n          \\A{\\vA}(\\sym{in}(\\vA,\\vT) \\limpl \\sym{formula}(\\vA))\\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vT}\\A{\\vv}\\bigl( (\\sym{theory}(\\vT) \\land \\sym{valuation}(\\vv)) \\limpl \\\\\\hspace{6em}\n          \\bigl(\\sym{true}(\\vv,\\vT) \\lequiv\n          \\A{\\vA}(\\sym{in}(\\vA,\\vT) \\limpl \\sym{true}(\\vv,\\vA))\\bigr)\\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vz}\\bigl(\\sym{satisfiable}(\\vz) \\lequiv \\E{\\vv}(\\sym{valuation}(\\vv) \\land \\sym{true}(\\vv,\\vz))\\bigr)\n,\\\\[2pt]\\color{gray}\\hspace{3em}\n\\E{\\vv} \\sym{valuation}(\\vv)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vT}\\bigl(\\sym{theory}(\\vT) \\limpl\n             (\\lnot\\sym{formula}(\\vT) \\land \\lnot\\sym{valuation}(\\vT))\\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vX}\\bigl(\\sym{formula}(\\vX) \\limpl \\lnot\\sym{valuation}(\\vX)\\bigr)\n\\color{black}\n\\,\\}$\n\nRozhodnite, či z $T_1$ vyplýva formula:\n\n$X_1 = \\A{\\vT}\\bigl(\\bigl(\\sym{theory}(\\vT) \\land\n        \\A{\\vA}\\bigl(\\sym{in}(\\vA,\\vT) \\limpl \\sym{satisfiable}(\\vA)\\bigr)\\bigr) \\limpl\n         \\sym{satisfiable}(\\vT) \\bigr)$",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "32": {
+      "id": 32,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a}) Ešte raz o vyplývaní]{.h5}\n\nUvažujme teóriu $T_3$ o výrokovej logike,\nv ktorej sa zameriame na vyplývanie, tentoraz so spojkami $\\lnot$ a $\\limpl$.\nSformalizovaná je v jazyku $\\Lang_3$, kde\n${\\Consts}_3 = \\emptyset$, ${\\Funcs}_3 = \\{ \\asym{1}{not}, \\asym{2}{impl} \\}$,\n${\\Preds}_3 = \\{\n    \\asym{1}{valuation},\n    \\asym{2}{entails},\n    \\asym{2}{true}\n\\}$.\n\n$T_3 = \\{\\,\n\\A{\\vT}\\A{\\vX}\\bigl( \\sym{entails}(\\vT, \\vX) \\lequiv\\\\\\hspace{6.5em}\n\\A \\vv((\\sym{valuation}(\\vv) \\land \\sym{true}(\\vv,\\vT)) \\limpl \\sym{true}(\\vv,\\vX))\\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vv}\\A{\\vA}\\bigl(\\sym{true}(\\vv,\\sym{not}(\\vA)) \\lequiv \\lnot\\sym{true}(\\vv,\\vA) \\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vv}\\A{\\vA}\\A{\\vB}\\bigl(\\sym{true}(\\vv,\\sym{impl}(\\vA,\\vB)) \\lequiv (\\lnot\\sym{true}(\\vv,\\vA) \\lor \\sym{true}(\\vv,\\vB)) \\bigr)\n\\,\\}$\n\nRozhodnite, či z $T_3$ vyplýva formula:\n\n$X_3 = \\A{\\vT} \\A{\\vX} \\A{\\vY} \\bigl(\n  \\bigl( \\sym{entails}(\\vT, \\sym{not}(\\vX)) \\lor \\sym{entails}(\\vT, \\vY) \\bigr) \\limpl\\\\\\hspace{7.5em}\n  \\sym{entails}(\\vT, \\sym{impl}(\\vX, \\vY)) \\bigr)$\n\n:icon[tools]\nVyplývanie dokážte tablom pre vhodnú množinu označených formúl,\nnevyplývanie nájdením vhodnej štruktúry pre jazyk $\\Lang_3$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Full FOL**.\nPrácu s logickými spojkami si zjednodušte využitím korektných výrokovologických pravidiel (MP, MT, DS, NCS, …)\nz :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "33": {
+      "id": 33,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 46,
+          "title": "2024 – 12 – Dievčatá vs. motorkári",
+          "description": "",
+          "constants": "Mary, John",
+          "predicates": "Harley/1, rides/2, rough_character/1, biker/1, BMW/1, yuppie/1, lawyer/1, girl/1, nice/1, dates/2",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1813,
+              "proposition": "1. Každý, kto jazdí na nejakom Harleyi, je drsniak.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1814,
+              "proposition": "2. Všetci motorkári jazdia na niečom, čo je buď Harley alebo BMW.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1815,
+              "proposition": "3. Každý, kto jazdí na nejakom BMW, je karierista.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1816,
+              "proposition": "4. Každý karierista je právnik.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1817,
+              "proposition": "5. Dobré dievčatá nerandia s drsniakmi.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1818,
+              "proposition": "6. Mary je dobré dievča a John je motorkár.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1819,
+              "proposition": "X. Ak John nie je právnik, tak s ním Mary nerandí.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 46
+      },
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "34": {
+      "id": 34,
+      "type": "text",
+      "data": "::h4[Formálny záver pre $T_1 \\entails X_1$]{.h6}\n\n:icon[write]\n:small[Vyplýva formula $X_1$ z teórie $T_1$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "35": {
+      "id": 35,
+      "type": "text",
+      "data": "::h4[Formálny záver pre $T_2 \\entails X_2$]{.h6}\n\n:icon[write]\n:small[Vyplýva formula $X_2$ z teórie $T_2$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "36": {
+      "id": 36,
+      "type": "text",
+      "data": "::h3[Formálny záver pre $X_1$]{.h6}\n\n:icon[write]\n:small[Vyplýva formula $X_1$ z teórie $T$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "37": {
+      "id": 37,
+      "type": "text",
+      "data": "::h3[Formálne riešenie pre $X_2$]{.h6}\n\n:icon[tools]\n:small[Vložte nižšie príslušný nástroj (Tableau editor alebo Structure explorer).]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "38": {
+      "id": 38,
+      "type": "text",
+      "data": "::h3[Formálne riešenie pre $X_1$]{.h6}\n\n:icon[tools]\n:small[Vložte nižšie príslušný nástroj (Tableau editor alebo Structure explorer).]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "39": {
+      "id": 39,
+      "type": "text",
+      "data": "::h3[Formálny záver pre $X_2$]{.h6}\n\n:icon[write]\n:small[Vyplýva formula $X_2$ z teórie $T$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "40": {
+      "id": 40,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) O vyplývaní]{.h5}\n\nTeraz uvažujme teóriu $T_2$ o výrokovej logike,\nv ktorej sa zameriame na vyplývanie.\nSformalizovaná je v jazyku $\\Lang_2$, kde\n${\\Consts}_2 = \\emptyset$, ${\\Funcs}_2 = \\{ \\asym{1}{not}, \\asym{2}{and} \\}$,\n${\\Preds}_2 = \\{\n    \\asym{1}{valuation},\n    \\asym{2}{entails},\n    \\asym{2}{true}\n\\}$.\n\n$T_2 = \\{\\,\n\\A{\\vT}\\A{\\vX}\\bigl( \\sym{entails}(\\vT, \\vX) \\lequiv\\\\\\hspace{6.5em}\n\\A \\vv((\\sym{valuation}(\\vv) \\land \\sym{true}(\\vv,\\vT)) \\limpl \\sym{true}(\\vv,\\vX))\\bigr)\n,\\\\[2pt]\\hspace{3em}\n\\A{\\vv}\\A{\\vA}\\A{\\vB}\\bigl(\\sym{true}(\\vv,\\sym{and}(\\vA,\\vB)) \\lequiv (\\sym{true}(\\vv,\\vA) \\land \\sym{true}(\\vv,\\vB)) \\bigr)\n\\,\\}$\n\nRozhodnite, či z $T_2$ vyplýva formula:\n\n$X_2 = \\A{\\vT} \\A{\\vX} \\A{\\vY} \\bigl(\n  \\lnot\\sym{entails}(\\vT, \\sym{and}(\\vX, \\vY)) \\limpl\\\\\\hspace{7.5em}\n  \\bigl(\\lnot\\sym{entails}(\\vT, \\vX) \\lor \\lnot\\sym{entails}(\\vT, \\vY) \\bigr)\\bigr)$\n\n:icon[tools]\nVyplývanie dokážte tablom pre vhodnú množinu označených formúl,\nnevyplývanie nájdením vhodnej štruktúry pre jazyk $\\Lang_2$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nTvrdenie zodpovedajúce formule $X_2$ ste mali dokázať alebo vyvrátiť ako [domácu úlohu 4.1 a)](../../du04/teoreticke-ain/du04.workbook).\n\n:icon[technical]\nV aplikácii Tableau editor vyberte sadu pravidiel **Full FOL**.\n:::",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "41": {
+      "id": 41,
+      "type": "text",
+      "data": "::h4[Formálny záver pre $T_3 \\entails X_3$]{.h6}\n\n:icon[write]\n:small[Vyplýva formula $X_3$ z teórie $T_3$?\nPrečo to dokazuje vaše tablo alebo vyvracia vaša štruktúra?]\n\n…",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "42": {
+      "id": 42,
+      "type": "text",
+      "data": "::h4[Formálne riešenie pre $T_1 \\entails X_1$]{.h6}\n\n:icon[tools]\n:small[Vložte nižšie príslušný nástroj (Tableau editor alebo Structure explorer).]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "43": {
+      "id": 43,
+      "type": "text",
+      "data": "::h4[Formálne riešenie pre $T_2 \\entails X_2$]{.h6}\n\n:icon[tools]\n:small[Vložte nižšie príslušný nástroj (Tableau editor alebo Structure explorer).]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "44": {
+      "id": 44,
+      "type": "text",
+      "data": "::h4[Formálne riešenie pre $T_3 \\entails X_3$]{.h6}\n\n:icon[tools]\n:small[Vložte nižšie príslušný nástroj (Tableau editor alebo Structure explorer).]",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    },
+    "45": {
+      "id": 45,
+      "type": "text",
+      "data": "## Príprava na skúšku\n\n::h3[Skúškové úlohy]{.h4}\n\nUkážky typických úloh, ktoré sa riešia na skúške, nájdete\nv [7. domácej úlohe (`du07`)](../../du07/teoreticke-ain/du07.workbook)\na cvičení 12.3.\n\nPri ich riešení vám odporúčame prečítať si [8. kapitolu zbierky úloh](https://fmfi-uk-1-ain-412.github.io/lpi/teoreticke-ain/zbierka.pdf#nameddest=chapter.8),\nktorá sumarizuje **časté chyby** a odporúčania, ako sa im vyhnúť.\n\n::h3[Teoretické otázky]{.h4}\n\nV teoretickej časti skúšky môžete očakávať podobné zaškrtávacie\na doplňovacie otázky, aké sa vyskytovali v teoretických častiach\ndomácich úloh (vrátane `du07`) a testov.\n\n::h4[Záujem o ústnu teoretickú časť skúšky]{.h5}\n\nAk silne uprednostňujete absolvovať **teoretickú** časť skúšky\n**ústnou** formou (namiesto písomného testu),\nnapíšte nám **do pondelka 19. 5.** (vrátane)\nna `lpi-team` :icon[at]{title=\"@\"} `lists.dai.fmph.uniba.sk`.\n\n\n",
+      "idCounter": 0,
+      "comments": {
+        "ids": [],
+        "entities": {}
+      }
+    }
+  },
+  "cellsOrder": [
+    1,
+    2,
+    45,
+    3,
+    31,
+    42,
+    34,
+    40,
+    43,
+    35,
+    32,
+    44,
+    41,
+    9,
+    15,
+    33,
+    10,
+    12,
+    13,
+    14,
+    21,
+    38,
+    36,
+    37,
+    39
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2\\ \\mkern-4mu}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\syma}[2]{\\text{\\textsf{#1}$^#2$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}\\mkern1.5mu}\n\\newcommand\\va{\\var{a}}\n\\newcommand\\vb{\\var{b}}\n\\newcommand\\vc{\\var{c}}\n\\newcommand\\vd{\\var{d}}\n\\newcommand\\ve{\\var{e}}\n\\newcommand\\vf{\\var{f}}\n\\newcommand\\vg{\\var{g}}\n\\newcommand\\vh{\\var{h}}\n\\newcommand\\vi{\\var{i}}\n\\newcommand\\vj{\\var{j}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\\newcommand\\vA{\\var{A}}\n\\newcommand\\vB{\\var{B}}\n\\newcommand\\vT{\\var{T}}\n\\newcommand\\vX{\\var{X}}\n\\newcommand\\vY{\\var{Y}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n\\newcommand\\emphrel[1]{\\mathrel{\\color{crimson}\\boldsymbol#1}}\n\\newcommand\\emphnEquiv{\\emphrel{\\nEquiv}}\n\\newcommand\\emphnentails{\\emphrel{\\nentails}}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
