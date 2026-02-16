@@ -1,0 +1,541 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 1. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 1. 3. 2026 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: Čisto informatívne, **nezarátava sa** do hodnotenia predmetu.\n: Odovzdané úlohy ohodnotíme slovne a percentuálne.\n: Využite získanú spätnú väzbu na prípravu na semestrálne testy.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du01` :span[[:icon[arrow-clockwise] Otvoriť túto úlohu v správnej vetve](../../du01/teoreticke-ain/du01.workbook)]{.ms-3}\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte posledné zmeny pred odovzdaním!**\n\n:icon[send-fill]{.text-info} Odovzdanie\n: Stlačte :span[:icon[send-fill]{.text-info} Hand In]{.border.border-info.text-info.rounded.p-1.text-nowrap} na hornej lište.\n: Ak by automatické odovzdanie zlyhalo, vytvorte pull request (PR)\n    - z vetvy `du01` v repozitári `‹váš_github_login›/lpi26-‹váš_uniba_login›`\n    - do vetvy `du01` v repozitári `FMFI-UK-1-AIN-412/lpi26-‹váš_uniba_login›`.\n: Všetky ďalšie zmeny hárku uložené pomocou :span[Merge changes]{.text-success.text-nowrap} sa pridajú do PR.\n: PR vytvorte **iba raz** (či už ručne alebo pomocou :span[Hand in]{.text-info.text-nowrap}).\n\n:icon[send-check-fill]{.text-info} Kontrola odovzdania\n: Správne vytvorený PR nájdete v [zozname PR pre du01](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu01).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "data": "## Úloha 1.:cnt[a]\n\n:small[\n:icon[source]\nZbierka: :xref[2.3.7]{.exbook label=\"úloha\"}.\nPodľa: Barker-Plummer, Barwise a Etchemendy, 2011.\n]\n\n:icon[tools]\nSformalizujte nižšie uvedené tvrdenia v poskytnutom jazyku $\\Lang$ výrokovologickej časti logiky prvého rádu\npomocou aplikácie Formalization Checker.\n\nZamýšľanou doménou sú rovinné geometrické útvary.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol   | Zamýšľaný význam             |\n|----------------------|------------------------------|\n| triangle($x$)        | $x$ je trojuholník           |\n| square($x$)          | $x$ je štvorec               |\n| circle($x$)          | $x$ je kruh                  |\n| small($x$)           | $x$ je malý                  |\n| medium($x$)          | $x$ je stredne veľký         |\n| large($x$)           | $x$ je veľký                 |\n| same\\_size($x$, $y$) | $x$ je rovnako veľký ako $y$ |\n| larger($x$, $y$)     | $x$ je väčší než $y$         |\n:::\n\n:::aside{.note.bg-transparent.p-1}\n:icon[warning]\n**Dôsledne zátvorkujte všetky formuly podľa :xref[2.6]{.lec label=definície}!**\nFormalization Checker akceptuje iba formuly, v ktorých je každá podformula vytvorená binárnou spojkou alebo skratkou $\\lequiv$ uzavretá do príslušného páru zátvoriek.\nChybové hlásenia žiaľ nemusia byť veľmi nápomocné.\n\n:icon[help]\nMôže sa vám zdať, že na vyjadrenie niektorých vzťahov v jazyku chýbajú predikáty.\nVyjadrite ich zložitejšími formulami použitím existujúcich predikátov.\n:::",
+      "comments": []
+    },
+    {
+      "id": 40,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 62,
+          "title": "2026 – Domáca úloha 1.1",
+          "description": "Sformalizujte nasledujúce výroky ako formuly vo vyššie opísanom jazyku výrokovologickej časti logiky prvého rádu.",
+          "constants": "A, B, C, D, E, F",
+          "predicates": "triangle/1, square/1, circle/1, small/1, medium/1, large/1, same_size/2, larger/2",
+          "functions": "",
+          "constraints": "((((∀x((triangle(x) ∨ (square(x) ∨ circle(x))) ∧ (¬(triangle(x) ∧ square(x)) ∧ (¬(triangle(x) ∧ circle(x)) ∧ ¬(square(x) ∧ circle(x)))))\n&& ∀x((small(x) ∨ (medium(x) ∨ large(x))) ∧ (¬(small(x) ∧ medium(x)) ∧ (¬(small(x) ∧ large(x)) ∧ ¬(medium(x) ∧ large(x))))))\n&& ∀x∀y(larger(x,y) ↔︎ ((large(x) ∧ (small(y) ∨ medium(y))) ∨ (medium(x) ∧ small(y)))))\n&& (((∀x same_size(x,x) ∧\n        ∀x∀y(same_size(x,y) → same_size(y,x))) ∧\n         ∀x∀y∀z((same_size(x,y) ∧ same_size(y,z)) → same_size(x,z))) ∧\n         ∀x∀y(  (((((¬same_size(x,y) ∨ (small(x) ∧ small(y))) ∨ (medium(x) ∧ medium(y))) ∨ (large(x) ∧ large(y))) ∨ ¬(((((small(x) ∨ small(y)) ∨ medium(x)) ∨ medium(y)) ∨ large(x)) ∨ large(y)))) ∧\n                    (same_size(x,y) ∨ (((¬small(x) ∨ ¬small(y)) ∧ (¬medium(x) ∨ ¬medium(y))) ∧ (¬large(x) ∨ ¬large(y)))))\n))\n& (((( ((((A!=B & A!=C) & A!=D) & A!=E) & A != F)\n& (((B!=C & B!=D) & B!=E) & B != F) )\n& ((C!=D & C!=E) & C != F) )\n& (D!=E & D != F) )\n& E != F )\n)",
+          "parserType": "strict",
+          "propositions": [
+            {
+              "proposition_id": 2229,
+              "proposition": "1. Ak A je trojuholník, tak B je tiež trojuholník.",
+              "solution": ""
+            },
+            {
+              "proposition_id": 2230,
+              "proposition": "2. C je trojuholník, ak je ním B.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2231,
+              "proposition": "3. A a C sú oba trojuholníky, iba ak aspoň jeden z nich je veľký.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2232,
+              "proposition": "4. A je trojuholník, no C nie je veľký.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2233,
+              "proposition": "5. Ak C je malý a D je kruh, tak D nie je ani veľký, ani malý.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2234,
+              "proposition": "6. C je stredne veľký iba ak žiadny z D, E, F nie je štvorec.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2235,
+              "proposition": "7. D je malý kruh, pokiaľ A nie je malý.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2236,
+              "proposition": "8. E je veľký práve vtedy, keď je pravda, že D je veľký, ak a iba ak je taký F.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2237,
+              "proposition": "9. D a E sú rovnakej veľkosti.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2238,
+              "proposition": "10. D a E majú rovnaký tvar.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2239,
+              "proposition": "11. F je buď štvorec alebo kruh, ak je veľký.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2240,
+              "proposition": "12. C je väčší než E, iba ak B je väčší ako C.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 62
+      },
+      "comments": []
+    },
+    {
+      "id": 41,
+      "type": "context",
+      "data": [
+        {
+          "id": 43,
+          "type": "text",
+          "data": "## Úloha 1.:cnt[a]\n\n:small[\n:icon[source]\nZbierka: :xref[2.2.5]{.exbook label=\"úloha\"}.\nPodľa: Barker-Plummer, Barwise a Etchemendy, 2011.\n]\n\nUvažujme jazyk výrokovologickej časti logiky prvého \nrádu $\\Lang$, kde:",
+          "comments": []
+        },
+        {
+          "id": 42,
+          "type": "context/language",
+          "data": {
+            "constants": "A, B, C, D",
+            "predicates": "blue/1, triangle/1, yellow/1, square/1, purple/1, circle/1, smaller/2, same_color/2",
+            "functions": ""
+          },
+          "contextExtension": {
+            "constants": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "predicates": [
+              {
+                "name": "blue",
+                "arity": 1
+              },
+              {
+                "name": "triangle",
+                "arity": 1
+              },
+              {
+                "name": "yellow",
+                "arity": 1
+              },
+              {
+                "name": "square",
+                "arity": 1
+              },
+              {
+                "name": "purple",
+                "arity": 1
+              },
+              {
+                "name": "circle",
+                "arity": 1
+              },
+              {
+                "name": "smaller",
+                "arity": 2
+              },
+              {
+                "name": "same_color",
+                "arity": 2
+              }
+            ],
+            "functions": []
+          },
+          "comments": []
+        },
+        {
+          "id": 44,
+          "type": "text",
+          "data": "pre doménu rovinných geometrických útvarov so zamýšľaným významom predikátových symbolov:\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol    | Zamýšľaný význam              |\n|-----------------------|-------------------------------|\n| triangle($x$)         | $x$ je trojuholník            |\n| square($x$)           | $x$ je štvorec                |\n| circle($x$)           | $x$ je kruh                   |\n| purple($x$)           | $x$ je fialový                |\n| yellow($x$)           | $x$ je žltý                   |\n| blue($x$)             | $x$ je modrý                  |\n| smaller($x$, $y$)     | $x$ je menší než $y$          |\n| same\\_color($x$, $y$) | $x$ je rovnakej farby ako $y$ |\n:::\n\na formuly v tomto jazyku:",
+          "comments": []
+        },
+        {
+          "id": 45,
+          "type": "context/addAxioms",
+          "data": [
+            {
+              "name": "A_1",
+              "formula": "¬(blue(C)→(square(C)→triangle(B)))"
+            },
+            {
+              "name": "A_2",
+              "formula": "¬((purple(B) ∧ ¬triangle(B)) ↔ ¬smaller(C, A))"
+            },
+            {
+              "name": "A_3",
+              "formula": "((circle(B) ∨ circle(C)) → (smaller(B, C) ∧ ¬yellow(A)))"
+            },
+            {
+              "name": "A_4",
+              "formula": "((blue(C)∧square(C))→(purple(D)↔purple(B)))"
+            },
+            {
+              "name": "A_5",
+              "formula": "(yellow(B) → ¬smaller(C, D))"
+            },
+            {
+              "name": "A_6",
+              "formula": "(¬same_color(C,B)∨yellow(B))"
+            },
+            {
+              "name": "A_7",
+              "formula": "(¬(smaller(D, A) ∨ smaller(A, D)) ↔ smaller(C, D))"
+            },
+            {
+              "name": "A_8",
+              "formula": "(¬(triangle(C) ∨ triangle(B)) → smaller(C, D))"
+            },
+            {
+              "name": "A_9",
+              "formula": "¬(purple(B)∧square(B))"
+            },
+            {
+              "name": "A_{10}",
+              "formula": "(¬triangle(D)→(triangle(C)∨triangle(B)))"
+            },
+            {
+              "name": "A_{11}",
+              "formula": "(smaller(B, D) → (square(A) ∧ ¬blue(A)))"
+            }
+          ],
+          "contextExtension": {
+            "constants": [],
+            "predicates": [],
+            "functions": [],
+            "formulas": [],
+            "axioms": [
+              {
+                "name": "A_1",
+                "formula": "¬(blue(C) → (square(C) → triangle(B)))"
+              },
+              {
+                "name": "A_2",
+                "formula": "¬((purple(B) ∧ ¬triangle(B)) ↔ ¬smaller(C, A))"
+              },
+              {
+                "name": "A_3",
+                "formula": "((circle(B) ∨ circle(C)) → (smaller(B, C) ∧ ¬yellow(A)))"
+              },
+              {
+                "name": "A_4",
+                "formula": "((blue(C) ∧ square(C)) → (purple(D) ↔ purple(B)))"
+              },
+              {
+                "name": "A_5",
+                "formula": "(yellow(B) → ¬smaller(C, D))"
+              },
+              {
+                "name": "A_6",
+                "formula": "(¬same_color(C, B) ∨ yellow(B))"
+              },
+              {
+                "name": "A_7",
+                "formula": "(¬(smaller(D, A) ∨ smaller(A, D)) ↔ smaller(C, D))"
+              },
+              {
+                "name": "A_8",
+                "formula": "(¬(triangle(C) ∨ triangle(B)) → smaller(C, D))"
+              },
+              {
+                "name": "A_9",
+                "formula": "¬(purple(B) ∧ square(B))"
+              },
+              {
+                "name": "A_{10}",
+                "formula": "(¬triangle(D) → (triangle(C) ∨ triangle(B)))"
+              },
+              {
+                "name": "A_{11}",
+                "formula": "(smaller(B, D) → (square(A) ∧ ¬blue(A)))"
+              }
+            ],
+            "theorems": []
+          },
+          "comments": []
+        },
+        {
+          "id": 46,
+          "type": "text",
+          "data": ":icon[tools]\nZostrojte model $\\Struct = (D,i)$ teórie $\\{A_1, \\ldots, A_{11}\\}$,\nv ktorom interpretácie predikátov zároveň spĺňajú nasledujúce podmienky\nvyplývajúce z ich zamýšlaného významu:\n\n12. Každý útvar má **práve jednu farbu**,\n    čiže pre každé $u \\in D$ existuje\n    $P \\in \\{\\sym{purple},\\sym{yellow},\\sym{blue}\\}$ také,\n    že $u \\in i(P)$,\n    a množiny $i(\\sym{purple})$, $i(\\sym{yellow})$, $i(\\sym{blue})$\n    sú navzájom disjunktné.\n14. Každý útvar má **práve jeden tvar**,\n    čiže pre každé $u \\in D$ existuje\n    $P \\in \\{\\sym{small},\\sym{medium},\\sym{large}\\}$ také,\n    že $u \\in i(P)$,\n    a množiny $i(\\sym{small})$, $i(\\sym{medium})$, $i(\\sym{large})$ sú disjunktné.\n15. Relácia $i(\\sym{larger})$ je **ostrým čiastočným usporiadaním** na $D$,\n    teda je ireflexívna, antisymetrická a tranzitívna.\n18. Relácia $i(\\sym{same\\_color})$ je **reláciou ekvivalencie** na $D$\n    (teda je reflexívna, symetrická a tranzitívna),\n    v ktorej sú si vzájomne ekvivalentné všetky útvary rovnakej farby,\n    (čiže pre všetky $x$, $y \\in D$ platí $(x,y) \\in i(\\sym{same\\_color})$ vtt\n    $x$, $y \\in i(\\sym{purple})$ alebo\n    $x$, $y \\in i(\\sym{yellow})$ alebo\n    $x$, $y \\in i(\\sym{blue})$).\n\nPre každú štvorprvkovú doménu a každú interpretáciu konštánt v nej\nexistuje **práve jedna** interpretácia predikátov\nspĺňajúca všetky podmienky.\n\nAplikáciu Structure Explorer na kontrolu vášho riešenia sme pripravili v nasledujúcej bunke.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[warning]\nSplnenie dodatočných podmienok 12–15 kontrolujú formuly $\\varphi_{12}$–$\\varphi_{15}$.\nVo vašej štruktúre **musia byť všetky pravdivé**.\n\n:icon[technical]\nInterpretáciu predikátov $\\sym{larger}$ a $\\sym{same\\_color}$ prehľadne vytvoríte v predvolenom maticovom režime.\n\n:icon[help]\nPreložte si všetky formuly do prirodzeného jazyka\na snažte sa pochopiť ich význam.\nPokúste sa medzi nimi nájsť také,\nz ktorých priamo vyplývajú konkrétne fakty o (ne)pravdivosti atómov\n(nie iba alternatívy).\nNásledne hľadajte formuly, ktoré vám z týchto faktov\numožnia odvodiť ďalšie.\nAlternatívy zvažujte, iba keď je to naozaj nevyhnutné.\n:::",
+          "comments": []
+        },
+        {
+          "id": 47,
+          "type": "newStructureExplorer",
+          "data": {
+            "version": 1,
+            "formulas": {
+              "allFormulas": [
+                {
+                  "name": "A_1",
+                  "text": "¬(blue(C) → (square(C) → triangle(B)))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_2",
+                  "text": "¬((purple(B) ∧ ¬triangle(B)) ↔ ¬smaller(C, A))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_3",
+                  "text": "((circle(B) ∨ circle(C)) → (smaller(B, C) ∧ ¬yellow(A)))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_4",
+                  "text": "((blue(C) ∧ square(C)) → (purple(D) ↔ purple(B)))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_5",
+                  "text": "(yellow(B) → ¬smaller(C, D))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_6",
+                  "text": "(¬same_color(C, B) ∨ yellow(B))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_7",
+                  "text": "(¬(smaller(D, A) ∨ smaller(A, D)) ↔ smaller(C, D))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_8",
+                  "text": "(¬(triangle(C) ∨ triangle(B)) → smaller(C, D))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_9",
+                  "text": "¬(purple(B) ∧ square(B))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_{10}",
+                  "text": "(¬triangle(D) → (triangle(C) ∨ triangle(B)))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_{11}",
+                  "text": "(smaller(B, D) → (square(A) ∧ ¬blue(A)))",
+                  "guess": true,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "text": "∀x((purple(x) ∨ yellow(x) ∨ blue(x)) ∧ ¬(purple(x) ∧ yellow(x)) ∧ ¬(purple(x) ∧ blue(x)) ∧ ¬(yellow(x) ∧ blue(x)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "text": "∀x((triangle(x) ∨ square(x) ∨ circle(x)) ∧ ¬(triangle(x) ∧ square(x)) ∧ ¬(triangle(x) ∧ circle(x)) ∧ ¬(square(x) ∧ circle(x)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "text": "∀x∀y(smaller(x,y) → ¬smaller(y,x)) ∧ ∀x∀y∀z(smaller(x,y) ∧ smaller(y,z)→ smaller(x,z))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "text": "∀x same_color(x,x) ∧ ∀x∀y(same_color(x,y) → same_color(y,x)) ∧ ∀x∀y∀z(same_color(x,y) ∧ same_color(y,z) → same_color(x,z)) ∧ ∀x∀y( (¬same_color(x,y) ∨ purple(x) ∧ purple(y) ∨ yellow(x) ∧ yellow(y) ∨ blue(x) ∧ blue(y) ∨ ¬(purple(x) ∨ purple(y) ∨ yellow(x) ∨ yellow(y) ∨ blue(x) ∨ blue(y)) ) ∧ (same_color(x,y) ∨ (¬purple(x) ∨ ¬purple(y)) ∧ (¬yellow(x) ∨ ¬yellow(y)) ∧ (¬blue(x) ∨ ¬blue(y)) ) )",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                }
+              ]
+            },
+            "language": {
+              "constants": {
+                "value": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ],
+                "locked": false
+              },
+              "predicates": {
+                "value": [
+                  [
+                    "blue",
+                    1
+                  ],
+                  [
+                    "triangle",
+                    1
+                  ],
+                  [
+                    "yellow",
+                    1
+                  ],
+                  [
+                    "square",
+                    1
+                  ],
+                  [
+                    "purple",
+                    1
+                  ],
+                  [
+                    "circle",
+                    1
+                  ],
+                  [
+                    "smaller",
+                    2
+                  ],
+                  [
+                    "same_color",
+                    2
+                  ]
+                ],
+                "locked": false
+              },
+              "functions": {
+                "value": [],
+                "locked": false
+              },
+              "editMode": false
+            },
+            "variables": {
+              "value": [],
+              "locked": false
+            },
+            "teacherMode": {},
+            "structure": {
+              "domain": {
+                "value": [
+                  "a",
+                  "b",
+                  "c",
+                  "d"
+                ],
+                "locked": false
+              },
+              "iC": {
+                "A": {
+                  "value": "",
+                  "locked": false
+                },
+                "B": {
+                  "value": "",
+                  "locked": false
+                },
+                "C": {
+                  "value": "",
+                  "locked": false
+                },
+                "D": {
+                  "value": "",
+                  "locked": false
+                }
+              },
+              "iP": {
+                "blue": {
+                  "value": [],
+                  "locked": false
+                }
+              },
+              "iF": {}
+            },
+            "graphView": {},
+            "editorToolbar": {
+              "predicate-smaller": {
+                "openedEditor": "matrix",
+                "selectedUnary": [
+                  "blue",
+                  "triangle",
+                  "yellow",
+                  "square",
+                  "purple",
+                  "circle"
+                ],
+                "unaryFilterDomain": true
+              },
+              "predicate-same_color": {
+                "openedEditor": "matrix",
+                "selectedUnary": [
+                  "blue",
+                  "triangle",
+                  "yellow",
+                  "square",
+                  "purple",
+                  "circle"
+                ],
+                "unaryFilterDomain": true
+              }
+            }
+          },
+          "comments": []
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "data": "## Literatúra\n\n:::div{.small}\n\nBarker-Plummer, Dave – Barwise, Jon – Etchemendy, John: <cite>Language, Proof and Logic. The Second Edition.</cite> Stanford, CA: CSLI Publications, 2011.\n\n:::",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\mathrel{\\NModels_{\\mathrm{p}}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n",
+    "github": {
+      "editBranch": "du01",
+      "handinBranch": "du01"
+    }
+  }
+}
