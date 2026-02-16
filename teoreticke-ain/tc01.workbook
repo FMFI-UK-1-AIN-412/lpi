@@ -1,0 +1,964 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 52,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 1. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc01`\n: :strong[[:icon[arrow-clockwise] Otvoriť toto cvičenie v správnej vetve](../../tc01/teoreticke-ain/tc01.workbook)]\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Krátky návod na použitie aplikácie Logic Workbook nájdete na konci tohto hárku.\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 12:20–13:10 v I-9\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 48,
+      "type": "text",
+      "data": "## :icon[bonus] Domáca úloha\n\nĎalšie skúsenosti a spätnú väzbu môžete získať vyriešením domácej úlohy.\n\n::::div{.dl-indented}\n1. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du01](../../du01/teoreticke-ain/du01.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 1. 3. 2026 o 23:59:59\n     :::\n::::",
+      "comments": []
+    },
+    {
+      "id": 54,
+      "type": "context",
+      "data": [
+        {
+          "id": 56,
+          "type": "text",
+          "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.1]{.exbook label=\"príklad\"},\n:xref[1.1.5]{.exbook label=\"úloha\"}.]\n\nUvažujme jazyk $\\Lang$ logiky prvého rádu s množinami symbolov:",
+          "comments": []
+        },
+        {
+          "id": 55,
+          "type": "context/language",
+          "data": {
+            "constants": "Alex, Betty, Charles, Dana, Ed, Gina, dad",
+            "predicates": "woman/1, parent/2, child/3, older/2",
+            "functions": ""
+          },
+          "contextExtension": {
+            "constants": [
+              "Alex",
+              "Betty",
+              "Charles",
+              "Dana",
+              "Ed",
+              "Gina",
+              "dad"
+            ],
+            "predicates": [
+              {
+                "name": "woman",
+                "arity": 1
+              },
+              {
+                "name": "parent",
+                "arity": 2
+              },
+              {
+                "name": "child",
+                "arity": 3
+              },
+              {
+                "name": "older",
+                "arity": 2
+              }
+            ],
+            "functions": []
+          },
+          "comments": []
+        },
+        {
+          "id": 57,
+          "type": "text",
+          "data": "Zamýšľanou doménou tohto jazyka sú ľudia\na zamýšľaný význam predikátových symbolov je nasledovný:\n\n:::div{.table.table-intended-meaning}\n| Predikát | Význam |\n|----------|--------|\n| $\\sym{woman}(x)$ | $x$ je žena |\n| $\\sym{parent}(x,y)$ | $x$ je rodičom $y$ |\n| $\\sym{child}(u,x,y)$ | $u$ je dieťaťom matky $x$ a otca $y$ |\n| $\\sym{older}(x,y)$ | $x$ je starší ako $y$ |\n:::",
+          "comments": []
+        },
+        {
+          "id": 60,
+          "type": "text",
+          "data": "Ďalej uvažujme nasledujúce atomické formuly v jazyku $\\Lang$:",
+          "comments": []
+        },
+        {
+          "id": 59,
+          "type": "context/addFormulas",
+          "data": [
+            {
+              "name": "A_1",
+              "formula": "woman(Betty)"
+            },
+            {
+              "name": "A_2",
+              "formula": "child(Charles,Gina,Ed)"
+            },
+            {
+              "name": "A_3",
+              "formula": "older(Dana,Charles)"
+            },
+            {
+              "name": "A_4",
+              "formula": "woman(Dana)"
+            },
+            {
+              "name": "B_1",
+              "formula": "older(Betty,Charles)"
+            },
+            {
+              "name": "B_2",
+              "formula": "parent(Ed,Ed)"
+            },
+            {
+              "name": "B_3",
+              "formula": "Charles ≐ dad"
+            },
+            {
+              "name": "B_4",
+              "formula": "woman(Alex)"
+            }
+          ],
+          "contextExtension": {
+            "constants": [],
+            "predicates": [],
+            "functions": [],
+            "formulas": [
+              {
+                "name": "A_1",
+                "formula": "woman(Betty)"
+              },
+              {
+                "name": "A_2",
+                "formula": "child(Charles, Gina, Ed)"
+              },
+              {
+                "name": "A_3",
+                "formula": "older(Dana, Charles)"
+              },
+              {
+                "name": "A_4",
+                "formula": "woman(Dana)"
+              },
+              {
+                "name": "B_1",
+                "formula": "older(Betty, Charles)"
+              },
+              {
+                "name": "B_2",
+                "formula": "parent(Ed, Ed)"
+              },
+              {
+                "name": "B_3",
+                "formula": "Charles ≐ dad"
+              },
+              {
+                "name": "B_4",
+                "formula": "woman(Alex)"
+              }
+            ],
+            "axioms": [],
+            "theorems": []
+          },
+          "comments": []
+        },
+        {
+          "id": 61,
+          "type": "text",
+          "data": "::h3[:icon[write]]{.float-start.h6.lh-base.my-0.me-2}\nPreložte uvedené atomické formuly\ndo čo najprirodzenejších, ale presných výrokov v slovenčine.\nVýroky napíšte priamo do tejto textovej bunky namiesto „…“.\n\n$A_1$:\n…\n\n$A_2$:\n…\n\n$A_3$:\n…\n\n$A_4$:\n…\n\n$B_1$:\n…\n\n$B_2$:\n…\n\n$B_3$:\n…\n\n$B_4$:\n…",
+          "comments": []
+        },
+        {
+          "id": 18,
+          "type": "text",
+          "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.3]{.exbook label=\"príklad\"},\n:xref[1.1.7]{.exbook label=\"úloha\"}.]\n\nUvažujme jazyk $\\Lang$\na atomické formuly $A_1$, …, $A_4$, $B_1$, …, $B_4$ z cvičenia 1.1.\nNech $\\Struct = (D,i)$ je prvorádová štruktúra pre $\\Lang$, kde\n\n$$\n\\begin{align*}\n    D &= \\{ 1,2,3,4,5,6,7,8,9 \\},\n    \\\\\n    i(\\sym{Alex}) &= 1, \\quad\n    i(\\sym{Betty}) = 2, \\quad\n    i(\\sym{Charles}) = 3, \\quad\n    i(\\sym{Dana}) = 4, \\quad\\\\\n    i(\\sym{Ed}) &= 9, \\quad\n    i(\\sym{Gina}) = 7, \\quad\n    i(\\sym{dad}) = 3, \\quad\n    \\\\\n    i(\\sym{woman}) &= \\{ 1, 2, 3, 8 \\},\n    \\\\\n    i(\\sym{parent}) &= \\{ (4,1), (9,9), (2,3), (3,4), (8,7) \\},\n    \\\\\n    i(\\sym{child}) &= \\{ (3,7,9), (2,7,3), (8,9,1) \\},\n    \\\\\n    i(\\sym{older}) &= \\{ (2,1), (2,2), (2,3), (2,7), (3,4), (7,3), (8,7) \\}\n    .\n\\end{align*}\n$$\n\nRozhodnite, ktoré z formúl $A_1$, …, $A_4$, $B_1$, …, $B_4$ sú pravdivé v štruktúre $\\Struct$.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[explanation] **Všimnite si**, že hoci každá indivíduová konštanta musí byť interpretovaná\nako niektorý objekt domény (teda pomenúvať ho),\nnie všetky objekty musia byť pomenované\na viacero indivíduových konštánt môže pomenúvať ten istý objekt.\n:::::",
+          "comments": []
+        },
+        {
+          "id": 20,
+          "type": "text",
+          "data": "::h3[:icon[tools]]{.float-start.h6.lh-base.my-0.me-2}\n\nV nasledujúcej bunke sme pripravili nástroj **Prieskumník štruktúr (Structure explorer)**\nso štruktúrou $\\Struct$ a formulami $A_1$, …, $A_4$\na $B_1$, …, $B_4$.\nV prieskumníku si môžete overiť, či ste správne určili pravdivosť formúl.\n\n:::enum{.i}\n1. **Vyberte** správne možnosti pre všetky formuly.\n\n2. **Overte** svoj výber pomocou Henkinovej-Hintikkovej hry. Ak ste si nevybrali správne, hra vám pomôže zistiť **prečo**.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nZamýšľaná pravdivosť formuly sa vyberá z menu :span[⊨/⊭?]{.p-1.border.rounded}.\n\n:icon[technical]\nHenkinova-Hintikkova hra sa otvára tlačidlom :span[Verify]{.p-1.text-danger.border.border-danger.rounded} resp. :span[Show verification]{.p-1.text-success.border.border-success.rounded.text-nowrap}. Pretože formuly sú veľmi jednoduché, správny výber pravdivosti sa tentoraz overí automaticky. Pri zložitejších formulách to tak nebude.\n:::::",
+          "comments": []
+        },
+        {
+          "id": 53,
+          "type": "newStructureExplorer",
+          "data": {
+            "version": 1,
+            "formulas": {
+              "allFormulas": [
+                {
+                  "name": "A_1",
+                  "text": "woman(Betty)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_2",
+                  "text": "child(Charles, Gina, Ed)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_3",
+                  "text": "older(Dana, Charles)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_4",
+                  "text": "woman(Dana)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_1",
+                  "text": "older(Betty, Charles)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_2",
+                  "text": "parent(Ed, Ed)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_3",
+                  "text": "Charles ≐ dad",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_4",
+                  "text": "woman(Alex)",
+                  "guess": null,
+                  "locked": false,
+                  "lockedGuess": false,
+                  "gameChoices": []
+                }
+              ]
+            },
+            "language": {
+              "constants": {
+                "value": [
+                  "Alex",
+                  "Betty",
+                  "Charles",
+                  "Dana",
+                  "Ed",
+                  "Gina",
+                  "dad"
+                ],
+                "locked": true
+              },
+              "predicates": {
+                "value": [
+                  [
+                    "woman",
+                    1
+                  ],
+                  [
+                    "parent",
+                    2
+                  ],
+                  [
+                    "child",
+                    3
+                  ],
+                  [
+                    "older",
+                    2
+                  ]
+                ],
+                "locked": true
+              },
+              "functions": {
+                "value": [],
+                "locked": true
+              },
+              "editMode": false
+            },
+            "variables": {
+              "value": [],
+              "locked": true
+            },
+            "teacherMode": {
+              "teacherMode": false
+            },
+            "structure": {
+              "domain": {
+                "value": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9"
+                ],
+                "locked": true
+              },
+              "iC": {
+                "Alex": {
+                  "value": "1",
+                  "locked": true
+                },
+                "Betty": {
+                  "value": "2",
+                  "locked": true
+                },
+                "Charles": {
+                  "value": "3",
+                  "locked": true
+                },
+                "Dana": {
+                  "value": "4",
+                  "locked": true
+                },
+                "Ed": {
+                  "value": "9",
+                  "locked": true
+                },
+                "Gina": {
+                  "value": "7",
+                  "locked": true
+                },
+                "dad": {
+                  "value": "3",
+                  "locked": true
+                }
+              },
+              "iP": {
+                "woman": {
+                  "value": [
+                    [
+                      "1"
+                    ],
+                    [
+                      "2"
+                    ],
+                    [
+                      "3"
+                    ],
+                    [
+                      "8"
+                    ]
+                  ],
+                  "locked": true
+                },
+                "parent": {
+                  "value": [
+                    [
+                      "4",
+                      "1"
+                    ],
+                    [
+                      "9",
+                      "9"
+                    ],
+                    [
+                      "2",
+                      "3"
+                    ],
+                    [
+                      "3",
+                      "4"
+                    ],
+                    [
+                      "8",
+                      "7"
+                    ]
+                  ],
+                  "locked": true
+                },
+                "older": {
+                  "value": [
+                    [
+                      "2",
+                      "1"
+                    ],
+                    [
+                      "2",
+                      "2"
+                    ],
+                    [
+                      "2",
+                      "3"
+                    ],
+                    [
+                      "2",
+                      "7"
+                    ],
+                    [
+                      "3",
+                      "4"
+                    ],
+                    [
+                      "7",
+                      "3"
+                    ],
+                    [
+                      "8",
+                      "7"
+                    ]
+                  ],
+                  "locked": true
+                },
+                "child": {
+                  "value": [
+                    [
+                      "3",
+                      "7",
+                      "9"
+                    ],
+                    [
+                      "2",
+                      "7",
+                      "3"
+                    ],
+                    [
+                      "8",
+                      "9",
+                      "1"
+                    ]
+                  ],
+                  "locked": true
+                }
+              },
+              "iF": {}
+            },
+            "graphView": {
+              "predicate-parent": {
+                "oriented": {
+                  "1": [
+                    30,
+                    131
+                  ],
+                  "2": [
+                    615,
+                    119
+                  ],
+                  "3": [
+                    405,
+                    129
+                  ],
+                  "4": [
+                    215,
+                    105
+                  ],
+                  "5": [
+                    358,
+                    463
+                  ],
+                  "6": [
+                    548,
+                    463
+                  ],
+                  "7": [
+                    168,
+                    463
+                  ],
+                  "8": [
+                    235,
+                    247
+                  ],
+                  "9": [
+                    738,
+                    463
+                  ]
+                },
+                "hasse": {
+                  "1": [
+                    -425,
+                    -225
+                  ],
+                  "2": [
+                    -425,
+                    150
+                  ],
+                  "3": [
+                    -425,
+                    25
+                  ],
+                  "4": [
+                    -425,
+                    -100
+                  ],
+                  "5": [
+                    -255,
+                    150
+                  ],
+                  "6": [
+                    -85,
+                    150
+                  ],
+                  "7": [
+                    85,
+                    25
+                  ],
+                  "8": [
+                    85,
+                    150
+                  ],
+                  "9": [
+                    255,
+                    150
+                  ]
+                },
+                "bipartite": {
+                  "d-1": [
+                    160,
+                    20
+                  ],
+                  "r-1": [
+                    40,
+                    20
+                  ],
+                  "d-2": [
+                    160,
+                    55
+                  ],
+                  "r-2": [
+                    40,
+                    55
+                  ],
+                  "d-3": [
+                    160,
+                    90
+                  ],
+                  "r-3": [
+                    40,
+                    90
+                  ],
+                  "d-4": [
+                    160,
+                    125
+                  ],
+                  "r-4": [
+                    40,
+                    125
+                  ],
+                  "d-5": [
+                    160,
+                    160
+                  ],
+                  "r-5": [
+                    40,
+                    160
+                  ],
+                  "d-6": [
+                    160,
+                    195
+                  ],
+                  "r-6": [
+                    40,
+                    195
+                  ],
+                  "d-7": [
+                    160,
+                    230
+                  ],
+                  "r-7": [
+                    40,
+                    230
+                  ],
+                  "d-8": [
+                    160,
+                    265
+                  ],
+                  "r-8": [
+                    40,
+                    265
+                  ],
+                  "d-9": [
+                    160,
+                    300
+                  ],
+                  "r-9": [
+                    40,
+                    300
+                  ]
+                }
+              },
+              "predicate-older": {
+                "oriented": {
+                  "1": [
+                    401,
+                    50
+                  ],
+                  "2": [
+                    206,
+                    101
+                  ],
+                  "3": [
+                    423,
+                    199
+                  ],
+                  "4": [
+                    534,
+                    391
+                  ],
+                  "5": [
+                    724,
+                    50
+                  ],
+                  "6": [
+                    50,
+                    536
+                  ],
+                  "7": [
+                    252,
+                    304
+                  ],
+                  "8": [
+                    50,
+                    341
+                  ],
+                  "9": [
+                    240,
+                    536
+                  ]
+                },
+                "hasse": {
+                  "1": [
+                    -420,
+                    25
+                  ],
+                  "2": [
+                    -410,
+                    150
+                  ],
+                  "3": [
+                    120,
+                    -100
+                  ],
+                  "4": [
+                    120,
+                    -225
+                  ],
+                  "5": [
+                    -210,
+                    150
+                  ],
+                  "6": [
+                    -40,
+                    150
+                  ],
+                  "7": [
+                    120,
+                    25
+                  ],
+                  "8": [
+                    130,
+                    150
+                  ],
+                  "9": [
+                    300,
+                    150
+                  ]
+                }
+              }
+            },
+            "editorToolbar": {
+              "predicate-woman": {
+                "openedEditor": "text",
+                "selectedUnary": [],
+                "unaryFilterDomain": true
+              },
+              "predicate-parent": {
+                "openedEditor": "text",
+                "selectedUnary": [
+                  "woman"
+                ],
+                "unaryFilterDomain": false
+              },
+              "predicate-older": {
+                "openedEditor": "text",
+                "selectedUnary": [],
+                "unaryFilterDomain": true
+              }
+            }
+          },
+          "comments": []
+        },
+        {
+          "id": 23,
+          "type": "text",
+          "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.1.4]{.exbook label=\"príklad\"},\n:xref[1.1.8]{.exbook label=\"úloha\"}.]\n\nUvažujme opäť jazyk $\\Lang$\na atomické formuly z cvičenia 1.1.\nZostrojte štruktúry $\\Struct_1$, $\\Struct_2$ a $\\Struct_3$\npre jazyk $\\Lang$ tak,\naby každá z nich:\n* **bola modelom** všetkých formúl $A_1$, …, $A_4$, ale _súčasne_\n* **nebola modelom** žiadnej z formúl $B_1$, …, $B_4$.\n\na aby _zároveň_:\n:::enum{.a}\n1. doména štruktúry $\\Struct_1$ mala **aspoň 8 prvkov**;\n2. doména štruktúry $\\Struct_2$ mala **najviac 2 prvky**;\n3. doména štruktúry $\\Struct_3$ mala **najviac 3 prvky**.\n:::\n\nAk doména s požadovanou kardinalitou neexistuje,\ndetailne zdôvodnite, prečo to tak je,\nna základe definície štruktúry a pravdivosti atómov v nej.",
+          "comments": []
+        },
+        {
+          "id": 24,
+          "type": "text",
+          "data": "::h3[a) Štruktúra $\\Struct_1$]{.h5}\n\n:icon[tools]\nŠtruktúru s aspoň 8 prvkami vytvorte v pripravenom prieskumníku.\nPožadovanú pravdivosť a nepravdivosť sme prednastavili.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nPravdivosť formúl je teraz zamknutá,\nale môžete meniť doménu a interpretačnú funkciu štruktúry $\\Struct$.\nPrieskumník aj tentoraz automaticky overí formuly so správnou pravdivosťou.\nNahliadnutie do neúspešného overenia pri formulách s nesprávnou pravdivosťou\nvám pomôže zistiť, kde je problém.\n\n:icon[bug-fill]{.text-secondary} Prieskumník žiaľ neumožňuje pomenovať štruktúru inak ako $\\Struct$.\n:::::",
+          "comments": []
+        },
+        {
+          "id": 62,
+          "type": "newStructureExplorer",
+          "data": {
+            "version": 1,
+            "formulas": {
+              "allFormulas": [
+                {
+                  "name": "A_1",
+                  "text": "woman(Betty)",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_2",
+                  "text": "child(Charles, Gina, Ed)",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_3",
+                  "text": "older(Dana, Charles)",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_4",
+                  "text": "woman(Dana)",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_1",
+                  "text": "older(Betty, Charles)",
+                  "guess": false,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_2",
+                  "text": "parent(Ed, Ed)",
+                  "guess": false,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_3",
+                  "text": "Charles ≐ dad",
+                  "guess": false,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "B_4",
+                  "text": "woman(Alex)",
+                  "guess": false,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                }
+              ]
+            },
+            "language": {
+              "constants": {
+                "value": [
+                  "Alex",
+                  "Betty",
+                  "Charles",
+                  "Dana",
+                  "Ed",
+                  "Gina",
+                  "dad"
+                ],
+                "locked": false
+              },
+              "predicates": {
+                "value": [
+                  [
+                    "woman",
+                    1
+                  ],
+                  [
+                    "parent",
+                    2
+                  ],
+                  [
+                    "child",
+                    3
+                  ],
+                  [
+                    "older",
+                    2
+                  ]
+                ],
+                "locked": false
+              },
+              "functions": {
+                "value": [],
+                "locked": false
+              },
+              "editMode": false
+            },
+            "variables": {
+              "value": [],
+              "locked": true
+            },
+            "teacherMode": {
+              "teacherMode": false
+            },
+            "structure": {
+              "domain": {
+                "value": [],
+                "locked": false
+              },
+              "iC": {},
+              "iP": {},
+              "iF": {}
+            },
+            "graphView": {},
+            "editorToolbar": {}
+          },
+          "comments": []
+        },
+        {
+          "id": 26,
+          "type": "text",
+          "data": "::h3[b) Štruktúra $\\Struct_2$]{.h5}\n\n:icon[tools]\nAk štruktúra $\\Struct_2$ s najviac 2 prvkami **existuje**,\nvložte za túto bunku **nový prieskumník** a zostrojte ju v ňom.\n\n:icon[write]\nAk taká štruktúra **neexistuje**,\nvložte za túto bunku **novú textovú bunku**\na napíšte do nej **dôkaz neexistencie**.\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[help]\n_Pomôcka._ Zamerajte sa na interpretáciu konštánt\n$\\sym{Alex}$, $\\sym{Betty}$ a $\\sym{Dana}$.\n\n::::details\n::summary[Zoznam formúl $A_1$, …, $A_4$ a $B_1$, …, $B_4$]\n:::div{.table.table-sm.overflow-auto}\n| Pravdivé | Nepravdivé |\n|:---------|:-----------|\n| $A_1 = \\sym{woman}(\\sym{Betty})$ | $B_1 = \\sym{older}(\\sym{Betty},\\sym{Charles})$ |\n| $A_2 = \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$ | $B_2 = \\sym{parent}(\\sym{Ed},\\sym{Ed})$ |\n| $A_3 = \\sym{older}(\\sym{Dana},\\sym{Charles})$ | $B_3 = \\sym{Charles} \\doteq \\sym{dad}$ |\n| $A_4 = \\sym{woman}(\\sym{Dana})$ | $B_4 = \\sym{woman}(\\sym{Alex})$ ||\n:::\n::::\n:::::",
+          "comments": []
+        },
+        {
+          "id": 25,
+          "type": "text",
+          "data": "::h3[:icon[homework] c) Štruktúra $\\Struct_3$]{.h5}\n\n:icon[tools]\nAk štruktúra $\\Struct_3$ s najviac 5 prvkami **existuje**,\nvložte za túto bunku **nový prieskumník** a zostrojte ju v ňom.\n\n:icon[write]\nAk taká štruktúra **neexistuje**,\nvložte za túto bunku **novú textovú bunku**\na napíšte do nej **dôkaz neexistencie**.\n\n\n:::::aside{.note.bg-transparent.p-0}\n:icon[technical]\nV prvom prípade môžete nový prieskumník vytvoriť **zduplikovaním**\na presunutím prieskumníka pre $\\Struct_1$ (tlačidlá :icon[plus-square]{.p-1.text-secondary.border.border-secondary.rounded} a :icon[arrow-down]{.p-1.text-secondary.border.border-secondary.rounded}).\nUšetríte si tým prácne kopírovanie definície jazyka a jednotlivých formúl.\n\n::::details\n::summary[Zoznam formúl $A_1$, …, $A_4$ a $B_1$, …, $B_4$]\n:::div{.table.table-sm.overflow-auto}\n| Pravdivé | Nepravdivé |\n|:---------|:-----------|\n| $A_1 = \\sym{woman}(\\sym{Betty})$ | $B_1 = \\sym{older}(\\sym{Betty},\\sym{Charles})$ |\n| $A_2 = \\sym{child}(\\sym{Charles},\\sym{Gina},\\sym{Ed})$ | $B_2 = \\sym{parent}(\\sym{Ed},\\sym{Ed})$ |\n| $A_3 = \\sym{older}(\\sym{Dana},\\sym{Charles})$ | $B_3 = \\sym{Charles} \\doteq \\sym{dad}$ |\n| $A_4 = \\sym{woman}(\\sym{Dana})$ | $B_4 = \\sym{woman}(\\sym{Alex})$ | |\n:::\n::::\n:::::",
+          "comments": []
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 29,
+      "type": "text",
+      "data": "## Cvičenie 1.:cnt[a]\n\n:small[:icon[source]\nZbierka:\n:xref[1.2.1]{.exbook label=\"príklad\"},\n:xref[1.2.2]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou nižšie vloženej aplikácie **Kontrolór formalizácie** (**Formalization checker**) sformalizujte v nej uvedené výroky ako atomické formuly v jazyku logiky prvého rádu.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol       | Zamýšľaný význam                     |\n|--------------------------|--------------------------------------|\n| man($x$)                 | $x$ je muž                           |\n| woman($x$)               | $x$ je žena                          |\n| course($x$)             | $x$ je predmet                       |\n| compulsory($x$)          | $x$ je povinný\\*á                    |\n| elective($x$)            | $x$ je voliteľný\\*á                  |\n| student($x$)             | $x$ je študent\\*ka                   |\n| teaches($x$, $y$)        | (učiteľ\\*ka) $x$ učí (predmet) $y$ |\n| older($x$, $y$)          | $x$ je starší\\*ia ako $y$          |\n| likes($x$, $y$)          | $x$ má rád/rada $y$                  |\n| got_grade($x$, $y$, $p$, $u$) | (študent\\*ka) $x$ dostal\\*a (známku) $y$ z (predmetu) $p$ od (učiteľa\\*ky) $u$ |\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help] Na vyjadrenie niektorých výrokov je potrebných viac atomických formúl.\nV aplikácii Formalization Checker ich **spájajte znakom `&`** (ampersand).\n:::",
+      "comments": []
+    },
+    {
+      "id": 40,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 29,
+          "title": "2024 – Cvičenie 1.4",
+          "description": "Sformalizujte nasledujúce výroky ako atomické formuly vo vyššie opísanom jazyku logiky prvého rádu. Ak je na vyjadrenie výroku potrebných viacero atomických formúl, spojte ich znakom &. ",
+          "constants": "A, excellent, E, sufficient, Eugen, Lucia, Math, Peter, PhysEd",
+          "predicates": "got_grade/4, likes/2, man/1, compulsory/1, course/1, older/2, student/1, teaches/2, elective/1, woman/1",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1197,
+              "proposition": "1. Peter je muž.",
+              "solution": ""
+            },
+            {
+              "proposition_id": 1198,
+              "proposition": "2. Peter je študent.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1199,
+              "proposition": "3. Lucia je žena a študentka.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1200,
+              "proposition": "4. Lucia je staršia ako Peter.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1201,
+              "proposition": "5. Matematiku učí Eugen.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1202,
+              "proposition": "6. Peter a Lucia sú od neho mladší.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1203,
+              "proposition": "7. Peter dostal z Matematiky od Eugena známku E.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1204,
+              "proposition": "8. Lucia má rada Petra.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1205,
+              "proposition": "9. Aj keď má (ona) z Matematiky od Eugena známku výborný.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1206,
+              "proposition": "10. Známka výborný  je len iný názov pre A-čko, a podobne dostatočný značí to isté ako E-čko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1207,
+              "proposition": "11. Eugen sa má rád.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1208,
+              "proposition": "12. Matematika je povinný predmet.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1209,
+              "proposition": "13. Všetci vyššie menovaní študenti majú radi Telocvik.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1210,
+              "proposition": "14. Telocvik je voliteľný predmet.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 29
+      },
+      "comments": []
+    },
+    {
+      "id": 27,
+      "type": "text",
+      "data": "## <span id=\"navod\">Použitie elektronického pracovného hárku</span>\n\n### Bunky\n\nElektronický pracovný hárok je rozdelený na **bunky** dvoch typov – textové a aplikačné.\n\n**Textové bunky** obsahujú formátovaný text v značkovacom jazyku\n[Markdown (v GitHubovej verzii)](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)\na matematické „vzorce“ v časti jazyka $\\LaTeX$ podporovanej zobrazovačom [$\\KaTeX$](https://katex.org/docs/supported.html).\n\n**Aplikačné bunky** obsahujú nástroje na riešenie logických úloh:\nStructure explorer (prieskumník prvorádových štruktúr),\nTableau editor (editor prvorádových tabiel),\nResolution editor (editor prvorádových rezolvenčných dôkazov)\na Formalization checker (kontrolór formalizácií),\ns ktorými sa postupne zoznámite.\n\nVšetky bunky môžete **upravovať** po dvojkliknutí\nalebo stlačení tlačidla :span[:icon[pencil-square]&nbsp;Edit]{.text-primary.border.border-primary.rounded.p-1.text-nowrap}\nna vyskakovacej lište v pravom hornom rohu bunky.\nUpravovací režim ukončíte stlačením :span[:icon[check]&nbsp;Done]{.text-primary.border.border-primary.rounded.p-1.text-nowrap}.\nV upravovacom režime môžete mať súčasne viac buniek.\n\nBunky môžete tiež presúvať, duplikovať, zmazať a komentovať.\n\nZmeny môžete vrátiť tlačidlom :span[:icon[arrow-counterclockwise]&nbsp;Undo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap}\nna hornej lište a znova vykonať stlačením :span[:icon[arrow-clockwise]&nbsp;Redo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap}.\nNiektoré aplikačné bunky majú aj vlastné Undo a Redo.\nV textovom editore na tento účel fungujú zvyčajné klávesové skratky.\n\n### Zadania\n\nTextové bunky slúžia hlavne ako zadania úloh. Zadania, pochopiteľne, neupravujte.\nAk ich náhodou zmeníte alebo zmažete, použite tlačidlo :span[:icon[arrow-counterclockwise]&nbsp;Undo]{.text-secondary.border.border-secondary.rounded.p-1.text-nowrap} v hornej lište hárku.\n\nZadania spravidla obsahujú odkazy do našej\n[zbierky úloh](https://fmfi-uk-1-ain-412.github.io/lpi/teoreticke-ain/zbierka.pdf)\nna podobné riešené príklady a ďalšie úlohy na precvičovanie.\n\nÚlohy alebo ich časti označené :icon[homework] sú zamýšľané ako **domáca práca**.\nNa hodine cvičení ich najprv preskočte.\nVenujte sa im, ak vám ostane čas alebo doma.\n\n### Riešenia\n\nIba :icon[write]\n: Bunka je určená na to, aby ste **priamo do nej** doplnili svoje **slovné** riešenia a odpovede.\n\nIba :icon[ui-checks]{.text-primary}\n: Bunka je určená na to, aby ste **priamo v nej** vyznačili nahradením `[ ]` za `[x]` práve tie možnosti, ktoré sú pravdivé. Náš bakalarand pracuje na aplikácii na zjednodušenie práce s takýmito úlohami.\n\nIba :icon[tools]\n: Bunka popisuje, ako na vyriešenie úlohy použiť **niektorú z aplikácií**.\nAplikáciu sme buď vložili ako nasledujúcu bunku alebo si ju máte vložiť sami.\n\n:icon[write] aj :icon[tools]\n: Bunka vysvetľuje, kedy očakávame slovnú odpoveď a kedy riešenie pomocou aplikácie.\nRozhodnutie o správnom spôsobe riešenia musíte urobiť sami a následne si na riešenie vložiť vhodný typ bunky.\n",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n",
+    "github": {
+      "editBranch": "tc01",
+      "handinBranch": ""
+    }
+  }
+}
