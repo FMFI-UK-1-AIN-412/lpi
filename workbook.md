@@ -15,6 +15,7 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 | Týždeň | Cvičenie | Domáca úloha |
 |-------:|----------|--------------|
 |  1 | [tc01: Atomické formuly a štruktúry](../tc01/teoreticke-ain/tc01.workbook) | |
+|  2 | | [du01](../du01/teoreticke-ain/du01.workbook) (do 1. marca) |
 
 :::
 
