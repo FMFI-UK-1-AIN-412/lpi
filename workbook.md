@@ -21,4 +21,5 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 Návody a dokumenty
 ------------------
 
+* [Zbierka teoretických úloh](https://fmfi-uk-1-ain-412.github.io/lpi/teoreticke-ain/zbierka.pdf)
 * [Návod na otváranie teoretických cvičení a úloh](teoreticke-ain#jednoduchá-navigácia)
