@@ -285,7 +285,16 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_2",
@@ -293,7 +302,24 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_3",
@@ -301,7 +327,16 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_4",
@@ -309,7 +344,20 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "name": "A_5",
@@ -317,7 +365,12 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "name": "A_6",
@@ -325,7 +378,16 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_7",
@@ -333,7 +395,24 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_8",
@@ -341,7 +420,12 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "name": "A_9",
@@ -349,7 +433,16 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "name": "A_{10}",
@@ -357,7 +450,16 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "name": "A_{11}",
@@ -365,35 +467,128 @@
                   "guess": true,
                   "locked": false,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    }
+                  ]
                 },
                 {
                   "text": "∀x((purple(x) ∨ yellow(x) ∨ blue(x)) ∧ ¬(purple(x) ∧ yellow(x)) ∧ ¬(purple(x) ∧ blue(x)) ∧ ¬(yellow(x) ∧ blue(x)))",
                   "guess": true,
                   "locked": true,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "element": "a",
+                      "type": "gamma"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "text": "∀x((triangle(x) ∨ square(x) ∨ circle(x)) ∧ ¬(triangle(x) ∧ square(x)) ∧ ¬(triangle(x) ∧ circle(x)) ∧ ¬(square(x) ∧ circle(x)))",
                   "guess": true,
                   "locked": true,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "element": "a",
+                      "type": "gamma"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    },
+                    {
+                      "formula": 1,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "text": "∀x∀y(smaller(x,y) → ¬smaller(y,x)) ∧ ∀x∀y∀z(smaller(x,y) ∧ smaller(y,z)→ smaller(x,z))",
                   "guess": true,
                   "locked": true,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "element": "a",
+                      "type": "gamma"
+                    },
+                    {
+                      "element": "a",
+                      "type": "gamma"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "beta"
+                    }
+                  ]
                 },
                 {
                   "text": "∀x same_color(x,x) ∧ ∀x∀y(same_color(x,y) → same_color(y,x)) ∧ ∀x∀y∀z(same_color(x,y) ∧ same_color(y,z) → same_color(x,z)) ∧ ∀x∀y( (¬same_color(x,y) ∨ purple(x) ∧ purple(y) ∨ yellow(x) ∧ yellow(y) ∨ blue(x) ∧ blue(y) ∨ ¬(purple(x) ∨ purple(y) ∨ yellow(x) ∨ yellow(y) ∨ blue(x) ∨ blue(y)) ) ∧ (same_color(x,y) ∨ (¬purple(x) ∨ ¬purple(y)) ∧ (¬yellow(x) ∨ ¬yellow(y)) ∧ (¬blue(x) ∨ ¬blue(y)) ) )",
                   "guess": true,
                   "locked": true,
                   "lockedGuess": false,
-                  "gameChoices": []
+                  "gameChoices": [
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "formula": 0,
+                      "type": "alpha"
+                    },
+                    {
+                      "element": "a",
+                      "type": "gamma"
+                    }
+                  ]
                 }
               ]
             },
@@ -467,25 +662,140 @@
               },
               "iC": {
                 "A": {
-                  "value": "",
+                  "value": "a",
                   "locked": false
                 },
                 "B": {
-                  "value": "",
+                  "value": "b",
                   "locked": false
                 },
                 "C": {
-                  "value": "",
+                  "value": "c",
                   "locked": false
                 },
                 "D": {
-                  "value": "",
+                  "value": "d",
                   "locked": false
                 }
               },
               "iP": {
                 "blue": {
-                  "value": [],
+                  "value": [
+                    [
+                      "c"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "purple": {
+                  "value": [
+                    [
+                      "a"
+                    ],
+                    [
+                      "b"
+                    ],
+                    [
+                      "d"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "square": {
+                  "value": [
+                    [
+                      "a"
+                    ],
+                    [
+                      "c"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "circle": {
+                  "value": [
+                    [
+                      "b"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "triangle": {
+                  "value": [
+                    [
+                      "d"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "smaller": {
+                  "value": [
+                    [
+                      "b",
+                      "c"
+                    ],
+                    [
+                      "c",
+                      "d"
+                    ],
+                    [
+                      "b",
+                      "d"
+                    ],
+                    [
+                      "c",
+                      "a"
+                    ],
+                    [
+                      "b",
+                      "a"
+                    ]
+                  ],
+                  "locked": false
+                },
+                "same_color": {
+                  "value": [
+                    [
+                      "a",
+                      "a"
+                    ],
+                    [
+                      "b",
+                      "b"
+                    ],
+                    [
+                      "c",
+                      "c"
+                    ],
+                    [
+                      "d",
+                      "d"
+                    ],
+                    [
+                      "a",
+                      "b"
+                    ],
+                    [
+                      "b",
+                      "a"
+                    ],
+                    [
+                      "a",
+                      "d"
+                    ],
+                    [
+                      "d",
+                      "a"
+                    ],
+                    [
+                      "b",
+                      "d"
+                    ],
+                    [
+                      "d",
+                      "b"
+                    ]
+                  ],
                   "locked": false
                 }
               },
