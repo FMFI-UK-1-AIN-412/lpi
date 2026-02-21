@@ -35,57 +35,57 @@
             {
               "proposition_id": 2230,
               "proposition": "2. C je trojuholník, ak je ním B.",
-              "solution": null
+              "solution": "(triangle(B) -> triangle(C))"
             },
             {
               "proposition_id": 2231,
               "proposition": "3. A a C sú oba trojuholníky, iba ak aspoň jeden z nich je veľký.",
-              "solution": null
+              "solution": "((triangle(A) ∧  triangle(C)) -> (large(A) ∨  large(C)))"
             },
             {
               "proposition_id": 2232,
               "proposition": "4. A je trojuholník, no C nie je veľký.",
-              "solution": null
+              "solution": "(triangle(A) && !large(C))"
             },
             {
               "proposition_id": 2233,
               "proposition": "5. Ak C je malý a D je kruh, tak D nie je ani veľký, ani malý.",
-              "solution": null
+              "solution": "((small(C) && circle(D)) -> (!large(D) && !small(D)))"
             },
             {
               "proposition_id": 2234,
               "proposition": "6. C je stredne veľký iba ak žiadny z D, E, F nie je štvorec.",
-              "solution": null
+              "solution": "(medium(C) -> ((!square(D) && !square(E)) && !square(F)))"
             },
             {
               "proposition_id": 2235,
               "proposition": "7. D je malý kruh, pokiaľ A nie je malý.",
-              "solution": null
+              "solution": "(!small(A) -> (small(D) && circle(D)))"
             },
             {
               "proposition_id": 2236,
               "proposition": "8. E je veľký práve vtedy, keď je pravda, že D je veľký, ak a iba ak je taký F.",
-              "solution": null
+              "solution": "(large(E) <-> (large(D) <-> large(F)))"
             },
             {
               "proposition_id": 2237,
               "proposition": "9. D a E sú rovnakej veľkosti.",
-              "solution": null
+              "solution": "same_size(D,E)"
             },
             {
               "proposition_id": 2238,
               "proposition": "10. D a E majú rovnaký tvar.",
-              "solution": null
+              "solution": "((triangle(D) <-> triangle(E)) && ((square(D) <-> square(E)) && (circle(D) <-> circle(E))))"
             },
             {
               "proposition_id": 2239,
               "proposition": "11. F je buď štvorec alebo kruh, ak je veľký.",
-              "solution": null
+              "solution": "(large(F) -> ((square(F) || circle(F)) && !(square(F) && circle(F))))"
             },
             {
               "proposition_id": 2240,
               "proposition": "12. C je väčší než E, iba ak B je väčší ako C.",
-              "solution": null
+              "solution": "(larger(C,E) -> larger(B,C))"
             }
           ]
         },
