@@ -30,7 +30,7 @@
             {
               "proposition_id": 2229,
               "proposition": "1. Ak A je trojuholník, tak B je tiež trojuholník.",
-              "solution": ""
+              "solution": "(triangle(A) -> triangle(B))"
             },
             {
               "proposition_id": 2230,
