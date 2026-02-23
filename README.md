@@ -14,7 +14,7 @@ riešte vo svojom repozitári v aplikácii
 
 | Týždeň | Prezentácie z prednášok | Kvíz (AIN) |Praktické úlohy |
 |-------:|-------------------------|-----------------|-----------------|
-|  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | | [SAT solver](prakticke/pu01) |
+|  1 | [Úvod. Atomické formuly a štruktúry](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr01.pdf) | [qz00](https://moodle.uniba.sk/mod/quiz/view.php?id=181698) (bonus) | [SAT solver](prakticke/pu01) |
 |  2 | [Výrokovologické spojky a ohodnotenia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr02.pdf) | | |
 
 Návody a dokumenty
