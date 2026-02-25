@@ -37,7 +37,7 @@ testLangsDefault() {
 
 runTestsForChanged() {
 	local haveTest=false
-	local passed=true
+	local passed=false
 	for d in $(changedInPr "$@") ; do
 		echo
 		msg "Našiel som zmeny v $d riešení"
@@ -53,14 +53,14 @@ runTestsForChanged() {
 		if ( ${run} "$d" ) ; then
 			echo
 			msg "$d ${clLtGreen}OK${clNorm}"
+			passed=true
 		else
 			echo
 			err "${clLtRed}$d test zlyhal${clNorm}"
-			passed=false;
 		fi
 	done
 	${haveTest} || die "Nepodarilo sa identifikovať zmeny (riešenie) v žiadnom podporovanom jazyku"
-	${passed} || die "Niektoré testy zlyhali"
+	${passed} || die "Zlyhali testy pre všetky varianty jazykov"
 }
 
 # vim: set sw=4 sts=4 ts=4 noet :
