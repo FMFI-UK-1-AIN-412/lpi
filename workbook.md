@@ -16,6 +16,7 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 |-------:|----------|--------------|
 |  1 | [tc01: Atomické formuly a štruktúry](../tc01/teoreticke-ain/tc01.workbook) | |
 |  2 | [tc02: Výrokovologické formuly a ohodnotenia](../tc02/teoreticke-ain/tc02.workbook) | [du01](../du01/teoreticke-ain/du01.workbook) (do 1. marca) |
+|  3 | [tc03: Sémantické vlastnosti výrokovologických formúl, výrokovologické vyplývanie, ekvivalencia](../tc03/teoreticke-ain/tc03.workbook) | |
 
 :::
 
