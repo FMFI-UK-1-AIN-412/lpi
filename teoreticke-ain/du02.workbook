@@ -1,0 +1,261 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 2. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 15. 3. 2025 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: Čisto informatívne, **nezarátava sa** do hodnotenia predmetu.\n: Odovzdané úlohy ohodnotíme slovne a percentuálne.\n: Využite získanú spätnú väzbu na prípravu na semestrálne testy.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du02` :span[[:icon[arrow-clockwise] Otvoriť túto úlohu v správnej vetve](../../du02/teoreticke-ain/du02.workbook)]{.ms-3}\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Určite uložte posledné zmeny pred odovzdaním!**\n\n:icon[submission] Odovzdanie\n: Stlačte :span[:icon[send-fill]{.text-info} Hand In]{.border.border-info.text-info.rounded.p-1.text-nowrap} na hornej lište.\n: Ak by automatické odovzdanie zlyhalo, vytvorte pull request (PR)\n    - z vetvy `du02` v repozitári `‹váš_github_login›/lpi25-‹váš_uniba_login›`\n    - do vetvy `du02` v repozitári `FMFI-UK-1-AIN-412/lpi25-‹váš_uniba_login›`.\n: Všetky ďalšie zmeny hárku uložené pomocou :span[Merge changes]{.text-success.text-nowrap} sa pridajú do PR.\n: PR vytvorte **iba raz** (či už ručne alebo pomocou :span[Hand in]{.text-info.text-nowrap}).\n    \n:icon[send-check-fill]{.text-info} Kontrola odovzdania\n: Správne vytvorený PR nájdete v [zozname PR pre du02](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu02).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| <b>T</b>, <b>F</b> | `\\sign{T}`, `\\sign{F}` |  znamienko označenej formuly | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo  | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 40,
+      "type": "text",
+      "data": "## Úloha 2.:cnt[a]\n\n:small[:icon[source] Zbierka:\n:xref[4.1.1]{.exbook label=\"príklad\"}, :xref[4.1.7]{.exbook label=\"úloha\"}.]\n\nAlex plánuje herné stretnutie s kamarátmi. Má pritom tieto obmedzenia:\n\n1) Budú hrať Catan, Monopoly, Poker alebo Carcassonne.\n2) Hrať môžu buď v piatok alebo v sobotu.\n3) Ako občerstvenie si zadovážia pizzu, popcorn alebo sladkosti, pričom môžu mať aj viac snackov naraz.\n4) Pizza zaberá veľa miesta na stole, takže si ju nemôžu objednať, ak hrajú Carcassonne.\n5) Poker hrávajú len v piatkové večery. Zároveň ho hrajú, iba ak majú sladkosti, inak nemôžu hrať o čokoládky.\n6) Ak hrajú Carcassonne, určite hrajú aj Catan. Rovnako Catan nehrajú bez Carcassonne.\n\nZistite, či na základe uvedených skutočností môžeme _s istotou_ tvrdiť, že:\n\n:::enum{.a}\n24. Ak hrajú v sobotu a majú pizzu, tak hrajú Monopoly.\n25. Nemôžu mať popcorn, ak na stretnutí hrajú Poker aj Catan.\n:::",
+      "comments": []
+    },
+    {
+      "id": 43,
+      "type": "context",
+      "data": [
+        {
+          "id": 10,
+          "type": "text",
+          "data": "::h3[:icon[tools] :cnt[b]{.i}. Formalizácia]{.h5}\n\nVýroky 1.–7., x. a y. sformalizujte v jazyku výrokovej logiky $\\Lang$, kde:",
+          "comments": []
+        },
+        {
+          "id": 44,
+          "type": "context/language",
+          "data": {
+            "constants": "S",
+            "predicates": "Friday/1, Saturday/1, pizza/1, sweets/1, popcorn/1, Monopoly/1, Poker/1, Carcassonne/1, Catan/1",
+            "functions": ""
+          },
+          "contextExtension": {
+            "constants": [
+              "S"
+            ],
+            "predicates": [
+              {
+                "name": "Friday",
+                "arity": 1
+              },
+              {
+                "name": "Saturday",
+                "arity": 1
+              },
+              {
+                "name": "pizza",
+                "arity": 1
+              },
+              {
+                "name": "sweets",
+                "arity": 1
+              },
+              {
+                "name": "popcorn",
+                "arity": 1
+              },
+              {
+                "name": "Monopoly",
+                "arity": 1
+              },
+              {
+                "name": "Poker",
+                "arity": 1
+              },
+              {
+                "name": "Carcassonne",
+                "arity": 1
+              },
+              {
+                "name": "Catan",
+                "arity": 1
+              }
+            ],
+            "functions": []
+          },
+          "comments": []
+        },
+        {
+          "id": 49,
+          "type": "text",
+          "data": "Konštanta $\\sym{S}$ označuje herné stretnutie a význam predikátových symbolov je nasledovný:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol | Zamýšľaný význam                       |\n|--------------------|----------------------------------------|\n| Friday($x$)        | $x$ sa udeje v piatok                  |\n| Saturday($x$)      | $x$ sa udeje v sobotu                  |\n| pizza($x$)         | počas $x$ sa bude jesť pizza           |\n| sweets($x$)        | počas $x$ sa budú jesť sladkosti       |\n| popcorn($x$)       | počas $x$ sa bude jesť popcorn         |\n| Monopoly($x$)      | počas $x$ sa bude hrať Monopoly        |\n| Poker($x$)         | počas $x$ sa bude hrať Poker           |\n| Carcassonne($x$)   | počas $x$ sa bude hrať Carcassonne     |\n| Catan($x$)         | počas $x$ sa bude hrať Catan           |\n:::\n\nPre kontrolu správnosti vášho riešenia využite bunku s kontrolórom formalizácií vloženú nižšie.\n\n:::aside{.note.bg-transparent.p-1}\n:icon[warning]\n**Dôsledne zátvorkujte všetky formuly podľa :xref[2.6]{.lec label=definície}!**\nFormalization Checker akceptuje iba formuly, v ktorých je každá podformula vytvorená binárnou spojkou alebo skratkou $\\lequiv$ uzavretá do príslušného páru zátvoriek.\nChybové hlásenia žiaľ nemusia byť veľmi nápomocné.\n:::",
+          "comments": []
+        },
+        {
+          "id": 56,
+          "type": "formalizationChecker",
+          "data": {
+            "exercise": {
+              "exercise_id": 64,
+              "title": "2026 – Domáca úloha 2.1",
+              "description": "Sformalizujte nasledujúce výroky ako formuly v uvedenom jazyku výrokovej logiky.",
+              "constants": "S",
+              "predicates": "Friday/1, Saturday/1, pizza/1, sweets/1, popcorn/1, Monopoly/1, Poker/1, Carcassonne/1, Catan/1",
+              "functions": "",
+              "constraints": "",
+              "parserType": "strict",
+              "propositions": [
+                {
+                  "proposition_id": 2275,
+                  "proposition": "1. Budú hrať Catan, Monopoly, Poker alebo Carcassonne.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2276,
+                  "proposition": "2. Hrať môžu buď v piatok alebo v sobotu.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2277,
+                  "proposition": "3. Ako občerstvenie si zadovážia pizzu, popcorn alebo sladkosti, pričom môžu mať aj viac snackov naraz.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2278,
+                  "proposition": "4. Pizza zaberá veľa miesta na stole, takže si ju nemôžu objednať, ak hrajú Carcassonne.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2279,
+                  "proposition": "5. Poker hrávajú len v piatkové večery. Zároveň ho hrajú, iba ak majú sladkosti, inak nemôžu hrať o čokoládky.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2280,
+                  "proposition": "6. Ak hrajú Carcassonne, určite hrajú aj Catan. Rovnako Catan nehrajú bez Carcassonne.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2281,
+                  "proposition": "x. Ak hrajú v sobotu a majú pizzu, tak hrajú Monopoly.",
+                  "solution": null
+                },
+                {
+                  "proposition_id": 2282,
+                  "proposition": "y. Nemôžu mať popcorn, ak na stretnutí hrajú Poker aj Catan.",
+                  "solution": null
+                }
+              ]
+            },
+            "exerciseId": 64
+          },
+          "comments": []
+        },
+        {
+          "id": 47,
+          "type": "text",
+          "data": "Obmedzenia sme sformalizovali ako teóriu $T = \\{ A_1, \\ldots, A_6 \\}$, kde:\n\n:::aside{.small}\n:icon[technical]\nDoplňte do nasledujúcej bunky :small[AXIOMS] svoje formalizácie obmedzení 1 až 6.\nBudete ich potom môcť použiť v nástrojoch nižšie.\n:::",
+          "comments": []
+        },
+        {
+          "id": 45,
+          "type": "context/addAxioms",
+          "data": [
+            {
+              "name": "A_1",
+              "formula": ""
+            },
+            {
+              "name": "A_2",
+              "formula": ""
+            },
+            {
+              "name": "A_3",
+              "formula": ""
+            },
+            {
+              "name": "A_4",
+              "formula": ""
+            },
+            {
+              "name": "A_5",
+              "formula": ""
+            },
+            {
+              "name": "A_6",
+              "formula": ""
+            }
+          ],
+          "contextExtension": {
+            "constants": [],
+            "predicates": [],
+            "functions": [],
+            "formulas": [],
+            "axioms": [],
+            "theorems": []
+          },
+          "comments": []
+        },
+        {
+          "id": 48,
+          "type": "text",
+          "data": "Výroky x. a y. sme sformalizovali formulami $X$ a $Y$:\n\n:::aside{.small}\n:icon[technical]\nDoplňte do nasledujúcej bunky :small[FORMULAS] svoje formalizácie výrokov x. a y.\n:::",
+          "comments": []
+        },
+        {
+          "id": 46,
+          "type": "context/addFormulas",
+          "data": [
+            {
+              "name": "X",
+              "formula": ""
+            },
+            {
+              "name": "Y",
+              "formula": ""
+            }
+          ],
+          "contextExtension": {
+            "constants": [],
+            "predicates": [],
+            "functions": [],
+            "formulas": [],
+            "axioms": [],
+            "theorems": []
+          },
+          "comments": []
+        },
+        {
+          "id": 6,
+          "type": "text",
+          "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne problémy]{.h5}\n\n:::aside{.small}\nAké formálne logické problémy musíme vyriešiť, aby sme zodpovedali neformálne otázky zo zadania? Napr. splniteľnosť ktorej formuly/teórie, tautologickosť ktorej formuly, ekvivalencia ktorých formúl, vyplývanie/nezávislosť ktorej formuly z/od ktorej teórie, atď.\n\n:icon[help] **Pomôcka.** Musíme vyriešiť 3 formálne problémy.\n:::\n\n1. …\n2. …\n3. …\n",
+          "comments": []
+        },
+        {
+          "id": 15,
+          "type": "text",
+          "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne riešenie]{.h5}\n\n:::aside{.small}\nAko vyriešime jednotlivé formálne problémy, ktoré ste určili v časti ii?\nPrípustné sú nasledovné spôsoby riešenia:\n* skonštruovanie uzavretého tabla pre vhodnú množinu označených formúl – uveďte akú;\n* nájdenie vhodnej štruktúry/ohodnotenia s požadovanými vlastnosťami – uveďte akými.\n:::\n\n1. …\n2. …\n3. …\n",
+          "comments": []
+        },
+        {
+          "id": 39,
+          "type": "text",
+          "data": ":::aside{.small}\n:icon[tools]\nZa túto bunku vložte vhodné nástroje alebo textové bunky,\nv ktorých vytvoríte formálne riešenia.\n\nTablo/-á vytvorte v aplikácii **Tableau editor**.\n  * Ponechajte v ňom predvolené nastavenie sady pravidiel _Basic propositional_.\n  * Pridajte (:span[Add]{.border.rounded-pill.px-1} > Add assumption) potrebné formuly so správnymi značkami **T**/**F** podľa riešeného formálneho problému.\n  * Nezabudnite označiť prípadné uzavreté vetvy.\n\nŠtruktúru/-y vytvorte v aplikácii **Structure explorer**.\n  * **Pridajte** všetky potrebné formuly: Pridajte všetky formuly definované vyššie cez :span[:icon[plus-lg] Add from context]{.p-1.text-success.rounded.border.border-success.text-nowrap} > :span[:icon[check-all] Add all]{.text-nowrap}. Potom odstráňte nepotrebné formuly.\n  * Správne **vyberte** ich pravdivosť či nepravdivosť podľa toho, aký formálny problém riešite.\n  * Vybranú pravdivosť resp. nepravdivosť **verifikujte** pomocou Henkinovej-Hintikkovej hry.\n:::",
+          "comments": []
+        },
+        {
+          "id": 22,
+          "type": "text",
+          "data": "::h3[:icon[write] :cnt[b]{.i}. Formálne výsledky]{.h5}\n\n:small[Aké sú výsledky riešenia formálnych logických problémov? Zdôvodnite ich, teda napr. vysvetlite, prečo vaše tablo/štruktúra/ohodnotenie ukazuje, že formula/teória je splniteľná.]\n\n1. …\n2. …\n3. …",
+          "comments": []
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 16,
+      "type": "text",
+      "data": "::h3[:icon[write] :cnt[b]{.i}. Interpretácia]{.h5}\n\n:small[Aké sú odpovede na dve neformálne otázky zo zadania slovnej úlohy? Ako súvisia s riešeniami formálnych problémov?]\n\n…",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n% Tableaux\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}\n\\newcommand\\Tabl{\\mathcal{T}}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\mathrel{\\NModels_{\\mathrm{p}}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n% Provability %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\proves}{\\vdash}\n\\providecommand{\\nproves}{\\nvdash}\n\n% Propositional\n\\newcommand{\\pproves}{\\proves_{\\mathrm{p}}}\n\\newcommand{\\npproves}{\\nproves_{\\mathrm{p}}}\n",
+    "github": {
+      "editBranch": "du02",
+      "handinBranch": "du02"
+    }
+  }
+}
