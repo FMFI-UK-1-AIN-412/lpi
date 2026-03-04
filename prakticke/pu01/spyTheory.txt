@@ -1,0 +1,18 @@
+¬r(S) ∨ ¬n(S)
+n(S) ∨ r(S)
+¬r(M) ∨ ¬n(M)
+n(M) ∨ r(M)
+¬r(E) ∨ ¬n(E)
+n(E) ∨ r(E)
+
+r(S) ∨ r(M) ∨ r(E)
+¬r(S) ∨ ¬r(M)
+¬r(S) ∨ ¬r(E)
+¬r(M) ∨ ¬r(E)
+
+¬r(S) ∨ s(S)
+¬r(M) ∨ s(M)
+¬r(E) ∨ s(E)
+
+¬r(S) ∨ n(M)
+¬n(M) ∨ r(S)
