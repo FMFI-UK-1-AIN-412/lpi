@@ -181,16 +181,17 @@ reprezentované ako funkcie (s návratovou hodnotou typu bool), čo môže byť
 pamäťovo efektívnejšie.
 
 ### Java
-Použite implementácie rozhraní `java.util.Set` a `java.util.Map` (napr. `java.util.HashMap`
-na reprezentovanie ohodnotenia).
+Pri vytváraní zoznamov a množín použite implementácie rozhraní `java.util.List`
+a `java.util.Set`, napr. `java.util.ArrayList` a `java.util.HashSet`.
 
-Príklad použitia pri vyhodnotení predikátového atómu:
+Príklad použitia pri vytváraní množiny mien konštánt, ktoré sa vyskytujú
+v predikátovom atóme:
 ```java
-List<String> argVals = new ArrayList<>();
+Set<String> constantNames = new HashSet<>();
 for (Constant arg: arguments()) {
-  argVals.add(arg.eval(m));
+  constantNames.add(arg.name());
 }
-return m.iP(name()).contains(argVals);
+return constantNames;
 ```
 
 ## Technické detaily riešenia
