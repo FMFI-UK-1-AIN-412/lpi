@@ -1,0 +1,188 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 37,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 4. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc04`\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 12:20–13:00 v I-9\n:::\n::::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| <b>T</b>, <b>F</b> | `\\sign{T}`, `\\sign{F}` |  znamienko označenej formuly | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo  | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 36,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a spätnú väzbu môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n2. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du02](../../du02/teoreticke-ain/du02.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : nedeľa 15. 3. 2026 o 23:59:59\n     :::\n::::",
+      "comments": []
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "data": "## Cvičenie 4.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.2.1]{.exbook label=\"príklad\"}.\nPrednáška: :xref[4.19]{.lec label=\"dôsledok\"}.]\n\nDokážte v tablovom kalkule, že pre ľubovoľné formuly $A$, $B$\nv ľubovoľnom jazyku výrokovologickej časti logiky prvého rádu\nsú nasledujúce formuly tautológiami:\n\n::p[$X_1 = (A \\limpl A)$]{.mb-2}\n::p[$X_2 = \\bigl((A \\limpl B) \\lequiv (\\lnot A \\lor B)\\bigr)$]\n\n:icon[tools] V tablovom kalkule (pomocou aplikácie Tableau editor s pravidlami *Basic propositional*) dokážte, že $X_1$ a $X_2$ sú *tautológie*. Zapíšte záver a zdôvodnite ho.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help] Pre formuly $(X \\lequiv Y)$ nemáme ani nepotrebujeme špeciálne tablové pravidlá,\npretože sme $\\lequiv$ zadefinovali ako skratku.\nS formulou $(X \\lequiv Y)$ pracujeme rovnako\nako s konjunkciou $((X \\limpl Y) \\land (Y \\limpl X))$, ktorú skracuje.\nTeda napríklad na $\\sign{T} (X \\lequiv Y)$ sa aplikujú pravidlá $\\alpha$,\npričom jedno odvodí $\\sign{T} (X \\limpl Y)$ a druhé $\\sign{T} (Y \\limpl X)$.\n:::",
+      "comments": []
+    },
+    {
+      "id": 20,
+      "type": "tableauEditor",
+      "data": {
+        "type": "open",
+        "node": {
+          "id": 1,
+          "value": "F ( A → A )",
+          "references": []
+        },
+        "config": "Basic propositional"
+      },
+      "comments": []
+    },
+    {
+      "id": 13,
+      "type": "tableauEditor",
+      "data": {
+        "type": "open",
+        "node": {
+          "id": 1,
+          "value": "",
+          "references": []
+        },
+        "config": "Basic propositional"
+      },
+      "comments": []
+    },
+    {
+      "id": 14,
+      "type": "text",
+      "data": ":icon[write] \n**Záver**:\n\nPretože existuje uzavreté tablo pre množinu označených formúl\n$S^+ = \\{ \\sign{F} … \\}$, formula $X_1$ je … ($\\pproves X_1$).\nPodľa … z prednášky formula $X_1$ je … ($\\pentails X_1$).\n\nPretože …, formula $X_2$ je ….\nPodľa … z prednášky formula $X_2$ je ….\n",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "data": "## Cvičenie 4.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.1.1]{.exbook label=\"príklad\"}, :xref[4.1.3]{.exbook label=\"úloha\"}.\nPrednáška: :xref[4.19]{.lec label=\"dôsledok\"}.]\n\nMajme teóriu $T = \\{A_1, \\ldots, A_5\\}$, kde:\n\n::p[$A_1 = (\\FFDD \\limpl \\neg \\FFDP)$]{.mb-2}\n::p[$A_2 = (\\FFDC \\limpl (\\FFDP \\lor \\FFDA))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n::p[$A_3 = (\\FFDV \\limpl \\neg \\FFDA)$]{.mb-2}\n::p[$A_4 = \\bigl((\\FFDU \\limpl \\FFDIE) \\land ((\\neg \\FFDU \\land \\neg \\FFDV) \\limpl \\neg\\FFDIE)\\bigr)$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n::p[$A_5 = (\\FFDIE \\limpl \\neg \\FFDD)$]\n\na formulu\n\n$X = ((\\FFDD \\land \\FFDC) \\limpl \\neg \\FFDV)$\n\nVyužite tablový kalkul na zistenie, či formula $X$ vyplýva z teórie $T$.",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "data": "**a)** 🤔 Premyslite si **interpretáciu formúl** v slovenčine a **prečo** je výrok zodpovedajúci formule $X$ logickým dôsledkom výrokov zodpovedajúcich teórii $T$.\n\n:::div{.note.bg-transparent.p-0}\n:icon[explanation] \nV tejto úlohe **neodpovedáme na neformálnu otázku**,\nale riešime priamo iba formálny problém vyplývania.\n**Preto nemusíme** overovať splniteľnosť teórie $T$.\n\nAk by $T$ bola nesplniteľná, formula $X$ by z nej vyplývala triviálne\na nemalo by to praktické dôsledky.\nUzavreté tablo by však existovalo aj v tomto prípade.\n:::\n",
+      "comments": []
+    },
+    {
+      "id": 22,
+      "type": "text",
+      "data": "**b)** :icon[tools] Dokážte, že $T \\pproves X$ pomocou aplikácie Tableau editor tak, aby tablo sledovalo vaše zdôvodnenie.",
+      "comments": []
+    },
+    {
+      "id": 16,
+      "type": "tableauEditor",
+      "data": {
+        "type": "open",
+        "node": {
+          "id": 1,
+          "value": "",
+          "references": []
+        },
+        "config": "Basic propositional"
+      },
+      "comments": []
+    },
+    {
+      "id": 17,
+      "type": "text",
+      "data": ":icon[write] \n**Záver**:\n\nPretože existuje uzavreté tablo pre množinu označených formúl\n$S^+ = \\{\\, \\sign{T} … \\mid … \\,\\} \\cup \\{ \\sign{F} … \\}$,\nformula $X$ je … z teórie $T$ ($T \\pproves X$).\nPodľa … z prednášky formula $X$ … teórie $T$ ($T \\pentails X$).",
+      "comments": []
+    },
+    {
+      "id": 1,
+      "type": "text",
+      "data": "## Cvičenie 4.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.1.1]{.exbook label=\"príklad\"}, :xref[4.1.2]{.exbook label=\"úloha\"}.\nPrednáška: :xref[4.19]{.lec label=\"dôsledok\"}.]\n\nMajme teóriu $T = \\{A_1, \\ldots, A_7\\}$, kde:\n\n::p[$A_1 = (\\sym{cinema}(\\sym{Fred},\\sym{Anne}) \\lor (\\sym{listens}(\\sym{Fred},\\sym{PinkFloyd}) \\lor \\sym{plays}(\\sym{Fred},\\sym{FredsPS})))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_2 = (\\sym{band}(\\sym{PinkFloyd}) \\land \\sym{gameConsole}(\\sym{FredsPS}))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_3 = (\\neg\\sym{frustrated}(\\sym{Fred}) \\limpl \\sym{cinema}(\\sym{Fred},\\sym{Anne}))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_4 = (\\sym{frustrated}(\\sym{Fred}) \\limpl (\\sym{listens}(\\sym{Fred},\\sym{PinkFloyd}) \\lor \\sym{plays}(\\sym{Fred},\\sym{FredsPS})))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_5 = \\neg(\\sym{cinema}(\\sym{Fred},\\sym{Anne}) \\land (\\sym{listens}(\\sym{Fred},\\sym{PinkFloyd}) \\land \\sym{plays}(\\sym{Fred},\\sym{FredsPS})))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_6 = (\\sym{plays}(\\sym{Fred},\\sym{FredsPS})\\limpl \\sym{listens}(\\sym{Fred},\\sym{PinkFloyd}))$]{.mb-2.ms-5 style=\"text-indent:-3rem\"}\n\n::p[$A_7 = (\\sym{listens}(\\sym{Fred},\\sym{PinkFloyd}) \\limpl \\neg\\sym{frustrated}(\\sym{Fred}))$]{.ms-5 style=\"text-indent:-3rem\"}\n\na formulu\n\n$X = (\\neg\\sym{plays}(\\sym{Fred},\\sym{FredsPS}) \\limpl \\sym{cinema}(\\sym{Fred},\\sym{Anne}))$",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "data": "::h3[:icon[house-fill]{.text-primary} Domáca časť]{.h5}\n\n:icon[write]\nPreložte teóriu $T$ a formulu $X$ do slovenčiny čo najprirodzenejšie:\n\n($A_1$) ...\n\n($A_2$) ...\n\n($A_3$) ...\n\n($A_4$) ...\n\n($A_5$) ...\n\n($A_6$) ...\n\n($A_7$) ...\n\n($X$) ...",
+      "comments": []
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "data": ":icon[tools]\nPomocou aplikácie Tableau editor dokážte, že $T \\pproves X$.\n\n:::aside{.small}\n🤔 Opäť si vopred premyslite, prečo je formula logickým dôsledkom,\na snažte sa zostrojiť tablo tak, aby zodpovedalo vašej úvahe.\nS úvahou vám môže pomôcť preklad teórie a formuly do slovenčiny vyššie.\n:::",
+      "comments": []
+    },
+    {
+      "id": 21,
+      "type": "tableauEditor",
+      "data": {
+        "type": "open",
+        "node": {
+          "id": 1,
+          "value": "",
+          "references": []
+        },
+        "config": "Basic propositional"
+      },
+      "comments": []
+    },
+    {
+      "id": 18,
+      "type": "text",
+      "data": ":icon[write] \n**Záver a jeho zdôvodnenie**:\n\nPretože … tablo pre …, formula $X$ je … z teórie $T$.\nPodľa … z prednášky formula $X$ … z teórie $T$.",
+      "comments": []
+    },
+    {
+      "id": 19,
+      "type": "text",
+      "data": "## :icon[house-fill]{.text-primary} Cvičenie 4.:cnt[a]\n:small[:icon[source]\nZbierka :xref[4.2.1]{.exbook label=\"príklad\"},\núlohy :xref[4.2.2]{.exbook} a :xref[4.2.3]{.exbook}.\nPrednáška: :xref[4.19]{.lec label=\"dôsledok\"}.]\n\nNasledujúce formuly sú tautológie pre všetky formuly $A$, $B$, $C$ v ľubovoľnom jazyku výrokovologickej časti logiky prvého rádu.\n\nPre lepšie porozumenie výrokovologickým spojkám a ako prípravu na 1. test vám veľmi odporúčame:\n* Pozorne si prezrieť nižšie uvedené tautológie a zamyslieť sa nad ich významom.\n* Zdôvodniť si pri každej, prečo je tautológiou.\n* Aspoň jednu tautológiu z každej skupiny dokázať tablom – buď takú, ktorej pravdivosť vám nie je zrejmá, alebo (ak sú vám všetky zrejmé) náhodne vybranú.\n",
+      "comments": []
+    },
+    {
+      "id": 30,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Základné tautológie]{.h5}\nMedzi základné zákony (alebo princípy) výrokovej aj prvorádovej logiky patria\n<dfn>zákon vylúčenia tretieho</dfn> (formula je pravdivá alebo nepravdivá, tretia možnosť nie je)\na <dfn>zákon bezospornosti</dfn> ($A$ a $\\lnot A$ nemôžu byť súčasne pravdivé).\nVyjadrujú ich prvé dve z nasledujúcich tautológií.\nZvyšné dve sú jednoduché fakty o implikácii a ekvivalencii.\n:::enum{.i}\n1. $(A \\lor \\lnot A)$\n2. $\\lnot(A \\land \\lnot A)$\n3. $(A \\limpl A)$\n4. $(A \\lequiv A)$\n:::",
+      "comments": []
+    },
+    {
+      "id": 27,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Vlastnosti implikácie]{.h5}\nV niektorých formálnych dokazovacích systémoch sa ako jedna zo základných vlastností\npoužíva prvá tautológia z nasledujúcej skupiny, ktorá hovorí,\nže ak $A$ implikuje aj $(B \\limpl C)$ aj $B$,\ntak implikuje aj $C$.\nSlabšou formou tejto vlastnosti je druhá tautológia – _tranzitivita implikácie_\n(alebo tiež zákon hypotetického sylogizmu).\n:::enum{.i}\n1. $\\bigl((A \\limpl (B \\limpl C)) \\limpl ((A \\limpl B) \\limpl (A \\limpl C))\\bigr)$\n2. $\\bigl(((A \\limpl B) \\land\n    (B \\limpl C)) \\limpl (A \\limpl C))\\bigr)$\n:::\nNie celkom zrejmá tautológia iii. sa nazýva _Peirceov zákon_.\nV niektorých formálnych systémoch\nmôže slúžiť ako náhrada zákona vylúčenia tretieho.\nTautológia iv. je komplikovanejšou verziou tohto zákona.\n:::enum{.i}\n3. $\\bigl(\\bigl(((A \\limpl B) \\limpl A) \\limpl A\\bigr)\\bigr)$\n4. $\\bigl( (C \\limpl A) \\limpl\n           \\bigl( ((A \\limpl B) \\limpl C) \\limpl A \\bigr) \\bigr)$\n:::",
+      "comments": []
+    },
+    {
+      "id": 35,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Princíp dôkazu sporom a zákon Dunsa Scota]{.h5}\n\nPrvá z nasledujúcich tautológií je základom princípu dôkazu sporom (ak $\\lnot A$ implikuje $\\lnot B$, tak ak je pravdivé $B$, musí byť pravdivé $A$). Druhá je jej slabšou variáciou.\n:::enum{.i}\n1. $((\\lnot A \\limpl \\lnot B) \\limpl (B \\limpl A))$\n2. $\\bigl(((A \\limpl B) \\land (A \\limpl \\lnot B)) \\limpl\n                \\lnot A)\\bigr)$\n:::\nTretej tautológii sa hovorí _zákon Dunsa Scota_ a dá sa chápať\nako\n„z nemožného vyplýva čokoľvek“ – za predpokladu $\\lnot A$ je implikácia s antecedentom $A$ (ktorý nemôže byť pravdivý) pravdivá bez ohľadu na to, aký je konzekvent $B$.\n:::enum{.i}\n3. $(\\neg A \\limpl (A \\limpl B))$\n:::",
+      "comments": []
+    },
+    {
+      "id": 34,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Modus ponens, modus tolens a eliminácia ekvivalencie]{.h5}\n\nTieto tautológie vyjadrujú známe pravidlá _modus ponens_ a _modus tolens_\nna odvodzovanie dôsledkov implikácie.\n:::enum{.i}\n1. $\\bigl(((A \\limpl B) \\land A) \\limpl B\\bigr)$\n2. $\\bigl(((A \\limpl B) \\land \\lnot B) \\limpl \\lnot A\\bigr)$\n:::\nAnalogickým pravidlám pre ekvivalenciu sa hovorí _eliminácia ekvivalencie_.\n:::enum{.i}\n3. $\\bigl(((A \\lequiv B) \\land A) \\limpl B\\bigr)$\n4. $\\bigl(((A \\lequiv B) \\land B) \\limpl A\\bigr)$\n5. $\\bigl(((A \\lequiv B) \\land \\lnot A) \\limpl \\lnot B\\bigr)$\n6. $\\bigl(((A \\lequiv B) \\land \\lnot B) \\limpl \\lnot A\\bigr)$\n:::",
+      "comments": []
+    },
+    {
+      "id": 31,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Introdukcie]{.h5}\n\nNasledujúce tautológie vyjadrujú postačujúce podmienky pre pravdivosť formúl s jednotlivými binárnymi spojkami.\n:::enum{.i}\n1. $\\bigl(A \\limpl (B \\limpl (A \\land B))\\bigr)$\n2. $(A \\limpl (A \\lor B))$\n3. $(A \\limpl (B \\limpl A))$\n:::",
+      "comments": []
+    },
+    {
+      "id": 33,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Eliminácie]{.h5}\n\nNa nasledujúce tautológie sa dá pozerať ako na nutné a postačujúce podmienky toho,\nže $C$ je logickým dôsledkom formuly tvorenej binárnou spojkou.\nNapríklad prostredná tautológia vyjadruje, že $C$ je dôsledkom disjunkcie vtt,\nkeď je dôsledkom každého z disjunktov.\nHovorí sa im aj <dfn>eliminácie</dfn> (na pravej strane sa už binárna spojka z antecedentu nevyskytuje).\n:::enum{.i}\n1. $\\bigl(((A \\land B) \\limpl C) \\lequiv (A \\limpl (B \\limpl C))\\bigr)$\n2. $\\bigl(((A \\lor B) \\limpl C)) \\lequiv ((A \\limpl C) \\land\n    (B \\limpl C))\\bigr)$\n3. $\\bigl(((A \\limpl B) \\limpl C) \\lequiv ((\\lnot A \\limpl C) \\land\n    (B \\limpl C))\\bigr)$\n:::",
+      "comments": []
+    },
+    {
+      "id": 28,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a}) Vlastnosti ekvivalencie]{.h5}\nEkvivalencia je tranzitívna, podobne ako implikácia.\n:::enum{.i}\n1. $\\bigl(((A \\lequiv B) \\land (B \\lequiv C)) \\limpl (A \\lequiv C)\\bigr)$\n:::\nDisjunkciu aj implikáciu je možné distribuovať do (a vyňať z) ekvivalencie. Čo je prekvapivejšie, implikácia sa do vnútra ekvivalencie dá distribuovať ako konjunkcia.\n:::enum{.i}\n2. $\\bigl((A \\lor (B \\lequiv C)) \\lequiv\n            ((A \\lor B) \\lequiv (A \\lor C))\\bigr)$\n3. $\\bigl((A \\limpl (B \\lequiv C)) \\lequiv\n            ((A \\limpl B) \\lequiv (A \\limpl C))\\bigr)$\n4. $\\bigl((A \\limpl (B \\lequiv C)) \\lequiv \n            ((A \\land B) \\lequiv (A \\land C))\\bigr)$\n:::\nExkluzívna disjunkcia (XOR) je ekvivalentná s negáciou ekvivalencie,\no čom nás presviedčajú nasledujúce tautológie.\n:::enum{.i}\n5. $\\bigl(\\lnot(A \\lequiv B) \\lequiv \n            ((A \\lor B) \\land \\lnot(A \\land B))\\bigr)$\n6. $\\bigl(\\lnot(A \\lequiv B) \\lequiv \n            ((A \\land \\lnot B) \\lor (\\lnot A \\land B))\\bigr)$\n:::",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n\\newcommand{\\alertcolor}{\\color{#dc3545}}\n\\newcommand{\\alertsymbol}[1]{{\\alertcolor\\boldsymbol{#1}}}\n\\newcommand{\\alertrel}[1]{\\mathrel{\\alertcolor\\boldsymbol{#1}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\lif}{\\leftarrow}\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n% Tableaux\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}\n\\newcommand\\Tabl{\\mathcal{T}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\\providecommand{\\prop}{{\\mathrm{p}}}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\\newcommand{\\proves}{\\vdash}\n\n\\newcommand\\alertnEquiv{\\alertrel{\\nEquiv}}\n\\newcommand\\alertnentails{\\alertrel{\\nentails}}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_\\prop}\n\\newcommand{\\npmodels}{\\NModels_\\prop}\n\\newcommand{\\pEquiv}{\\Equiv_\\prop}\n\\newcommand{\\npEquiv}{\\Equiv_\\prop}\n\\newcommand{\\alertnpEquiv}{\\alertrel{\\nEquiv_\\prop}}\n\\newcommand{\\pentails}{\\entails_\\prop}\n\\newcommand{\\npentails}{\\nentails_\\prop}\n\\newcommand{\\alertnpentails}{\\alertrel{\\nentails_\\prop}}\n\\newcommand{\\pproves}{\\proves_\\prop}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n% tu05 macros\n\\newcommand{\\FFDD}{\\sym{have}(\\sym{umbrella},\\sym{today})}\n\\newcommand{\\FFDP}{\\sym{rainy}(\\sym{today})}\n\\newcommand{\\FFDC}{\\sym{wet}(\\sym{road},\\sym{today})}\n\\newcommand{\\FFDA}{\\sym{passed}(\\sym{cleaning\\_truck},\\sym{road},\\sym{today})}\n\\newcommand{\\FFDV}{\\sym{weekend}(\\sym{today})}\n\\newcommand{\\FFDU}{\\sym{tuesday}(\\sym{today})}\n\\newcommand{\\FFDIP}{\\sym{by\\_foot}(\\sym{today})}\n\\newcommand{\\FFDIE}{\\sym{by\\_tram}(\\sym{today})}\n",
+    "github": {
+      "editBranch": "tc04",
+      "handinBranch": ""
+    }
+  }
+}
