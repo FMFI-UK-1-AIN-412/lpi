@@ -23,13 +23,13 @@ v konjunktívnom normálnom tvare
 (CNF, viď [Reprezentácia CNF](#reprezentácia-cnf)), ak sa zavolá na formule,
 ktorá je v NNF (inak vyhodí výnimku).
 
-Na konci [3. prednášky](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=page.88)
+Na konci [3. prednášky](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=page.87)
 sme spomenuli jeden z možných prístupov na transformáciu formuly do CNF:
 Formulu najprv ekvivalentne upravíme do NNF a následne z NNF ďalšími
 ekvivalentnými úpravami vyrobíme CNF. Oba tieto kroky implementujeme
 v každej z našich predchádzajúcich tried virtuálnymi metódami `toNnf()`
 a `nnfToCnf()`. Potrebné ekvivalentné úpravy sú zhrnuté vo
-[vete 4.10](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.4.10).
+[vete 3.25](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=theorem.3.25).
 
 ### toNnf
 
