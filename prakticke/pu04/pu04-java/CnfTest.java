@@ -447,48 +447,40 @@ public class CnfTest {
             )
         );
 
-        {
-            Formula args1[] = {
-                a, Impl(a,a), And(a,Not(a)), And()
-            };
-            Formula args2[] = {
-                a, b, Or(b,Not(b)), Eq(b,b), Or()
-            };
-            Iterable<Formula> args3 = (Iterable<Formula>)
-                Stream.concat(Arrays.stream(args1), Arrays.stream(args2))
-                    ::iterator;
-            UnaryOperator<Formula>[] posnegs =
-                (UnaryOperator<Formula>[]) new UnaryOperator[] {
-                    UnaryOperator.identity(),
-                    (UnaryOperator<Formula>) CnfTest::Not,
-                };
-            BinaryOperator<Formula>[] cons =
-                (BinaryOperator<Formula>[]) new BinaryOperator[] {
-                    (BinaryOperator<Formula>) CnfTest::And,
-                    (BinaryOperator<Formula>) CnfTest::Or,
-                    (BinaryOperator<Formula>) CnfTest::Impl,
-                    (BinaryOperator<Formula>) CnfTest::Eq,
-                };
-            for (Formula x: args3) {
-                for (UnaryOperator<Formula> pnx: posnegs) {
-                    ct.test(pnx.apply(x));
-                    ct.test(pnx.apply(Not(x)));
-                }
-            }
-            for (BinaryOperator<Formula> con: cons) {
-                for (Formula x: args1) {
-                    for (Formula y: args2) {
-                        for (UnaryOperator<Formula> pn: posnegs) {
-                            for (UnaryOperator<Formula> pnx: posnegs) {
-                                for (UnaryOperator<Formula> pny: posnegs) {
-                                    ct.test(pn.apply(con.apply(pnx.apply(x), pny.apply(y))));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        ct.test(
+            And(
+                And(a,Not(b),c),
+                Or(a,Impl(b,a)),
+                Or(a,b,Not(c)),
+                And(Not(a),b,c)
+            )
+        );
+
+        ct.test(
+            Or(
+                And(a,Not(b),c),
+                Or(a,b,Not(c)),
+                And(Not(a),b,c),
+                And(a,b,Not(c))
+            )
+        );
+
+        ct.test(
+            Or(
+                Or(a,b,Not(c)),
+                Or(),
+                Or(a,Not(b),c),
+                And(Not(a),b,c)
+            )
+        );
+
+        ct.test(
+            Or(
+                Or(a,b,Not(c)),
+                And(),
+                And(Not(a),b,c)
+            )
+        );
 
         {
             int N = 17;
@@ -500,6 +492,21 @@ public class CnfTest {
 
             ct.test(Or(vars));
         }
+
+        {
+            int N = 4;
+            Formula[] conjs = new Formula[N];
+
+            for (int i = 0; i < N; ++i) {
+                Formula[] vars = new Formula[N];
+                for (int j = 0; j < N; ++j)
+                    vars[j] = p(Integer.toString(i*(N)+j+1));
+                conjs[i] = And(vars);
+            }
+
+            ct.test(Or(conjs));
+        }
+
         //---------------
         //
         ct.test(Not(Impl(a,a)));
@@ -569,16 +576,11 @@ public class CnfTest {
                 Not(Impl(Impl(a,b),Impl(a,c)))
             )));
 
-
-
-
-
-
-
         ct.test(Not(Impl(
             Or(a,And(b,c)),
             And(Or(a,b),Or(a,c))
             )));
+
         ct.test(Not(Impl(
             And(a,Or(b,c)),
             Or(And(a,b),And(a,c))
@@ -680,6 +682,50 @@ public class CnfTest {
 
         ct.test(And(th2, Not(p("sarah"))));
         ct.test(And(th2, Not(p("kim"))));
+
+
+        {
+            Formula args1[] = {
+                a, Impl(a,a), And(a,Not(a)), And()
+            };
+            Formula args2[] = {
+                a, b, Or(b,Not(b)), Eq(b,b), Or()
+            };
+            Iterable<Formula> args3 = (Iterable<Formula>)
+                Stream.concat(Arrays.stream(args1), Arrays.stream(args2))
+                    ::iterator;
+            UnaryOperator<Formula>[] posnegs =
+                (UnaryOperator<Formula>[]) new UnaryOperator[] {
+                    UnaryOperator.identity(),
+                    (UnaryOperator<Formula>) CnfTest::Not,
+                };
+            BinaryOperator<Formula>[] cons =
+                (BinaryOperator<Formula>[]) new BinaryOperator[] {
+                    (BinaryOperator<Formula>) CnfTest::And,
+                    (BinaryOperator<Formula>) CnfTest::Or,
+                    (BinaryOperator<Formula>) CnfTest::Impl,
+                    (BinaryOperator<Formula>) CnfTest::Eq,
+                };
+            for (Formula x: args3) {
+                for (UnaryOperator<Formula> pnx: posnegs) {
+                    ct.test(pnx.apply(x));
+                    ct.test(pnx.apply(Not(x)));
+                }
+            }
+            for (BinaryOperator<Formula> con: cons) {
+                for (Formula x: args1) {
+                    for (Formula y: args2) {
+                        for (UnaryOperator<Formula> pn: posnegs) {
+                            for (UnaryOperator<Formula> pnx: posnegs) {
+                                for (UnaryOperator<Formula> pny: posnegs) {
+                                    ct.test(pn.apply(con.apply(pnx.apply(x), pny.apply(y))));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
         System.exit(ct.status() ? 0 : 1);
