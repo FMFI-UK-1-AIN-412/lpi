@@ -1,0 +1,174 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 5. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc05`\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 12:20–13:00 v I-9\n:::\n::::\n::::details\n::summary[:icon[help] :b[Tabuľka symbolov] používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ↦ | `\\mapsto` | zobrazenie (prvku na prvok) | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky |\n| <b>T</b>, <b>F</b> | `\\sign{T}`, `\\sign{F}` |  znamienko označenej formuly | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo  | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "data": "## Cvičenie 5.:cnt[a]\n:small[:icon[source]\nZbierka: \n:xref[4.3.1]{.exbook label=\"príklad\"}.\nPrednášky: definície :xref[4.15]{.lec label=\"uzavretej a otvorenej vetvy\"},\n:xref[4.24]{.lec label=\"úplnej vetvy\"}\na :xref[4.26]{.lec label=\"nadol nasýtenej množiny\"};\n:xref[4.27]{.lec label=\"pozorovanie\"},\n:xref[4.28]{.lec label=\"Hintikkova lema\"}.]\n\n:icon[tools] O nasledujúcich formulách v jazyku $\\Lang$,\nkde $\\Preds = \\{\\sym{r}^1, \\sym{s}^1, \\sym{t}^1\\}$\na $\\Consts = \\{\\sym{c}\\}$, rozhodnite **pomocou tablového kalkulu**,\nči sú:\n:::enum{.i}\n1. splniteľné,\n2. nesplniteľné,\n3. tautológie,\n4. falzifikovateľné.\n:::",
+      "comments": []
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "data": ":::h3{.h6}\n$A = \\bigl((\\sym{r}(\\sym{c}) \\limpl \\sym{t}(\\sym{c})) \\land \\neg (\\sym{t}(\\sym{c}) \\lor \\neg \\sym{r}(\\sym{c}))\\bigr)$\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical] Tablo/tablá vložte medzi túto bunku a bunku na zápis záveru.\n:::",
+      "comments": []
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "data": "::h3[**Záver pre $A$**]{.h6}\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Aké vlastnosti má tablo/majú tablá, ktoré ste skonštruovali?\n:::\n\nTablo pre množinu označených formúl $\\{ \\sign{znamienko}A \\}$ …\n\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Ktoré z vyššie uvedených vlastností má a ktoré nemá formula $A$? Pre každú vlastnosť uveďte, z akej vlastnosti ktorého tabla vyplýva.\n:::\n\nFormula $A$:\n:::enum{.i}\n* je/nie je splniteľná, pretože tablo pre $\\{ \\sign{znamienko}A \\}$ …\n* je/nie je nesplniteľná, pretože …\n* je/nie je tautológia, pretože …\n* je/nie je falzifikovateľná, pretože …\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Ak je formula $A$ splniteľná aj falzifikovateľná, zapíšte jej model (ohodnotenie, pri ktorom je pravdivá) aj ohodnotenie, pri ktorom je nepravdivá.\nPre každé ohodnotenie uveďte ktorá vetva ktorého tabla ho určuje (identifikujte ju číslom listu, v ktorom končí).\n:::\n\nFormula $A$ je pravdivá pri ohodnotení\n$$\n  \\{ {\\sf r(c)} \\mapsto t/f, … \\}.\n$$\nUrčuje ho vetva tabla pre $\\{ \\sign{znamienko}A \\}$ končiaca listom č. ….\n\nFormula $A$ je nepravdivá pri ohodnotení\n$$\n  \\{ {\\sf r(c)} \\mapsto t/f, … \\}.\n$$\nUrčuje ho vetva tabla pre $\\{ \\sign{znamienko}A \\}$ končiaca listom č. ….\n",
+      "comments": []
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "data": ":::h3{.h6}\n$B = \\bigl((\\sym{s}(\\sym{c}) \\lor \\sym{t}(\\sym{c})) \\limpl\n    \\bigl(\\neg \\sym{r}(\\sym{c}) \\land\n      (\\neg \\sym{s}(\\sym{c}) \\limpl \\sym{t}(\\sym{c}))\\bigr)\\bigr)$\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[technical] Tablo/tablá vložte medzi túto bunku a bunku na zápis záveru.\n:::",
+      "comments": []
+    },
+    {
+      "id": 13,
+      "type": "text",
+      "data": "::h4[**Záver pre $B$**]{.h6}\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Aké vlastnosti majú tablá, ktoré ste skonštruovali?\n:::\n\n…\n\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Ktoré z vyššie uvedených vlastností má a ktoré nemá formula $B$? Pre každú vlastnosť uveďte, z akej vlastnosti ktorého tabla vyplýva.\n:::\n\nFormula $B$\n:::enum{.i}\n* je/nie je splniteľná, tablo pre $\\{ \\sign{znamienko}B \\}$ …\n* …\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Ak je formula $B$ splniteľná aj falzifikovateľná, zapíšte jej model (ohodnotenie, v ktorom je pravdivá) aj ohodnotenie, v ktorom je nepravdivá.\nPre každé ohodnotenie uveďte ktorá vetva ktorého tabla ho určuje (identifikujte ju číslom listu, v ktorom končí).\n:::\n\nFormula $B$ je pravdivá pri ohodnotení\n$$\n  \\{ {\\sf r(c)} \\mapsto t/f, … \\}.\n$$\nUrčuje ho vetva tabla pre $\\{ \\sign{znamienko}B \\}$ končiaca listom č. ….\n\nFormula $B$ je nepravdivá pri ohodnotení\n$$\n  \\{ {\\sf r(c)} \\mapsto t/f, … \\}.\n$$\nUrčuje ho vetva tabla pre $\\{ \\sign{znamienko}B \\}$ končiaca listom č. ….",
+      "comments": []
+    },
+    {
+      "id": 22,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 5.:cnt[a]\n::p[Chybné úsudky a neekvivalentné úpravy]{.h4}\n:small[:icon[source]\nZbierka:\n:xref[4.3.16]{.exbook label=\"úloha\"}.\nPrednášky: def. :xref[4.15]{.lec label=\"uzavretej a otvorenej vetvy\"},\n:xref[4.24]{.lec label=\"úplnej vetvy\"}\na :xref[4.26]{.lec label=\"nadol nasýtenej množiny\"};\n:xref[4.27]{.lec label=\"pozorovanie\"},\n:xref[4.28]{.lec label=\"Hintikkova lema\"}.]\n:::\n\nPreskúmajte **pomocou otvorených a úplných tabiel**\nnasledujúce príklady záverov, ktoré **nevyplývajú** z uvedených teórií, a ekvivalencií, ktoré **nie sú** tautológiami pre ľubovoľné formuly $A$, $B$, $C$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help]\nAk vám na prvý pohľad nie je jasné,\nprečo záver nevyplýva z predpokladov alebo prečo formuly nie sú ekvivalentné,\nmôže vám pomôcť predstaviť si _konkrétny príklad_ významu formúl\n$A$, $B$, $C$,\npovedzme: $A$ – je slnečno, $B$ – idem na výlet, $C$ – dám si zmrzlinu.\n\nV niektorých prípadoch však problém ozrejmí iba systematická úvaha o význame spojok vo formulách,\ns čím vám práve pomôžu tablové pravidlá.\n:::",
+      "comments": []
+    },
+    {
+      "id": 27,
+      "type": "text",
+      "data": "::h3[a) Chybné úsudky]{.h5}\nNasledujúce nevyplývania predstavujú schémy rôznych **chybných úsudkov**:\n\n:::enum{.i}\n1. $\\{\\, (A \\limpl B), B \\,\\} \\alertnpentails A$     \n   (Potvrdenie antecedentu.)\n2. $\\{\\,(A \\limpl B), \\lnot A \\,\\} \\alertnpentails \\lnot B$     \n   (Popretie konzekventu.)\n3. $\\{\\, (A \\limpl C) \\,\\} \\alertnpentails ((A \\lor B) \\limpl C)$    \n   (Zoslabenie antecedentu.)\n4. $\\{\\, (A \\limpl B) \\,\\} \\alertnpentails (A \\limpl (B \\land C))$    \n   (Zosilnenie konzekventu.)\n:::\n\nPre každú vyššie uvedenú dvojicu $T \\npentails X$ dokážte,\nže z teórie $T$ **vo všeobecnosti nevyplýva** formula $X$.\n\nNa to je potrebné zostrojiť **kontrapríklad vyplývania**:\n* formuly $A$, $B$, $C$ vo vhodnom jazyku,\n* aspoň jedno ohodnotenie $v$ pre tento jazyk,\n  ktoré je modelom teórie $T$ ($v \\pmodels T$),\n  ale nie je modelom formuly $X$ ($v \\npmodels X$).\n",
+      "comments": []
+    },
+    {
+      "id": 33,
+      "type": "text",
+      "data": "::h4[Kontrapríklad pre chybný úsudok iii]{.h6.fw-bold}\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Zvoľte jazyk a formuly $A$, $B$, $C$ tak,\naby neobmedzili možné ohodnotenia.\n:::\n\nNech $\\Lang$ je jazyk výrokovologickej časti logiky prvého rádu,\nkde $\\Consts = \\{ … \\}$ a $\\Preds = \\{ … \\}$.\nNech $A = …$, $B = …$, $C = …$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Vyberte znamienka ($\\sign{T}$ alebo $\\sign{F}$) a doplňte formuly do definície $S^+$.\n:::\n\nZostrojíme tablo pre množinu označených formúl\n$S^+ = \\{ \\sign{znamienko} …, \\sign{znamienko} … \\}$.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[tools] Zostrojte tablo tak,\naby vám pomohlo vytvoriť kontrapríklad vyplývania.\nTablo vložte za túto bunku.\n:::",
+      "comments": []
+    },
+    {
+      "id": 34,
+      "type": "text",
+      "data": ":::aside{.note.bg-transparent.p-0}\n:icon[write] Doplňte číslo listu tabla, ohodnotenie, teóriu a formulu\na :mark[vyberte z možností] tak, aby bol záver podložený a správny.\n:::\n\nOtvorená a úplná vetva tabla pre $S^+$ končiaca listom č. …\nurčuje ohodnotenie\n$$\n\\{ … \\mapsto 0/1, … \\},\n$$\nktoré :mark[je/nie je modelom] teórie $\\{ … \\}$,\nale :mark[je/nie je modelom] formuly $…$.\nPreto vo všeobecnosti $\\{ … \\} \\npentails …$.\n",
+      "comments": []
+    },
+    {
+      "id": 38,
+      "type": "text",
+      "data": ":icon[homework]\nPodobne ako vyššie dokážte, že aj úsudky i, ii a iv sú chybné.",
+      "comments": []
+    },
+    {
+      "id": 28,
+      "type": "text",
+      "data": ":::header\n::h3[b) Chybné ekvivalentné úpravy]{.h5}\n:small[:icon[source]\nPrednášky: :xref[3.30]{.lec label=\"tvrdenie\"}.]\n:::\nNasledujúce neekvivalencie predstavujú schémy rôznych **chybných ekvivalentných úprav**:\n:::enum{.i}\n5. $((A \\limpl B) \\limpl C) \\alertnpEquiv (A \\limpl (B \\limpl C))$    \n   (Implikácia nie je asociatívna.)\n6. $(A \\limpl B) \\alertnpEquiv (B \\limpl A)$    \n   (Implikácia nie je komutatívna.)\n7. $(A \\land (B \\limpl C)) \\alertnpEquiv ((A \\land B) \\limpl (A \\land C))$    \n   (Konjunkcia nie je distributívna vzhľadom na implikáciu.)\n8. $(A \\land (B \\lequiv C)) \\alertnpEquiv ((A \\land B) \\lequiv (A \\land C))$    \n   (Konjunkcia nie je distributívna vzhľadom na ekvivalenciu.)\n:::\n\nPre každú vyššie uvedenú dvojicu $X \\npEquiv Y$ dokážte,\nže formuly $X$ a $Y$ **nie sú vo všeobecnosti ekvivalentné**.\n\nNa to je potrebné zostrojiť **kontrapríklad ekvivalencie**:\n* formuly $A$, $B$, $C$ vo vhodnom jazyku,\n* aspoň jedno ohodnotenie $v$ pre tento jazyk,\n  ktoré je modelom jednej z formúl $X$, $Y$, ale nie je modelom druhej.\n\nPre _niektoré_ dvojice je **implikácia _v jednom smere_** (teda $(X \\limpl Y)$ alebo $(Y \\limpl X)$) **tautológiou**. Ktorá?\n",
+      "comments": []
+    },
+    {
+      "id": 36,
+      "type": "text",
+      "data": "::h3[**Kontrapríklad pre chybnú ekvivalenciu v**]{.h6}\n:::aside{.note.bg-transparent.p-0}\n:icon[write] Rovnako ako pri chybnom úsudku iii vysvetlite,\nako budeme pri riešení postupovať:\naký jazyk, formuly $A$, $B$, $C$, zvolíme a aké tablo skonštruujeme.\n:::\n\n…\n\n:::aside{.note.bg-transparent.p-0}\n:icon[tools] Zostrojte tablo tak,\naby vám pomohlo vytvoriť kontrapríklad ekvivalencie\na zodpovedať otázku o tautologickosti niektorej z implikácií.\nTablo vložte za túto bunku.\n:::",
+      "comments": []
+    },
+    {
+      "id": 35,
+      "type": "text",
+      "data": ":::aside{.note.bg-transparent.p-0}\n:icon[write] Doplňte číslo listu tabla, ohodnotenie, teóriu a formulu, :mark[vyberte z možností] a označte `[x]` správny prípad\ntak, aby boli závery podložené a správne.\n:::\n\nOtvorená a úplná vetva tabla pre $S^+$ končiaca listom č. …\nurčuje ohodnotenie\n$$\nv = \\{ … \\mapsto 0/1, … \\},\n$$\nktoré :mark[je/nie je modelom] formuly $…$,\nale :mark[je/nie je modelom] formuly $…$.\nPreto vo všeobecnosti $… \\npEquiv …$.\n\n* [ ] Implikácia $(… \\limpl …)$ je tautológia,\n  pretože podstrom nášho tabla tvorený uzlami č. … až …\n  je :mark[otvoreným/a/úplným/uzavretým] tablom\n  pre množinu označených formúl $\\{ \\sign{znamienko}  (… \\limpl …)\\}$.\n* [ ] Ani jedna z implikácií $(… \\limpl …)$ a $(… \\limpl …)$\n  nie je tautológiou, pretože $v \\npmodels (… \\limpl …)$\n  a otvorená a úplná vetva tabla pre $S^+$ končiaca listom č. …\n  určuje ohodnotenie\n  $$\n  \\{ … \\mapsto 0/1, … \\},\n  $$\n  ktoré nie je modelom opačnej implikácie $(… \\limpl …)$.",
+      "comments": []
+    },
+    {
+      "id": 37,
+      "type": "text",
+      "data": ":icon[homework]\nPodobne ako vyššie nájdite kontrapríklady chybných ekvivalencií vi–viii\na zistite, či je implikácia v niektorom smere tautológiou.",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "data": "## Cvičenie 5.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[4.3.11]{.exbook label=\"príklad\"},\n:xref[4.3.15]{.exbook label=\"úloha\"}.\nPrednášky: def. :xref[4.15]{.lec label=\"uzavretej a otvorenej vetvy\"},\n:xref[4.24]{.lec label=\"úplnej vetvy\"}\na :xref[4.26]{.lec label=\"nadol nasýtenej množiny\"};\n:xref[4.27]{.lec label=\"pozorovanie\"},\n:xref[4.28]{.lec label=\"Hintikkova lema\"}.]\n\nMonika a Michal budú mať cez víkend návštevu, prídu k nim Michalovi rodičia. Potrebujú sa teda rozhodnúť, aké pohostenie pre nich pripravia. Môžu nachystať oriešky, sendviče, koláč, ovocnú misu, syrový tanier alebo šunkový tanier. Majú takéto obmedzenia:\n\n1. Ak by chystali sendviče alebo koláč, tak určite nestihnú pripraviť aj ovocnú misu.\n2. Michalova mama je vegetariánka, takže určite nachystajú oriešky, syrový tanier, koláč alebo ovocnú misu (inak by mama nemala čo jesť).\n3. Rodičia prídu na návštevu hladní, takže ak Michal s Monikou nenachystajú sendviče, určite musia aspoň upiecť koláč.\n4. Mladý pár má novú rúru, ale ešte ju nestihli vyskúšať, takže si netrúfnu hneď na prvý pokus piecť koláč pre návštevu.\n\nZistite:\n:::enum{.a}\n24. Môžu Monika a Michal pripraviť pohostenie vyhovujúce všetkým obmedzeniam?\n25. Aké sú ich možnosti?\n:::\n\nNa otázky odpovedzte pomocou tablového kalkulu.",
+      "comments": []
+    },
+    {
+      "id": 18,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.i}. Formalizácia]{.h5}\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte výroky 1.–4. ako ucelenú teóriu $T = \\{A_1, \\ldots, A_4\\}$.\n\n<div class=\"note bg-transparent p-0\">\n\n:icon[explanation] \nCieľom úlohy je zistiť, či a aké pohostenie môžu Monika s Michalom pripraviť, aby boli rodičia spokojní.\nZvolíme si prvorádový jazyk $\\Lang$,\nktorý nám umožní sformalizovať ich podmienky bez nepodstatných detailov.\nPostačia nám na to mimologické symboly\n$\\Preds = \\{\n  \\sym{nuts}^1, \\sym{sandwiches}^1,\n  \\sym{cake}^1, \\sym{fruits}^1,\n  \\sym{cheese}^1, \\sym{ham}^1\n\\}$ a $\\Consts = \\{\\sym{snacks}\\}$,\npričom konštanta $\\sym{snacks}$ označuje pripravené pohostenie\na zamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning}\n| Predikát | Význam |\n|----------|--------|\n| $\\sym{nuts}(x)$ | pohostenie $x$ obsahuje oriešky |\n| $\\sym{sandwiches}(x)$ | pohostenie $x$ obsahuje sendviče |\n| $\\sym{cake}(x)$ | pohostenie $x$ obsahuje koláč|\n| $\\sym{fruits}(x)$ | pohostenie $x$ obsahuje ovocnú misu |\n| $\\sym{cheese}(x)$ | pohostenie $x$ obsahuje syrový tanier |\n| $\\sym{ham}(x)$ | pohostenie $x$ obsahuje šunkový tanier |\n:::\n\n:::aside{.note.bg-transparent.p-1}\n:icon[warning]\n**Dôsledne zátvorkujte všetky formuly podľa :xref[2.6]{.lec label=definície}!**\nFormalization Checker akceptuje iba formuly, v ktorých každá podformula vytvorená binárnou spojkou alebo skratkou $\\lequiv$ je uzavretá do príslušného páru zátvoriek.\nChybové hlásenia žiaľ nemusia byť veľmi nápomocné.\n\n:::\n\n</div>",
+      "comments": []
+    },
+    {
+      "id": 40,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 65,
+          "title": "2026 – Cvičenie 5.3",
+          "description": "Sformalizujte nasledujúce výroky ako formuly v uvedenom jazyku výrokovej logiky. ",
+          "constants": "snacks",
+          "predicates": "nuts/1, sandwiches/1, cake/1, fruits/1, cheese/1, ham/1",
+          "functions": "",
+          "constraints": "",
+          "parserType": "strict",
+          "propositions": [
+            {
+              "proposition_id": 2283,
+              "proposition": "Ak by chystali sendviče alebo koláč, tak určite nestihnú pripraviť aj ovocnú misu.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2284,
+              "proposition": "Michalova mama je vegetariánka, takže určite nachystajú oriešky, syrový tanier, koláč alebo ovocnú misu (inak by mama nemala čo jesť).",
+              "solution": null
+            },
+            {
+              "proposition_id": 2285,
+              "proposition": "Rodičia prídu na návštevu hladní, takže ak Michal s Monikou nenachystajú sendviče, určite musia aspoň upiecť koláč.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2286,
+              "proposition": "Mladý pár má novú rúru, ale ešte ju nestihli vyskúšať, takže si netrúfnu hneď na prvý pokus piecť koláč pre návštevu.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 65
+      },
+      "comments": []
+    },
+    {
+      "id": 21,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.i}. Formálne problémy]{.h5}\n\n:icon[write]\nAké formálne logické problémy musíme vyriešiť, aby sme zodpovedali neformálne otázky zo zadania?\n\n:small[Napr. splniteľnosť alebo nájdenie všetkých modelov ktorej formuly/teórie, tautologickosť ktorej formuly, ekvivalencia ktorých formúl, vyplývanie/nezávislosť ktorej formuly z/od ktorej teórie, atď.]\n\n…",
+      "comments": []
+    },
+    {
+      "id": 20,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.i}. Formálne prostriedky a riešenie]{.h5}\n\n:icon[write]\nAké tablo alebo tablá pre aké množiny označených formúl je potrebné zostrojiť,\naby ste vyriešili logické problémy, ktoré ste určili v časti b)?\n\n…\n\n:icon[tools]\nPomocou aplikácie Tableau editor zostrojte toto tablo resp. tieto tablá.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[info]\nÚloha sa dá vyriešiť pomocou tabla/tabiel s najviac 20-timi uzlami.\n\n:icon[warning]\nAk má vaše tablo **viac ako 30 uzlov**, všimnite si, ktoré kroky sa opakujú, a tablo upravte, aby ste sa opakovaniu podľa možnosti vyhli.\n:::",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.i}. Formálne výsledky]{.h5}\n\n:icon[write]\nAké sú výsledky riešenia logických problémov, ktoré ste určili v časti b)?\nZ ktorých tabiel a ich vetiev z časti c) a z ktorých ich vlastností\nvyvodzujete tieto výsledky?\n\n…\n",
+      "comments": []
+    },
+    {
+      "id": 24,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.i}. Interpretácia]{.h5}\n\n:icon[write]\nAké sú odpovede na otázky i. a ii. zo slovnej úlohy?\n\ni. Monika a Michal …môžu/nemôžu… pripraviť pohostenie vyhovujúce všetkým obmedzeniam.\n\nii. Majú tieto možnosti: …\n\n:::aside{.note.bg-transparent.p-0}\n:icon[warning]\nDajte si záležať na tom, aby ste **presne a jasne** vyjadrili\nprípustné možnosti kombinácií jednotlivých druhov pohostenia.\nNezabudnite ani na tie, ktoré **môžu ale nemusia**\nbyť súčasťou niektorých (alebo aj všetkých) kombinácií.\n:::",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n\\newcommand{\\alertcolor}{\\color{#dc3545}}\n\\newcommand{\\alertsymbol}[1]{{\\alertcolor\\boldsymbol{#1}}}\n\\newcommand{\\alertrel}[1]{\\mathrel{\\alertcolor\\boldsymbol{#1}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^{#1}$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n% Tableaux\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\\providecommand{\\prop}{{\\mathrm{p}}}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\\newcommand{\\proves}{\\vdash}\n\n\\newcommand\\alertnEquiv{\\alertrel{\\nEquiv}}\n\\newcommand\\alertnentails{\\alertrel{\\nentails}}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_\\prop}\n\\newcommand{\\npmodels}{\\NModels_\\prop}\n\\newcommand{\\pEquiv}{\\Equiv_\\prop}\n\\newcommand{\\npEquiv}{\\nEquiv_\\prop}\n\\newcommand{\\alertnpEquiv}{\\alertrel{\\npEquiv}}\n\\newcommand{\\pentails}{\\entails_\\prop}\n\\newcommand{\\npentails}{\\nentails_\\prop}\n\\newcommand{\\alertnpentails}{\\alertrel{\\nentails_\\prop}}\n\\newcommand{\\pproves}{\\proves_\\prop}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n"
+  }
+}
