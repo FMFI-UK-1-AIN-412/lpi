@@ -32,7 +32,7 @@ riešte vo svojom repozitári v aplikácii
 |  4 | [Dôkazy a výrokovologické tablá](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr04.pdf) | [qz03](https://moodle.uniba.sk/mod/quiz/view.php?id=183867) | [NNF a CNF](prakticke/pu04) |
 |  5 | [Korektnosť a úplnosť výrokovologických tabiel](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr05.pdf) | [qz04](https://moodle.uniba.sk/mod/quiz/view.php?id=184345) | [Tableau](prakticke/pu05) |
 |  6 | [SAT solvery](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr06.pdf) | [qz05](https://moodle.uniba.sk/mod/quiz/view.php?id=185226) | [TableauBuilder](prakticke/pu06) |
-|  7 | [Kvantifikátory](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr07.pdf) | [qz06](https://moodle.uniba.sk/mod/quiz/view.php?id=185908) | |
+|  7 | [Kvantifikátory](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr07.pdf) | [qz06](https://moodle.uniba.sk/mod/quiz/view.php?id=185908) | [Hamiltonovská kružnica](prakticke/pu07) |
 
 Návody a dokumenty
 ------------------
