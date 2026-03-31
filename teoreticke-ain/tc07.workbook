@@ -1,0 +1,954 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 11,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 7. teoretické cvičenie\n:::\n\n:::div{.dl-indented}\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `tc07`\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Uložte svoje riešenie pred zavretím karty prehliadača alebo odchodom na inú stránku!**\n\n:icon[help] Návod\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`.\n\n:icon[person-raised-hand]{.text-primary} Konzultačné hodiny\n: Streda o 12:20–13:00 v I-9\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 20,
+      "type": "text",
+      "data": "## :icon[homework] Domáca úloha\n\n:icon[bonus] Ďalšie skúsenosti a spätnú väzbu môžete získať vyriešením domácej úlohy:\n\n::::div{.dl-indented}\n\n3. domáca úloha\n:    :::div{.dl-indented}\n     :icon[file-earmark-ruled-fill]{.text-primary} Pracovný hárok\n     : [du03](../../du03/teoreticke-ain/du03.workbook) :small[(odkaz otvorí hárok v správnej vetve)]\n\n     :icon[deadline] Termín odovzdania\n     : Výnimočne kvôli veľkonočným sviatkom **utorok 7. 4. 2026** o 23:59:59\n     :::\n::::",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "data": "## Cvičenie 7.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[5.2.1]{.exbook label=\"úloha\"}.]\n\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu,\nkde $\\Consts = \\{\\sym{Bob},$ $\\sym{Eva},$ $\\sym{Karen}\\}$, $\\Preds = \\{\\sym{student}^1,$ $\\sym{teacher}^1,$ $\\sym{knows}^2\\}$.\nNech $\\Struct = (D,i)$ je štruktúra pre jazyk $\\Lang$,\nkde:\n$$\n\\begin{align*}\n  D &= \\{ 1, 2, 3\\}\n  \\\\\n  i(\\sym{Eva}) &= 1\n  &\n  i(\\sym{student}) &= \\{2\\}\n  \\\\\n  i(\\sym{Karen}) &= 1\n  &\n  i(\\sym{teacher}) &= \\{1\\}\n  \\\\\n  i(\\sym{Bob}) &= 3\n  &\n  i(\\sym{knows}) &= \\{(1,1),(1,2),(2,1)\\}\n\\end{align*}\n$$",
+      "comments": []
+    },
+    {
+      "id": 67,
+      "type": "text",
+      "data": "::h3[:icon[tools] a) Splnenie otvorených formúl a kvantifikátory]{.h5}\n\nPomocou dopytovacej funkcie (_Queries in $\\Struct$_) v aplikácii Structure explorer **zistite**, pri akých ohodnoteniach premennej $\\vx$ sú **otvorené** formuly $\\psi_1(\\vx)$ a $\\psi_2(\\vx)$ **splnené** v štruktúre $\\Struct$.\n\nNa základe toho určte, či sú príslušné **uzavreté**, všeobecne kvantifikované formuly $\\varphi_1$ a $\\varphi_2$ **pravdivé** v $\\Struct$.\nPravdivosť/nepravdivosť každej formuly vyznačte v aplikácii výberom z menu :span[⊨/⊭? :icon[chevron-down]{.small}]{.p-1.rounded.border.border-secondary} a **overte** pomocou Henkinovej-Hintikkovej hry (tlačidlo\n:span[Verify]{.p-1.rounded.border.border-warning}).\n\n::::aside{.note.p-0.bg-transparent}\n:::details\n:summary[:icon[explanation] Ako funguje Henkinova-Hintikkova hra pre kvantifikátory?]\n* Pri overovaní **pravdivosti** formuly s **existenčným** kvantifikátorom je **vašou úlohou** vybrať **svedka** – prvok, pre ktorý je priama podformula splnená. Hra pokračuje overovaním tohto faktu.\n* Pri overovaní **pravdivosti** formuly so **všeobecným** kvantifikátorom **počítač** vyberie nejaký prvok a hra pokračuje overovaním, či je priama podformula pre tento prvok splnená. To, že sa takto skutočne overí, že podformula je splnená vo všeobecnosti, je zabezpečené tým, že vždy, keď je to možné, počítač vyberie **kontrapríklad** – prvok, pre ktorý je priama podformula nesplnená. Ak kontrapríklad neexistuje, výber počítača je náhodný.\n\nPri overovaní **nepravdivosti** kvantifikovaných formúl sú roly hráča a počítača **vymenené**: pre nepravdivú existenčne kvantifikovanú formulu vyberá počítač možného svedka; pre nepravdivú všeobecne kvantifikovanú formuly vyberáte vy kontrapríklad.\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 53,
+      "type": "newStructureExplorer",
+      "data": {
+        "version": 1,
+        "formulas": {
+          "allFormulas": [
+            {
+              "text": "∀x( teacher(x) ∧ ¬student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x( teacher(x) → ¬student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            }
+          ]
+        },
+        "queries": {
+          "queries": [
+            {
+              "text": "( teacher(x) ∧ ¬student(x) )",
+              "variablesText": "x",
+              "stale": false,
+              "locked": true
+            },
+            {
+              "text": "( teacher(x) → ¬student(x) )",
+              "variablesText": "x",
+              "stale": false,
+              "locked": true
+            }
+          ]
+        },
+        "language": {
+          "constants": {
+            "value": [
+              "Bob",
+              "Eva",
+              "Karen"
+            ],
+            "locked": true
+          },
+          "predicates": {
+            "value": [
+              [
+                "student",
+                1
+              ],
+              [
+                "teacher",
+                1
+              ],
+              [
+                "knows",
+                2
+              ]
+            ],
+            "locked": true
+          },
+          "functions": {
+            "value": [],
+            "locked": true
+          },
+          "editMode": false
+        },
+        "variables": {
+          "value": [],
+          "locked": true
+        },
+        "teacherMode": {
+          "teacherMode": false
+        },
+        "structure": {
+          "domain": {
+            "value": [
+              "1",
+              "2",
+              "3"
+            ],
+            "locked": true
+          },
+          "iC": {
+            "Bob": {
+              "value": "3",
+              "locked": true
+            },
+            "Eva": {
+              "value": "1",
+              "locked": true
+            },
+            "Karen": {
+              "value": "1",
+              "locked": true
+            }
+          },
+          "iP": {
+            "student": {
+              "value": [
+                [
+                  "2"
+                ]
+              ],
+              "locked": true
+            },
+            "teacher": {
+              "value": [
+                [
+                  "1"
+                ]
+              ],
+              "locked": true
+            },
+            "knows": {
+              "value": [
+                [
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "2"
+                ],
+                [
+                  "2",
+                  "1"
+                ]
+              ],
+              "locked": true
+            }
+          },
+          "iF": {}
+        },
+        "graphView": {},
+        "editorToolbar": {},
+        "caseTreeView": {}
+      },
+      "comments": []
+    },
+    {
+      "id": 68,
+      "type": "text",
+      "data": "::h3[b) Pravdivosť uzavretých formúl s kvantifikátormi]{.h5}\n\nZistite, či sú v štruktúre $\\Struct$ pravdivé alebo nepravdivé nižšie uvedené formuly $\\varphi_1$, …, $\\varphi_{14}$.\n\n:icon[tools]\nSvoje zistenia **vyberte** z príslušných menu :span[⊨/⊭? :icon[chevron-down]{.small}]{.p-1.rounded.border.border-secondary} v aplikácii Structure Explorer a **overte** pomocou Henkinovej-Hintikkovej hry (tlačidlo\n:span[Verify]{.p-1.rounded.border.border-warning}).\n\n::::aside{.note.p-0.bg-transparent}\n:icon[explanation]\n**Všímajte si** rôzne kombinácie kvantifikátorov a spojok v ich oblasti platnosti.\nSnažte sa **pochopiť prečo** sú formuly pravdivé resp. nepravdivé.\n\n:icon[help]\nAk vám pravdivosť niektorej formuly **nie je intuitívne jasná**, preskúmajte detailne **splnenie jej podformúl** pomocou funkcie _Queries in $\\Struct$_.\n\nPripravili sme dva príklady (ale neváhajte pridať ďalšie):\n* Pravdivosť $\\varphi_6$ vám môže pomôcť objasniť splnenie formuly $\\psi_1(\\vx)$.\n* Pravdivosť $\\varphi_9$ vám pomôže objasniť splnenie formúl $\\psi_2(\\vx)$, $\\psi_3(\\vx)$, $\\psi_4(\\vx)$.\n::::",
+      "comments": []
+    },
+    {
+      "id": 66,
+      "type": "newStructureExplorer",
+      "data": {
+        "version": 1,
+        "formulas": {
+          "allFormulas": [
+            {
+              "text": "( ∃x teacher(x) ∧ ∃y student(y) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "( ∀x student(x) ∨ ∃y student(y) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x( teacher(x) → ¬student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∃x( teacher(x) ∧ student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x( teacher(x) → student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∃x( teacher(x) → student(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∃x( knows(x,Karen) ∧ ( student(x) ∨ teacher(x) ) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x( knows(x,Eva) → teacher(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x( ( teacher(x) ∧ ¬knows(x,Karen) ) → knows(x,Bob) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "¬∀x( ( student(x) ∧ ¬knows(x,Karen) ) → knows(x,Eva) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∃x( ( teacher(x) ∧ knows(x,Karen) ) → knows(x,Eva) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "¬∀x( student(x) ∨ teacher(x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "¬∃y knows(Bob,y)",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            },
+            {
+              "text": "∀x ∀y( knows(x,y) → knows(y,x) )",
+              "guess": null,
+              "locked": true,
+              "lockedGuess": false,
+              "gameChoices": []
+            }
+          ]
+        },
+        "queries": {
+          "queries": [
+            {
+              "text": "( teacher(x) → student(x) )",
+              "variablesText": "x",
+              "stale": true,
+              "locked": true
+            },
+            {
+              "text": "( ( teacher(x) ∧ ¬knows(x,Karen) ) → knows(x,Bob) )",
+              "variablesText": "x",
+              "stale": false,
+              "locked": true
+            },
+            {
+              "text": "( teacher(x) ∧ ¬knows(x,Karen) )",
+              "variablesText": "x",
+              "stale": false,
+              "locked": true
+            },
+            {
+              "text": "knows(x,Bob)",
+              "variablesText": "x",
+              "stale": true,
+              "locked": true
+            }
+          ]
+        },
+        "language": {
+          "constants": {
+            "value": [
+              "Bob",
+              "Eva",
+              "Karen"
+            ],
+            "locked": true
+          },
+          "predicates": {
+            "value": [
+              [
+                "student",
+                1
+              ],
+              [
+                "teacher",
+                1
+              ],
+              [
+                "knows",
+                2
+              ]
+            ],
+            "locked": true
+          },
+          "functions": {
+            "value": [],
+            "locked": true
+          },
+          "editMode": false
+        },
+        "variables": {
+          "value": [],
+          "locked": true
+        },
+        "teacherMode": {
+          "teacherMode": false
+        },
+        "structure": {
+          "domain": {
+            "value": [
+              "1",
+              "2",
+              "3"
+            ],
+            "locked": true
+          },
+          "iC": {
+            "Bob": {
+              "value": "3",
+              "locked": true
+            },
+            "Eva": {
+              "value": "1",
+              "locked": true
+            },
+            "Karen": {
+              "value": "1",
+              "locked": true
+            }
+          },
+          "iP": {
+            "student": {
+              "value": [
+                [
+                  "2"
+                ]
+              ],
+              "locked": true
+            },
+            "teacher": {
+              "value": [
+                [
+                  "1"
+                ]
+              ],
+              "locked": true
+            },
+            "knows": {
+              "value": [
+                [
+                  "1",
+                  "1"
+                ],
+                [
+                  "1",
+                  "2"
+                ],
+                [
+                  "2",
+                  "1"
+                ]
+              ],
+              "locked": true
+            }
+          },
+          "iF": {}
+        },
+        "graphView": {},
+        "editorToolbar": {},
+        "caseTreeView": {}
+      },
+      "comments": []
+    },
+    {
+      "id": 26,
+      "type": "text",
+      "data": ":::header\n## Cvičenie 7.:cnt[a]\n::p[Falošní priatelia I]{.h4}\n\n:small[:icon[source]\nZbierka: :xref[5.2.4]{.exbook label=\"príklad\"}.]\n:::\n\n:icon[tools]\nO každej z nasledujúcich dvojíc formúl dokážte,\nže $A_i$ a $B_i$ **nie sú** prvorádovo ekvivalentné ($A_i \\mathrel{\\color{crimson}\\nEquiv} B_i$)\ntak, že zostrojíte:\n:::enum{.i}\n1. štruktúru,\n   v ktorej bude **$A_i$ pravdivá** a **$B_i$ nepravdivá**,\n2. ak je to možné, tak aj štruktúru,\n   v ktorej **naopak** bude $A_i$ nepravdivá a $B_i$ pravdivá;\n   takáto štruktúra nemusí existovať pre každú dvojicu formúl.\n:::\nAk to formuly umožňujú, vytvorte **netriviálnu** štruktúru\ns aspoň 3-prvkovou doménou\na neprázdnymi interpretáciami predikátov (podobne ako štruktúra z cvičenia 7.1).\n\n**Vždy overte** pravdivosť resp. nepravdivosť pomocou Henkinovej-Hintikkovej hry (tlačidlo\n:span[Verify]{.p-1.rounded.border.border-warning}).\n\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nUvedomte si **rozdiely vo význame** formúl $A_i$ a $B_i$.\nTieto dvojice poukazujú na **časté chyby pri formalizácii**,\nktorým by ste sa mali vyhnúť v cvičení 7.3.\nŠtudenti*ky často zamieňajú $A_i$ a $B_i$ v domnení, že sú ekvivalentné.\nV tomto cvičení sa môžete presvedčiť, že nie sú,\na vyjasniť si, v čom je medzi nimi rozdiel.\n\n:icon[info]\nDvojice formúl označené :icon[homework] si na cvičeniach\nnajprv iba **prezrite a pokračujte cvičením 7.3**.\nVráťte sa k nim,\nkeď na problém s nimi narazíte pri riešení cvičenia 7.3,\nak vám ostane čas na konci cvičení,\nalebo **doma**.\n:::",
+      "comments": []
+    },
+    {
+      "id": 27,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_1 = \\A{\\vx}(\\sym{phd\\_student}(\\vx) \\limpl \\sym{student}(\\vx))$  \n$B_1 = \\A{\\vx}(\\sym{phd\\_student}(\\vx) \\land \\sym{student}(\\vx))$\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 31,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_1$ a pravdivá $B_1$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 28,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_1$ formalizuje: „Všetko sú doktorandi/-ky aj študenti/-ky.“\n\n$…_1$ formalizuje: „Všetci/-ky doktorandi/-ky sú študenti/-ky.“\n",
+      "comments": []
+    },
+    {
+      "id": 29,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_2 = \\E{\\vx}(\\sym{dog}(\\vx) \\limpl \\sym{bad}(\\vx))$    \n$B_2 =\\E{\\vx}(\\sym{dog}(\\vx) \\land \\sym{bad}(\\vx))$\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 32,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_2$ a pravdivá $B_2$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 30,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_2$ formalizuje: „Nejaký pes je zlý.“",
+      "comments": []
+    },
+    {
+      "id": 37,
+      "type": "text",
+      "data": "::h3[:cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_3 = \\lnot\\E{\\vx}(\\sym{software}(\\vx) \\land \\lnot\\sym{stable}(\\vx))$    \n$B_3 = \\lnot\\E{\\vx}(\\sym{software}(\\vx) \\land \\sym{stable}(\\vx))$\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 38,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_3$ a pravdivá $B_3$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 39,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_3$ formalizuje: „Žiaden softvér nie je stabilný.“\n\n$…_3$ formalizuje: „Nie je pravda, že nejaký softvér nie je stabilný,“ teda „Každý softvér ….“",
+      "comments": []
+    },
+    {
+      "id": 33,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_4 = \\E{\\vx}\\bigl((\\sym{has}(\\sym{Zita},\\vx) \\land \\sym{mobile}(\\vx)) \\limpl \\sym{uses}(\\sym{Zita},\\vx)\\bigr)$    \n$B_4 =\\A{\\vx}\\bigl((\\sym{has}(\\sym{Zita},\\vx) \\land \\sym{mobile}(\\vx)) \\limpl \\sym{uses}(\\sym{Zita},\\vx)\\bigr)$\n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 47,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_4$ a pravdivá $B_4$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 34,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_4$ formalizuje: „Ak má Zita nejaký mobil, tak ho používa.“",
+      "comments": []
+    },
+    {
+      "id": 35,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_5 = (\\A{\\vx}\\sym{works}(\\vx) \\limpl \\sym{green}(\\sym{statusLight}))$    \n$B_5 = \\A{\\vx}(\\sym{works}(\\vx) \\limpl \\sym{green}(\\sym{statusLight}))$    \n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 46,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_5$ a pravdivá $B_5$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 36,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_5$ formalizuje: „Keď všetko funguje, kontrolka je zelená.“",
+      "comments": []
+    },
+    {
+      "id": 40,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_6 = (\\E{\\vx}\\sym{yellow}(\\vx) \\land \\E{\\vx}\\sym{blue}(\\vx))$    \n$B_6 = \\E{\\vx}(\\sym{yellow}(\\vx) \\land \\sym{blue}(\\vx))$    \n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 45,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_6$ a pravdivá $B_6$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 41,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_6$ formalizuje: „Niečo je žlté a niečo modré.“\n\n$…_6$ formalizuje: „Niečo je žlté aj modré.“\n",
+      "comments": []
+    },
+    {
+      "id": 42,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_7 = \\A{\\vx}(\\sym{fork}(\\vx) \\lor \\sym{spoon}(\\vx))$    \n$B_7 = (\\A{\\vx}\\sym{fork}(\\vx) \\lor \\A{\\vx}\\sym{spoon}(\\vx))$    \n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 44,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_7$ a pravdivá $B_7$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 43,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_7$ formalizuje: „Všetko sú vidličky alebo všetko sú lyžice.“\n\n$…_7$ formalizuje: „Všetko je vidlička alebo lyžica.“\n",
+      "comments": []
+    },
+    {
+      "id": 48,
+      "type": "text",
+      "data": "::h3[:icon[homework] :cnt[b]{.a})]{.h6.lh-base.float-start.me-2.mb-3}\n$A_8 = (\\sym{rains}(\\sym{outside}) \\limpl \\lnot\\E{\\vx}\\sym{walks}(\\vx,\\sym{outside}))$    \n$B_8 = \\lnot\\E{\\vx}(\\sym{rains}(\\sym{outside}) \\limpl \\sym{walks}(\\vx,\\sym{outside}))$    \n\n:icon[tools]\nPod túto bunku vložte aplikáciu Structure explorer a zostrojte štruktúru alebo štruktúry podľa úvodu k tomuto cvičeniu.",
+      "comments": []
+    },
+    {
+      "id": 49,
+      "type": "text",
+      "data": ":icon[write]\nAk si myslíte, že neexistuje štruktúra,\nv ktorej je nepravdivá $A_8$ a pravdivá $B_8$,\nneformálne zdôvodnite prečo.\n\n…",
+      "comments": []
+    },
+    {
+      "id": 50,
+      "type": "text",
+      "data": ":icon[write]\nNa záver doplňte:\n\n$…_8$ formalizuje: „Nikto sa neprechádza vonku, keď tam prší.“\n",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "data": "## Cvičenie 7.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[5.1.1]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte nižšie uvedené výroky ako ucelenú teóriu $T = \\{A_1, \\ldots, A_{16}\\}$\nv danom jazyku $\\Lang$.\n\nZamýšľaný význam predikátových symbolov je:\n\n:::div{.table.table-intended-meaning.small}\n| Predikátový symbol            | Zamýšľaný význam |\n|-------------------------------|------------------|\n| phd_student($x$)              | $x$ je doktorand\\*ka  |\n| human($x$)                    | $x$ je človek         |\n| student($x$)                  | $x$ je študent\\*ka    |\n| teacher($x$)                  | $x$ je učiteľ\\*ka     |\n| full_prof($x$)                | $x$ je profesor\\*ka   |\n| assistant_prof($x$)           | $x$ je asistent\\*ka   |\n| associate_prof($x$)           | $x$ je docent\\*ka     |\n| course($x$)                   | $x$ je predmet/kurz   |\n| popular($x$)                  | $x$ je obľúbený\\*á    |\n| external($x$)                     | $x$ je externý\\*á      |\n| happy($x$)                    | $x$ je šťastný\\*á     |\n| supervisor($x$, $y$)          | $x$ je školiteľom\\*kou (študenta\\*ky) $y$ |\n| teaches($x$, $y$)             | $x$ učí $y$ |\n| teaching_assistant($x$, $y$)  | $x$ je cvičiaci\\*a na (predmete) $y$ |\n| aced($x$, $y$)                | $x$ absolvoval\\*a s vyznamenaním (predmet) $y$ |\n| passed($x$, $y$)              | $x$ absolvoval\\*a (predmet) $y$ |\n| enrolled_in($x$, $y$)         | $x$ je zapísaný\\*á na (predmete) $y$ |\n| likes($x$, $y$)               | $x$ má rád\\*a $y$ |\n\n:::\n\n:::aside{.note.bg-transparent.p-0}\n:icon[easel2-fill]{.text-primary} Na cvičení sformalizujte iba výroky 1–7.\n\n:icon[homework] Doma sformalizujte zvyšné výroky.\n:::",
+      "comments": []
+    },
+    {
+      "id": 52,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 37,
+          "title": "2024 – Cvičenie 7.3",
+          "description": "Sformalizujte nasledujúce tvrdenia ako ucelenú teóriu v danom jazyku logiky prvého rádu.",
+          "constants": "Evka, Novy, Theory_of_everything, Introduction_to_abstraction, Adam, Mlada, History_of_universe",
+          "predicates": "phd_student/1, supervisor/2, human/1, student/1, teacher/1, teaches/2, full_prof/1, teaching_assistant/2, assistant_prof/1, associate_prof/1, aced/2, passed/2, enrolled_in/2, course/1, popular/1, external/1, happy/1, likes/2",
+          "functions": "",
+          "constraints": "",
+          "propositions": [
+            {
+              "proposition_id": 1451,
+              "proposition": "1. Evka je doktorandka a má školiteľa.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1452,
+              "proposition": "2. Všetko sú ľudia.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1453,
+              "proposition": "3. Všetci doktorandi sú študenti.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1454,
+              "proposition": "4. Niektorí doktorandi sú aj učiteľmi.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1455,
+              "proposition": "5. Nikto neučí sám seba.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1456,
+              "proposition": "6. Žiaden profesor nie je doktorand.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1457,
+              "proposition": "7. Niektorí študenti samozrejme nie sú doktorandi.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1458,
+              "proposition": "8. Doktorandi profesora Nového sú cvičiaci na Teórii všetkého alebo Úvode do abstrakcie.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1459,
+              "proposition": "9. Učitelia okrem asistentov sú profesori a docenti.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1460,
+              "proposition": "10. Adamov školiteľ je docent alebo profesor v prípade, že je Adam doktorand.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1461,
+              "proposition": "11.  Docentka Mladá školí iba takých študentov, ktorí absolvovali s vyznamenaním Históriu vesmíru, ale nie sú doktorandi.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1462,
+              "proposition": "12. Teóriu všetkého si nemôžu zapísať tí, čo neabsolvovali ani Históriu vesmíru, ani Úvod do abstrakcie.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1463,
+              "proposition": "13. Ak nejaký kurz učí Nový, tak ide o neobľúbený kurz.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1464,
+              "proposition": "14. Doktorandi Nového cvičiaci Teóriu všetkého sú externisti.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1465,
+              "proposition": "15. Ak má Mladá nejakého doktoranda, ktorý nie je externý, tak je šťastná.",
+              "solution": null
+            },
+            {
+              "proposition_id": 1466,
+              "proposition": "16. Nový je šťastný, iba ak aspoň jeden študent má rád Teóriu všetkého.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 37
+      },
+      "comments": []
+    },
+    {
+      "id": 55,
+      "type": "context",
+      "data": [
+        {
+          "id": 61,
+          "type": "text",
+          "data": "## Cvičenie 7.:cnt[a]\n:small[:icon[source]\nZbierka: :xref[5.2.2]{.exbook label=\"úloha\"}.]\n\nNech $\\Lang$ je jazyk relačnej logiky prvého rádu:",
+          "comments": []
+        },
+        {
+          "id": 57,
+          "type": "context/language",
+          "data": {
+            "constants": "ACME",
+            "predicates": "faulty/1, cheap/1, expensive/1, article/1, branded/1, made_by/2",
+            "functions": ""
+          },
+          "contextExtension": {
+            "constants": [
+              "ACME"
+            ],
+            "predicates": [
+              {
+                "name": "faulty",
+                "arity": 1
+              },
+              {
+                "name": "cheap",
+                "arity": 1
+              },
+              {
+                "name": "expensive",
+                "arity": 1
+              },
+              {
+                "name": "article",
+                "arity": 1
+              },
+              {
+                "name": "branded",
+                "arity": 1
+              },
+              {
+                "name": "made_by",
+                "arity": 2
+              }
+            ],
+            "functions": []
+          },
+          "comments": []
+        },
+        {
+          "id": 62,
+          "type": "text",
+          "data": "Zamýšľaným významom symbolov jazyka je:\n\n:::div{.table.table-intended-meaning.small}\n| Symbol | Zamýšľaný význam | | Symbol | Zamýšľaný význam |\n|--------|------------------|-|-|-|\n| expensive($x$) | $x$ je drahý || made_by($x$, $y$) | $x$ bol vyrobený (firmou) $y$ |\n| article($x$) | $x$ je tovar || faulty($x$) | $x$ je chybný |\n| cheap($x$) | $x$ je lacný || branded($x$) | $x$ je značkový |\n:::\n\nUvažujme teóriu $T = \\{A_1,\\ldots,A_7\\}$ v jazyku $\\Lang$, kde:",
+          "comments": []
+        },
+        {
+          "id": 56,
+          "type": "context/addAxioms",
+          "data": [
+            {
+              "name": "A_1",
+              "formula": "∀x(article(x)→(expensive(x)∨cheap(x)))"
+            },
+            {
+              "name": "A_2",
+              "formula": "∀x(expensive(x)→¬cheap(x))"
+            },
+            {
+              "name": "A_3",
+              "formula": "(∃x(article(x)∧cheap(x))∧∃x(article(x)∧¬cheap(x)))"
+            },
+            {
+              "name": "A_4",
+              "formula": "∀x(article(x)→(expensive(x)→made_by(x,ACME)))"
+            },
+            {
+              "name": "A_5",
+              "formula": "∀x(made_by(x,ACME)→branded(x))"
+            },
+            {
+              "name": "A_6",
+              "formula": "(¬∀x¬expensive(x)→¬∃x(¬faulty(x)∧branded(x)))"
+            },
+            {
+              "name": "A_7",
+              "formula": "¬∀x(¬branded(x)→¬faulty(x))"
+            }
+          ],
+          "contextExtension": {
+            "constants": [],
+            "predicates": [],
+            "functions": [],
+            "formulas": [],
+            "axioms": [
+              {
+                "name": "A_1",
+                "formula": "∀x (article(x) → (expensive(x) ∨ cheap(x)))"
+              },
+              {
+                "name": "A_2",
+                "formula": "∀x (expensive(x) → ¬cheap(x))"
+              },
+              {
+                "name": "A_3",
+                "formula": "(∃x (article(x) ∧ cheap(x)) ∧ ∃x (article(x) ∧ ¬cheap(x)))"
+              },
+              {
+                "name": "A_4",
+                "formula": "∀x (article(x) → (expensive(x) → made_by(x, ACME)))"
+              },
+              {
+                "name": "A_5",
+                "formula": "∀x (made_by(x, ACME) → branded(x))"
+              },
+              {
+                "name": "A_6",
+                "formula": "(¬∀x ¬expensive(x) → ¬∃x (¬faulty(x) ∧ branded(x)))"
+              },
+              {
+                "name": "A_7",
+                "formula": "¬∀x (¬branded(x) → ¬faulty(x))"
+              }
+            ],
+            "theorems": []
+          },
+          "comments": []
+        },
+        {
+          "id": 63,
+          "type": "text",
+          "data": "::h3[:icon[write] :cnt[c]{.a})]{.h6.lh-base.float-start.me-2.my-0}\nKaždú z axióm $A_1,\\ldots,A_7$ preložte do čo najprirodzenejšieho slovenského tvrdenia:\n\n$A_1$: …\n\n$A_2$: …\n\n…",
+          "comments": []
+        },
+        {
+          "id": 64,
+          "type": "text",
+          "data": "::h3[:icon[tools] :cnt[c]{.a})]{.h6.lh-base.float-start.me-2.my-0}\nV bunke pripravenej nižšie definujte štruktúru $\\Struct$ pre jazyk $\\Lang$ tak,\naby bola modelom teórie $T$.\n\n:icon[warning] **Overte** pravdivosť každej z formúl pomocou Henkinovej-Hintikkovej hry, ktorú spustíte tlačidlom\n:span[Verify]{.p-1.rounded.border.border-warning}.\n\nAk vám nie je jasné, prečo niektorá formula vo vašej štruktúre nie je pravdivá,\n**snažte sa pochopiť**, kde je problém, nie iba slepo skúšať!\n\nAk vám pri pochopení nepomôže Henkinova-Hintikkova hra, skúmajte splnenie podformúl pomocou _Queries in $\\Struct$_.\n\n:::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nZačnite existenčnými a negovanými všeobecnými formulami.\n:::",
+          "comments": []
+        },
+        {
+          "id": 65,
+          "type": "newStructureExplorer",
+          "data": {
+            "version": 1,
+            "formulas": {
+              "allFormulas": [
+                {
+                  "name": "A_1",
+                  "text": "∀x (article(x) → (expensive(x) ∨ cheap(x)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_2",
+                  "text": "∀x (expensive(x) → ¬cheap(x))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_3",
+                  "text": "(∃x (article(x) ∧ cheap(x)) ∧ ∃x (article(x) ∧ ¬cheap(x)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_4",
+                  "text": "∀x (article(x) → (expensive(x) → made_by(x, ACME)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_5",
+                  "text": "∀x (made_by(x, ACME) → branded(x))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_6",
+                  "text": "(¬∀x ¬expensive(x) → ¬∃x (¬faulty(x) ∧ branded(x)))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                },
+                {
+                  "name": "A_7",
+                  "text": "¬∀x (¬branded(x) → ¬faulty(x))",
+                  "guess": true,
+                  "locked": true,
+                  "lockedGuess": true,
+                  "gameChoices": []
+                }
+              ]
+            },
+            "queries": {
+              "queries": []
+            },
+            "language": {
+              "constants": {
+                "value": [
+                  "ACME"
+                ],
+                "locked": true
+              },
+              "predicates": {
+                "value": [
+                  [
+                    "faulty",
+                    1
+                  ],
+                  [
+                    "cheap",
+                    1
+                  ],
+                  [
+                    "expensive",
+                    1
+                  ],
+                  [
+                    "article",
+                    1
+                  ],
+                  [
+                    "branded",
+                    1
+                  ],
+                  [
+                    "made_by",
+                    2
+                  ]
+                ],
+                "locked": true
+              },
+              "functions": {
+                "value": [],
+                "locked": true
+              },
+              "editMode": false
+            },
+            "variables": {
+              "value": [],
+              "locked": false
+            },
+            "teacherMode": {
+              "teacherMode": false
+            },
+            "structure": {
+              "domain": {
+                "value": [],
+                "locked": false
+              },
+              "iC": {},
+              "iP": {},
+              "iF": {}
+            },
+            "graphView": {},
+            "editorToolbar": {},
+            "caseTreeView": {}
+          },
+          "comments": []
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% General\n\\providecommand{\\nmodels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\mkern-1.5mu}\\models}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\nEquiv}{\\mathrel{\\nLeftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\nmodels_{\\mathrm{p}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n\n% Tableaux %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}"
+  }
+}
