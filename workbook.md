@@ -20,6 +20,7 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 |  4 | [tc04: Výrokovologické tablá](../tc04/teoreticke-ain/tc04.workbook) | [du02](../du02/teoreticke-ain/du02.workbook) (do 15. marca) |
 |  5 | [tc05: Splnitelnost, falzifikovatelnost a nezavislost v tablach](../tc05/teoreticke-ain/tc05.workbook) | |
 |  6 | [tc06: Korektné pravidlá, tvrdenia o vyplývaní a tablách](../tc06/teoreticke-ain/tc06.workbook) | [du03](../du03/teoreticke-ain/du03.workbook) (do 7. apríla) |
+|  7 | [tc07: Kvantifikátory](../tc07/teoreticke-ain/tc07.workbook) | |
 
 :::
 
