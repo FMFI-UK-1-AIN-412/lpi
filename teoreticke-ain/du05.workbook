@@ -1,0 +1,130 @@
+{
+  "versionNumber": 2,
+  "cells": [
+    {
+      "id": 1,
+      "type": "text",
+      "data": "::::header\n:::hgroup\n::p[Logika pre informatikov]{.h2.text-muted}\n# 5. domáca úloha\n:::\n\n:::div{.dl-indented}\n:icon[deadline] Termín odovzdania\n: nedeľa 3. 5. 2026 o 23:59:59\n\n:icon[bonus] Hodnotenie\n: Čisto informatívne, **nezarátava sa** do hodnotenia predmetu.\n: Odovzdané úlohy ohodnotíme slovne a percentuálne.\n: Využite získanú spätnú väzbu na prípravu na semestrálne testy.\n\n:icon[diagram-2-fill]{.text-primary} Vetva repozitára\n: `du05`\n\n:icon[save-fill]{.text-success} Uloženie riešenia do vetvy\n: Stlačte :span[Merge changes]{.border.border-success.text-success.p-1.rounded} na hornej lište.\n: **Určite uložte posledné zmeny pred odovzdaním!**\n\n:icon[submission] Odovzdanie\n: Stlačte :span[:icon[send-fill]{.text-info} Hand In]{.border.border-info.text-info.rounded.p-1.text-nowrap} na hornej lište.\n: Ak by automatické odovzdanie zlyhalo, vytvorte pull request (PR)\n    - z vetvy `du05` v repozitári `‹váš_github_login›/lpi26-‹váš_uniba_login›`\n    - do vetvy `du05` v repozitári `FMFI-UK-1-AIN-412/lpi26-‹váš_uniba_login›`.\n    \n    Správne vytvorený PR nájdete v [zozname PR pre du05](https://github.com/pulls?utf8=✓&q=is%3Aopen+is%3Apr+user%3AFMFI-UK-1-AIN-412+base%3Adu05).\n\n:icon[help] Návody\n: Vytvorenie PR: [náš (trocha zastaralý) návod](https://github.com/FMFI-UK-1-AIN-412/lpi/blob/main/docs/odovzdavanie.md#vytvorenie-pull-requestu), [dokumentácia GitHubu](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).\n: Použitie aplikácie Logic Workbook: na konci hárka pre [tc01](tc01.workbook).\n\n:icon[envelope-at-fill]{.text-primary} Kontakt na vyučujúcich\n: `lpi-team` :icon[at] `lists.dai.fmph.uniba.sk`\n:::\n::::\n::::details\n::summary[:icon[help] **Tabuľka symbolov** používaných nižšie a ich $\\TeX$ového zápisu]\n:::div{.table.small.table-sm.overflow-auto}\n| Symbol | TeX | Význam | Symbol | TeX | Význam | Symbol | TeX | Význam |\n|:------:|:----|:-------|:------:|:----|:-------|:------:|:----|:-------|\n| ∧ | `\\land` | konjunkcia | $\\Lang$ | `\\Lang` | jazyk | $\\models$ | `\\models` | pravdivosť v štruktúre |\n| ∨ | `\\lor` | disjunkcia | $\\Atoms$ | `\\Atoms` | množina atómov jazyka $\\Lang$ | $\\nmodels$ | `\\nmodels` | nepravdivosť v štruktúre |\n| → | `\\limpl` | implikácia | $\\Consts$ | `\\Consts` | množina konštánt jazyka $\\Lang$ | $\\pmodels$ | `\\pmodels` | pravdivosť v ohodnotení (<em>p</em>ropozičná) |\n| ↔ | `\\lequiv` | ekvivalencia | $\\Preds$ | `\\Preds` | množina predikátov jazyka $\\Lang$ | $\\npmodels$ | `\\npmodels` | nepravdivosť v ohodnotení |\n| ≐ | `\\doteq` | rovnosť (ako logický) symbol | $\\Forms$ | `\\Forms` | množina všetkých formúl jazyka $\\Lang$ | $\\pentails$ | `\\pentails` | výrokovologické (<em>p</em>ropozičné) vyplývanie |\n| ¬ | `\\lnot` | negácia | $\\Struct$ | `\\Struct` | štruktúra | $\\npentails$ | `\\npentails` | výrokovologické nevyplývanie |\n| ∀ | `\\forall` | všeobecný kvantifikátor | $\\sym{Ann}$, $\\asym{2}{likes}$ | `\\sym{Ann}`, `\\asym{2}{likes}` | konkrétny mimolog. symbol | ↦ | `\\mapsto` | zobrazenie (prvku na prvok) |\n| ∃ | `\\exists` | existenčný kvantifikátor | $\\vk$, …, $\\vz$ | `\\vk`, …, `\\vz` | konkrétna indivíduová premenná | $\\Tabl$ | `\\Tabl` | metapremenná ozn. tablo |\n|  $\\sign T$, $\\sign F$  | `\\sign{T}`, `\\sign{F}` | znamienko označenej formuly | $\\bigl($, $\\bigr)$| `\\bigl(`, `\\bigr)` | väčšie zátvorky | $\\pi$ | `\\pi` | metapremenná ozn. vetvu tabla |\n:::\n::::",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.1.6]{.exbook label=\"úloha\"}.]\n\n:icon[tools] Pomocou aplikácie Formalization checker sformalizujte nižšie uvedené výroky ako ucelenú teóriu $T = \\{A_1, \\ldots, A_{10}\\}$\nv danom jazyku $\\Lang$, s $\\Consts = \\{ \\sym{mlieko}, \\sym{voda}, \\sym{cukor} \\}$ a nasledovnými predikátovými a funkčnými symbolmi.\n\nZamýšľaný význam mimologických symbolov je:\n\n:::::div{.row}\n::::div{.col-md-6}\n:::div{.table.table-intended-meaning.small}\n| Predikátový sym.            | Zamýšľaný význam |\n|-------------------------------|------------------|\n| kavoholik($x$)       | $x$ je kávoholik |\n| student($x$)         | $x$ je študent/-ka  |\n| napoј($x$)           | $x$ je nápoj  |\n| kava($x$)            | $x$ je káva  |\n| bezmliecny($x$)      | $x$ je bezmliečny |\n| surovina($x$)        | $x$ je surovina  |\n| ma_rad($x$,$y$)      | $x$ má rád $y$ |\n| obsahuje($x$,$y$)    | $x$ obsahuje $y$ |\n| vypil($x$,$y$,$z$)   | $x$ vypil $y$ v deň $z$ |\n:::\n::::\n::::div{.col-md-6}\n:::div{.table.table-intended-meaning.small}\n| Funkčný sym. | Zamýšľaný význam     |\n|----------------|----------------------|\n| typ($x$)    | typ (kávy) $x$|\n:::\n::::\n:::::",
+      "comments": []
+    },
+    {
+      "id": 72,
+      "type": "formalizationChecker",
+      "data": {
+        "exercise": {
+          "exercise_id": 67,
+          "title": "2026 – Domáca úloha 5.1",
+          "description": "Sformalizujte nasledujúce výroky ako formuly vo vyššie opísanom jazyku logiky prvého rádu.",
+          "constants": "cukor, mlieko, voda",
+          "predicates": "kavoholik/1, student/1,napoj/1, kava/1, bezmliecny/1, surovina/1, ma_rad/2, obsahuje/2, vypil/3",
+          "functions": "typ/1",
+          "constraints": "",
+          "parserType": "withPrecedence",
+          "propositions": [
+            {
+              "proposition_id": 2344,
+              "proposition": "Každá káva je nápoj.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2345,
+              "proposition": "Niekto nemá rád žiaden nápoj okrem vody.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2346,
+              "proposition": "Každý, kto má rád všetky nápoje, má rád aj všetky kávy.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2347,
+              "proposition": "Niekto má rád práve dva rôzne typy kávy.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2348,
+              "proposition": "Ak niečo neobsahuje žiadnu surovinu, neobsahuje to ani mlieko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2349,
+              "proposition": "Neexistuje káva, ktorá by obsahovala práve jednu surovinu.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2350,
+              "proposition": "Existuje bezmliečny typ kávy, ktorý majú radi všetci študenti.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2351,
+              "proposition": "Kávoholik je práve ten, kto má rád aspoň tri typy kávy.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2352,
+              "proposition": "Káva je bezmliečna vtedy a len vtedy, ak neobsahuje mlieko.",
+              "solution": null
+            },
+            {
+              "proposition_id": 2353,
+              "proposition": "Kávoholici nikdy nevypijú kávu s cukrom.",
+              "solution": null
+            }
+          ]
+        },
+        "exerciseId": 67
+      },
+      "comments": []
+    },
+    {
+      "id": 35,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n:small[:icon[source] Zbierka: :xref[6.5.11]{.exbook label=\"príklad\"}.]\n\nV logike prvého rádu môžeme sformalizovať (axiomatizovať)\nteóriu množín.\nÚplná formalizácia je pomerne komplikovaná.\nPre naše účely postačí nasledujúci fragment $T_\\mathrm{set}$\nso základnými vzťahmi a operáciami\nv jazyku $\\mathcal{L}_\\mathrm{set}$,\nkde $\\mathcal{C}_{\\mathcal{L}_\\mathrm{set}} = \\{ \\textsf{empty} \\}$,\n$\\mathcal{P}_{\\mathcal{L}_\\mathrm{set}} = \\{ \\textsf{in}^2, \\textsf{subseteq}^2 \\}$\na $\\mathcal{F}_{\\mathcal{L}_\\mathrm{set}} = \\{ \\textsf{union}^2, \\textsf{inter}^2, \\textsf{diff}^2 \\}$:\n\n$$\n\\begin{align*}\n    \\A{\\vx}\\A{\\vy}\n        &(\\,\\A{\\vz}(\\sym{in}(\\vz, \\vx) \\lequiv \\sym{in}(\\vz, \\vy)) \\limpl \\vx \\doteq \\vy\\,)\n        \\tag{extenzionalita}\\\\\n    \\A{\\vx}\\A{\\vy}\n        &(\\,\\sym{subseteq}(\\vx, \\vy) \\lequiv \\A{\\vz}(\\sym{in}(\\vz, \\vx) \\limpl \\sym{in}(\\vz, \\vy))\\,)\n        \\tag{podmnožina}\\\\\n    \\A{\\vz}&\\,\\lnot \\sym{in}(\\vz,\\sym{empty})\n        \\tag{prázdna mn.}\\\\\n    \\A{\\vx}\\A{\\vy}\\A{\\vz}\n        &(\\,\\sym{in}(\\vz,\\sym{inter}(\\vx,\\vy)) \\lequiv (\\sym{in}(\\vz,\\vx) \\land \\sym{in}(\\vz,\\vy))\\,)\n        \\tag{prienik}\\\\\n    \\A{\\vx}\\A{\\vy}\\A{\\vz}\n        &(\\,\\sym{in}(\\vz,\\sym{union}(\\vx,\\vy)) \\lequiv (\\sym{in}(\\vz, \\vx) \\lor \\sym{in}(\\vz,\\vy))\\,)\n        \\tag{zjednotenie}\\\\\n    \\A{\\vx}\\A{\\vy}\\A{\\vz}\n        &(\\,\\sym{in}(\\vz,\\sym{diff}(\\vx,\\vy)) \\lequiv\n            (\\sym{in}(\\vz,\\vx) \\land \\lnot\\sym{in}(\\vz,\\vy))\\,)\n        \\tag{rozdiel}\n\\end{align*}\n$$\n\n:icon[tools] Prvorádovými tablami rozšírenými o pravidlá $\\gamma^*$ a $\\delta^*$\na pravidlá z :xref[4.4.1]{.exbook label=\"úlohy\"} v zbierke dokážte,\nže z $T_\\mathrm{set}$ vyplývajú nasledujúce formuly:\n:::div{.position-relative}\n* $X_1 = \\A{\\vx}\\A{\\vy}(\\,\\sym{inter}(\\vx, \\vy) \\doteq y \\limpl\n      \\sym{subseteq}(\\vy,\\vx)\\,)$\n* $X_2 = \\A{\\vx}\\A{\\vy}\\A{\\vz}\n      \\sym{subseteq}\\bigl(\n        \\sym{union}(\\sym{inter}(\\vx,\\vy),\\sym{inter}(\\vx,\\vz)),\n        \\sym{inter}(\\vx,\\sym{union}(\\vy,\\vz))\\bigr)$\n::::",
+      "comments": []
+    },
+    {
+      "id": 47,
+      "type": "text",
+      "data": "::h3[:icon[write] Formálne riešenie]{.h5}\n\n:::aside{.note.bg-transparent.p-0}\n:icon[help]\nPri dokazovaní vyplývania si najprv premyslite,\nprečo formula vyplýva, a následne tablom sledujte svoju úvahu.\nPravidlá pre kvantifikátory používajte, iba keď sú naozaj potrebné.\n\n:icon[technical] V editore tabiel vyberte sadu pravidiel _Full FOL_,\nktorá obsahuje aj pravidlá $\\gamma^*$ a $\\delta^*$.\n\n:::\n",
+      "comments": []
+    },
+    {
+      "id": 48,
+      "type": "text",
+      "data": "::h3[:icon[write] Záver]{.h5}\n\n:small[Vyslovte jasný záver o vyplývaní $X$ z teórie $T$. Vysvetlite, **prečo** vaše tablo dokazuje vyplývanie.]\n\n...",
+      "comments": []
+    },
+    {
+      "id": 61,
+      "type": "text",
+      "data": "## Úloha 5.:cnt[a]\n\n\n:small[\n:icon[source] Zdroj:\n[8. prednáška](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/poznamky-z-prednasok.pdf#nameddest=lecture.8).\n]\n\nNech $\\Lang$ je jazyk logiky prvého rádu.\nNech $R^2$ je niektorý predikátový symbol\na $f^1$ niektorý funkčný symbol jazyka $\\Lang$.\n\nUkážte, že ani jedno z nasledujúcich tvrdení **neplatí** tým,\nže nájdete kontrapríklad v podobe vhodnej množiny $S^+$\na (pre tvrdenie i) termu $t$.\n\n\n::::blockquote{.fst-italic.border-start.border-danger}\n:::enum{.i}\n1. Nech $S^+$ je ľubovoľná množina označených formúl\n   a $t$ je ľubovoľný term jazyka $\\Lang$.\n   \n   Ak $S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y) }$ je splniteľná,    \n   tak $S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y), \\sign{F} R(t,y) }$ je splniteľná.\n\n3. Nech $S^+$ je ľubovoľná množina označených formúl jazyka $\\Lang$.\n\n   Ak $S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y) }$ je splniteľná,    \n   tak $S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y), \\sign{F} \\A{y} R(f(y),y) }$ je splniteľná.\n:::\n::::\n\n::::aside{.note.bg-transparent.p-0}\n:icon[explanation]\nMnožinu $S^+$ si môžeme predstaviť ako množinu formúl na vetve tabla.\n\nPrvé tvrdenie zodpovedá **nesprávnemu použitiu pravidla $\\boldsymbol\\delta$**\n(namiesto premennej, ktorá sa na vetve nevyskytuje voľná,\npoužijeme hocijaký term $t$).\n\nDruhé tvrdenie zodpovedá použitiu substitúcie $\\{ x \\mapsto f(y)\\}$ **neaplikovateľnej** na formulu $\\A{y} R(x,y)$ v pravidle $\\gamma$.\n::::",
+      "comments": []
+    },
+    {
+      "id": 58,
+      "type": "text",
+      "data": "::h4[:icon[write] Kontrapríklad pre i.]{.h6.float-start.my-0.me-2.lh-base}\nNech\n\n* $S^+ = \\sete{ … }$\n* $t = …$\n\nUkážte, že:\n1. $S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y) }$ je splniteľná.\n\n   :icon[tools]\n   Za túto bunku vložte aplikáciu Structure explorer.\n   Zostrojte v nej štruktúru $\\Struct$ a ohodnotenie $e$ také,\n   že $\\Struct \\models S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y) } [e]$.\n   Do aplikácie vložte formuly z tejto množiny označených formúl,\n   pričom znamienko $\\sign{F}$ nahraďte negáciou\n   a znamienko $\\sign{T}$ vynechajte.\n\n1. $S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y), \\sign{F} R(t,y) }$\n   je nesplniteľná.\n\n   :icon[tools]\n   Za túto bunku vložte aplikáciu Tableau editor.\n   Zostrojte v nej uzavreté tablo pre množinu označených formúl\n   $S^+ \\cup \\sete{ \\sign{F} \\A{x} R(x,y), \\sign{F} R(t,y) }$.\n   Term $t$ samozrejme musíte do poslednej formuly dosadiť.\n",
+      "comments": []
+    },
+    {
+      "id": 62,
+      "type": "text",
+      "data": "::h4[:icon[write] Kontrapríklad pre ii.]{.h6.float-start.my-0.me-2.lh-base}\nNech\n\n* $S^+ = \\sete{ … }$\n\nUkážte, že:\n1. $S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y) }$ je splniteľná.\n\n   :icon[tools]\n   Za túto bunku vložte aplikáciu Structure explorer.\n   Zostrojte v nej štruktúru $\\Struct$ a ohodnotenie $e$ také,\n   že $\\Struct \\models S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y) } [e]$.\n   Do aplikácie vložte formuly z tejto množiny označených formúl,\n   pričom znamienko $\\sign{F}$ nahraďte negáciou\n   a znamienko $\\sign{T}$ vynechajte.\n\n1. $S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y), \\sign{F} \\A{y} R(f(y),y) }$\n   je nesplniteľná.\n\n   :icon[tools]\n   Za túto bunku vložte aplikáciu Tableau editor.\n   Zostrojte v nej uzavreté tablo pre množinu označených formúl\n   $S^+ \\cup \\sete{ \\sign{F} \\E{x}\\A{y} R(x,y), \\sign{F} \\A{y} R(f(y),y) }$.\n",
+      "comments": []
+    }
+  ],
+  "settings": {
+    "katexMacros": "\\newcommand{\\DeclareMathOperator}[2]{\\newcommand{#1}{\\mathop{\\mathrm{#2}}}}\n\n%% General math\n\n% Domain and range\n\\DeclareMathOperator{\\dom}{dom}\n\\DeclareMathOperator{\\rng}{rng}\n\n% Powerset\n\\newcommand\\powerset[1]{\\mathcal{P}(#1)}\n\n% Cardinality\n\\newcommand{\\card}[1]{\\lvert#1\\rvert}\n\n% Numbers\n\\newcommand{\\Nat}{\\mathbb{N}}\n\n% Operations\n\\newcommand{\\TIMES}{\\cdot}\n\n% Sets\n\\newcommand{\\sete}[1]{\\{#1\\}} % enumerated\n\\newcommand{\\setc}[1]{\\{\\,#1\\,\\}} % comprehended\n\n\n% Meta syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\DeclareMathOperator{\\arity}{ar}\n\\newcommand{\\Lang}{\\mathcal{L}}\n\\newcommand{\\Vars}{\\mathcal{V}_{\\Lang}}\n\\newcommand{\\Consts}{\\mathcal{C}_{\\Lang}}\n\\newcommand{\\Preds}{\\mathcal{P}_{\\Lang}}\n\\newcommand{\\Funcs}{\\mathcal{F}_{\\Lang}}\n\\newcommand{\\Terms}{\\mathcal{T}_{\\Lang}}\n\\newcommand{\\Atoms}{\\mathcal{A}_{\\Lang}}\n\\newcommand{\\Forms}{\\mathcal{E}_{\\Lang}}\n\\newcommand{\\PAtoms}{\\mathcal{PA}_{\\Lang}}\n\\newcommand{\\PForms}{\\mathcal{PE}_{\\Lang}}\n\n% Equality axioms\n\\newcommand{\\Eq}{\\mathrm{Eq}}\n\n% Syntactic transformation\n\\newcommand{\\transform}{\\rightsquigarrow}\n\n% Various syntactic functions\n\\DeclareMathOperator{\\vars}{vars}\n\\DeclareMathOperator{\\atoms}{atoms}\n\\DeclareMathOperator{\\acnt}{acnt}\n\\DeclareMathOperator{\\termVars}{termVars}\n\\DeclareMathOperator{\\free}{free}\n\\DeclareMathOperator{\\ground}{ground}\n\\DeclareMathOperator{\\mgu}{mgu}\n\\DeclareMathOperator{\\vcount}{vcount}\n\\DeclareMathOperator{\\acount}{acount}\n\\DeclareMathOperator{\\ccount}{ccount}\n\\DeclareMathOperator{\\pcount}{pcount}\n\\DeclareMathOperator{\\ncount}{ncount}\n\\DeclareMathOperator{\\cjcount}{cjcount}\n\\DeclareMathOperator{\\bccount}{bccount}\n\\DeclareMathOperator{\\lpcount}{lpcount}\n\\DeclareMathOperator{\\rpcount}{rpcount}\n\\DeclareMathOperator{\\subfs}{subfs}\n\\DeclareMathOperator{\\cons}{cons}\n\\DeclareMathOperator{\\nnf}{nnf}\n\n\n% Concrete syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Connectives\n\n\\newcommand{\\nrarr}{\\nrightarrow}\n\\newcommand{\\limpl}{\\rarr}\n\\newcommand{\\nlimpl}{\\nrarr}\n\\newcommand{\\lequiv}{\\lrarr}\n\\newcommand{\\bigland}{\\bigwedge}\n\\newcommand{\\biglor}{\\bigvee}\n\\newcommand{\\lnand}{\\mathbin{\\uparrow}}\n\\newcommand{\\lnor}{\\mathbin{\\downarrow}}\n\\newcommand{\\lxor}{\\veebar}\n\\newcommand{\\landnot}{\\nrightarrow}\n\\newcommand{\\emptyclause}{\\Box}\n\\newcommand{\\quant}[2]{\\mathop{#1#2}\\nolimits}\n\\newcommand{\\A}{\\quant\\forall}\n\\newcommand{\\E}{\\quant\\exists}\n\n% Symbols\n\\newcommand{\\sym}[1]{\\text{\\textsf{#1}}}\n\\newcommand{\\asym}[2]{\\text{\\textsf{#2}$^#1$}}\n\\newcommand{\\var}[1]{\\text{\\textsf{\\textit{#1}}}}\n\\newcommand\\vk{\\var{k}}\n\\newcommand\\vl{\\var{l}}\n\\newcommand\\vm{\\var{m}}\n\\newcommand\\vn{\\var{n}}\n\\newcommand\\vo{\\var{o}}\n\\newcommand\\vp{\\var{p}}\n\\newcommand\\vq{\\var{q}}\n\\newcommand\\vr{\\var{r}}\n\\newcommand\\vs{\\var{s}}\n\\newcommand\\vt{\\var{t}}\n\\newcommand\\vu{\\var{u}}\n\\newcommand\\vv{\\var{v}}\n\\newcommand\\vw{\\var{w}}\n\\newcommand\\vx{\\var{x}}\n\\newcommand\\vy{\\var{y}}\n\\newcommand\\vz{\\var{z}}\n\\newcommand\\sP{\\sym{P}}\n\\newcommand\\sQ{\\sym{Q}}\n\\newcommand\\sR{\\sym{R}}\n\\newcommand\\sS{\\sym{S}}\n\\newcommand\\sff{\\sym{f}}\n\\newcommand\\sfg{\\sym{g}}\n\\newcommand\\sfh{\\sym{h}}\n\n\n% Semantics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n% Auxiliary\n\\providecommand{\\NModels}\n    {\\mathrel{\\mkern1.5mu{\\not}\\nobreak\\mkern-1.5mu}\\models}\n\n% General\n\\providecommand{\\nmodels}{\\mathrel{\\NModels}}\n\\providecommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\renewcommand{\\Equiv}{\\mathrel{\\Leftrightarrow}}\n\\newcommand{\\entails}{\\vDash}\n\\newcommand{\\nentails}{\\nvDash}\n\n% Propositional\n\\newcommand{\\pmodels}{\\models_{\\mathrm{p}}}\n\\newcommand{\\npmodels}{\\mathrel{\\NModels_{\\mathrm{p}}}}\n\\newcommand{\\pEquiv}{\\Equiv_{\\mathrm{p}}}\n\\newcommand{\\pentails}{\\entails_{\\mathrm{p}}}\n\\newcommand{\\npentails}{\\nentails_{\\mathrm{p}}}\n\n% First-order\n\\newcommand{\\Struct}{\\mathcal{M}}\n\\newcommand{\\InStruct}{^{\\mathcal{M}}}\n\n% Tableaux %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n\\newcommand{\\Tabl}{\\mathcal{T}}\n\n\\newcommand\\sign[1]{\\mathop{\\text{\\textsf{\\textbf{#1}}}}\\nolimits}",
+    "github": {
+      "editBranch": "du05",
+      "handinBranch": "du05"
+    }
+  }
+}
