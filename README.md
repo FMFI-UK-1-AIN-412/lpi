@@ -43,6 +43,7 @@ riešte vo svojom repozitári v aplikácii
 |  9 | [Tablá pre kvantifikátory. Viackvantifikátorové tvrdenia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr08.pdf) | [qz07](https://moodle.uniba.sk/mod/quiz/view.php?id=186720) | [SAT solver](prakticke/pu09) |
 | 10 | [Funkčné symboly. Tablá s rovnosťou](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr09.pdf) | [qz08](https://moodle.uniba.sk/mod/quiz/view.php?id=188171) | [FolFormula](prakticke/pu10) |
 | | | [qzR2](https://moodle.uniba.sk/mod/quiz/view.php?id=189245) (bonus) | bonus: [Agatha](prakticke/bonus01) |
+| 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | | |
 
 Návody a dokumenty
 ------------------
