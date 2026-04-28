@@ -24,6 +24,7 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 |  8 | — | [du04](../du04/teoreticke-ain/du04.workbook) (do 19. apríla) |
 |  9 | [tc08: Tablá pre kvantifikátory. Viackvantifikátorové výroky](../tc08/teoreticke-ain/tc08.workbook) | |
 | 10 | [tc09: Funkčné symboly. Tablá s rovnosťou](../tc09/teoreticke-ain/tc09.workbook) | [du05](../du05/teoreticke-ain/du05.workbook) (do 3. mája) |
+| 11 | [tc10: Explicitné definície a dôkazy s nimi](../tc10/teoreticke-ain/tc10.workbook) | |
 
 :::
 
