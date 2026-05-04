@@ -1,0 +1,168 @@
+{
+  "language": {
+    "constants": "Hanka",
+    "predicates": "auticko/1, babika/1, cervene/1, dievca/1, dievcenske/1, hracka/1, hrackarstvo/1, chlapcenske/1, kupi/3, ma/2, mama/2, matfyzacka/1, P/1, saty/1, zakupene_v/2",
+    "functions": "",
+    "parsedConstants": [
+      "Hanka"
+    ],
+    "parsedPredicates": [
+      {
+        "name": "auticko",
+        "arity": 1
+      },
+      {
+        "name": "babika",
+        "arity": 1
+      },
+      {
+        "name": "cervene",
+        "arity": 1
+      },
+      {
+        "name": "dievca",
+        "arity": 1
+      },
+      {
+        "name": "dievcenske",
+        "arity": 1
+      },
+      {
+        "name": "hracka",
+        "arity": 1
+      },
+      {
+        "name": "hrackarstvo",
+        "arity": 1
+      },
+      {
+        "name": "chlapcenske",
+        "arity": 1
+      },
+      {
+        "name": "kupi",
+        "arity": 3
+      },
+      {
+        "name": "ma",
+        "arity": 2
+      },
+      {
+        "name": "mama",
+        "arity": 2
+      },
+      {
+        "name": "matfyzacka",
+        "arity": 1
+      },
+      {
+        "name": "P",
+        "arity": 1
+      },
+      {
+        "name": "saty",
+        "arity": 1
+      },
+      {
+        "name": "zakupene_v",
+        "arity": 2
+      }
+    ],
+    "parsedFunctions": []
+  },
+  "mainTask": {
+    "transSequences": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "transSequenceKey": 7,
+    "transformations": {
+      "0": {
+        "id": 0,
+        "formulas": [
+          0
+        ]
+      },
+      "1": {
+        "id": 1,
+        "formulas": [
+          1
+        ]
+      },
+      "2": {
+        "id": 2,
+        "formulas": [
+          2
+        ]
+      },
+      "3": {
+        "id": 3,
+        "formulas": [
+          3
+        ]
+      },
+      "4": {
+        "id": 4,
+        "formulas": [
+          4
+        ]
+      },
+      "5": {
+        "id": 5,
+        "formulas": [
+          5
+        ]
+      },
+      "6": {
+        "id": 6,
+        "formulas": [
+          6
+        ]
+      }
+    },
+    "formulas": {
+      "0": {
+        "id": 0,
+        "formula": "∀x( auticko(x) → ( chlapcenske(x) ∧ hracka(x) ) ) ∧ ∀x( babika(x) → ( dievcenske(x) ∧ hracka(x) ) )",
+        "operation": "Operation"
+      },
+      "1": {
+        "id": 1,
+        "formula": "(dievca(Hanka) ∧ ∃x ∃y( P(x) ∧ ¬P(y) ∧ ma(Hanka,x) ∧ auticko(x) ∧ ma(Hanka,y) ∧ auticko(y) ) )",
+        "operation": "Operation"
+      },
+      "2": {
+        "id": 2,
+        "formula": "∀x ∀y( mama(x,y) → ∃z( hracka(z) ∧ kupi(x,y,z) ) )",
+        "operation": "Operation"
+      },
+      "3": {
+        "id": 3,
+        "formula": "∀x(dievca(x) → ( ∃y( ma(x,y) ∧ hracka(y) ∧ chlapcenske(y) ) → matfyzacka(x) ) )",
+        "operation": "Operation"
+      },
+      "4": {
+        "id": 4,
+        "formula": "¬( ∀x( dievca(x) → ∃y( ma(x,y) ∧ dievcenske(y) ∧ hracka(y) ) ) → matfyzacka(Hanka) )",
+        "operation": "Operation"
+      },
+      "5": {
+        "id": 5,
+        "formula": "∀x( hracka(x) → ∃y( zakupene_v(x,y) ∧ hrackarstvo(y) ) )",
+        "operation": "Operation"
+      },
+      "6": {
+        "id": 6,
+        "formula": "∃x( ma(Hanka,x) ∧ babika(x) ∧ ∃y( ma(x,y) ∧ cervene(y) ∧ saty(y) ) )",
+        "operation": "Operation"
+      }
+    },
+    "formulasKey": 7,
+    "skolemSymbols": {}
+  }
+}
