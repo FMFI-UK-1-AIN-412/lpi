@@ -72,6 +72,7 @@
       }
     },
     "formulasKey": 3,
-    "skolemSymbols": {}
+    "skolemSymbols": {},
+    "contextFormulaNames": []
   }
 }
