@@ -163,6 +163,7 @@
       }
     },
     "formulasKey": 7,
-    "skolemSymbols": {}
+    "skolemSymbols": {},
+    "contextFormulaNames": []
   }
 }
