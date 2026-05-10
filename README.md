@@ -45,6 +45,7 @@ riešte vo svojom repozitári v aplikácii
 | | | [qzR2](https://moodle.uniba.sk/mod/quiz/view.php?id=189245) (bonus) | bonus: [Agatha](prakticke/bonus01) |
 | 11 | [Korektnosť tabiel. Explicitné definície. Unifikácia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr10.pdf) | [qz09](https://moodle.uniba.sk/mod/quiz/view.php?id=188888) | [Vlk, koza, kapusta](prakticke/pu11) |
 | 12 | [Rezolvencia](https://fmfi-uk-1-ain-412.github.io/lpi/prednasky/pr11.pdf) | | [Rezolver](prakticke/pu12) |
+| 13 | | [qz10](https://moodle.uniba.sk/mod/quiz/view.php?id=192185) | |
 
 Návody a dokumenty
 ------------------
