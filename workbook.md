@@ -26,6 +26,7 @@ Tento prehľad sa v aplikácii zobrazí automaticky po prihlásení.
 | 10 | [tc09: Funkčné symboly. Tablá s rovnosťou](../tc09/teoreticke-ain/tc09.workbook) | [du05](../du05/teoreticke-ain/du05.workbook) (do 3. mája) |
 | 11 | [tc10: Explicitné definície a dôkazy s nimi](../tc10/teoreticke-ain/tc10.workbook) | |
 | 12 | [tc11: Rezolvencia](../tc11/teoreticke-ain/tc11.workbook) | [du06](../du06/teoreticke-ain/du06.workbook) (do 17. mája) |
+| 12 | [tc12: Formalizácia výrokovej logiky, ďalšia rezolvencia a prvorádové (ne)vyplývanie](../tc12/teoreticke-ain/tc12.workbook) | |
 
 :::
 
