@@ -1,0 +1,78 @@
+{
+  "language": {
+    "constants": "Mary, John",
+    "predicates": "Harley/1, rides/2, rough_character/1, biker/1, BMW/1, yuppie/1, lawyer/1, girl/1, nice/1, dates/2",
+    "functions": "",
+    "parsedConstants": [
+      "Mary",
+      "John"
+    ],
+    "parsedPredicates": [
+      {
+        "name": "Harley",
+        "arity": 1
+      },
+      {
+        "name": "rides",
+        "arity": 2
+      },
+      {
+        "name": "rough_character",
+        "arity": 1
+      },
+      {
+        "name": "biker",
+        "arity": 1
+      },
+      {
+        "name": "BMW",
+        "arity": 1
+      },
+      {
+        "name": "yuppie",
+        "arity": 1
+      },
+      {
+        "name": "lawyer",
+        "arity": 1
+      },
+      {
+        "name": "girl",
+        "arity": 1
+      },
+      {
+        "name": "nice",
+        "arity": 1
+      },
+      {
+        "name": "dates",
+        "arity": 2
+      }
+    ],
+    "parsedFunctions": []
+  },
+  "mainTask": {
+    "transSequences": [
+      0
+    ],
+    "transSequenceKey": 1,
+    "transformations": {
+      "0": {
+        "id": 0,
+        "formulas": [
+          0
+        ]
+      }
+    },
+    "formulas": {
+      "0": {
+        "id": 0,
+        "formula": "",
+        "operation": "Operation"
+      }
+    },
+    "formulasKey": 1,
+    "skolemSymbols": {},
+    "contextFormulaNames": []
+  }
+}
